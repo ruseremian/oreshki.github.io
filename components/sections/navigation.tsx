@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Language, languages, links, SiteContent } from "@/lib/site-data";
+import { Language, languages, SiteContent } from "@/lib/site-data";
 
 type NavigationProps = {
   content: SiteContent["nav"];
@@ -66,7 +66,7 @@ export function Navigation({
             ))}
           </div>
           <Button
-            href={links.instagram}
+            href="#order"
             size="sm"
             aria-label={content.order}
             className="hidden sm:inline-flex"

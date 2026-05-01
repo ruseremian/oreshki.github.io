@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { links, SiteContent } from "@/lib/site-data";
+import { ContactButtons } from "@/components/contact-buttons";
+import { SiteContent } from "@/lib/site-data";
 
 type HeroProps = {
   content: SiteContent["hero"];
+  onOrder: () => void;
 };
 
-export function Hero({ content }: HeroProps) {
+export function Hero({ content, onOrder }: HeroProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-12 sm:pt-16 lg:pb-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -32,18 +33,23 @@ export function Hero({ content }: HeroProps) {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href={links.instagram} aria-label={content.instagram}>
-              {content.instagram}
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </Button>
-            <Button
-              href={links.telegram}
-              variant="secondary"
-              aria-label={content.telegram}
+            <button
+              type="button"
+              onClick={onOrder}
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-caramel"
+              aria-label={content.order}
             >
-              {content.telegram}
-              <Send className="ml-2 h-4 w-4" aria-hidden="true" />
-            </Button>
+              {content.order}
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </button>
+            <ContactButtons
+              labels={{
+                instagram: content.instagram,
+                telegram: content.telegram,
+                whatsapp: content.whatsapp
+              }}
+              className="sm:flex-row"
+            />
           </div>
 
           <dl className="mt-10 grid max-w-xl grid-cols-3 gap-3 text-cocoa">

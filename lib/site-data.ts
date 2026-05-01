@@ -1,14 +1,38 @@
 export type Language = "ru" | "fr";
+export type ProductId = "classic" | "gift" | "mini";
+export type ContactMethod = "whatsapp" | "telegram" | "instagram" | "phone";
+export type FulfillmentMethod = "pickup" | "delivery";
 
 export const links = {
   instagram: "https://instagram.com/yourpage",
-  telegram: "https://t.me/yourpage"
+  telegram: "https://t.me/yourpage",
+  whatsappBase: "https://wa.me/33000000000"
 };
+
+export function createWhatsAppLink(message: string) {
+  return `${links.whatsappBase}?text=${encodeURIComponent(message)}`;
+}
+
+export function createTelegramLink(message: string) {
+  return `${links.telegram}?text=${encodeURIComponent(message)}`;
+}
 
 export const languages: { code: Language; label: string }[] = [
   { code: "ru", label: "RU" },
   { code: "fr", label: "FR" }
 ];
+
+const productImages: Record<ProductId, string> = {
+  classic: "/images/classic-oreshki.png",
+  gift: "/images/gift-box.png",
+  mini: "/images/mini-set.png"
+};
+
+const productBasePrices: Record<ProductId, number> = {
+  classic: 1200,
+  gift: 2400,
+  mini: 650
+};
 
 export const siteContent = {
   ru: {
@@ -20,6 +44,7 @@ export const siteContent = {
         { label: "Продукты", href: "#products" },
         { label: "О нас", href: "#about" },
         { label: "Отзывы", href: "#reviews" },
+        { label: "Заказ", href: "#order" },
         { label: "Контакты", href: "#contact" }
       ],
       languageLabel: "Выбрать язык"
@@ -29,8 +54,10 @@ export const siteContent = {
       title: "Орешки со сгущёнкой ручной работы",
       subtitle:
         "Свежие партии на заказ, натуральные ингредиенты и тот самый домашний вкус: хрустящая скорлупка, нежная карамельная сгущёнка и аккуратная ручная сборка.",
-      instagram: "Заказать в Instagram",
-      telegram: "Написать в Telegram",
+      order: "Заказать",
+      instagram: "Instagram",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
       imageAlt: "Орешки со сгущёнкой на керамической тарелке",
       stats: [
         ["24 ч", "свежесть"],
@@ -43,28 +70,34 @@ export const siteContent = {
       title: "Три формата для уютного повода",
       description:
         "Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей.",
-      order: "Заказать",
+      order: "Заказать этот набор",
       items: [
         {
+          id: "classic",
           title: "Классические орешки",
           description:
             "Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный ореховый аромат.",
           price: "от 1 200 ₽",
-          image: "/images/classic-oreshki.png"
+          basePrice: productBasePrices.classic,
+          image: productImages.classic
         },
         {
+          id: "gift",
           title: "Подарочная коробка",
           description:
             "Элегантная упаковка для тёплого жеста, семейного праздника или корпоративного комплимента.",
           price: "от 2 400 ₽",
-          image: "/images/gift-box.png"
+          basePrice: productBasePrices.gift,
+          image: productImages.gift
         },
         {
+          id: "mini",
           title: "Мини-набор",
           description:
             "Небольшая порция свежих орешков для знакомства со вкусом или уютного чаепития.",
           price: "от 650 ₽",
-          image: "/images/mini-set.png"
+          basePrice: productBasePrices.mini,
+          image: productImages.mini
         }
       ]
     },
@@ -95,15 +128,65 @@ export const siteContent = {
         }
       ]
     },
-    contact: {
-      eyebrow: "Заказ",
-      title: "Напишите, и мы соберём свежую партию",
+    order: {
+      eyebrow: "Оформление",
+      title: "Оставьте заявку без оплаты",
       description:
-        "Принимаем заказы в Instagram и Telegram. Подскажем ближайшую дату выпечки, формат набора и варианты красивой упаковки.",
+        "Заполните короткую форму, проверьте сообщение и отправьте его удобным способом. Оплата пока не подключена: детали подтвердим в переписке.",
+      fields: {
+        name: "Имя",
+        phone: "Телефон",
+        contactMethod: "Удобный способ связи",
+        product: "Набор",
+        quantity: "Количество",
+        fulfillment: "Получение",
+        address: "Адрес доставки",
+        date: "Желаемая дата",
+        notes: "Комментарий"
+      },
+      placeholders: {
+        name: "Как к вам обращаться",
+        phone: "+33 ...",
+        address: "Улица, дом, город",
+        notes: "Пожелания по упаковке, времени или вкусу"
+      },
+      methods: {
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram",
+        phone: "Телефон"
+      },
+      fulfillment: {
+        pickup: "Самовывоз",
+        delivery: "Доставка"
+      },
+      errors: {
+        name: "Укажите имя",
+        phone: "Укажите телефон",
+        address: "Укажите адрес доставки",
+        date: "Выберите желаемую дату",
+        quantity: "Количество должно быть не меньше 1"
+      },
+      summaryTitle: "Проверьте заказ",
+      totalLabel: "Ориентировочная сумма",
+      submit: "Сформировать сообщение",
+      sendWhatsApp: "Отправить в WhatsApp",
+      sendTelegram: "Отправить в Telegram",
+      copy: "Скопировать заказ",
+      copied: "Сообщение скопировано",
+      noPayment: "Без онлайн-оплаты",
+      messageTitle: "Новый заказ орешков"
+    },
+    contact: {
+      eyebrow: "Контакты",
+      title: "Напишите нам напрямую",
+      description:
+        "Можно заказать через форму или сразу написать в удобный мессенджер. Мы подскажем ближайшую дату выпечки, формат набора и варианты красивой упаковки.",
       note:
         "Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков лучше написать за 2-3 дня, чтобы мы успели подготовить свежую партию и упаковку.",
       instagramAria: "Открыть Instagram",
-      telegramAria: "Открыть Telegram"
+      telegramAria: "Открыть Telegram",
+      whatsappAria: "Открыть WhatsApp"
     }
   },
   fr: {
@@ -115,6 +198,7 @@ export const siteContent = {
         { label: "Produits", href: "#products" },
         { label: "À propos", href: "#about" },
         { label: "Avis", href: "#reviews" },
+        { label: "Commande", href: "#order" },
         { label: "Contact", href: "#contact" }
       ],
       languageLabel: "Choisir la langue"
@@ -124,8 +208,10 @@ export const siteContent = {
       title: "Orechki au lait concentré fait main",
       subtitle:
         "Des fournées fraîches sur commande, des ingrédients premium et ce goût maison inoubliable : coque sablée croquante, garniture caramel fondante et assemblage fait à la main.",
-      instagram: "Commander sur Instagram",
-      telegram: "Écrire sur Telegram",
+      order: "Commander",
+      instagram: "Instagram",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
       imageAlt: "Orechki au lait concentré sur une assiette en céramique",
       stats: [
         ["24 h", "fraîcheur"],
@@ -138,28 +224,34 @@ export const siteContent = {
       title: "Trois formats pour un moment doux",
       description:
         "Choisissez une portion classique pour le thé, un mini coffret découverte ou une boîte cadeau élégante.",
-      order: "Commander",
+      order: "Commander celui-ci",
       items: [
         {
+          id: "classic",
           title: "Orechki classiques",
           description:
             "Une pâte sablée friable, un lait concentré caramélisé généreux et un délicat parfum de noix.",
           price: "dès 1 200 ₽",
-          image: "/images/classic-oreshki.png"
+          basePrice: productBasePrices.classic,
+          image: productImages.classic
         },
         {
+          id: "gift",
           title: "Boîte cadeau",
           description:
             "Un coffret raffiné pour une attention chaleureuse, une fête de famille ou un compliment d'entreprise.",
           price: "dès 2 400 ₽",
-          image: "/images/gift-box.png"
+          basePrice: productBasePrices.gift,
+          image: productImages.gift
         },
         {
+          id: "mini",
           title: "Mini coffret",
           description:
             "Une petite portion d'orechki frais pour découvrir le goût ou accompagner un thé cosy.",
           price: "dès 650 ₽",
-          image: "/images/mini-set.png"
+          basePrice: productBasePrices.mini,
+          image: productImages.mini
         }
       ]
     },
@@ -190,17 +282,68 @@ export const siteContent = {
         }
       ]
     },
-    contact: {
+    order: {
       eyebrow: "Commande",
-      title: "Écrivez-nous, nous préparerons une fournée fraîche",
+      title: "Envoyez une demande sans paiement",
       description:
-        "Nous prenons les commandes sur Instagram et Telegram. Nous vous indiquerons la prochaine date de cuisson, le format idéal et les options d'emballage.",
+        "Remplissez le formulaire, vérifiez le message et envoyez-le par le canal de votre choix. Aucun paiement en ligne pour le moment : nous confirmerons les détails par message.",
+      fields: {
+        name: "Nom",
+        phone: "Téléphone",
+        contactMethod: "Méthode de contact préférée",
+        product: "Produit",
+        quantity: "Quantité",
+        fulfillment: "Retrait ou livraison",
+        address: "Adresse de livraison",
+        date: "Date souhaitée",
+        notes: "Notes"
+      },
+      placeholders: {
+        name: "Votre nom",
+        phone: "+33 ...",
+        address: "Rue, numéro, ville",
+        notes: "Préférences d'emballage, horaire ou goût"
+      },
+      methods: {
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram",
+        phone: "Téléphone"
+      },
+      fulfillment: {
+        pickup: "Retrait",
+        delivery: "Livraison"
+      },
+      errors: {
+        name: "Indiquez votre nom",
+        phone: "Indiquez votre téléphone",
+        address: "Indiquez l'adresse de livraison",
+        date: "Choisissez une date souhaitée",
+        quantity: "La quantité doit être au moins 1"
+      },
+      summaryTitle: "Vérifiez la commande",
+      totalLabel: "Total estimé",
+      submit: "Générer le message",
+      sendWhatsApp: "Envoyer via WhatsApp",
+      sendTelegram: "Envoyer via Telegram",
+      copy: "Copier la commande",
+      copied: "Message copié",
+      noPayment: "Sans paiement en ligne",
+      messageTitle: "Nouvelle commande d'orechki"
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Écrivez-nous directement",
+      description:
+        "Vous pouvez commander via le formulaire ou écrire directement sur votre messagerie préférée. Nous vous indiquerons la prochaine date de cuisson, le format idéal et les options d'emballage.",
       note:
         "Livraison et retrait sont à convenir individuellement. Pour les fêtes et les cadeaux, écrivez 2 à 3 jours à l'avance afin que nous préparions une fournée fraîche et un bel emballage.",
       instagramAria: "Ouvrir Instagram",
-      telegramAria: "Ouvrir Telegram"
+      telegramAria: "Ouvrir Telegram",
+      whatsappAria: "Ouvrir WhatsApp"
     }
   }
 } as const;
 
 export type SiteContent = (typeof siteContent)[Language];
+export type ProductItem = SiteContent["products"]["items"][number];
