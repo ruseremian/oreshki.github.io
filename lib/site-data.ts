@@ -4,9 +4,9 @@ export type ContactMethod = "whatsapp" | "telegram" | "instagram" | "phone";
 export type FulfillmentMethod = "pickup" | "delivery";
 
 export const links = {
-  instagram: "https://instagram.com/yourpage",
-  telegram: "https://t.me/yourpage",
-  whatsappBase: "https://wa.me/33000000000"
+  instagram: "https://www.instagram.com/aida_221?igsh=MTVnZGNvanU2dzB2cg==",
+  telegram: "tg://resolve?phone=33649635568",
+  whatsappBase: "https://wa.me/33649635568"
 };
 
 export function createWhatsAppLink(message: string) {
@@ -14,7 +14,7 @@ export function createWhatsAppLink(message: string) {
 }
 
 export function createTelegramLink(message: string) {
-  return `${links.telegram}?text=${encodeURIComponent(message)}`;
+  return `https://t.me/share/url?url=&text=${encodeURIComponent(message)}`;
 }
 
 export const languages: { code: Language; label: string }[] = [

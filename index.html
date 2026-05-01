@@ -694,9 +694,9 @@
             </p>
             <div class="actions">
               <a class="button" href="#order" data-i18n="hero.order">Заказать</a>
-              <a class="button secondary" href="https://instagram.com/yourpage" data-i18n="hero.instagram">Instagram</a>
-              <a class="button secondary" href="https://t.me/yourpage" data-i18n="hero.telegram">Telegram</a>
-              <a class="button secondary js-whatsapp-link" href="https://wa.me/33000000000" data-i18n="hero.whatsapp">WhatsApp</a>
+              <a class="button secondary" href="https://www.instagram.com/aida_221?igsh=MTVnZGNvanU2dzB2cg==" data-i18n="hero.instagram">Instagram</a>
+              <a class="button secondary" href="tg://resolve?phone=33649635568" data-i18n="hero.telegram">Telegram</a>
+              <a class="button secondary js-whatsapp-link" href="https://wa.me/33649635568" data-i18n="hero.whatsapp">WhatsApp</a>
             </div>
             <div class="stats" aria-label="Преимущества">
               <div class="stat"><strong data-i18n="hero.stat1Value">24 ч</strong><span data-i18n="hero.stat1Label">свежесть</span></div>
@@ -931,8 +931,8 @@
             </div>
             <div class="summary-box" id="order-message"></div>
             <div class="summary-actions">
-              <a class="button" id="send-whatsapp" href="https://wa.me/33000000000" data-i18n="order.sendWhatsApp">Отправить в WhatsApp</a>
-              <a class="button secondary" id="send-telegram" href="https://t.me/yourpage" data-i18n="order.sendTelegram">Отправить в Telegram</a>
+              <a class="button" id="send-whatsapp" href="https://wa.me/33649635568" data-i18n="order.sendWhatsApp">Отправить в WhatsApp</a>
+              <a class="button secondary" id="send-telegram" href="tg://resolve?phone=33649635568" data-i18n="order.sendTelegram">Отправить в Telegram</a>
               <button class="button secondary" id="copy-order" type="button" data-i18n="order.copy">Скопировать заказ</button>
               <p class="error" id="copy-status" aria-live="polite"></p>
             </div>
@@ -951,9 +951,9 @@
             </p>
           </div>
           <div class="actions" style="justify-content: center">
-            <a class="button" href="https://instagram.com/yourpage">Instagram</a>
-            <a class="button secondary" href="https://t.me/yourpage">Telegram</a>
-            <a class="button secondary js-whatsapp-link" href="https://wa.me/33000000000">WhatsApp</a>
+            <a class="button" href="https://www.instagram.com/aida_221?igsh=MTVnZGNvanU2dzB2cg==">Instagram</a>
+            <a class="button secondary" href="tg://resolve?phone=33649635568">Telegram</a>
+            <a class="button secondary js-whatsapp-link" href="https://wa.me/33649635568">WhatsApp</a>
           </div>
           <p class="note" data-i18n="contact.note">
             Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков
@@ -1326,11 +1326,11 @@
         const message = buildOrderMessage();
         document.getElementById("order-message").textContent = message;
         document.getElementById("send-whatsapp").href =
-          `https://wa.me/33000000000?text=${encodeURIComponent(message)}`;
+          `https://wa.me/33649635568?text=${encodeURIComponent(message)}`;
         document.getElementById("send-telegram").href =
-          `https://t.me/yourpage?text=${encodeURIComponent(message)}`;
+          `https://t.me/share/url?url=&text=${encodeURIComponent(message)}`;
         document.querySelectorAll(".js-whatsapp-link").forEach((link) => {
-          link.href = `https://wa.me/33000000000?text=${encodeURIComponent(message)}`;
+          link.href = `https://wa.me/33649635568?text=${encodeURIComponent(message)}`;
         });
       }
 
