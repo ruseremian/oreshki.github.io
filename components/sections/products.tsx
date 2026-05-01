@@ -5,20 +5,24 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
-import { links, products } from "@/lib/site-data";
+import { links, SiteContent } from "@/lib/site-data";
 
-export function Products() {
+type ProductsProps = {
+  content: SiteContent["products"];
+};
+
+export function Products({ content }: ProductsProps) {
   return (
     <section id="products" className="bg-white/42 py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Ассортимент"
-          title="Три формата для уютного повода"
-          description="Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей."
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {products.map((product, index) => (
+          {content.items.map((product, index) => (
             <motion.article
               key={product.title}
               initial={{ opacity: 0, y: 20 }}
@@ -52,9 +56,9 @@ export function Products() {
                   href={links.instagram}
                   variant="secondary"
                   className="mt-6 w-full"
-                  aria-label={`Заказать: ${product.title}`}
+                  aria-label={`${content.order}: ${product.title}`}
                 >
-                  Заказать
+                  {content.order}
                 </Button>
               </div>
             </motion.article>

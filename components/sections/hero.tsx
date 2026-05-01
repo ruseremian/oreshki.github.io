@@ -5,9 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { links } from "@/lib/site-data";
+import { links, SiteContent } from "@/lib/site-data";
 
-export function Hero() {
+type HeroProps = {
+  content: SiteContent["hero"];
+};
+
+export function Hero({ content }: HeroProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-12 sm:pt-16 lg:pb-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -18,38 +22,32 @@ export function Hero() {
           className="relative z-10"
         >
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-caramel">
-            Домашняя кондитерская
+            {content.eyebrow}
           </p>
           <h1 className="max-w-3xl font-serif text-5xl leading-[1.02] text-cocoa sm:text-6xl lg:text-7xl">
-            Орешки со сгущёнкой ручной работы
+            {content.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-cocoa/72">
-            Свежие партии на заказ, натуральные ингредиенты и тот самый
-            домашний вкус: хрустящая скорлупка, нежная карамельная сгущёнка и
-            аккуратная ручная сборка.
+            {content.subtitle}
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href={links.instagram} aria-label="Заказать орешки в Instagram">
-              Заказать в Instagram
+            <Button href={links.instagram} aria-label={content.instagram}>
+              {content.instagram}
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
             <Button
               href={links.telegram}
               variant="secondary"
-              aria-label="Написать о заказе в Telegram"
+              aria-label={content.telegram}
             >
-              Написать в Telegram
+              {content.telegram}
               <Send className="ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
 
           <dl className="mt-10 grid max-w-xl grid-cols-3 gap-3 text-cocoa">
-            {[
-              ["24 ч", "свежесть"],
-              ["100%", "ручная работа"],
-              ["3", "формата"]
-            ].map(([value, label]) => (
+            {content.stats.map(([value, label]) => (
               <div
                 key={label}
                 className="border-l border-caramel/30 pl-4"
@@ -73,7 +71,7 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/40 shadow-glow">
             <Image
               src="/images/oreshki-hero.png"
-              alt="Орешки со сгущёнкой на керамической тарелке"
+              alt={content.imageAlt}
               width={1400}
               height={1000}
               priority

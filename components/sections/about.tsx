@@ -4,8 +4,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/section-heading";
+import { SiteContent } from "@/lib/site-data";
 
-export function About() {
+type AboutProps = {
+  content: SiteContent["about"];
+};
+
+export function About({ content }: AboutProps) {
   return (
     <section id="about" className="py-20 sm:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
@@ -17,14 +22,12 @@ export function About() {
         >
           <SectionHeading
             align="left"
-            eyebrow="История"
-            title="Маленькие партии, большой вкус детства"
-            description="Каждая скорлупка выпекается вручную до золотистого оттенка, затем наполняется густой варёной сгущёнкой и собирается аккуратно, без спешки. Мы выбираем качественное масло, свежие яйца и понятные ингредиенты, чтобы вкус оставался честным, тёплым и узнаваемым."
+            eyebrow={content.eyebrow}
+            title={content.title}
+            description={content.description}
           />
           <p className="mt-6 max-w-xl text-base leading-8 text-cocoa/70">
-            Орешки готовятся небольшими партиями, поэтому они приезжают к вам
-            свежими: хрустящими снаружи, мягко-карамельными внутри и
-            по-домашнему ароматными.
+            {content.note}
           </p>
         </motion.div>
 
@@ -39,7 +42,7 @@ export function About() {
           <div className="relative overflow-hidden rounded-[1.5rem] border border-white/70 shadow-soft">
             <Image
               src="/images/oreshki-hero.png"
-              alt="Свежие домашние орешки со сгущёнкой"
+              alt={content.imageAlt}
               width={1100}
               height={900}
               className="aspect-[4/3] w-full object-cover"

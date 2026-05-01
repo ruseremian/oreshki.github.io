@@ -3,23 +3,27 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
-import { reviews } from "@/lib/site-data";
+import { SiteContent } from "@/lib/site-data";
 
-export function Reviews() {
+type ReviewsProps = {
+  content: SiteContent["reviews"];
+};
+
+export function Reviews({ content }: ReviewsProps) {
   return (
     <section id="reviews" className="bg-cocoa py-20 text-cream sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-almond">
-            Отзывы
+            {content.eyebrow}
           </p>
           <h2 className="font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">
-            Тёплые слова после первой коробки
+            {content.title}
           </h2>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {reviews.map((review, index) => (
+          {content.items.map((review, index) => (
             <motion.article
               key={review.name}
               initial={{ opacity: 0, y: 18 }}

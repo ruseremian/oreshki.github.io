@@ -115,6 +115,43 @@
         color: var(--cocoa);
       }
 
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .language-switcher {
+        display: flex;
+        border: 1px solid rgba(67, 39, 25, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.55);
+        padding: 4px;
+        box-shadow: 0 8px 22px rgba(67, 39, 25, 0.08);
+      }
+
+      .language-switcher button {
+        min-width: 40px;
+        height: 32px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: rgba(67, 39, 25, 0.65);
+        cursor: pointer;
+        font: 800 12px Inter, sans-serif;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+
+      .language-switcher button:hover {
+        background: rgba(67, 39, 25, 0.06);
+        color: var(--cocoa);
+      }
+
+      .language-switcher button.is-active {
+        background: var(--cocoa);
+        color: var(--cream);
+      }
+
       .button {
         display: inline-flex;
         min-height: 48px;
@@ -478,17 +515,23 @@
       <nav class="container nav-inner" aria-label="Основная навигация">
         <a class="brand" href="#">
           <span class="brand-mark">О</span>
-          <span>Орешки</span>
+          <span data-i18n="nav.brand">Орешки</span>
         </a>
         <div class="nav-links">
-          <a href="#products">Продукты</a>
-          <a href="#about">О нас</a>
-          <a href="#reviews">Отзывы</a>
-          <a href="#contact">Контакты</a>
+          <a href="#products" data-i18n="nav.products">Продукты</a>
+          <a href="#about" data-i18n="nav.about">О нас</a>
+          <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+          <a href="#contact" data-i18n="nav.contact">Контакты</a>
         </div>
-        <a class="button" href="https://instagram.com/yourpage" aria-label="Заказать в Instagram">
-          Заказать
-        </a>
+        <div class="nav-actions">
+          <div class="language-switcher" role="group" aria-label="Выбрать язык">
+            <button type="button" class="is-active" data-lang="ru" aria-pressed="true">RU</button>
+            <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+          </div>
+          <a class="button" href="https://instagram.com/yourpage" aria-label="Заказать в Instagram" data-i18n="nav.order">
+            Заказать
+          </a>
+        </div>
       </nav>
     </header>
 
@@ -496,20 +539,20 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">Домашняя кондитерская</p>
-            <h1>Орешки со сгущёнкой ручной работы</h1>
-            <p class="lead">
+            <p class="eyebrow" data-i18n="hero.eyebrow">Домашняя кондитерская</p>
+            <h1 data-i18n="hero.title">Орешки со сгущёнкой ручной работы</h1>
+            <p class="lead" data-i18n="hero.subtitle">
               Свежие партии на заказ, натуральные ингредиенты и тот самый домашний вкус:
               хрустящая скорлупка, нежная карамельная сгущёнка и аккуратная ручная сборка.
             </p>
             <div class="actions">
-              <a class="button" href="https://instagram.com/yourpage">Заказать в Instagram</a>
-              <a class="button secondary" href="https://t.me/yourpage">Написать в Telegram</a>
+              <a class="button" href="https://instagram.com/yourpage" data-i18n="hero.instagram">Заказать в Instagram</a>
+              <a class="button secondary" href="https://t.me/yourpage" data-i18n="hero.telegram">Написать в Telegram</a>
             </div>
             <div class="stats" aria-label="Преимущества">
-              <div class="stat"><strong>24 ч</strong><span>свежесть</span></div>
-              <div class="stat"><strong>100%</strong><span>ручная работа</span></div>
-              <div class="stat"><strong>3</strong><span>формата</span></div>
+              <div class="stat"><strong data-i18n="hero.stat1Value">24 ч</strong><span data-i18n="hero.stat1Label">свежесть</span></div>
+              <div class="stat"><strong>100%</strong><span data-i18n="hero.stat2Label">ручная работа</span></div>
+              <div class="stat"><strong>3</strong><span data-i18n="hero.stat3Label">формата</span></div>
             </div>
           </div>
 
@@ -517,6 +560,7 @@
             <div class="photo">
               <img
                 src="./public/images/oreshki-hero.png"
+                data-alt="hero.imageAlt"
                 alt="Орешки со сгущёнкой на керамической тарелке"
               />
             </div>
@@ -527,9 +571,9 @@
       <section id="products" class="section-soft">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Ассортимент</p>
-            <h2>Три формата для уютного повода</h2>
-            <p>
+            <p class="eyebrow" data-i18n="products.eyebrow">Ассортимент</p>
+            <h2 data-i18n="products.title">Три формата для уютного повода</h2>
+            <p data-i18n="products.description">
               Выберите классическую порцию к чаю, компактный набор для знакомства или
               подарочную коробку с красивой подачей.
             </p>
@@ -537,47 +581,47 @@
 
           <div class="products-grid">
             <article class="card">
-              <img src="./public/images/classic-oreshki.png" alt="Классические орешки" />
+              <img src="./public/images/classic-oreshki.png" data-alt="products.classicTitle" alt="Классические орешки" />
               <div class="card-body">
                 <div class="card-title-row">
-                  <h3>Классические орешки</h3>
-                  <span class="price">от 1 200 ₽</span>
+                  <h3 data-i18n="products.classicTitle">Классические орешки</h3>
+                  <span class="price" data-i18n="products.classicPrice">от 1 200 ₽</span>
                 </div>
-                <p>
+                <p data-i18n="products.classicDescription">
                   Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный
                   ореховый аромат.
                 </p>
-                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+                <a class="button secondary" href="https://instagram.com/yourpage" data-i18n="products.order">Заказать</a>
               </div>
             </article>
 
             <article class="card">
-              <img src="./public/images/gift-box.png" alt="Подарочная коробка" />
+              <img src="./public/images/gift-box.png" data-alt="products.giftTitle" alt="Подарочная коробка" />
               <div class="card-body">
                 <div class="card-title-row">
-                  <h3>Подарочная коробка</h3>
-                  <span class="price">от 2 400 ₽</span>
+                  <h3 data-i18n="products.giftTitle">Подарочная коробка</h3>
+                  <span class="price" data-i18n="products.giftPrice">от 2 400 ₽</span>
                 </div>
-                <p>
+                <p data-i18n="products.giftDescription">
                   Элегантная упаковка для тёплого жеста, семейного праздника или
                   корпоративного комплимента.
                 </p>
-                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+                <a class="button secondary" href="https://instagram.com/yourpage" data-i18n="products.order">Заказать</a>
               </div>
             </article>
 
             <article class="card">
-              <img src="./public/images/mini-set.png" alt="Мини-набор" />
+              <img src="./public/images/mini-set.png" data-alt="products.miniTitle" alt="Мини-набор" />
               <div class="card-body">
                 <div class="card-title-row">
-                  <h3>Мини-набор</h3>
-                  <span class="price">от 650 ₽</span>
+                  <h3 data-i18n="products.miniTitle">Мини-набор</h3>
+                  <span class="price" data-i18n="products.miniPrice">от 650 ₽</span>
                 </div>
-                <p>
+                <p data-i18n="products.miniDescription">
                   Небольшая порция свежих орешков для знакомства со вкусом или уютного
                   чаепития.
                 </p>
-                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+                <a class="button secondary" href="https://instagram.com/yourpage" data-i18n="products.order">Заказать</a>
               </div>
             </article>
           </div>
@@ -588,22 +632,22 @@
         <div class="container about-grid">
           <div>
             <div class="section-heading left">
-              <p class="eyebrow">История</p>
-              <h2>Маленькие партии, большой вкус детства</h2>
-              <p>
+              <p class="eyebrow" data-i18n="about.eyebrow">История</p>
+              <h2 data-i18n="about.title">Маленькие партии, большой вкус детства</h2>
+              <p data-i18n="about.description">
                 Каждая скорлупка выпекается вручную до золотистого оттенка, затем
                 наполняется густой варёной сгущёнкой и собирается аккуратно, без спешки.
                 Мы выбираем качественное масло, свежие яйца и понятные ингредиенты,
                 чтобы вкус оставался честным, тёплым и узнаваемым.
               </p>
             </div>
-            <p class="about-copy">
+            <p class="about-copy" data-i18n="about.note">
               Орешки готовятся небольшими партиями, поэтому они приезжают к вам свежими:
               хрустящими снаружи, мягко-карамельными внутри и по-домашнему ароматными.
             </p>
           </div>
           <div class="photo">
-            <img src="./public/images/oreshki-hero.png" alt="Свежие домашние орешки" />
+            <img src="./public/images/oreshki-hero.png" data-alt="about.imageAlt" alt="Свежие домашние орешки" />
           </div>
         </div>
       </section>
@@ -611,34 +655,34 @@
       <section id="reviews" class="reviews">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Отзывы</p>
-            <h2>Тёплые слова после первой коробки</h2>
+            <p class="eyebrow" data-i18n="reviews.eyebrow">Отзывы</p>
+            <h2 data-i18n="reviews.title">Тёплые слова после первой коробки</h2>
           </div>
 
           <div class="reviews-grid">
             <article class="review-card">
               <div class="quote">“</div>
-              <p>
+              <p data-i18n="reviews.annaText">
                 Вкус как из детства, только аккуратнее и нежнее. Сгущёнка густая,
                 орешки свежие, коробка красивая.
               </p>
-              <strong>Анна</strong>
+              <strong data-i18n="reviews.annaName">Анна</strong>
             </article>
             <article class="review-card">
               <div class="quote">“</div>
-              <p>
+              <p data-i18n="reviews.mariaText">
                 Заказывала в подарок маме. Очень тёплая подача, всё приехало целым,
                 аромат был невероятный.
               </p>
-              <strong>Мария</strong>
+              <strong data-i18n="reviews.mariaName">Мария</strong>
             </article>
             <article class="review-card">
               <div class="quote">“</div>
-              <p>
+              <p data-i18n="reviews.ekaterinaText">
                 Люблю, что они не приторные. Видно, что сделаны вручную: ровные,
                 хрустящие и с щедрой начинкой.
               </p>
-              <strong>Екатерина</strong>
+              <strong data-i18n="reviews.ekaterinaName">Екатерина</strong>
             </article>
           </div>
         </div>
@@ -647,9 +691,9 @@
       <section id="contact" class="contact">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Заказ</p>
-            <h2>Напишите, и мы соберём свежую партию</h2>
-            <p>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Заказ</p>
+            <h2 data-i18n="contact.title">Напишите, и мы соберём свежую партию</h2>
+            <p data-i18n="contact.description">
               Принимаем заказы в Instagram и Telegram. Подскажем ближайшую дату выпечки,
               формат набора и варианты красивой упаковки.
             </p>
@@ -658,12 +702,203 @@
             <a class="button" href="https://instagram.com/yourpage">Instagram</a>
             <a class="button secondary" href="https://t.me/yourpage">Telegram</a>
           </div>
-          <p class="note">
+          <p class="note" data-i18n="contact.note">
             Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков
             лучше написать за 2-3 дня, чтобы мы успели подготовить свежую партию и упаковку.
           </p>
         </div>
       </section>
     </main>
+    <script>
+      const translations = {
+        ru: {
+          title: "Орешки со сгущёнкой ручной работы",
+          description:
+            "Премиальные орешки со сгущёнкой ручной работы: свежие партии, натуральные ингредиенты и уютный вкус детства.",
+          nav: {
+            brand: "Орешки",
+            products: "Продукты",
+            about: "О нас",
+            reviews: "Отзывы",
+            contact: "Контакты",
+            order: "Заказать"
+          },
+          hero: {
+            eyebrow: "Домашняя кондитерская",
+            title: "Орешки со сгущёнкой ручной работы",
+            subtitle:
+              "Свежие партии на заказ, натуральные ингредиенты и тот самый домашний вкус: хрустящая скорлупка, нежная карамельная сгущёнка и аккуратная ручная сборка.",
+            instagram: "Заказать в Instagram",
+            telegram: "Написать в Telegram",
+            stat1Value: "24 ч",
+            stat1Label: "свежесть",
+            stat2Label: "ручная работа",
+            stat3Label: "формата",
+            imageAlt: "Орешки со сгущёнкой на керамической тарелке"
+          },
+          products: {
+            eyebrow: "Ассортимент",
+            title: "Три формата для уютного повода",
+            description:
+              "Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей.",
+            order: "Заказать",
+            classicTitle: "Классические орешки",
+            classicPrice: "от 1 200 ₽",
+            classicDescription:
+              "Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный ореховый аромат.",
+            giftTitle: "Подарочная коробка",
+            giftPrice: "от 2 400 ₽",
+            giftDescription:
+              "Элегантная упаковка для тёплого жеста, семейного праздника или корпоративного комплимента.",
+            miniTitle: "Мини-набор",
+            miniPrice: "от 650 ₽",
+            miniDescription:
+              "Небольшая порция свежих орешков для знакомства со вкусом или уютного чаепития."
+          },
+          about: {
+            eyebrow: "История",
+            title: "Маленькие партии, большой вкус детства",
+            description:
+              "Каждая скорлупка выпекается вручную до золотистого оттенка, затем наполняется густой варёной сгущёнкой и собирается аккуратно, без спешки. Мы выбираем качественное масло, свежие яйца и понятные ингредиенты, чтобы вкус оставался честным, тёплым и узнаваемым.",
+            note:
+              "Орешки готовятся небольшими партиями, поэтому они приезжают к вам свежими: хрустящими снаружи, мягко-карамельными внутри и по-домашнему ароматными.",
+            imageAlt: "Свежие домашние орешки со сгущёнкой"
+          },
+          reviews: {
+            eyebrow: "Отзывы",
+            title: "Тёплые слова после первой коробки",
+            annaText:
+              "Вкус как из детства, только аккуратнее и нежнее. Сгущёнка густая, орешки свежие, коробка красивая.",
+            annaName: "Анна",
+            mariaText:
+              "Заказывала в подарок маме. Очень тёплая подача, всё приехало целым, аромат был невероятный.",
+            mariaName: "Мария",
+            ekaterinaText:
+              "Люблю, что они не приторные. Видно, что сделаны вручную: ровные, хрустящие и с щедрой начинкой.",
+            ekaterinaName: "Екатерина"
+          },
+          contact: {
+            eyebrow: "Заказ",
+            title: "Напишите, и мы соберём свежую партию",
+            description:
+              "Принимаем заказы в Instagram и Telegram. Подскажем ближайшую дату выпечки, формат набора и варианты красивой упаковки.",
+            note:
+              "Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков лучше написать за 2-3 дня, чтобы мы успели подготовить свежую партию и упаковку."
+          }
+        },
+        fr: {
+          title: "Orechki au lait concentré fait main",
+          description:
+            "Orechki premium faits main au lait concentré caramélisé : fournées fraîches, ingrédients naturels et goût d'enfance.",
+          nav: {
+            brand: "Orechki",
+            products: "Produits",
+            about: "À propos",
+            reviews: "Avis",
+            contact: "Contact",
+            order: "Commander"
+          },
+          hero: {
+            eyebrow: "Pâtisserie maison",
+            title: "Orechki au lait concentré fait main",
+            subtitle:
+              "Des fournées fraîches sur commande, des ingrédients premium et ce goût maison inoubliable : coque sablée croquante, garniture caramel fondante et assemblage fait à la main.",
+            instagram: "Commander sur Instagram",
+            telegram: "Écrire sur Telegram",
+            stat1Value: "24 h",
+            stat1Label: "fraîcheur",
+            stat2Label: "fait main",
+            stat3Label: "formats",
+            imageAlt: "Orechki au lait concentré sur une assiette en céramique"
+          },
+          products: {
+            eyebrow: "Assortiment",
+            title: "Trois formats pour un moment doux",
+            description:
+              "Choisissez une portion classique pour le thé, un mini coffret découverte ou une boîte cadeau élégante.",
+            order: "Commander",
+            classicTitle: "Orechki classiques",
+            classicPrice: "dès 1 200 ₽",
+            classicDescription:
+              "Une pâte sablée friable, un lait concentré caramélisé généreux et un délicat parfum de noix.",
+            giftTitle: "Boîte cadeau",
+            giftPrice: "dès 2 400 ₽",
+            giftDescription:
+              "Un coffret raffiné pour une attention chaleureuse, une fête de famille ou un compliment d'entreprise.",
+            miniTitle: "Mini coffret",
+            miniPrice: "dès 650 ₽",
+            miniDescription:
+              "Une petite portion d'orechki frais pour découvrir le goût ou accompagner un thé cosy."
+          },
+          about: {
+            eyebrow: "Histoire",
+            title: "Petites fournées, grand goût d'enfance",
+            description:
+              "Chaque coque est cuite à la main jusqu'à une teinte dorée, puis garnie de lait concentré caramélisé et assemblée avec soin. Nous choisissons du bon beurre, des oeufs frais et des ingrédients simples pour garder un goût sincère, doux et nostalgique.",
+            note:
+              "Les orechki sont préparés en petites fournées afin d'arriver chez vous frais : croquants dehors, fondants au caramel dedans et délicieusement maison.",
+            imageAlt: "Orechki maison frais au lait concentré"
+          },
+          reviews: {
+            eyebrow: "Avis",
+            title: "Des mots doux après la première boîte",
+            annaText:
+              "Le goût de l'enfance, mais plus fin et plus délicat. La garniture est généreuse, les biscuits sont frais et la boîte est très jolie.",
+            annaName: "Anna",
+            mariaText:
+              "Je les ai commandés pour ma mère. Présentation très chaleureuse, tout est arrivé intact et le parfum était incroyable.",
+            mariaName: "Maria",
+            ekaterinaText:
+              "J'aime qu'ils ne soient pas trop sucrés. On sent le fait main : réguliers, croquants et bien garnis.",
+            ekaterinaName: "Ekaterina"
+          },
+          contact: {
+            eyebrow: "Commande",
+            title: "Écrivez-nous, nous préparerons une fournée fraîche",
+            description:
+              "Nous prenons les commandes sur Instagram et Telegram. Nous vous indiquerons la prochaine date de cuisson, le format idéal et les options d'emballage.",
+            note:
+              "Livraison et retrait sont à convenir individuellement. Pour les fêtes et les cadeaux, écrivez 2 à 3 jours à l'avance afin que nous préparions une fournée fraîche et un bel emballage."
+          }
+        }
+      };
+
+      function readPath(source, path) {
+        return path.split(".").reduce((value, key) => value && value[key], source);
+      }
+
+      function setLanguage(language) {
+        const dictionary = translations[language];
+        document.documentElement.lang = language;
+        document.title = dictionary.title;
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute("content", dictionary.description);
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const value = readPath(dictionary, node.dataset.i18n);
+          if (value) node.textContent = value;
+        });
+
+        document.querySelectorAll("[data-alt]").forEach((node) => {
+          const value = readPath(dictionary, node.dataset.alt);
+          if (value) node.setAttribute("alt", value);
+        });
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+          const active = button.dataset.lang === language;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        localStorage.setItem("oreshki-language", language);
+      }
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      setLanguage(localStorage.getItem("oreshki-language") || "ru");
+    </script>
   </body>
 </html>
