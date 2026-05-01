@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Орешки со сгущёнкой ручной работы</title>
+    <meta
+      name="description"
+      content="Премиальные орешки со сгущёнкой ручной работы: свежие партии, натуральные ингредиенты и уютный вкус детства."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fff8ea;
+        --oat: #f3e3c7;
+        --almond: #dfc29c;
+        --caramel: #b97836;
+        --cocoa: #432719;
+        --espresso: #2a1710;
+        --sage: #788568;
+        --rose: #b46858;
+        --white: #fffdf7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--cocoa);
+        background:
+          radial-gradient(circle at top left, rgba(223, 194, 156, 0.45), transparent 34rem),
+          linear-gradient(135deg, #fff8ea 0%, #f6ead7 52%, #fffdf5 100%);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(100% - 32px, 1180px);
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(67, 39, 25, 0.1);
+        background: rgba(255, 248, 234, 0.84);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 68px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--cocoa);
+        color: var(--cream);
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 6px;
+      }
+
+      .nav-links a {
+        border-radius: 999px;
+        padding: 10px 14px;
+        color: rgba(67, 39, 25, 0.72);
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(67, 39, 25, 0.06);
+        color: var(--cocoa);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 13px 22px;
+        background: var(--cocoa);
+        color: var(--cream);
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 18px 55px rgba(67, 39, 25, 0.13);
+        transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: var(--espresso);
+      }
+
+      .button.secondary {
+        border-color: rgba(67, 39, 25, 0.15);
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--cocoa);
+      }
+
+      .button.secondary:hover {
+        border-color: rgba(185, 120, 54, 0.45);
+        background: var(--white);
+      }
+
+      .hero {
+        overflow: hidden;
+        padding: 56px 0 108px;
+      }
+
+      .hero-grid {
+        display: grid;
+        align-items: center;
+        gap: 56px;
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--caramel);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Playfair Display", Georgia, serif;
+      }
+
+      h1 {
+        max-width: 780px;
+        font-size: clamp(48px, 7vw, 88px);
+        line-height: 1.02;
+      }
+
+      .hero p.lead {
+        max-width: 620px;
+        margin: 26px 0 0;
+        color: rgba(67, 39, 25, 0.74);
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .stats {
+        display: grid;
+        max-width: 560px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 42px;
+      }
+
+      .stat {
+        border-left: 1px solid rgba(185, 120, 54, 0.32);
+        padding-left: 16px;
+      }
+
+      .stat strong {
+        display: block;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 28px;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(67, 39, 25, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .photo-wrap {
+        position: relative;
+      }
+
+      .photo-wrap::before {
+        position: absolute;
+        inset: -18px;
+        border-radius: 34px;
+        background: rgba(185, 120, 54, 0.13);
+        content: "";
+        filter: blur(34px);
+      }
+
+      .photo {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 26px 80px rgba(185, 120, 54, 0.22);
+      }
+
+      .photo img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      section {
+        padding: 88px 0;
+      }
+
+      .section-soft {
+        background: rgba(255, 255, 255, 0.42);
+      }
+
+      .section-heading {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .section-heading.left {
+        margin: 0;
+        text-align: left;
+      }
+
+      h2 {
+        color: var(--cocoa);
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.08;
+      }
+
+      .section-heading p:last-child,
+      .about-copy {
+        color: rgba(67, 39, 25, 0.7);
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      .products-grid,
+      .reviews-grid {
+        display: grid;
+        gap: 24px;
+        margin-top: 48px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid rgba(67, 39, 25, 0.08);
+        border-radius: 28px;
+        background: var(--cream);
+        box-shadow: 0 18px 55px rgba(67, 39, 25, 0.13);
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 26px 80px rgba(185, 120, 54, 0.22);
+      }
+
+      .card img {
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 24px;
+      }
+
+      .card-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      h3 {
+        color: var(--cocoa);
+        font-size: 26px;
+        line-height: 1.12;
+      }
+
+      .price {
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: rgba(185, 120, 54, 0.12);
+        padding: 7px 12px;
+        color: var(--caramel);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .card p {
+        min-height: 100px;
+        margin: 18px 0 0;
+        color: rgba(67, 39, 25, 0.68);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .card .button {
+        width: 100%;
+        margin-top: 24px;
+      }
+
+      .about-grid {
+        display: grid;
+        align-items: center;
+        gap: 48px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-copy {
+        max-width: 620px;
+        margin-top: 24px;
+      }
+
+      .reviews {
+        background: var(--cocoa);
+        color: var(--cream);
+      }
+
+      .reviews h2,
+      .reviews h3 {
+        color: var(--cream);
+      }
+
+      .reviews .eyebrow {
+        color: var(--almond);
+      }
+
+      .review-card {
+        min-height: 288px;
+        border: 1px solid rgba(255, 248, 234, 0.12);
+        border-radius: 28px;
+        background: rgba(255, 248, 234, 0.07);
+        padding: 26px;
+        box-shadow: 0 18px 55px rgba(67, 39, 25, 0.13);
+      }
+
+      .quote {
+        color: var(--almond);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 48px;
+        line-height: 0.8;
+      }
+
+      .review-card p {
+        margin: 20px 0 0;
+        color: rgba(255, 248, 234, 0.84);
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      .review-card strong {
+        display: block;
+        margin-top: 24px;
+        color: var(--cream);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 22px;
+      }
+
+      .contact {
+        text-align: center;
+      }
+
+      .note {
+        max-width: 720px;
+        margin: 34px auto 0;
+        border: 1px solid rgba(67, 39, 25, 0.1);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.48);
+        padding: 22px 26px;
+        color: rgba(67, 39, 25, 0.68);
+        font-size: 14px;
+        line-height: 1.8;
+        box-shadow: 0 18px 55px rgba(67, 39, 25, 0.13);
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .about-grid,
+        .products-grid,
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 42px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          width: min(100% - 24px, 1180px);
+        }
+
+        .brand span:last-child {
+          display: none;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .nav .button {
+          width: auto;
+          min-height: 42px;
+          padding: 10px 16px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 72px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <nav class="container nav-inner" aria-label="Основная навигация">
+        <a class="brand" href="#">
+          <span class="brand-mark">О</span>
+          <span>Орешки</span>
+        </a>
+        <div class="nav-links">
+          <a href="#products">Продукты</a>
+          <a href="#about">О нас</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#contact">Контакты</a>
+        </div>
+        <a class="button" href="https://instagram.com/yourpage" aria-label="Заказать в Instagram">
+          Заказать
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Домашняя кондитерская</p>
+            <h1>Орешки со сгущёнкой ручной работы</h1>
+            <p class="lead">
+              Свежие партии на заказ, натуральные ингредиенты и тот самый домашний вкус:
+              хрустящая скорлупка, нежная карамельная сгущёнка и аккуратная ручная сборка.
+            </p>
+            <div class="actions">
+              <a class="button" href="https://instagram.com/yourpage">Заказать в Instagram</a>
+              <a class="button secondary" href="https://t.me/yourpage">Написать в Telegram</a>
+            </div>
+            <div class="stats" aria-label="Преимущества">
+              <div class="stat"><strong>24 ч</strong><span>свежесть</span></div>
+              <div class="stat"><strong>100%</strong><span>ручная работа</span></div>
+              <div class="stat"><strong>3</strong><span>формата</span></div>
+            </div>
+          </div>
+
+          <div class="photo-wrap">
+            <div class="photo">
+              <img
+                src="./public/images/oreshki-hero.png"
+                alt="Орешки со сгущёнкой на керамической тарелке"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Ассортимент</p>
+            <h2>Три формата для уютного повода</h2>
+            <p>
+              Выберите классическую порцию к чаю, компактный набор для знакомства или
+              подарочную коробку с красивой подачей.
+            </p>
+          </div>
+
+          <div class="products-grid">
+            <article class="card">
+              <img src="./public/images/classic-oreshki.png" alt="Классические орешки" />
+              <div class="card-body">
+                <div class="card-title-row">
+                  <h3>Классические орешки</h3>
+                  <span class="price">от 1 200 ₽</span>
+                </div>
+                <p>
+                  Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный
+                  ореховый аромат.
+                </p>
+                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="./public/images/gift-box.png" alt="Подарочная коробка" />
+              <div class="card-body">
+                <div class="card-title-row">
+                  <h3>Подарочная коробка</h3>
+                  <span class="price">от 2 400 ₽</span>
+                </div>
+                <p>
+                  Элегантная упаковка для тёплого жеста, семейного праздника или
+                  корпоративного комплимента.
+                </p>
+                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="./public/images/mini-set.png" alt="Мини-набор" />
+              <div class="card-body">
+                <div class="card-title-row">
+                  <h3>Мини-набор</h3>
+                  <span class="price">от 650 ₽</span>
+                </div>
+                <p>
+                  Небольшая порция свежих орешков для знакомства со вкусом или уютного
+                  чаепития.
+                </p>
+                <a class="button secondary" href="https://instagram.com/yourpage">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container about-grid">
+          <div>
+            <div class="section-heading left">
+              <p class="eyebrow">История</p>
+              <h2>Маленькие партии, большой вкус детства</h2>
+              <p>
+                Каждая скорлупка выпекается вручную до золотистого оттенка, затем
+                наполняется густой варёной сгущёнкой и собирается аккуратно, без спешки.
+                Мы выбираем качественное масло, свежие яйца и понятные ингредиенты,
+                чтобы вкус оставался честным, тёплым и узнаваемым.
+              </p>
+            </div>
+            <p class="about-copy">
+              Орешки готовятся небольшими партиями, поэтому они приезжают к вам свежими:
+              хрустящими снаружи, мягко-карамельными внутри и по-домашнему ароматными.
+            </p>
+          </div>
+          <div class="photo">
+            <img src="./public/images/oreshki-hero.png" alt="Свежие домашние орешки" />
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Отзывы</p>
+            <h2>Тёплые слова после первой коробки</h2>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="quote">“</div>
+              <p>
+                Вкус как из детства, только аккуратнее и нежнее. Сгущёнка густая,
+                орешки свежие, коробка красивая.
+              </p>
+              <strong>Анна</strong>
+            </article>
+            <article class="review-card">
+              <div class="quote">“</div>
+              <p>
+                Заказывала в подарок маме. Очень тёплая подача, всё приехало целым,
+                аромат был невероятный.
+              </p>
+              <strong>Мария</strong>
+            </article>
+            <article class="review-card">
+              <div class="quote">“</div>
+              <p>
+                Люблю, что они не приторные. Видно, что сделаны вручную: ровные,
+                хрустящие и с щедрой начинкой.
+              </p>
+              <strong>Екатерина</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Заказ</p>
+            <h2>Напишите, и мы соберём свежую партию</h2>
+            <p>
+              Принимаем заказы в Instagram и Telegram. Подскажем ближайшую дату выпечки,
+              формат набора и варианты красивой упаковки.
+            </p>
+          </div>
+          <div class="actions" style="justify-content: center">
+            <a class="button" href="https://instagram.com/yourpage">Instagram</a>
+            <a class="button secondary" href="https://t.me/yourpage">Telegram</a>
+          </div>
+          <p class="note">
+            Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков
+            лучше написать за 2-3 дня, чтобы мы успели подготовить свежую партию и упаковку.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
