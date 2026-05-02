@@ -16,9 +16,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Орешки со сгущёнкой ручной работы",
+  title: "Orechki au lait concentré fait main",
   description:
-    "Премиальные орешки со сгущёнкой ручной работы: свежие партии, натуральные ингредиенты и уютный вкус детства."
+    "Orechki premium faits main au lait concentré caramélisé : fournées fraîches, ingrédients naturels et goût d'enfance."
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="scroll-smooth">
+    <html lang="fr" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}
       </body>

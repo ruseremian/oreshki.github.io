@@ -47,9 +47,9 @@ export const siteContent = {
         { label: "Продукты", href: "#products" },
         { label: "О нас", href: "#about" },
         { label: "Отзывы", href: "#reviews" },
-        { label: "Заказ", href: "#order" },
         { label: "Контакты", href: "#contact" }
       ],
+      cartAria: "Открыть корзину, товаров:",
       languageLabel: "Выбрать язык"
     },
     hero: {
@@ -131,54 +131,59 @@ export const siteContent = {
         }
       ]
     },
-    order: {
-      eyebrow: "Оформление",
-      title: "Оставьте заявку без оплаты",
-      description:
-        "Заполните короткую форму, проверьте сообщение и отправьте его удобным способом. Оплата пока не подключена: детали подтвердим в переписке.",
-      fields: {
-        name: "Имя",
-        phone: "Телефон",
-        contactMethod: "Удобный способ связи",
-        product: "Набор",
-        quantity: "Количество",
-        fulfillment: "Получение",
-        address: "Адрес доставки",
-        date: "Желаемая дата",
-        notes: "Комментарий"
-      },
-      placeholders: {
-        name: "Как к вам обращаться",
-        phone: "+33 ...",
-        address: "Улица, дом, город",
-        notes: "Пожелания по упаковке, времени или вкусу"
-      },
+    cart: {
+      eyebrow: "Заказ",
+      title: "Корзина",
+      close: "Закрыть",
+      remove: "Удалить товар",
+      emptyTitle: "Корзина пуста",
+      emptyText:
+        "Добавьте набор орешков из раздела продуктов, и здесь появится оформление заказа.",
+      total: "Итого",
+      noPayment:
+        "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
+      checkout: "Оформление заказа",
+      name: "Имя",
+      namePlaceholder: "Как к вам обращаться",
+      phone: "Телефон",
+      phonePlaceholder: "+33 ...",
+      email: "Email, если удобно",
+      emailPlaceholder: "name@example.com",
+      contactMethod: "Удобный способ связи",
       methods: {
         whatsapp: "WhatsApp",
         telegram: "Telegram",
         instagram: "Instagram",
         phone: "Телефон"
       },
-      fulfillment: {
-        pickup: "Самовывоз",
-        delivery: "Доставка"
-      },
+      deliveryMethod: "Получение",
+      pickup: "Самовывоз",
+      delivery: "Доставка",
+      address: "Адрес доставки",
+      addressPlaceholder: "Улица, дом, город",
+      preferredDate: "Желаемая дата",
+      notes: "Комментарий",
+      notesPlaceholder: "Время, упаковка, пожелания",
+      submit: "Отправить заказ",
+      submitting: "Отправляем...",
       errors: {
-        name: "Укажите имя",
+        items: "Корзина пуста",
+        customerName: "Укажите имя",
         phone: "Укажите телефон",
         address: "Укажите адрес доставки",
-        date: "Выберите желаемую дату",
-        quantity: "Количество должно быть не меньше 1"
+        submit: "Не удалось отправить заказ. Проверьте соединение.",
+        server: "Не удалось отправить заказ. Попробуйте ещё раз."
       },
-      summaryTitle: "Проверьте заказ",
-      totalLabel: "Ориентировочная сумма",
-      submit: "Сформировать сообщение",
-      sendWhatsApp: "Отправить в WhatsApp",
-      sendTelegram: "Отправить в Telegram",
-      copy: "Скопировать заказ",
-      copied: "Сообщение скопировано",
-      noPayment: "Без онлайн-оплаты",
-      messageTitle: "Новый заказ орешков"
+      confirmationTitle: "Заказ принят",
+      confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали.",
+      orderNumber: "Номер заказа",
+      confirmationMessage: "Здравствуйте! Я только что оформила заказ {orderId} на сайте.",
+      back: "Вернуться на сайт",
+      contactLabels: {
+        instagram: "Instagram",
+        telegram: "Telegram",
+        whatsapp: "WhatsApp"
+      }
     },
     contact: {
       eyebrow: "Контакты",
@@ -201,9 +206,9 @@ export const siteContent = {
         { label: "Produits", href: "#products" },
         { label: "À propos", href: "#about" },
         { label: "Avis", href: "#reviews" },
-        { label: "Commande", href: "#order" },
         { label: "Contact", href: "#contact" }
       ],
+      cartAria: "Ouvrir le panier, articles :",
       languageLabel: "Choisir la langue"
     },
     hero: {
@@ -285,54 +290,60 @@ export const siteContent = {
         }
       ]
     },
-    order: {
+    cart: {
       eyebrow: "Commande",
-      title: "Envoyez une demande sans paiement",
-      description:
-        "Remplissez le formulaire, vérifiez le message et envoyez-le par le canal de votre choix. Aucun paiement en ligne pour le moment : nous confirmerons les détails par message.",
-      fields: {
-        name: "Nom",
-        phone: "Téléphone",
-        contactMethod: "Méthode de contact préférée",
-        product: "Produit",
-        quantity: "Quantité",
-        fulfillment: "Retrait ou livraison",
-        address: "Adresse de livraison",
-        date: "Date souhaitée",
-        notes: "Notes"
-      },
-      placeholders: {
-        name: "Votre nom",
-        phone: "+33 ...",
-        address: "Rue, numéro, ville",
-        notes: "Préférences d'emballage, horaire ou goût"
-      },
+      title: "Panier",
+      close: "Fermer",
+      remove: "Retirer l'article",
+      emptyTitle: "Votre panier est vide",
+      emptyText:
+        "Ajoutez un coffret depuis la section produits, puis finalisez votre commande ici.",
+      total: "Total",
+      noPayment:
+        "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
+      checkout: "Commander",
+      name: "Nom",
+      namePlaceholder: "Votre nom",
+      phone: "Téléphone",
+      phonePlaceholder: "+33 ...",
+      email: "Email, si vous préférez",
+      emailPlaceholder: "nom@example.com",
+      contactMethod: "Méthode de contact préférée",
       methods: {
         whatsapp: "WhatsApp",
         telegram: "Telegram",
         instagram: "Instagram",
         phone: "Téléphone"
       },
-      fulfillment: {
-        pickup: "Retrait",
-        delivery: "Livraison"
-      },
+      deliveryMethod: "Mode de réception",
+      pickup: "Retrait",
+      delivery: "Livraison",
+      address: "Adresse de livraison",
+      addressPlaceholder: "Rue, numéro, ville",
+      preferredDate: "Date souhaitée",
+      notes: "Notes",
+      notesPlaceholder: "Horaire, emballage, préférences",
+      submit: "Envoyer la commande",
+      submitting: "Envoi...",
       errors: {
-        name: "Indiquez votre nom",
+        items: "Votre panier est vide",
+        customerName: "Indiquez votre nom",
         phone: "Indiquez votre téléphone",
         address: "Indiquez l'adresse de livraison",
-        date: "Choisissez une date souhaitée",
-        quantity: "La quantité doit être au moins 1"
+        submit: "Impossible d'envoyer la commande. Vérifiez votre connexion.",
+        server: "Impossible d'envoyer la commande. Réessayez."
       },
-      summaryTitle: "Vérifiez la commande",
-      totalLabel: "Total estimé",
-      submit: "Générer le message",
-      sendWhatsApp: "Envoyer via WhatsApp",
-      sendTelegram: "Envoyer via Telegram",
-      copy: "Copier la commande",
-      copied: "Message copié",
-      noPayment: "Sans paiement en ligne",
-      messageTitle: "Nouvelle commande d'orechki"
+      confirmationTitle: "Commande reçue",
+      confirmationText:
+        "Nous vous contacterons bientôt pour confirmer les détails.",
+      orderNumber: "Numéro de commande",
+      confirmationMessage: "Bonjour ! Je viens de passer la commande {orderId} sur le site.",
+      back: "Retour au site",
+      contactLabels: {
+        instagram: "Instagram",
+        telegram: "Telegram",
+        whatsapp: "WhatsApp"
+      }
     },
     contact: {
       eyebrow: "Contact",

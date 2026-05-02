@@ -13,12 +13,15 @@ import type {
   DeliveryMethod,
   PreferredContactMethod
 } from "@/lib/order-types";
-import { formatPrice, productById } from "@/lib/products";
+import { formatPrice } from "@/lib/products";
+import type { ProductItem, SiteContent } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 type CartDrawerProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  content: SiteContent["cart"];
+  products: readonly ProductItem[];
 };
 
 type CheckoutValues = {
@@ -41,7 +44,12 @@ const contactMethods: PreferredContactMethod[] = [
   "phone"
 ];
 
-export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
+export function CartDrawer({
+  open,
+  onOpenChange,
+  content,
+  products
+}: CartDrawerProps) {
   const {
     items,
     total,
@@ -67,13 +75,11 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
 
   const cartProducts = useMemo(
     () =>
-      items
-        .map((item) => {
-          const product = productById.get(item.productId);
-          return product ? { ...item, product } : null;
-        })
-        .filter(Boolean),
-    [items]
+      items.flatMap((item) => {
+        const product = products.find((candidate) => candidate.id === item.productId);
+        return product ? [{ ...item, product }] : [];
+      }),
+    [items, products]
   );
 
   function updateValue<Key extends keyof CheckoutValues>(
@@ -88,11 +94,13 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
   function validate() {
     const nextErrors: CheckoutErrors = {};
 
-    if (!items.length) nextErrors.items = "Корзина пуста";
-    if (!values.customerName.trim()) nextErrors.customerName = "Укажите имя";
-    if (!values.phone.trim()) nextErrors.phone = "Укажите телефон";
+    if (!items.length) nextErrors.items = content.errors.items;
+    if (!values.customerName.trim()) {
+      nextErrors.customerName = content.errors.customerName;
+    }
+    if (!values.phone.trim()) nextErrors.phone = content.errors.phone;
     if (values.deliveryMethod === "delivery" && !values.address.trim()) {
-      nextErrors.address = "Укажите адрес доставки";
+      nextErrors.address = content.errors.address;
     }
 
     setErrors(nextErrors);
@@ -132,15 +140,25 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
       const data = (await response.json()) as CreateOrderResponse;
 
       if (!data.ok) {
-        setSubmitError(data.error);
-        setErrors((current) => ({ ...current, ...data.fieldErrors }));
+        setSubmitError(content.errors.server);
+        setErrors((current) => ({
+          ...current,
+          customerName: data.fieldErrors?.customerName
+            ? content.errors.customerName
+            : current.customerName,
+          phone: data.fieldErrors?.phone ? content.errors.phone : current.phone,
+          address: data.fieldErrors?.address
+            ? content.errors.address
+            : current.address,
+          items: data.fieldErrors?.items ? content.errors.items : current.items
+        }));
         return;
       }
 
       setOrderId(data.orderId);
       clearCart();
     } catch {
-      setSubmitError("Не удалось отправить заказ. Проверьте соединение.");
+      setSubmitError(content.errors.submit);
     } finally {
       setSubmitting(false);
     }
@@ -174,20 +192,22 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 230 }}
             className="absolute right-0 top-0 flex h-full w-full max-w-xl flex-col overflow-hidden bg-cream shadow-glow sm:rounded-l-[2rem]"
-            aria-label="Корзина и оформление заказа"
+            aria-label={content.title}
           >
             <div className="flex items-center justify-between border-b border-cocoa/10 px-5 py-4 sm:px-7">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-caramel">
-                  Заказ
+                  {content.eyebrow}
                 </p>
-                <h2 className="mt-1 font-serif text-3xl text-cocoa">Корзина</h2>
+                <h2 className="mt-1 font-serif text-3xl text-cocoa">
+                  {content.title}
+                </h2>
               </div>
               <button
                 type="button"
                 onClick={closeAndReset}
                 className="grid h-11 w-11 place-items-center rounded-full border border-cocoa/10 bg-white/60 text-cocoa transition hover:bg-white"
-                aria-label="Закрыть"
+                aria-label={content.close}
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -195,7 +215,11 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
 
             <div className="flex-1 overflow-y-auto px-5 py-5 sm:px-7">
               {orderId ? (
-                <Confirmation orderId={orderId} onClose={closeAndReset} />
+                <Confirmation
+                  orderId={orderId}
+                  content={content}
+                  onClose={closeAndReset}
+                />
               ) : (
                 <>
                   {items.length ? (
@@ -209,17 +233,17 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                             <div className="flex items-start justify-between gap-4">
                               <div>
                                 <h3 className="font-serif text-xl text-cocoa">
-                                  {entry.product.name}
+                                  {entry.product.title}
                                 </h3>
                                 <p className="mt-1 text-sm text-cocoa/58">
-                                  {formatPrice(entry.product.price)}
+                                  {formatPrice(entry.product.basePrice)}
                                 </p>
                               </div>
                               <button
                                 type="button"
                                 onClick={() => removeItem(entry.productId)}
                                 className="rounded-full p-2 text-cocoa/45 transition hover:bg-rose/10 hover:text-rose"
-                                aria-label="Удалить товар"
+                                aria-label={content.remove}
                               >
                                 <Trash2 className="h-4 w-4" aria-hidden="true" />
                               </button>
@@ -237,7 +261,7 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                                 </QuantityButton>
                               </div>
                               <p className="font-bold text-caramel">
-                                {formatPrice(entry.product.price * entry.quantity)}
+                                {formatPrice(entry.product.basePrice * entry.quantity)}
                               </p>
                             </div>
                           </div>
@@ -248,61 +272,59 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                     <div className="rounded-3xl border border-dashed border-cocoa/18 bg-white/50 p-8 text-center">
                       <ShoppingBag className="mx-auto h-10 w-10 text-caramel" />
                       <h3 className="mt-4 font-serif text-2xl text-cocoa">
-                        Корзина пуста
+                        {content.emptyTitle}
                       </h3>
                       <p className="mt-3 text-sm leading-6 text-cocoa/62">
-                        Добавьте набор орешков из раздела продуктов, и здесь
-                        появится оформление заказа.
+                        {content.emptyText}
                       </p>
                     </div>
                   )}
 
                   <div className="mt-6 rounded-3xl bg-cocoa p-5 text-cream">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-cream/70">Итого</span>
+                      <span className="text-sm text-cream/70">{content.total}</span>
                       <strong className="font-serif text-3xl">
                         {formatPrice(total)}
                       </strong>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-cream/68">
-                      Оплата онлайн пока не подключена. Мы подтвердим детали и
-                      способ оплаты после заявки.
+                      {content.noPayment}
                     </p>
                   </div>
 
                   <form className="mt-6 grid gap-4" onSubmit={handleSubmit} noValidate>
                     <div className="grid gap-4 sm:grid-cols-2">
-                      <Field label="Имя" error={errors.customerName}>
+                      <Field label={content.name} error={errors.customerName}>
                         <input
                           value={values.customerName}
                           onChange={(event) =>
                             updateValue("customerName", event.target.value)
                           }
                           className={inputClass(Boolean(errors.customerName))}
-                          placeholder="Как к вам обращаться"
+                          placeholder={content.namePlaceholder}
                         />
                       </Field>
-                      <Field label="Телефон" error={errors.phone}>
+                      <Field label={content.phone} error={errors.phone}>
                         <input
                           value={values.phone}
                           onChange={(event) => updateValue("phone", event.target.value)}
                           className={inputClass(Boolean(errors.phone))}
-                          placeholder="+33 ..."
+                          placeholder={content.phonePlaceholder}
                         />
                       </Field>
                     </div>
 
-                    <Field label="Email, если удобно">
+                    <Field label={content.email}>
                       <input
                         type="email"
                         value={values.email}
                         onChange={(event) => updateValue("email", event.target.value)}
                         className={inputClass(false)}
-                        placeholder="name@example.com"
+                        placeholder={content.emailPlaceholder}
                       />
                     </Field>
 
-                    <Field label="Удобный способ связи">
+                    <Field label={content.contactMethod}>
                       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                         {contactMethods.map((method) => (
                           <ChoiceButton
@@ -312,44 +334,44 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                               updateValue("preferredContactMethod", method)
                             }
                           >
-                            {methodLabel(method)}
+                            {content.methods[method]}
                           </ChoiceButton>
                         ))}
                       </div>
                     </Field>
 
-                    <Field label="Получение">
+                    <Field label={content.deliveryMethod}>
                       <div className="grid grid-cols-2 gap-2">
                         <ChoiceButton
                           active={values.deliveryMethod === "pickup"}
                           onClick={() => updateValue("deliveryMethod", "pickup")}
                         >
-                          Самовывоз
+                          {content.pickup}
                         </ChoiceButton>
                         <ChoiceButton
                           active={values.deliveryMethod === "delivery"}
                           onClick={() => updateValue("deliveryMethod", "delivery")}
                         >
-                          Доставка
+                          {content.delivery}
                         </ChoiceButton>
                       </div>
                     </Field>
 
                     {values.deliveryMethod === "delivery" ? (
-                      <Field label="Адрес доставки" error={errors.address}>
+                      <Field label={content.address} error={errors.address}>
                         <input
                           value={values.address}
                           onChange={(event) =>
                             updateValue("address", event.target.value)
                           }
                           className={inputClass(Boolean(errors.address))}
-                          placeholder="Улица, дом, город"
+                          placeholder={content.addressPlaceholder}
                         />
                       </Field>
                     ) : null}
 
                     <div className="grid gap-4 sm:grid-cols-2">
-                      <Field label="Желаемая дата">
+                      <Field label={content.preferredDate}>
                         <input
                           type="date"
                           value={values.preferredDate}
@@ -359,12 +381,12 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                           className={inputClass(false)}
                         />
                       </Field>
-                      <Field label="Комментарий">
+                      <Field label={content.notes}>
                         <textarea
                           value={values.notes}
                           onChange={(event) => updateValue("notes", event.target.value)}
                           className={cn(inputClass(false), "min-h-[92px] resize-none")}
-                          placeholder="Время, упаковка, пожелания"
+                          placeholder={content.notesPlaceholder}
                         />
                       </Field>
                     </div>
@@ -383,7 +405,7 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                       disabled={submitting}
                       className="inline-flex min-h-12 items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso disabled:pointer-events-none disabled:opacity-55"
                     >
-                      {submitting ? "Отправляем..." : "Отправить заказ"}
+                      {submitting ? content.submitting : content.submit}
                       <Send className="ml-2 h-4 w-4" aria-hidden="true" />
                     </button>
                   </form>
@@ -399,9 +421,11 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
 
 function Confirmation({
   orderId,
+  content,
   onClose
 }: {
   orderId: string;
+  content: SiteContent["cart"];
   onClose: () => void;
 }) {
   return (
@@ -409,22 +433,25 @@ function Confirmation({
       <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-sage/15 text-sage">
         <Check className="h-7 w-7" aria-hidden="true" />
       </div>
-      <h3 className="mt-5 font-serif text-3xl text-cocoa">Заказ принят</h3>
+      <h3 className="mt-5 font-serif text-3xl text-cocoa">
+        {content.confirmationTitle}
+      </h3>
       <p className="mt-3 text-sm leading-7 text-cocoa/68">
-        Номер заказа: <span className="font-bold text-cocoa">{orderId}</span>.
-        Мы скоро свяжемся с вами, чтобы подтвердить детали.
+        {content.orderNumber}:{" "}
+        <span className="font-bold text-cocoa">{orderId}</span>.{" "}
+        {content.confirmationText}
       </p>
       <ContactButtons
-        labels={{ instagram: "Instagram", telegram: "Telegram", whatsapp: "WhatsApp" }}
+        labels={content.contactLabels}
         className="mt-6 justify-center"
-        message={`Здравствуйте! Я только что оформила заказ ${orderId} на сайте.`}
+        message={content.confirmationMessage.replace("{orderId}", orderId)}
       />
       <button
         type="button"
         onClick={onClose}
         className="mt-6 text-sm font-bold text-caramel transition hover:text-cocoa"
       >
-        Вернуться на сайт
+        {content.back}
       </button>
     </div>
   );
@@ -496,15 +523,4 @@ function inputClass(hasError: boolean) {
     "w-full rounded-2xl border bg-white/72 px-4 py-3 text-sm text-cocoa shadow-sm transition placeholder:text-cocoa/35 focus:border-caramel focus:outline-none focus:ring-4 focus:ring-caramel/10",
     hasError ? "border-rose/70" : "border-cocoa/12"
   );
-}
-
-function methodLabel(method: PreferredContactMethod) {
-  const labels: Record<PreferredContactMethod, string> = {
-    whatsapp: "WhatsApp",
-    telegram: "Telegram",
-    instagram: "Instagram",
-    phone: "Телефон"
-  };
-
-  return labels[method];
 }

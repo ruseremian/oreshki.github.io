@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { About } from "@/components/sections/about";
 import { CartDrawer } from "@/components/cart-drawer";
@@ -21,10 +21,23 @@ export default function Home() {
 }
 
 function LandingPage() {
-  const [language, setLanguage] = useState<Language>("ru");
+  const [language, setLanguage] = useState<Language>("fr");
   const [cartOpen, setCartOpen] = useState(false);
   const content = siteContent[language];
   const { addItem } = useCart();
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("oreshki-language") as Language | null;
+
+    if (savedLanguage === "ru" || savedLanguage === "fr") {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem("oreshki-language", language);
+  }, [language]);
 
   function scrollToProducts() {
     document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
@@ -50,7 +63,12 @@ function LandingPage() {
         <Reviews content={content.reviews} />
         <Contact content={content.contact} />
       </main>
-      <CartDrawer open={cartOpen} onOpenChange={setCartOpen} />
+      <CartDrawer
+        open={cartOpen}
+        onOpenChange={setCartOpen}
+        content={content.cart}
+        products={content.products.items}
+      />
     </>
   );
 }

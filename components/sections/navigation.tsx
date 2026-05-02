@@ -76,7 +76,7 @@ export function Navigation({
             type="button"
             onClick={onCartOpen}
             className="relative grid h-10 w-10 place-items-center rounded-full border border-cocoa/10 bg-white/60 text-cocoa transition hover:bg-white"
-            aria-label={`Открыть корзину, товаров: ${itemCount}`}
+            aria-label={`${content.cartAria} ${itemCount}`}
           >
             <ShoppingBag className="h-4 w-4" aria-hidden="true" />
             {itemCount > 0 ? (
