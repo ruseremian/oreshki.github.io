@@ -7,6 +7,8 @@ type ProductCardProps = {
   product: ProductItem;
   index: number;
   orderLabel: string;
+  addedLabel: string;
+  added: boolean;
   onOrder: (productId: ProductId) => void;
 };
 
@@ -14,6 +16,8 @@ export function ProductCard({
   product,
   index,
   orderLabel,
+  addedLabel,
+  added,
   onOrder
 }: ProductCardProps) {
   return (
@@ -51,7 +55,7 @@ export function ProductCard({
           className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-cocoa/15 bg-white/70 px-6 py-3 text-sm font-semibold text-cocoa backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-caramel/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-caramel"
           aria-label={`${orderLabel}: ${product.title}`}
         >
-          {orderLabel}
+          {added ? addedLabel : orderLabel}
         </button>
       </div>
     </motion.article>

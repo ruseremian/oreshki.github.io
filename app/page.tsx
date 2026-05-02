@@ -45,7 +45,6 @@ function LandingPage() {
 
   function addProductToCart(productId: ProductId) {
     addItem(productId);
-    setCartOpen(true);
   }
 
   return (

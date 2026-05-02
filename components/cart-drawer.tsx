@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent, ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Minus, Plus, Send, ShoppingBag, Trash2, X } from "lucide-react";
 
@@ -72,6 +72,7 @@ export function CartDrawer({
   const [submitting, setSubmitting] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState("");
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   const cartProducts = useMemo(
     () =>
@@ -81,6 +82,12 @@ export function CartDrawer({
       }),
     [items, products]
   );
+
+  useEffect(() => {
+    if (!items.length) {
+      setCheckoutOpen(false);
+    }
+  }, [items.length]);
 
   function updateValue<Key extends keyof CheckoutValues>(
     key: Key,
@@ -168,6 +175,7 @@ export function CartDrawer({
     onOpenChange(false);
     setTimeout(() => {
       setOrderId(null);
+      setCheckoutOpen(false);
       setSubmitError("");
       setErrors({});
     }, 250);
@@ -292,123 +300,158 @@ export function CartDrawer({
                     </p>
                   </div>
 
-                  <form className="mt-6 grid gap-4" onSubmit={handleSubmit} noValidate>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <Field label={content.name} error={errors.customerName}>
-                        <input
-                          value={values.customerName}
-                          onChange={(event) =>
-                            updateValue("customerName", event.target.value)
-                          }
-                          className={inputClass(Boolean(errors.customerName))}
-                          placeholder={content.namePlaceholder}
-                        />
-                      </Field>
-                      <Field label={content.phone} error={errors.phone}>
-                        <input
-                          value={values.phone}
-                          onChange={(event) => updateValue("phone", event.target.value)}
-                          className={inputClass(Boolean(errors.phone))}
-                          placeholder={content.phonePlaceholder}
-                        />
-                      </Field>
-                    </div>
-
-                    <Field label={content.email}>
-                      <input
-                        type="email"
-                        value={values.email}
-                        onChange={(event) => updateValue("email", event.target.value)}
-                        className={inputClass(false)}
-                        placeholder={content.emailPlaceholder}
-                      />
-                    </Field>
-
-                    <Field label={content.contactMethod}>
-                      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                        {contactMethods.map((method) => (
-                          <ChoiceButton
-                            key={method}
-                            active={values.preferredContactMethod === method}
-                            onClick={() =>
-                              updateValue("preferredContactMethod", method)
-                            }
-                          >
-                            {content.methods[method]}
-                          </ChoiceButton>
-                        ))}
-                      </div>
-                    </Field>
-
-                    <Field label={content.deliveryMethod}>
-                      <div className="grid grid-cols-2 gap-2">
-                        <ChoiceButton
-                          active={values.deliveryMethod === "pickup"}
-                          onClick={() => updateValue("deliveryMethod", "pickup")}
-                        >
-                          {content.pickup}
-                        </ChoiceButton>
-                        <ChoiceButton
-                          active={values.deliveryMethod === "delivery"}
-                          onClick={() => updateValue("deliveryMethod", "delivery")}
-                        >
-                          {content.delivery}
-                        </ChoiceButton>
-                      </div>
-                    </Field>
-
-                    {values.deliveryMethod === "delivery" ? (
-                      <Field label={content.address} error={errors.address}>
-                        <input
-                          value={values.address}
-                          onChange={(event) =>
-                            updateValue("address", event.target.value)
-                          }
-                          className={inputClass(Boolean(errors.address))}
-                          placeholder={content.addressPlaceholder}
-                        />
-                      </Field>
-                    ) : null}
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <Field label={content.preferredDate}>
-                        <input
-                          type="date"
-                          value={values.preferredDate}
-                          onChange={(event) =>
-                            updateValue("preferredDate", event.target.value)
-                          }
-                          className={inputClass(false)}
-                        />
-                      </Field>
-                      <Field label={content.notes}>
-                        <textarea
-                          value={values.notes}
-                          onChange={(event) => updateValue("notes", event.target.value)}
-                          className={cn(inputClass(false), "min-h-[92px] resize-none")}
-                          placeholder={content.notesPlaceholder}
-                        />
-                      </Field>
-                    </div>
-
-                    {errors.items ? (
-                      <p className="text-sm text-rose">{errors.items}</p>
-                    ) : null}
-                    {submitError ? (
-                      <p className="rounded-2xl bg-rose/10 px-4 py-3 text-sm text-rose">
-                        {submitError}
-                      </p>
-                    ) : null}
-
+                  {!checkoutOpen && items.length ? (
                     <button
-                      type="submit"
-                      disabled={submitting}
-                      className="inline-flex min-h-12 items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso disabled:pointer-events-none disabled:opacity-55"
+                      type="button"
+                      onClick={() => setCheckoutOpen(true)}
+                      className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso"
                     >
-                      {submitting ? content.submitting : content.submit}
-                      <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+                      {content.proceedToCheckout}
                     </button>
-                  </form>
+                  ) : null}
+
+                  <AnimatePresence initial={false}>
+                    {checkoutOpen && items.length ? (
+                      <motion.form
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 12 }}
+                        className="mt-6 grid gap-4"
+                        onSubmit={handleSubmit}
+                        noValidate
+                      >
+                        <h3 className="font-serif text-2xl text-cocoa">
+                          {content.checkout}
+                        </h3>
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <Field label={content.name} error={errors.customerName}>
+                            <input
+                              value={values.customerName}
+                              onChange={(event) =>
+                                updateValue("customerName", event.target.value)
+                              }
+                              className={inputClass(Boolean(errors.customerName))}
+                              placeholder={content.namePlaceholder}
+                            />
+                          </Field>
+                          <Field label={content.phone} error={errors.phone}>
+                            <input
+                              value={values.phone}
+                              onChange={(event) =>
+                                updateValue("phone", event.target.value)
+                              }
+                              className={inputClass(Boolean(errors.phone))}
+                              placeholder={content.phonePlaceholder}
+                            />
+                          </Field>
+                        </div>
+
+                        <Field label={content.email}>
+                          <input
+                            type="email"
+                            value={values.email}
+                            onChange={(event) =>
+                              updateValue("email", event.target.value)
+                            }
+                            className={inputClass(false)}
+                            placeholder={content.emailPlaceholder}
+                          />
+                        </Field>
+
+                        <Field label={content.contactMethod}>
+                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                            {contactMethods.map((method) => (
+                              <ChoiceButton
+                                key={method}
+                                active={values.preferredContactMethod === method}
+                                onClick={() =>
+                                  updateValue("preferredContactMethod", method)
+                                }
+                              >
+                                {content.methods[method]}
+                              </ChoiceButton>
+                            ))}
+                          </div>
+                        </Field>
+
+                        <Field label={content.deliveryMethod}>
+                          <div className="grid grid-cols-2 gap-2">
+                            <ChoiceButton
+                              active={values.deliveryMethod === "pickup"}
+                              onClick={() => updateValue("deliveryMethod", "pickup")}
+                            >
+                              {content.pickup}
+                            </ChoiceButton>
+                            <ChoiceButton
+                              active={values.deliveryMethod === "delivery"}
+                              onClick={() =>
+                                updateValue("deliveryMethod", "delivery")
+                              }
+                            >
+                              {content.delivery}
+                            </ChoiceButton>
+                          </div>
+                        </Field>
+
+                        {values.deliveryMethod === "delivery" ? (
+                          <Field label={content.address} error={errors.address}>
+                            <input
+                              value={values.address}
+                              onChange={(event) =>
+                                updateValue("address", event.target.value)
+                              }
+                              className={inputClass(Boolean(errors.address))}
+                              placeholder={content.addressPlaceholder}
+                            />
+                          </Field>
+                        ) : null}
+
+                        <div className="grid gap-4 sm:grid-cols-2">
+                          <Field label={content.preferredDate}>
+                            <input
+                              type="date"
+                              value={values.preferredDate}
+                              onChange={(event) =>
+                                updateValue("preferredDate", event.target.value)
+                              }
+                              className={inputClass(false)}
+                            />
+                          </Field>
+                          <Field label={content.notes}>
+                            <textarea
+                              value={values.notes}
+                              onChange={(event) =>
+                                updateValue("notes", event.target.value)
+                              }
+                              className={cn(
+                                inputClass(false),
+                                "min-h-[92px] resize-none"
+                              )}
+                              placeholder={content.notesPlaceholder}
+                            />
+                          </Field>
+                        </div>
+
+                        {errors.items ? (
+                          <p className="text-sm text-rose">{errors.items}</p>
+                        ) : null}
+                        {submitError ? (
+                          <p className="rounded-2xl bg-rose/10 px-4 py-3 text-sm text-rose">
+                            {submitError}
+                          </p>
+                        ) : null}
+
+                        <button
+                          type="submit"
+                          disabled={submitting}
+                          className="inline-flex min-h-12 items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso disabled:pointer-events-none disabled:opacity-55"
+                        >
+                          {submitting ? content.submitting : content.submit}
+                          <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+                        </button>
+                      </motion.form>
+                    ) : null}
+                  </AnimatePresence>
                 </>
               )}
             </div>

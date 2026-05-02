@@ -1,4 +1,4 @@
-import type { ProductId } from "@/lib/products";
+import { formatPrice, productById, type ProductId } from "@/lib/products";
 
 export type { ProductId } from "@/lib/products";
 
@@ -32,9 +32,9 @@ const productImages: Record<ProductId, string> = {
 };
 
 const productBasePrices: Record<ProductId, number> = {
-  classic: 1200,
-  gift: 2400,
-  mini: 650
+  classic: productById.get("classic")!.price,
+  gift: productById.get("gift")!.price,
+  mini: productById.get("mini")!.price
 };
 
 export const siteContent = {
@@ -74,13 +74,14 @@ export const siteContent = {
       description:
         "Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей.",
       order: "Добавить в корзину",
+      added: "Товар добавлен в корзину",
       items: [
         {
           id: "classic",
           title: "Классические орешки",
           description:
             "Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный ореховый аромат.",
-          price: "от 1 200 ₽",
+          price: formatPrice(productBasePrices.classic),
           basePrice: productBasePrices.classic,
           image: productImages.classic
         },
@@ -89,7 +90,7 @@ export const siteContent = {
           title: "Подарочная коробка",
           description:
             "Элегантная упаковка для тёплого жеста, семейного праздника или корпоративного комплимента.",
-          price: "от 2 400 ₽",
+          price: formatPrice(productBasePrices.gift),
           basePrice: productBasePrices.gift,
           image: productImages.gift
         },
@@ -98,7 +99,7 @@ export const siteContent = {
           title: "Мини-набор",
           description:
             "Небольшая порция свежих орешков для знакомства со вкусом или уютного чаепития.",
-          price: "от 650 ₽",
+          price: formatPrice(productBasePrices.mini),
           basePrice: productBasePrices.mini,
           image: productImages.mini
         }
@@ -136,6 +137,7 @@ export const siteContent = {
       title: "Корзина",
       close: "Закрыть",
       remove: "Удалить товар",
+      quantity: "Количество",
       emptyTitle: "Корзина пуста",
       emptyText:
         "Добавьте набор орешков из раздела продуктов, и здесь появится оформление заказа.",
@@ -143,6 +145,7 @@ export const siteContent = {
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
+      proceedToCheckout: "Оформить заказ",
       name: "Имя",
       namePlaceholder: "Как к вам обращаться",
       phone: "Телефон",
@@ -233,13 +236,14 @@ export const siteContent = {
       description:
         "Choisissez une portion classique pour le thé, un mini coffret découverte ou une boîte cadeau élégante.",
       order: "Ajouter au panier",
+      added: "Produit ajouté au panier",
       items: [
         {
           id: "classic",
           title: "Orechki classiques",
           description:
             "Une pâte sablée friable, un lait concentré caramélisé généreux et un délicat parfum de noix.",
-          price: "dès 1 200 ₽",
+          price: formatPrice(productBasePrices.classic),
           basePrice: productBasePrices.classic,
           image: productImages.classic
         },
@@ -248,7 +252,7 @@ export const siteContent = {
           title: "Boîte cadeau",
           description:
             "Un coffret raffiné pour une attention chaleureuse, une fête de famille ou un compliment d'entreprise.",
-          price: "dès 2 400 ₽",
+          price: formatPrice(productBasePrices.gift),
           basePrice: productBasePrices.gift,
           image: productImages.gift
         },
@@ -257,7 +261,7 @@ export const siteContent = {
           title: "Mini coffret",
           description:
             "Une petite portion d'orechki frais pour découvrir le goût ou accompagner un thé cosy.",
-          price: "dès 650 ₽",
+          price: formatPrice(productBasePrices.mini),
           basePrice: productBasePrices.mini,
           image: productImages.mini
         }
@@ -295,6 +299,7 @@ export const siteContent = {
       title: "Panier",
       close: "Fermer",
       remove: "Retirer l'article",
+      quantity: "Quantité",
       emptyTitle: "Votre panier est vide",
       emptyText:
         "Ajoutez un coffret depuis la section produits, puis finalisez votre commande ici.",
@@ -302,6 +307,7 @@ export const siteContent = {
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",
+      proceedToCheckout: "Valider la commande",
       name: "Nom",
       namePlaceholder: "Votre nom",
       phone: "Téléphone",
