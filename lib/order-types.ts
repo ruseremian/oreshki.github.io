@@ -1,0 +1,41 @@
+import type { ProductId } from "@/lib/products";
+
+export type PreferredContactMethod =
+  | "whatsapp"
+  | "telegram"
+  | "instagram"
+  | "phone";
+
+export type DeliveryMethod = "pickup" | "delivery";
+
+export type CheckoutCustomer = {
+  customerName: string;
+  phone: string;
+  email?: string;
+  preferredContactMethod: PreferredContactMethod;
+  deliveryMethod: DeliveryMethod;
+  address?: string;
+  preferredDate?: string;
+  notes?: string;
+};
+
+export type CartOrderItem = {
+  productId: ProductId;
+  quantity: number;
+};
+
+export type CreateOrderRequest = CheckoutCustomer & {
+  items: CartOrderItem[];
+};
+
+export type CreateOrderResponse =
+  | {
+      ok: true;
+      orderId: string;
+      totalAmount: number;
+    }
+  | {
+      ok: false;
+      error: string;
+      fieldErrors?: Partial<Record<keyof CheckoutCustomer | "items", string>>;
+    };

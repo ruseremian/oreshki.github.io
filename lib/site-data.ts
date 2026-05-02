@@ -1,5 +1,8 @@
+import type { ProductId } from "@/lib/products";
+
+export type { ProductId } from "@/lib/products";
+
 export type Language = "ru" | "fr";
-export type ProductId = "classic" | "gift" | "mini";
 export type ContactMethod = "whatsapp" | "telegram" | "instagram" | "phone";
 export type FulfillmentMethod = "pickup" | "delivery";
 
@@ -70,7 +73,7 @@ export const siteContent = {
       title: "Три формата для уютного повода",
       description:
         "Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей.",
-      order: "Заказать этот набор",
+      order: "Добавить в корзину",
       items: [
         {
           id: "classic",
@@ -224,7 +227,7 @@ export const siteContent = {
       title: "Trois formats pour un moment doux",
       description:
         "Choisissez une portion classique pour le thé, un mini coffret découverte ou une boîte cadeau élégante.",
-      order: "Commander celui-ci",
+      order: "Ajouter au panier",
       items: [
         {
           id: "classic",

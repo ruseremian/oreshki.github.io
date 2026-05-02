@@ -1,5 +1,8 @@
 "use client";
 
+import { ShoppingBag } from "lucide-react";
+
+import { useCart } from "@/components/cart-provider";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Language, languages, SiteContent } from "@/lib/site-data";
@@ -8,13 +11,17 @@ type NavigationProps = {
   content: SiteContent["nav"];
   language: Language;
   onLanguageChange: (language: Language) => void;
+  onCartOpen: () => void;
 };
 
 export function Navigation({
   content,
   language,
-  onLanguageChange
+  onLanguageChange,
+  onCartOpen
 }: NavigationProps) {
+  const { itemCount } = useCart();
+
   return (
     <header className="sticky top-0 z-50 border-b border-cocoa/10 bg-cream/82 backdrop-blur-xl">
       <nav
@@ -65,8 +72,21 @@ export function Navigation({
               </button>
             ))}
           </div>
+          <button
+            type="button"
+            onClick={onCartOpen}
+            className="relative grid h-10 w-10 place-items-center rounded-full border border-cocoa/10 bg-white/60 text-cocoa transition hover:bg-white"
+            aria-label={`Открыть корзину, товаров: ${itemCount}`}
+          >
+            <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+            {itemCount > 0 ? (
+              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-caramel px-1 text-[10px] font-bold text-cream">
+                {itemCount}
+              </span>
+            ) : null}
+          </button>
           <Button
-            href="#order"
+            href="#products"
             size="sm"
             aria-label={content.order}
             className="hidden sm:inline-flex"
