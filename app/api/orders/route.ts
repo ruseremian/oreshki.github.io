@@ -7,7 +7,10 @@ import type {
   CreateOrderResponse
 } from "@/lib/order-types";
 import { productById, type ProductId } from "@/lib/products";
-import { createSupabaseAdmin } from "@/lib/supabase-admin";
+import {
+  createSupabaseAdmin,
+  MissingSupabaseEnvError
+} from "@/lib/supabase-admin";
 
 export const runtime = "nodejs";
 
@@ -138,6 +141,17 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("[orders] unexpected failure", error);
+
+    if (error instanceof MissingSupabaseEnvError) {
+      return NextResponse.json<CreateOrderResponse>(
+        {
+          success: false,
+          error: `Server is missing Supabase environment variables: ${error.missingVariables.join(", ")}`
+        },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json<CreateOrderResponse>(
       {
         success: false,
