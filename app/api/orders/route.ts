@@ -1,23 +1,43 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import type { CreateOrderRequest, CreateOrderResponse } from "@/lib/order-types";
-import { productById } from "@/lib/products";
+import type {
+  CartOrderItem,
+  CheckoutCustomer,
+  CreateOrderRequest,
+  CreateOrderResponse
+} from "@/lib/order-types";
+import { productById, type ProductId } from "@/lib/products";
 import { createSupabaseAdmin } from "@/lib/supabase-admin";
 
 export const runtime = "nodejs";
 
 type FieldErrors = NonNullable<
-  Extract<CreateOrderResponse, { ok: false }>["fieldErrors"]
+  Extract<CreateOrderResponse, { success: false }>["fieldErrors"]
 >;
+
+type RawOrderBody = Partial<CreateOrderRequest> & {
+  customer_name?: string;
+  preferred_contact_method?: string;
+  delivery_method?: string;
+  preferred_date?: string;
+};
 
 export async function POST(request: NextRequest) {
   try {
-    const body = (await request.json()) as Partial<CreateOrderRequest>;
+    const rawBody = (await request.json()) as RawOrderBody;
+    console.log("[orders] request body", safeLogBody(rawBody));
+
+    const body = normalizeBody(rawBody);
     const validation = validateOrder(body);
 
-    if (!validation.ok) {
+    if (!validation.success) {
+      console.warn("[orders] validation failed", validation.errors);
       return NextResponse.json<CreateOrderResponse>(
-        { ok: false, error: "Проверьте данные заказа", fieldErrors: validation.errors },
+        {
+          success: false,
+          error: "Invalid order request",
+          fieldErrors: validation.errors
+        },
         { status: 400 }
       );
     }
@@ -26,7 +46,7 @@ export async function POST(request: NextRequest) {
       const product = productById.get(item.productId);
 
       if (!product || !product.available) {
-        throw new Error("Product validation failed after initial validation");
+        throw new Error(`Product validation failed for ${item.productId}`);
       }
 
       const lineTotal = product.price * item.quantity;
@@ -44,10 +64,14 @@ export async function POST(request: NextRequest) {
       (total, item) => total + item.line_total,
       0
     );
+    console.log("[orders] computed total", {
+      totalAmount,
+      itemCount: normalizedItems.length
+    });
 
     const supabase = createSupabaseAdmin();
 
-    const { data: order, error: orderError } = await supabase
+    const orderInsert = await supabase
       .from("orders")
       .insert({
         customer_name: validation.data.customerName,
@@ -67,52 +91,93 @@ export async function POST(request: NextRequest) {
       .select("id")
       .single();
 
-    if (orderError || !order) {
-      console.error("Supabase order insert failed", orderError);
+    console.log("[orders] order insert result", {
+      orderId: orderInsert.data?.id,
+      error: orderInsert.error
+    });
+
+    if (orderInsert.error || !orderInsert.data) {
       return NextResponse.json<CreateOrderResponse>(
-        { ok: false, error: "Не удалось создать заказ. Попробуйте ещё раз." },
+        {
+          success: false,
+          error: orderInsert.error?.message || "Failed to create order"
+        },
         { status: 500 }
       );
     }
 
-    const { error: itemsError } = await supabase.from("order_items").insert(
+    const itemsInsert = await supabase.from("order_items").insert(
       normalizedItems.map((item) => ({
         ...item,
-        order_id: order.id
+        order_id: orderInsert.data.id
       }))
     );
 
-    if (itemsError) {
-      console.error("Supabase order items insert failed", itemsError);
+    console.log("[orders] order items insert result", {
+      orderId: orderInsert.data.id,
+      itemCount: normalizedItems.length,
+      error: itemsInsert.error
+    });
+
+    if (itemsInsert.error) {
+      await supabase.from("orders").delete().eq("id", orderInsert.data.id);
+
       return NextResponse.json<CreateOrderResponse>(
-        { ok: false, error: "Заказ создан, но позиции не сохранились." },
+        {
+          success: false,
+          error: itemsInsert.error.message || "Failed to create order items"
+        },
         { status: 500 }
       );
     }
 
     return NextResponse.json<CreateOrderResponse>({
-      ok: true,
-      orderId: order.id,
+      success: true,
+      orderId: orderInsert.data.id,
       totalAmount
     });
   } catch (error) {
-    console.error("Order API failed", error);
+    console.error("[orders] unexpected failure", error);
     return NextResponse.json<CreateOrderResponse>(
-      { ok: false, error: "Сервер временно недоступен. Попробуйте позже." },
+      {
+        success: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : "Unexpected order submission error"
+      },
       { status: 500 }
     );
   }
+}
+
+function normalizeBody(body: RawOrderBody): Partial<CreateOrderRequest> {
+  return {
+    customerName: body.customerName ?? body.customer_name,
+    phone: body.phone,
+    email: body.email,
+    preferredContactMethod:
+      body.preferredContactMethod ??
+      (body.preferred_contact_method as CheckoutCustomer["preferredContactMethod"]),
+    deliveryMethod:
+      body.deliveryMethod ??
+      (body.delivery_method as CheckoutCustomer["deliveryMethod"]),
+    address: body.address,
+    preferredDate: body.preferredDate ?? body.preferred_date,
+    notes: body.notes,
+    items: body.items
+  };
 }
 
 function validateOrder(body: Partial<CreateOrderRequest>) {
   const errors: FieldErrors = {};
 
   if (!body.customerName?.trim()) {
-    errors.customerName = "Укажите имя";
+    errors.customerName = "Customer name is required";
   }
 
   if (!body.phone?.trim()) {
-    errors.phone = "Укажите телефон";
+    errors.phone = "Phone is required";
   }
 
   if (
@@ -121,47 +186,41 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
       body.preferredContactMethod
     )
   ) {
-    errors.preferredContactMethod = "Выберите способ связи";
+    errors.preferredContactMethod = "Preferred contact method is required";
   }
 
   if (
     !body.deliveryMethod ||
     !["pickup", "delivery"].includes(body.deliveryMethod)
   ) {
-    errors.deliveryMethod = "Выберите получение";
+    errors.deliveryMethod = "Delivery method is required";
   }
 
   if (body.deliveryMethod === "delivery" && !body.address?.trim()) {
-    errors.address = "Укажите адрес доставки";
+    errors.address = "Address is required for delivery";
   }
 
-  if (!body.items?.length) {
-    errors.items = "Корзина пуста";
-  }
+  const items = normalizeItems(body.items);
 
-  const items =
-    body.items
-      ?.map((item) => ({
-        productId: item.productId,
-        quantity: Number(item.quantity)
-      }))
-      .filter((item) => Number.isFinite(item.quantity)) ?? [];
+  if (!items.length) {
+    errors.items = "Cart is empty";
+  }
 
   for (const item of items) {
     const product = productById.get(item.productId);
 
     if (!product || !product.available || item.quantity < 1) {
-      errors.items = "Проверьте товары в корзине";
+      errors.items = "Cart contains invalid items";
       break;
     }
   }
 
   if (Object.keys(errors).length > 0) {
-    return { ok: false as const, errors };
+    return { success: false as const, errors };
   }
 
   return {
-    ok: true as const,
+    success: true as const,
     data: {
       customerName: body.customerName!.trim(),
       phone: body.phone!.trim(),
@@ -173,5 +232,29 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
       notes: body.notes?.trim()
     },
     items
+  };
+}
+
+function normalizeItems(items: CartOrderItem[] | undefined) {
+  return (
+    items
+      ?.map((item) => ({
+        productId: item.productId as ProductId,
+        quantity: Number(item.quantity)
+      }))
+      .filter(
+        (item) =>
+          Number.isInteger(item.quantity) &&
+          item.quantity > 0 &&
+          productById.has(item.productId)
+      ) ?? []
+  );
+}
+
+function safeLogBody(body: RawOrderBody) {
+  return {
+    ...body,
+    phone: body.phone ? "[provided]" : undefined,
+    email: body.email ? "[provided]" : undefined
   };
 }

@@ -139,7 +139,7 @@ export function CartDrawer({
       });
       const data = (await response.json()) as CreateOrderResponse;
 
-      if (!data.ok) {
+      if (!data.success) {
         setSubmitError(content.errors.server);
         setErrors((current) => ({
           ...current,

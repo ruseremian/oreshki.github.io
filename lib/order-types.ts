@@ -30,12 +30,12 @@ export type CreateOrderRequest = CheckoutCustomer & {
 
 export type CreateOrderResponse =
   | {
-      ok: true;
+      success: true;
       orderId: string;
       totalAmount: number;
     }
   | {
-      ok: false;
+      success: false;
       error: string;
       fieldErrors?: Partial<Record<keyof CheckoutCustomer | "items", string>>;
     };

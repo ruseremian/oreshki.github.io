@@ -335,7 +335,7 @@ export const siteContent = {
       },
       confirmationTitle: "Commande reçue",
       confirmationText:
-        "Nous vous contacterons bientôt pour confirmer les détails.",
+        "Votre commande a été reçue. Nous vous contacterons rapidement.",
       orderNumber: "Numéro de commande",
       confirmationMessage: "Bonjour ! Je viens de passer la commande {orderId} sur le site.",
       back: "Retour au site",
