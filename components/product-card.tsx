@@ -31,13 +31,22 @@ export function ProductCard({
       <div className="overflow-hidden">
         <Image
           src={product.image}
-          alt={product.title}
+          alt={product.imageAlt}
           width={900}
           height={700}
+          sizes="(min-width: 768px) 33vw, 100vw"
           className="aspect-[5/4] w-full object-cover transition duration-700 group-hover:scale-105"
         />
       </div>
       <div className="p-6">
+        <div className="mb-4 flex flex-wrap gap-2">
+          <span className="rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-caramel">
+            {product.positioning}
+          </span>
+          <span className="rounded-full border border-cocoa/10 bg-white/60 px-3 py-1 text-xs font-semibold text-cocoa/62">
+            {product.quantity}
+          </span>
+        </div>
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-serif text-2xl leading-tight text-cocoa">
             {product.title}

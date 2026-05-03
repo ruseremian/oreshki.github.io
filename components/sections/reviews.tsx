@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 import { SiteContent } from "@/lib/site-data";
 
@@ -32,7 +32,18 @@ export function Reviews({ content }: ReviewsProps) {
               transition={{ duration: 0.55, delay: index * 0.08 }}
               className="rounded-3xl border border-cream/12 bg-cream/[0.07] p-6 shadow-soft backdrop-blur"
             >
-              <Quote className="h-7 w-7 text-almond" aria-hidden="true" />
+              <div className="flex items-center justify-between gap-4">
+                <Quote className="h-7 w-7 text-almond" aria-hidden="true" />
+                <div className="flex gap-1" aria-label={content.ratingLabel}>
+                  {Array.from({ length: 5 }).map((_, starIndex) => (
+                    <Star
+                      key={starIndex}
+                      className="h-4 w-4 fill-almond text-almond"
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+              </div>
               <p className="mt-5 min-h-36 text-base leading-8 text-cream/82">
                 «{review.text}»
               </p>

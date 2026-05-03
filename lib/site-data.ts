@@ -26,9 +26,9 @@ export const languages: { code: Language; label: string }[] = [
 ];
 
 const productImages: Record<ProductId, string> = {
-  classic: "/images/classic-oreshki.png",
-  gift: "/images/gift-box.png",
-  mini: "/images/mini-set.png"
+  classic: "/images/oreshki-classic.jpg",
+  gift: "/images/oreshki-gift-box.jpg",
+  mini: "/images/oreshki-mini.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
@@ -54,81 +54,91 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Домашняя кондитерская",
-      title: "Орешки со сгущёнкой ручной работы",
+      title: "Домашние орешки со сгущёнкой",
       subtitle:
-        "Свежие партии на заказ, натуральные ингредиенты и тот самый домашний вкус: хрустящая скорлупка, нежная карамельная сгущёнка и аккуратная ручная сборка.",
+        "Тот самый вкус детства — золотистая хрустящая скорлупка и нежная карамельная начинка из варёной сгущёнки.",
+      trustLine: "Ручная работа • Маленькие партии • Рекомендуем предзаказ",
       order: "Заказать",
-      instagram: "Instagram",
-      telegram: "Telegram",
-      whatsapp: "WhatsApp",
-      imageAlt: "Орешки со сгущёнкой на керамической тарелке",
-      stats: [
-        ["24 ч", "свежесть"],
-        ["100%", "ручная работа"],
-        ["3", "формата"]
+      discover: "Посмотреть форматы",
+      imageAlt: "Домашние орешки со сгущёнкой на бежевой керамической тарелке",
+      logistics: [
+        "Приготовление за 24–48 ч",
+        "Самовывоз или локальная доставка",
+        "Оплата при заказе или получении",
+        "Для коробок рекомендуем предзаказ"
       ]
     },
     products: {
       eyebrow: "Ассортимент",
-      title: "Три формата для уютного повода",
+      title: "Три формата для знакомства, семьи и подарка",
       description:
-        "Выберите классическую порцию к чаю, компактный набор для знакомства или подарочную коробку с красивой подачей.",
+        "Выберите маленький набор к кофе, фирменный формат для дома или элегантную коробку для тёплого подарка.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
       items: [
         {
+          id: "mini",
+          title: "Мини-набор",
+          quantity: "~10 штук",
+          positioning: "Идеально для знакомства",
+          description:
+            "Небольшой формат, чтобы попробовать орешки или добавить сладкий акцент к кофе.",
+          price: formatPrice(productBasePrices.mini),
+          basePrice: productBasePrices.mini,
+          image: productImages.mini,
+          imageAlt: "Небольшая порция орешков со сгущёнкой рядом с чашкой кофе"
+        },
+        {
           id: "classic",
           title: "Классические орешки",
+          quantity: "~25 штук",
+          positioning: "Фирменный формат",
           description:
-            "Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный ореховый аромат.",
+            "Наш фирменный формат: хрустящие скорлупки, нежная начинка и настоящий домашний вкус.",
           price: formatPrice(productBasePrices.classic),
           basePrice: productBasePrices.classic,
-          image: productImages.classic
+          image: productImages.classic,
+          imageAlt: "Орешки со сгущёнкой крупным планом, один орешек раскрыт с карамельной начинкой"
         },
         {
           id: "gift",
           title: "Подарочная коробка",
+          quantity: "~40 штук + упаковка",
+          positioning: "Лучше всего для подарка",
           description:
-            "Элегантная упаковка для тёплого жеста, семейного праздника или корпоративного комплимента.",
+            "Элегантная коробка для тёплого подарка, праздника или красивого жеста.",
           price: formatPrice(productBasePrices.gift),
           basePrice: productBasePrices.gift,
-          image: productImages.gift
-        },
-        {
-          id: "mini",
-          title: "Мини-набор",
-          description:
-            "Небольшая порция свежих орешков для знакомства со вкусом или уютного чаепития.",
-          price: formatPrice(productBasePrices.mini),
-          basePrice: productBasePrices.mini,
-          image: productImages.mini
+          image: productImages.gift,
+          imageAlt: "Бежевая подарочная коробка с домашними орешками и лентой"
         }
       ]
     },
     about: {
       eyebrow: "История",
-      title: "Маленькие партии, большой вкус детства",
+      title: "Восточноевропейская сладость, приготовленная вручную",
       description:
-        "Каждая скорлупка выпекается вручную до золотистого оттенка, затем наполняется густой варёной сгущёнкой и собирается аккуратно, без спешки. Мы выбираем качественное масло, свежие яйца и понятные ингредиенты, чтобы вкус оставался честным, тёплым и узнаваемым.",
+        "Орешки — это маленькое печенье в форме грецкого ореха, которое часто готовят для семейных праздников и тёплых встреч. Каждая скорлупка выпекается отдельно, затем наполняется варёной сгущёнкой.",
       note:
-        "Орешки готовятся небольшими партиями, поэтому они приезжают к вам свежими: хрустящими снаружи, мягко-карамельными внутри и по-домашнему ароматными.",
-      imageAlt: "Свежие домашние орешки со сгущёнкой"
+        "Мы готовим небольшими партиями, чтобы сохранить главное: хрустящую текстуру, щедрую начинку и аромат настоящего домашнего десерта.",
+      imageAlt: "Руки наполняют скорлупки орешков варёной сгущёнкой"
     },
     reviews: {
       eyebrow: "Отзывы",
       title: "Тёплые слова после первой коробки",
+      ratingLabel: "5 из 5 звёзд",
       items: [
         {
           name: "Анна",
-          text: "Вкус как из детства, только аккуратнее и нежнее. Сгущёнка густая, орешки свежие, коробка красивая."
+          text: "Тот самый вкус из детства. Скорлупки хрустящие, начинки много — невозможно остановиться."
         },
         {
-          name: "Мария",
-          text: "Заказывала в подарок маме. Очень тёплая подача, всё приехало целым, аромат был невероятный."
+          name: "Марк",
+          text: "Заказывали на день рождения, всё исчезло за несколько минут. Коробка выглядела очень красиво."
         },
         {
-          name: "Екатерина",
-          text: "Люблю, что они не приторные. Видно, что сделаны вручную: ровные, хрустящие и с щедрой начинкой."
+          name: "Елена",
+          text: "Свежие, не приторные и очень аккуратные. Видно, что сделано вручную."
         }
       ]
     },
@@ -190,11 +200,11 @@ export const siteContent = {
     },
     contact: {
       eyebrow: "Контакты",
-      title: "Напишите нам напрямую",
+      title: "Хотите орешки?",
       description:
-        "Можно заказать через форму или сразу написать в удобный мессенджер. Мы подскажем ближайшую дату выпечки, формат набора и варианты красивой упаковки.",
+        "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим наличие, дату приготовления и варианты самовывоза или доставки.",
       note:
-        "Доставка и самовывоз обсуждаются индивидуально. Для праздников и подарков лучше написать за 2-3 дня, чтобы мы успели подготовить свежую партию и упаковку.",
+        "Для подарочных коробок и праздничных заказов лучше написать заранее: так мы успеем подготовить свежую партию и аккуратную упаковку.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -203,7 +213,7 @@ export const siteContent = {
   fr: {
     nav: {
       aria: "Navigation principale",
-      brand: "Orechki",
+      brand: "Oreshki",
       order: "Commander",
       items: [
         { label: "Produits", href: "#products" },
@@ -216,81 +226,91 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Pâtisserie maison",
-      title: "Orechki au lait concentré fait main",
+      title: "Oreshki faits maison au caramel",
       subtitle:
-        "Des fournées fraîches sur commande, des ingrédients premium et ce goût maison inoubliable : coque sablée croquante, garniture caramel fondante et assemblage fait à la main.",
+        "Le goût de l’enfance — des coques dorées, croustillantes et garnies d’un cœur fondant au lait concentré caramélisé.",
+      trustLine: "Faits à la main • Petites séries • Précommande recommandée",
       order: "Commander",
-      instagram: "Instagram",
-      telegram: "Telegram",
-      whatsapp: "WhatsApp",
-      imageAlt: "Orechki au lait concentré sur une assiette en céramique",
-      stats: [
-        ["24 h", "fraîcheur"],
-        ["100%", "fait main"],
-        ["3", "formats"]
+      discover: "Découvrir les formats",
+      imageAlt: "Oreshki faits maison au caramel sur une assiette en céramique beige",
+      logistics: [
+        "Préparation sous 24–48h",
+        "Retrait ou livraison locale",
+        "Paiement à la commande ou à la réception",
+        "Précommande conseillée pour les coffrets"
       ]
     },
     products: {
       eyebrow: "Assortiment",
-      title: "Trois formats pour un moment doux",
+      title: "Trois formats pour découvrir, partager ou offrir",
       description:
-        "Choisissez une portion classique pour le thé, un mini coffret découverte ou une boîte cadeau élégante.",
+        "Choisissez le mini format pour goûter, notre boîte signature pour la maison ou un coffret élégant pour offrir.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
       items: [
         {
-          id: "classic",
-          title: "Orechki classiques",
+          id: "mini",
+          title: "Mini set",
+          quantity: "~10 pièces",
+          positioning: "Idéal pour découvrir",
           description:
-            "Une pâte sablée friable, un lait concentré caramélisé généreux et un délicat parfum de noix.",
+            "Le petit format parfait pour découvrir les oreshki ou accompagner un café.",
+          price: formatPrice(productBasePrices.mini),
+          basePrice: productBasePrices.mini,
+          image: productImages.mini,
+          imageAlt: "Petit format d’oreshki au caramel près d’une tasse de café"
+        },
+        {
+          id: "classic",
+          title: "Classic",
+          quantity: "~25 pièces",
+          positioning: "Format signature",
+          description:
+            "Notre format signature : des coques croustillantes, une garniture fondante et le vrai goût maison.",
           price: formatPrice(productBasePrices.classic),
           basePrice: productBasePrices.classic,
-          image: productImages.classic
+          image: productImages.classic,
+          imageAlt: "Oreshki au caramel en gros plan avec un biscuit ouvert montrant la garniture"
         },
         {
           id: "gift",
-          title: "Boîte cadeau",
+          title: "Gift box",
+          quantity: "~40 pièces + packaging",
+          positioning: "Parfait à offrir",
           description:
-            "Un coffret raffiné pour une attention chaleureuse, une fête de famille ou un compliment d'entreprise.",
+            "Un coffret élégant pour offrir une douceur artisanale, rare et généreuse.",
           price: formatPrice(productBasePrices.gift),
           basePrice: productBasePrices.gift,
-          image: productImages.gift
-        },
-        {
-          id: "mini",
-          title: "Mini coffret",
-          description:
-            "Une petite portion d'orechki frais pour découvrir le goût ou accompagner un thé cosy.",
-          price: formatPrice(productBasePrices.mini),
-          basePrice: productBasePrices.mini,
-          image: productImages.mini
+          image: productImages.gift,
+          imageAlt: "Coffret cadeau beige rempli d’oreshki au caramel avec un ruban"
         }
       ]
     },
     about: {
       eyebrow: "Histoire",
-      title: "Petites fournées, grand goût d'enfance",
+      title: "Une douceur d’Europe de l’Est, préparée à la main",
       description:
-        "Chaque coque est cuite à la main jusqu'à une teinte dorée, puis garnie de lait concentré caramélisé et assemblée avec soin. Nous choisissons du bon beurre, des oeufs frais et des ingrédients simples pour garder un goût sincère, doux et nostalgique.",
+        "Les oreshki sont de petits biscuits en forme de noix, traditionnellement préparés pour les grandes occasions. Chaque coque est cuite une par une, puis garnie d’un caramel fondant au lait concentré.",
       note:
-        "Les orechki sont préparés en petites fournées afin d'arriver chez vous frais : croquants dehors, fondants au caramel dedans et délicieusement maison.",
-      imageAlt: "Orechki maison frais au lait concentré"
+        "Nous les préparons en petites séries pour préserver ce qui fait leur charme : une texture croustillante, un cœur généreux et ce parfum de dessert fait maison.",
+      imageAlt: "Des mains garnissent des coques d’oreshki avec du caramel au lait concentré"
     },
     reviews: {
       eyebrow: "Avis",
       title: "Des mots doux après la première boîte",
+      ratingLabel: "5 étoiles sur 5",
       items: [
         {
           name: "Anna",
-          text: "Le goût de l'enfance, mais plus fin et plus délicat. La garniture est généreuse, les biscuits sont frais et la boîte est très jolie."
+          text: "Exactement le goût de mon enfance. Les coques sont croustillantes, la garniture est généreuse… impossible de s’arrêter."
         },
         {
-          name: "Maria",
-          text: "Je les ai commandés pour ma mère. Présentation très chaleureuse, tout est arrivé intact et le parfum était incroyable."
+          name: "Marc",
+          text: "Commandés pour un anniversaire, tout est parti en quelques minutes. Le coffret était très élégant."
         },
         {
-          name: "Ekaterina",
-          text: "J'aime qu'ils ne soient pas trop sucrés. On sent le fait main : réguliers, croquants et bien garnis."
+          name: "Elena",
+          text: "Très frais, pas trop sucré, et vraiment fait avec soin. On sent la différence avec un dessert industriel."
         }
       ]
     },
@@ -353,11 +373,11 @@ export const siteContent = {
     },
     contact: {
       eyebrow: "Contact",
-      title: "Écrivez-nous directement",
+      title: "Une envie d’oreshki ?",
       description:
-        "Vous pouvez commander via le formulaire ou écrire directement sur votre messagerie préférée. Nous vous indiquerons la prochaine date de cuisson, le format idéal et les options d'emballage.",
+        "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons la disponibilité, la date de préparation et les options de retrait ou livraison.",
       note:
-        "Livraison et retrait sont à convenir individuellement. Pour les fêtes et les cadeaux, écrivez 2 à 3 jours à l'avance afin que nous préparions une fournée fraîche et un bel emballage.",
+        "Pour les coffrets cadeaux et les commandes de fête, la précommande nous aide à préparer une fournée fraîche et un emballage soigné.",
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"

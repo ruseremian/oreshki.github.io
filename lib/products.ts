@@ -16,9 +16,9 @@ export const products: Product[] = [
     id: "classic",
     name: "Классические орешки",
     description:
-      "Рассыпчатое песочное тесто, густая карамельная сгущёнка и нежный ореховый аромат.",
+      "Хрустящие скорлупки, нежная начинка и настоящий домашний вкус.",
     price: 15.99,
-    image: "/images/classic-oreshki.png",
+    image: "/images/oreshki-classic.jpg",
     category: "cookies",
     available: true
   },
@@ -26,9 +26,9 @@ export const products: Product[] = [
     id: "gift",
     name: "Подарочная коробка",
     description:
-      "Элегантная упаковка для тёплого жеста, семейного праздника или корпоративного комплимента.",
+      "Элегантная коробка для тёплого подарка, праздника или красивого жеста.",
     price: 25.99,
-    image: "/images/gift-box.png",
+    image: "/images/oreshki-gift-box.jpg",
     category: "gift",
     available: true
   },
@@ -36,9 +36,9 @@ export const products: Product[] = [
     id: "mini",
     name: "Мини-набор",
     description:
-      "Небольшая порция свежих орешков для знакомства со вкусом или уютного чаепития.",
-    price: 5.99,
-    image: "/images/mini-set.png",
+      "Небольшой формат, чтобы попробовать орешки или добавить сладкий акцент к кофе.",
+    price: 6.99,
+    image: "/images/oreshki-mini.jpg",
     category: "cookies",
     available: true
   }

@@ -41,10 +41,11 @@ export function About({ content }: AboutProps) {
           <div className="absolute -right-4 top-8 h-44 w-44 rounded-full bg-sage/12 blur-3xl" />
           <div className="relative overflow-hidden rounded-[1.5rem] border border-white/70 shadow-soft">
             <Image
-              src="/images/oreshki-hero.png"
+              src="/images/oreshki-handmade.jpg"
               alt={content.imageAlt}
               width={1100}
               height={900}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
