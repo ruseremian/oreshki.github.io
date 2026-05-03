@@ -33,6 +33,7 @@ export type CreateOrderResponse =
       success: true;
       orderId: string;
       totalAmount: number;
+      adminWhatsAppUrl?: string | null;
     }
   | {
       success: false;

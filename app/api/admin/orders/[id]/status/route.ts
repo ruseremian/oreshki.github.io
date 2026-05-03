@@ -1,23 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { hasAdminSession } from "@/lib/admin-auth";
+import { parseOrderStatus } from "@/lib/order-status";
 import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
 } from "@/lib/supabase-admin";
 
 export const runtime = "nodejs";
-
-const ORDER_STATUSES = [
-  "new",
-  "confirmed",
-  "preparing",
-  "ready",
-  "delivered",
-  "cancelled"
-] as const;
-
-type OrderStatus = (typeof ORDER_STATUSES)[number];
 
 export async function PATCH(
   request: NextRequest,
@@ -35,7 +25,9 @@ export async function PATCH(
     status?: string;
   };
 
-  if (!ORDER_STATUSES.includes(status as OrderStatus)) {
+  const normalizedStatus = parseOrderStatus(status);
+
+  if (!normalizedStatus) {
     return NextResponse.json(
       { success: false, error: "Statut invalide." },
       { status: 400 }
@@ -46,7 +38,7 @@ export async function PATCH(
     const supabase = createSupabaseAdmin();
     const { data, error } = await supabase
       .from("orders")
-      .update({ status })
+      .update({ status: normalizedStatus })
       .eq("id", id)
       .select("id, status")
       .single();

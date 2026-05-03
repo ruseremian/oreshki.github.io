@@ -2,6 +2,8 @@ import { Metadata } from "next";
 
 import { AdminOrdersDashboard, LoginScreen } from "./admin-orders-dashboard";
 import { hasAdminSession } from "@/lib/admin-auth";
+import { normalizeOrderStatus, type OrderStatus } from "@/lib/order-status";
+import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
 import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
@@ -37,19 +39,16 @@ export type AdminOrder = {
   total_amount: number;
   status: OrderStatus;
   created_at: string;
+  admin_whatsapp_url: string | null;
   items: AdminOrderItem[];
 };
 
-export type OrderStatus =
-  | "new"
-  | "confirmed"
-  | "preparing"
-  | "ready"
-  | "delivered"
-  | "cancelled";
-
-type RawOrder = Omit<AdminOrder, "total_amount" | "items"> & {
+type RawOrder = Omit<
+  AdminOrder,
+  "total_amount" | "status" | "admin_whatsapp_url" | "items"
+> & {
   total_amount: string | number;
+  status: string | null;
 };
 
 type RawOrderItem = Omit<AdminOrderItem, "unit_price" | "line_total"> & {
@@ -126,13 +125,23 @@ async function getOrders() {
       {}
     );
 
-    return {
-      success: true as const,
-      orders: rawOrders.map((order) => ({
+    const orders = rawOrders.map((order) => {
+      const normalizedOrder = {
         ...order,
         total_amount: Number(order.total_amount),
+        status: normalizeOrderStatus(order.status),
         items: itemsByOrderId[order.id] ?? []
-      }))
+      };
+
+      return {
+        ...normalizedOrder,
+        admin_whatsapp_url: buildAdminWhatsAppUrl(normalizedOrder)
+      };
+    });
+
+    return {
+      success: true as const,
+      orders
     };
   } catch (error) {
     if (error instanceof MissingSupabaseEnvError) {

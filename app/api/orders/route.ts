@@ -6,6 +6,7 @@ import type {
   CreateOrderRequest,
   CreateOrderResponse
 } from "@/lib/order-types";
+import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
 import { productById, type ProductId } from "@/lib/products";
 import {
   createSupabaseAdmin,
@@ -134,10 +135,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const adminWhatsAppUrl = buildAdminWhatsAppUrl({
+      id: orderInsert.data.id,
+      customer_name: validation.data.customerName,
+      phone: validation.data.phone,
+      delivery_method: validation.data.deliveryMethod,
+      preferred_date: validation.data.preferredDate || null,
+      total_amount: totalAmount,
+      items: normalizedItems
+    });
+
     return NextResponse.json<CreateOrderResponse>({
       success: true,
       orderId: orderInsert.data.id,
-      totalAmount
+      totalAmount,
+      adminWhatsAppUrl
     });
   } catch (error) {
     console.error("[orders] unexpected failure", error);

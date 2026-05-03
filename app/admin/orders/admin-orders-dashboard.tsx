@@ -10,25 +10,13 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 
-import type { AdminOrder, OrderStatus } from "./page";
-
-const ORDER_STATUSES: OrderStatus[] = [
-  "new",
-  "confirmed",
-  "preparing",
-  "ready",
-  "delivered",
-  "cancelled"
-];
-
-const STATUS_LABELS: Record<OrderStatus, string> = {
-  new: "Nouveau",
-  confirmed: "Confirmee",
-  preparing: "Preparation",
-  ready: "Prete",
-  delivered: "Livree",
-  cancelled: "Annulee"
-};
+import type { AdminOrder } from "./page";
+import {
+  ORDER_STATUSES,
+  ORDER_STATUS_LABELS,
+  isCancelledOrderStatus,
+  type OrderStatus
+} from "@/lib/order-status";
 
 const DELIVERY_LABELS = {
   pickup: "Retrait",
@@ -136,18 +124,23 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
 
   const metrics = useMemo(() => {
     const today = new Date().toDateString();
-    const totalRevenue = orders.reduce(
+    const billableOrders = orders.filter(
+      (order) => !isCancelledOrderStatus(order.status)
+    );
+    const totalRevenue = billableOrders.reduce(
       (sum, order) => sum + order.total_amount,
       0
     );
 
     return {
-      totalOrders: orders.length,
+      totalOrders: billableOrders.length,
       totalRevenue,
-      ordersToday: orders.filter(
+      ordersToday: billableOrders.filter(
         (order) => new Date(order.created_at).toDateString() === today
       ).length,
-      averageOrderValue: orders.length ? totalRevenue / orders.length : 0
+      averageOrderValue: billableOrders.length
+        ? totalRevenue / billableOrders.length
+        : 0
     };
   }, [orders]);
 
@@ -182,7 +175,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
 
   return (
     <main className="min-h-screen bg-cream px-4 py-6 text-cocoa sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[96rem]">
         <header className="flex flex-col gap-2 border-b border-almond/60 pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-caramel">
@@ -216,19 +209,28 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
           </p>
         ) : null}
 
-        <section className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_26rem]">
+        <section className="mt-6 grid gap-5 2xl:grid-cols-[minmax(0,2.45fr)_minmax(20rem,0.8fr)]">
           <div className="overflow-hidden rounded-lg border border-almond/60 bg-white/85 shadow-soft">
-            <div className="max-h-[68vh] overflow-auto">
-              <table className="min-w-full divide-y divide-almond/50 text-left text-sm">
+            <div className="max-h-[72vh] overflow-y-auto overflow-x-hidden">
+              <table className="w-full table-fixed divide-y divide-almond/50 text-left text-sm">
+                <colgroup>
+                  <col className="w-[9.25rem]" />
+                  <col className="w-[18%]" />
+                  <col className="w-[8.5rem]" />
+                  <col className="w-[7.5rem]" />
+                  <col className="w-[7rem]" />
+                  <col className="w-[9.5rem]" />
+                  <col className="w-[5rem]" />
+                </colgroup>
                 <thead className="sticky top-0 bg-oat text-xs uppercase tracking-[0.12em] text-cocoa/70">
                   <tr>
-                    <th className="px-4 py-3 font-semibold">Date</th>
-                    <th className="px-4 py-3 font-semibold">Client</th>
-                    <th className="px-4 py-3 font-semibold">Telephone</th>
-                    <th className="px-4 py-3 font-semibold">Livraison</th>
-                    <th className="px-4 py-3 font-semibold">Total</th>
-                    <th className="px-4 py-3 font-semibold">Statut</th>
-                    <th className="px-4 py-3 font-semibold">Action</th>
+                    <th className="px-3 py-3 font-semibold">Date</th>
+                    <th className="px-3 py-3 font-semibold">Client</th>
+                    <th className="px-3 py-3 font-semibold">Telephone</th>
+                    <th className="px-3 py-3 font-semibold">Mode</th>
+                    <th className="px-3 py-3 font-semibold">Total</th>
+                    <th className="px-3 py-3 font-semibold">Statut</th>
+                    <th className="px-3 py-3 font-semibold">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-almond/40">
@@ -238,36 +240,38 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
                       className={
                         order.status === "new"
                           ? "bg-caramel/10"
-                          : "bg-white/40"
+                          : isCancelledOrderStatus(order.status)
+                            ? "bg-rose/5 text-cocoa/60"
+                            : "bg-white/40"
                       }
                     >
-                      <td className="whitespace-nowrap px-4 py-3">
+                      <td className="px-3 py-4 align-middle">
                         {formatDate(order.created_at)}
                       </td>
-                      <td className="px-4 py-3 font-medium text-espresso">
+                      <td className="truncate px-3 py-4 align-middle font-medium text-espresso">
                         {order.customer_name}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-3">
+                      <td className="whitespace-nowrap px-3 py-4 align-middle">
                         {order.phone}
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-3 py-4 align-middle">
                         {DELIVERY_LABELS[order.delivery_method]}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-3 font-semibold">
+                      <td className="whitespace-nowrap px-3 py-4 align-middle font-semibold">
                         {formatCurrency(order.total_amount)}
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-3 py-4 align-middle">
                         <StatusSelect
                           order={order}
                           disabled={pendingStatusId === order.id}
                           onChange={updateStatus}
                         />
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-3 py-4 align-middle">
                         <button
                           type="button"
                           onClick={() => setSelectedOrderId(order.id)}
-                          className="rounded-md border border-caramel/50 px-3 py-1.5 text-sm font-semibold text-caramel transition hover:bg-caramel hover:text-white"
+                          className="rounded-md border border-caramel/50 px-2.5 py-1.5 text-sm font-semibold text-caramel transition hover:bg-caramel hover:text-white"
                         >
                           Voir
                         </button>
@@ -327,7 +331,7 @@ function StatusSelect({
     >
       {ORDER_STATUSES.map((status) => (
         <option key={status} value={status}>
-          {STATUS_LABELS[status]}
+          {ORDER_STATUS_LABELS[status]}
         </option>
       ))}
     </select>
@@ -355,9 +359,24 @@ function OrderDetailsPanel({ order }: { order: AdminOrder | null }) {
           </h2>
         </div>
         <span className="rounded-full bg-oat px-3 py-1 text-xs font-semibold text-cocoa">
-          {STATUS_LABELS[order.status]}
+          {ORDER_STATUS_LABELS[order.status]}
         </span>
       </div>
+
+      {order.admin_whatsapp_url ? (
+        <a
+          href={order.admin_whatsapp_url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 inline-flex w-full justify-center rounded-md bg-caramel px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cocoa"
+        >
+          Envoyer sur WhatsApp
+        </a>
+      ) : (
+        <p className="mt-5 rounded-md bg-oat/60 px-3 py-2 text-xs text-cocoa/70">
+          Ajoutez ADMIN_WHATSAPP_NUMBER pour générer le lien WhatsApp.
+        </p>
+      )}
 
       <dl className="mt-5 space-y-3 text-sm">
         <Detail label="Date" value={formatDate(order.created_at)} />
@@ -419,10 +438,13 @@ function formatCurrency(value: number) {
 }
 
 function formatDate(value: string) {
-  return new Intl.DateTimeFormat("fr-FR", {
-    dateStyle: "short",
+  const date = new Date(value);
+
+  return `${new Intl.DateTimeFormat("fr-FR", {
+    dateStyle: "short"
+  }).format(date)} ${new Intl.DateTimeFormat("fr-FR", {
     timeStyle: "short"
-  }).format(new Date(value));
+  }).format(date)}`;
 }
 
 function formatPreferredDate(value: string | null) {
