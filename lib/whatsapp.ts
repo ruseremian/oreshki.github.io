@@ -53,11 +53,31 @@ export async function sendOrderWhatsAppNotification({
             {
               type: "body",
               parameters: [
-                { type: "text", text: customerName },
-                { type: "text", text: customerPhone },
-                { type: "text", text: formatEuros(totalAmount) },
-                { type: "text", text: formatDeliveryMethod(deliveryMethod) },
-                { type: "text", text: orderId }
+                {
+                  type: "text",
+                  parameter_name: "customer_name",
+                  text: customerName
+                },
+                {
+                  type: "text",
+                  parameter_name: "customer_phone",
+                  text: customerPhone
+                },
+                {
+                  type: "text",
+                  parameter_name: "order_total",
+                  text: formatEuros(totalAmount)
+                },
+                {
+                  type: "text",
+                  parameter_name: "delivery_method",
+                  text: formatDeliveryMethod(deliveryMethod)
+                },
+                {
+                  type: "text",
+                  parameter_name: "order_id",
+                  text: orderId
+                }
               ]
             }
           ]

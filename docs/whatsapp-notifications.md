@@ -26,15 +26,17 @@ Production requires a permanent System User token from Meta Business Manager wit
 
 Automatic business-initiated messages require an approved WhatsApp message template. The template configured in `WHATSAPP_TEMPLATE_NAME` must exist and be approved for the language in `WHATSAPP_TEMPLATE_LANGUAGE`.
 
-The template body must include five text variables in this order:
+Create the template with named variables. Meta expects lowercase letters, underscores, and digits inside double braces.
 
 ```text
-{{1}} customer name
-{{2}} customer phone
-{{3}} order total in euros
-{{4}} delivery method
-{{5}} order id
+{{customer_name}} customer name
+{{customer_phone}} customer phone
+{{order_total}} order total in euros
+{{delivery_method}} delivery method
+{{order_id}} order id
 ```
+
+The API sends matching `parameter_name` values for these variables. Keep the template variable names exactly as shown unless you also update `lib/whatsapp.ts`.
 
 `wa.me` links cannot send messages automatically. They only open WhatsApp with a prefilled manual message. This integration uses the Cloud API `/messages` endpoint to send the approved template programmatically.
 
