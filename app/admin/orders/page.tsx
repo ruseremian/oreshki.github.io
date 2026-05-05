@@ -36,6 +36,8 @@ export type AdminOrder = {
   address: string | null;
   preferred_date: string | null;
   notes: string | null;
+  subtotal_amount: number;
+  delivery_fee: number;
   total_amount: number;
   status: OrderStatus;
   created_at: string;
@@ -45,8 +47,15 @@ export type AdminOrder = {
 
 type RawOrder = Omit<
   AdminOrder,
-  "total_amount" | "status" | "admin_whatsapp_url" | "items"
+  | "subtotal_amount"
+  | "delivery_fee"
+  | "total_amount"
+  | "status"
+  | "admin_whatsapp_url"
+  | "items"
 > & {
+  subtotal_amount?: string | number | null;
+  delivery_fee?: string | number | null;
   total_amount: string | number;
   status: string | null;
 };
@@ -128,6 +137,8 @@ async function getOrders() {
     const orders = rawOrders.map((order) => {
       const normalizedOrder = {
         ...order,
+        subtotal_amount: Number(order.subtotal_amount ?? order.total_amount),
+        delivery_fee: Number(order.delivery_fee ?? 0),
         total_amount: Number(order.total_amount),
         status: normalizeOrderStatus(order.status),
         items: itemsByOrderId[order.id] ?? []

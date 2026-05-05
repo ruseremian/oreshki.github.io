@@ -7,6 +7,7 @@ import type {
   CreateOrderResponse
 } from "@/lib/order-types";
 import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
+import { calculateOrderPricing } from "@/lib/pricing";
 import { productById, type ProductId } from "@/lib/products";
 import {
   createSupabaseAdmin,
@@ -64,12 +65,14 @@ export async function POST(request: NextRequest) {
       };
     });
 
-    const totalAmount = normalizedItems.reduce(
-      (total, item) => total + item.line_total,
-      0
+    const pricing = calculateOrderPricing(
+      validation.items,
+      validation.data.deliveryMethod
     );
     console.log("[orders] computed total", {
-      totalAmount,
+      subtotalAmount: pricing.subtotal,
+      deliveryFee: pricing.deliveryFee,
+      totalAmount: pricing.total,
       itemCount: normalizedItems.length
     });
 
@@ -89,7 +92,9 @@ export async function POST(request: NextRequest) {
             : null,
         preferred_date: validation.data.preferredDate || null,
         notes: validation.data.notes || null,
-        total_amount: totalAmount,
+        subtotal_amount: pricing.subtotal,
+        delivery_fee: pricing.deliveryFee,
+        total_amount: pricing.total,
         status: "new"
       })
       .select("id")
@@ -141,14 +146,18 @@ export async function POST(request: NextRequest) {
       phone: validation.data.phone,
       delivery_method: validation.data.deliveryMethod,
       preferred_date: validation.data.preferredDate || null,
-      total_amount: totalAmount,
+      subtotal_amount: pricing.subtotal,
+      delivery_fee: pricing.deliveryFee,
+      total_amount: pricing.total,
       items: normalizedItems
     });
 
     return NextResponse.json<CreateOrderResponse>({
       success: true,
       orderId: orderInsert.data.id,
-      totalAmount,
+      subtotalAmount: pricing.subtotal,
+      deliveryFee: pricing.deliveryFee,
+      totalAmount: pricing.total,
       adminWhatsAppUrl
     });
   } catch (error) {

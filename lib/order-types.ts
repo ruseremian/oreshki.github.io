@@ -32,6 +32,8 @@ export type CreateOrderResponse =
   | {
       success: true;
       orderId: string;
+      subtotalAmount: number;
+      deliveryFee: number;
       totalAmount: number;
       adminWhatsAppUrl?: string | null;
     }

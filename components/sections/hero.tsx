@@ -24,7 +24,7 @@ export function Hero({ content, onOrder }: HeroProps) {
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-caramel">
             {content.eyebrow}
           </p>
-          <h1 className="max-w-3xl font-serif text-5xl leading-[1.02] text-cocoa sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-3xl font-serif text-4xl leading-[1.05] text-cocoa sm:text-6xl lg:text-7xl">
             {content.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-cocoa/72">

@@ -152,6 +152,10 @@ export const siteContent = {
       emptyText:
         "Добавьте набор орешков из раздела продуктов, и здесь появится оформление заказа.",
       total: "Итого",
+      subtotal: "Промежуточный итог",
+      deliveryFee: "Стоимость доставки",
+      pickupFeeLabel: "Самовывоз бесплатно",
+      deliveryFeeLabel: "Доставка: 3,99 €",
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
@@ -190,7 +194,8 @@ export const siteContent = {
       confirmationTitle: "Заказ принят",
       confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали.",
       orderNumber: "Номер заказа",
-      confirmationMessage: "Здравствуйте! Я только что оформила заказ {orderId} на сайте.",
+      confirmationTotal: "Сумма заказа",
+      confirmationMessage: "Здравствуйте! Я только что оформила заказ {orderId} на сайте. Итого: {total}.",
       back: "Вернуться на сайт",
       contactLabels: {
         instagram: "Instagram",
@@ -324,6 +329,10 @@ export const siteContent = {
       emptyText:
         "Ajoutez un coffret depuis la section produits, puis finalisez votre commande ici.",
       total: "Total",
+      subtotal: "Sous-total",
+      deliveryFee: "Frais de livraison",
+      pickupFeeLabel: "Retrait gratuit",
+      deliveryFeeLabel: "Livraison: 3,99 €",
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",
@@ -363,7 +372,8 @@ export const siteContent = {
       confirmationText:
         "Votre commande a été reçue. Nous vous contacterons rapidement.",
       orderNumber: "Numéro de commande",
-      confirmationMessage: "Bonjour ! Je viens de passer la commande {orderId} sur le site.",
+      confirmationTotal: "Total de la commande",
+      confirmationMessage: "Bonjour ! Je viens de passer la commande {orderId} sur le site. Total : {total}.",
       back: "Retour au site",
       contactLabels: {
         instagram: "Instagram",

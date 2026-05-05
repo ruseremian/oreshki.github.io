@@ -9,6 +9,7 @@ import {
   useState
 } from "react";
 
+import { calculateOrderSubtotal } from "@/lib/pricing";
 import { ProductId, productById } from "@/lib/products";
 
 type CartItem = {
@@ -19,6 +20,7 @@ type CartItem = {
 type CartContextValue = {
   items: CartItem[];
   itemCount: number;
+  subtotal: number;
   total: number;
   addItem: (productId: ProductId, quantity?: number) => void;
   increaseItem: (productId: ProductId) => void;
@@ -57,15 +59,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<CartContextValue>(() => {
     const itemCount = items.reduce((count, item) => count + item.quantity, 0);
-    const total = items.reduce((sum, item) => {
-      const product = productById.get(item.productId);
-      return sum + (product?.price ?? 0) * item.quantity;
-    }, 0);
+    const subtotal = calculateOrderSubtotal(items);
 
     return {
       items,
       itemCount,
-      total,
+      subtotal,
+      total: subtotal,
       addItem(productId, quantity = 1) {
         setItems((current) => {
           const existing = current.find((item) => item.productId === productId);

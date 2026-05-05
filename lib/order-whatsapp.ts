@@ -11,6 +11,8 @@ type WhatsAppOrderSummary = {
   phone: string;
   delivery_method: string;
   preferred_date: string | null;
+  subtotal_amount?: number;
+  delivery_fee?: number;
   total_amount: number;
   items: WhatsAppOrderItem[];
 };
@@ -47,6 +49,8 @@ export function buildOrderWhatsAppMessage(order: WhatsAppOrderSummary) {
     `Date souhaitée: ${order.preferred_date || "-"}`,
     "Produits:",
     products || "-",
+    `Sous-total: ${formatCurrency(order.subtotal_amount ?? order.total_amount)}`,
+    `Frais de livraison: ${formatCurrency(order.delivery_fee ?? 0)}`,
     `Total: ${formatCurrency(order.total_amount)}`
   ].join("\n");
 }

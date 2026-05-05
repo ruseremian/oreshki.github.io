@@ -9,6 +9,7 @@ import {
   type ReactNode
 } from "react";
 import { useRouter } from "next/navigation";
+import { X } from "lucide-react";
 
 import type { AdminOrder } from "./page";
 import {
@@ -102,6 +103,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
   const [selectedOrderId, setSelectedOrderId] = useState(
     initialOrders[0]?.id ?? ""
   );
+  const [mobileDetailsOpen, setMobileDetailsOpen] = useState(false);
   const [pendingStatusId, setPendingStatusId] = useState("");
   const [statusError, setStatusError] = useState("");
   const [, startTransition] = useTransition();
@@ -133,9 +135,9 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
     );
 
     return {
-      totalOrders: billableOrders.length,
+      totalOrders: orders.length,
       totalRevenue,
-      ordersToday: billableOrders.filter(
+      ordersToday: orders.filter(
         (order) => new Date(order.created_at).toDateString() === today
       ).length,
       averageOrderValue: billableOrders.length
@@ -171,6 +173,11 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
         order.id === orderId ? { ...order, status } : order
       )
     );
+  }
+
+  function viewOrder(orderId: string) {
+    setSelectedOrderId(orderId);
+    setMobileDetailsOpen(true);
   }
 
   return (
@@ -210,7 +217,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
         ) : null}
 
         <section className="mt-6 grid gap-5 2xl:grid-cols-[minmax(0,2.45fr)_minmax(20rem,0.8fr)]">
-          <div className="overflow-hidden rounded-lg border border-almond/60 bg-white/85 shadow-soft">
+          <div className="hidden overflow-hidden rounded-lg border border-almond/60 bg-white/85 shadow-soft md:block">
             <div className="max-h-[72vh] overflow-y-auto overflow-x-hidden">
               <table className="w-full table-fixed divide-y divide-almond/50 text-left text-sm">
                 <colgroup>
@@ -293,9 +300,51 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
             </div>
           </div>
 
-          <OrderDetailsPanel order={selectedOrder} />
+          <div className="grid gap-3 md:hidden">
+            {orders.map((order) => (
+              <MobileOrderCard
+                key={order.id}
+                order={order}
+                disabled={pendingStatusId === order.id}
+                onStatusChange={updateStatus}
+                onView={() => viewOrder(order.id)}
+              />
+            ))}
+            {orders.length === 0 ? (
+              <div className="rounded-lg border border-almond/60 bg-white/85 p-6 text-center text-sm text-cocoa/65 shadow-soft">
+                Aucune commande pour le moment.
+              </div>
+            ) : null}
+          </div>
+
+          <div className="hidden md:block">
+            <OrderDetailsPanel order={selectedOrder} />
+          </div>
         </section>
       </div>
+
+      {mobileDetailsOpen ? (
+        <div className="fixed inset-0 z-[90] bg-cream p-4 text-cocoa md:hidden">
+          <div className="flex h-full flex-col overflow-hidden rounded-lg border border-almond/60 bg-white/95 shadow-soft">
+            <div className="flex items-center justify-between border-b border-almond/60 px-4 py-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-caramel">
+                Details commande
+              </p>
+              <button
+                type="button"
+                onClick={() => setMobileDetailsOpen(false)}
+                className="grid h-11 w-11 place-items-center rounded-full border border-almond/60 bg-cream text-cocoa"
+                aria-label="Fermer"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4">
+              <OrderDetailsPanel order={selectedOrder} compact />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
@@ -327,7 +376,7 @@ function StatusSelect({
       onChange={(event) =>
         onChange(order.id, event.target.value as OrderStatus)
       }
-      className="w-36 rounded-md border-almond bg-white px-2 py-1.5 text-sm text-cocoa focus:border-caramel focus:ring-caramel disabled:opacity-60"
+      className="min-h-11 w-full rounded-md border-almond bg-white px-3 py-2 text-sm text-cocoa focus:border-caramel focus:ring-caramel disabled:opacity-60 md:w-36 md:min-h-0 md:px-2 md:py-1.5"
     >
       {ORDER_STATUSES.map((status) => (
         <option key={status} value={status}>
@@ -338,7 +387,72 @@ function StatusSelect({
   );
 }
 
-function OrderDetailsPanel({ order }: { order: AdminOrder | null }) {
+function MobileOrderCard({
+  order,
+  disabled,
+  onStatusChange,
+  onView
+}: {
+  order: AdminOrder;
+  disabled: boolean;
+  onStatusChange: (orderId: string, status: OrderStatus) => void;
+  onView: () => void;
+}) {
+  return (
+    <article
+      className={
+        order.status === "new"
+          ? "rounded-lg border border-caramel/30 bg-caramel/10 p-4 shadow-sm"
+          : isCancelledOrderStatus(order.status)
+            ? "rounded-lg border border-rose/20 bg-white/80 p-4 text-cocoa/65 shadow-sm"
+            : "rounded-lg border border-almond/60 bg-white/85 p-4 shadow-sm"
+      }
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cocoa/55">
+            {formatDate(order.created_at)}
+          </p>
+          <h2 className="mt-1 truncate font-serif text-2xl text-espresso">
+            {order.customer_name}
+          </h2>
+        </div>
+        <span className="shrink-0 rounded-full bg-oat px-3 py-1 text-xs font-semibold text-cocoa">
+          {ORDER_STATUS_LABELS[order.status]}
+        </span>
+      </div>
+
+      <div className="mt-4 grid gap-2 text-sm">
+        <MobileDetail label="Telephone" value={order.phone} />
+        <MobileDetail label="Mode" value={DELIVERY_LABELS[order.delivery_method]} />
+        <MobileDetail label="Total" value={formatCurrency(order.total_amount)} />
+      </div>
+
+      <div className="mt-4 grid gap-3">
+        <StatusSelect
+          order={order}
+          disabled={disabled}
+          onChange={onStatusChange}
+        />
+        <button
+          type="button"
+          onClick={onView}
+          className="min-h-11 rounded-md border border-caramel/50 px-4 py-2 text-sm font-semibold text-caramel transition hover:bg-caramel hover:text-white"
+        >
+          Voir les details
+        </button>
+      </div>
+    </article>
+  );
+}
+
+function OrderDetailsPanel({
+  order,
+  compact = false
+}: {
+  order: AdminOrder | null;
+  compact?: boolean;
+}) {
   if (!order) {
     return (
       <aside className="rounded-lg border border-almond/60 bg-white/85 p-5 shadow-soft">
@@ -348,7 +462,13 @@ function OrderDetailsPanel({ order }: { order: AdminOrder | null }) {
   }
 
   return (
-    <aside className="rounded-lg border border-almond/60 bg-white/85 p-5 shadow-soft xl:sticky xl:top-6 xl:max-h-[78vh] xl:overflow-auto">
+    <aside
+      className={
+        compact
+          ? "bg-white"
+          : "rounded-lg border border-almond/60 bg-white/85 p-5 shadow-soft xl:sticky xl:top-6 xl:max-h-[78vh] xl:overflow-auto"
+      }
+    >
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-caramel">
@@ -412,9 +532,23 @@ function OrderDetailsPanel({ order }: { order: AdminOrder | null }) {
             </div>
           ))}
         </div>
-        <div className="mt-4 flex justify-between border-t border-almond/50 pt-4 text-base font-semibold text-espresso">
-          <span>Total</span>
-          <span>{formatCurrency(order.total_amount)}</span>
+        <div className="mt-4 space-y-2 border-t border-almond/50 pt-4 text-sm">
+          <div className="flex justify-between gap-4">
+            <span className="text-cocoa/65">Sous-total</span>
+            <span className="font-semibold text-espresso">
+              {formatCurrency(order.subtotal_amount)}
+            </span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-cocoa/65">Frais de livraison</span>
+            <span className="font-semibold text-espresso">
+              {formatCurrency(order.delivery_fee)}
+            </span>
+          </div>
+          <div className="flex justify-between gap-4 border-t border-almond/50 pt-3 text-base font-semibold text-espresso">
+            <span>Total</span>
+            <span>{formatCurrency(order.total_amount)}</span>
+          </div>
         </div>
       </div>
     </aside>
@@ -423,9 +557,18 @@ function OrderDetailsPanel({ order }: { order: AdminOrder | null }) {
 
 function Detail({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-[8rem_1fr] gap-3">
+    <div className="grid gap-1 sm:grid-cols-[8rem_1fr] sm:gap-3">
       <dt className="text-cocoa/55">{label}</dt>
-      <dd className="font-medium text-cocoa">{value}</dd>
+      <dd className="break-words font-medium text-cocoa">{value}</dd>
+    </div>
+  );
+}
+
+function MobileDetail({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between gap-4">
+      <span className="text-cocoa/55">{label}</span>
+      <span className="text-right font-medium text-cocoa">{value}</span>
     </div>
   );
 }

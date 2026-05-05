@@ -13,6 +13,7 @@ import type {
   DeliveryMethod,
   PreferredContactMethod
 } from "@/lib/order-types";
+import { getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
 import type { ProductItem, SiteContent } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -52,7 +53,7 @@ export function CartDrawer({
 }: CartDrawerProps) {
   const {
     items,
-    total,
+    subtotal,
     increaseItem,
     decreaseItem,
     removeItem,
@@ -71,6 +72,11 @@ export function CartDrawer({
   const [errors, setErrors] = useState<CheckoutErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [orderId, setOrderId] = useState<string | null>(null);
+  const [submittedPricing, setSubmittedPricing] = useState<{
+    subtotalAmount: number;
+    deliveryFee: number;
+    totalAmount: number;
+  } | null>(null);
   const [submitError, setSubmitError] = useState("");
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
@@ -82,6 +88,8 @@ export function CartDrawer({
       }),
     [items, products]
   );
+  const deliveryFee = items.length ? getDeliveryFee(values.deliveryMethod) : 0;
+  const total = subtotal + deliveryFee;
 
   useEffect(() => {
     if (!items.length) {
@@ -163,6 +171,11 @@ export function CartDrawer({
       }
 
       setOrderId(data.orderId);
+      setSubmittedPricing({
+        subtotalAmount: data.subtotalAmount,
+        deliveryFee: data.deliveryFee,
+        totalAmount: data.totalAmount
+      });
       clearCart();
     } catch {
       setSubmitError(content.errors.submit);
@@ -175,6 +188,7 @@ export function CartDrawer({
     onOpenChange(false);
     setTimeout(() => {
       setOrderId(null);
+      setSubmittedPricing(null);
       setCheckoutOpen(false);
       setSubmitError("");
       setErrors({});
@@ -225,6 +239,7 @@ export function CartDrawer({
               {orderId ? (
                 <Confirmation
                   orderId={orderId}
+                  pricing={submittedPricing}
                   content={content}
                   onClose={closeAndReset}
                 />
@@ -289,11 +304,30 @@ export function CartDrawer({
                   )}
 
                   <div className="mt-6 rounded-3xl bg-cocoa p-5 text-cream">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-cream/70">{content.total}</span>
-                      <strong className="font-serif text-3xl">
-                        {formatPrice(total)}
-                      </strong>
+                    <div className="space-y-3 text-sm">
+                      <SummaryRow
+                        label={content.subtotal}
+                        value={formatPrice(subtotal)}
+                      />
+                      <SummaryRow
+                        label={content.deliveryFee}
+                        value={
+                          values.deliveryMethod === "delivery"
+                            ? formatPrice(deliveryFee)
+                            : formatPrice(0)
+                        }
+                        note={
+                          values.deliveryMethod === "delivery"
+                            ? content.deliveryFeeLabel
+                            : content.pickupFeeLabel
+                        }
+                      />
+                      <div className="flex items-center justify-between border-t border-cream/15 pt-3">
+                        <span className="text-cream/75">{content.total}</span>
+                        <strong className="font-serif text-3xl">
+                          {formatPrice(total)}
+                        </strong>
+                      </div>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-cream/68">
                       {content.noPayment}
@@ -464,13 +498,21 @@ export function CartDrawer({
 
 function Confirmation({
   orderId,
+  pricing,
   content,
   onClose
 }: {
   orderId: string;
+  pricing: {
+    subtotalAmount: number;
+    deliveryFee: number;
+    totalAmount: number;
+  } | null;
   content: SiteContent["cart"];
   onClose: () => void;
 }) {
+  const total = pricing ? formatPrice(pricing.totalAmount) : "";
+
   return (
     <div className="rounded-[1.75rem] border border-cocoa/10 bg-white/70 p-6 text-center shadow-soft">
       <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-sage/15 text-sage">
@@ -484,10 +526,32 @@ function Confirmation({
         <span className="font-bold text-cocoa">{orderId}</span>.{" "}
         {content.confirmationText}
       </p>
+      {pricing ? (
+        <div className="mt-5 rounded-2xl bg-cream px-4 py-3 text-sm text-cocoa/75">
+          <div className="flex justify-between gap-4">
+            <span>{content.subtotal}</span>
+            <span className="font-semibold text-cocoa">
+              {formatPrice(pricing.subtotalAmount)}
+            </span>
+          </div>
+          <div className="mt-2 flex justify-between gap-4">
+            <span>{content.deliveryFee}</span>
+            <span className="font-semibold text-cocoa">
+              {formatPrice(pricing.deliveryFee)}
+            </span>
+          </div>
+          <div className="mt-2 flex justify-between gap-4 border-t border-almond/60 pt-2">
+            <span>{content.confirmationTotal}</span>
+            <span className="font-bold text-caramel">{total}</span>
+          </div>
+        </div>
+      ) : null}
       <ContactButtons
         labels={content.contactLabels}
         className="mt-6 justify-center"
-        message={content.confirmationMessage.replace("{orderId}", orderId)}
+        message={content.confirmationMessage
+          .replace("{orderId}", orderId)
+          .replace("{total}", total)}
       />
       <button
         type="button"
@@ -496,6 +560,28 @@ function Confirmation({
       >
         {content.back}
       </button>
+    </div>
+  );
+}
+
+function SummaryRow({
+  label,
+  value,
+  note
+}: {
+  label: string;
+  value: string;
+  note?: string;
+}) {
+  return (
+    <div className="flex items-start justify-between gap-4">
+      <span className="text-cream/70">
+        {label}
+        {note ? (
+          <span className="mt-1 block text-xs text-cream/52">{note}</span>
+        ) : null}
+      </span>
+      <span className="font-semibold text-cream">{value}</span>
     </div>
   );
 }
