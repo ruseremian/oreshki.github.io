@@ -13,6 +13,7 @@ import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
 } from "@/lib/supabase-admin";
+import { sendOrderWhatsAppNotification } from "@/lib/whatsapp";
 
 export const runtime = "nodejs";
 
@@ -138,6 +139,33 @@ export async function POST(request: NextRequest) {
         },
         { status: 500 }
       );
+    }
+
+    try {
+      const whatsAppResult = await sendOrderWhatsAppNotification({
+        orderId: orderInsert.data.id,
+        customerName: validation.data.customerName,
+        customerPhone: validation.data.phone,
+        totalAmount: pricing.total,
+        deliveryMethod: validation.data.deliveryMethod
+      });
+
+      if (whatsAppResult.sent) {
+        console.log("[orders] WhatsApp notification sent", {
+          orderId: orderInsert.data.id,
+          messageId: whatsAppResult.messageId
+        });
+      } else {
+        console.warn("[orders] WhatsApp notification skipped", {
+          orderId: orderInsert.data.id,
+          reason: whatsAppResult.reason
+        });
+      }
+    } catch (error) {
+      console.error("[orders] WhatsApp notification failed", {
+        orderId: orderInsert.data.id,
+        error
+      });
     }
 
     const adminWhatsAppUrl = buildAdminWhatsAppUrl({
