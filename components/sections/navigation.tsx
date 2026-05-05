@@ -23,7 +23,7 @@ export function Navigation({
   const { itemCount } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-cocoa/10 bg-cream/82 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-cocoa/10 bg-cream/95 shadow-sm backdrop-blur-xl">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         aria-label={content.aria}
