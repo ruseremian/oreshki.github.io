@@ -13,7 +13,7 @@ import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
 } from "@/lib/supabase-admin";
-import { sendOrderWhatsAppNotification } from "@/lib/whatsapp";
+import { sendTelegramNotification } from "@/lib/telegram";
 
 export const runtime = "nodejs";
 
@@ -142,27 +142,35 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const whatsAppResult = await sendOrderWhatsAppNotification({
+      const telegramResult = await sendTelegramNotification({
         orderId: orderInsert.data.id,
         customerName: validation.data.customerName,
-        customerPhone: validation.data.phone,
+        phone: validation.data.phone,
+        deliveryMethod: validation.data.deliveryMethod,
+        address:
+          validation.data.deliveryMethod === "delivery"
+            ? validation.data.address
+            : null,
+        items: normalizedItems,
+        subtotalAmount: pricing.subtotal,
+        deliveryFee: pricing.deliveryFee,
         totalAmount: pricing.total,
-        deliveryMethod: validation.data.deliveryMethod
+        notes: validation.data.notes
       });
 
-      if (whatsAppResult.sent) {
-        console.log("[orders] WhatsApp notification sent", {
+      if (telegramResult.success) {
+        console.log("[orders] Telegram notification sent", {
           orderId: orderInsert.data.id,
-          messageId: whatsAppResult.messageId
+          messageIds: telegramResult.messageIds
         });
       } else {
-        console.warn("[orders] WhatsApp notification skipped", {
+        console.error("[orders] Telegram notification failed", {
           orderId: orderInsert.data.id,
-          reason: whatsAppResult.reason
+          error: telegramResult.error
         });
       }
     } catch (error) {
-      console.error("[orders] WhatsApp notification failed", {
+      console.error("[orders] Telegram notification failed", {
         orderId: orderInsert.data.id,
         error
       });
