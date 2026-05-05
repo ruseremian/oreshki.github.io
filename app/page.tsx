@@ -7,6 +7,7 @@ import { CartDrawer } from "@/components/cart-drawer";
 import { CartProvider, useCart } from "@/components/cart-provider";
 import { Contact } from "@/components/sections/contact";
 import { Hero } from "@/components/sections/hero";
+import { LegalFooter } from "@/components/legal-footer";
 import { Navigation } from "@/components/sections/navigation";
 import { Products } from "@/components/sections/products";
 import { Reviews } from "@/components/sections/reviews";
@@ -62,6 +63,7 @@ function LandingPage() {
         <Reviews content={content.reviews} />
         <Contact content={content.contact} />
       </main>
+      <LegalFooter />
       <CartDrawer
         open={cartOpen}
         onOpenChange={setCartOpen}
