@@ -34,8 +34,12 @@ https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/deleteWebhook
 
 - New order creates a Telegram notification.
 - Telegram message has `Confirmer`, `Annuler`, and `Voir admin` buttons.
+- `Voir admin` opens `/admin/orders`.
 - Clicking `Confirmer` updates the Supabase order status to `confirmed`.
+- Telegram buttons disappear after clicking `Confirmer`.
 - Clicking `Annuler` updates the Supabase order status to `cancelled`.
+- Telegram buttons disappear after clicking `Annuler`.
+- Duplicate actions are not possible from the same Telegram message.
 - Admin dashboard reflects the new status after refresh.
 - Cancelled orders count as 0 revenue in dashboard KPIs.
 - Telegram callback stops loading after a button click.

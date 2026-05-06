@@ -7,6 +7,7 @@ import {
 } from "@/lib/supabase-admin";
 import {
   answerTelegramCallbackQuery,
+  removeTelegramMessageButtons,
   sendTelegramChatMessage
 } from "@/lib/telegram";
 
@@ -17,6 +18,7 @@ type TelegramCallbackUpdate = {
     id?: string;
     data?: string;
     message?: {
+      message_id?: number;
       chat?: {
         id?: string | number;
       };
@@ -50,6 +52,7 @@ export async function POST(request: NextRequest) {
   const callbackQuery = update.callback_query;
   const callbackQueryId = callbackQuery?.id;
   const chatId = callbackQuery?.message?.chat?.id;
+  const messageId = callbackQuery?.message?.message_id;
 
   if (!callbackQueryId) {
     return NextResponse.json({ success: true });
@@ -88,6 +91,20 @@ export async function POST(request: NextRequest) {
       callbackQueryId,
       text: parsedCallback.callbackText
     });
+
+    if (chatId && messageId) {
+      const markupResult = await removeTelegramMessageButtons({
+        chatId,
+        messageId
+      });
+
+      if (!markupResult.success) {
+        console.error("[telegram-webhook] failed to remove message buttons", {
+          orderId: parsedCallback.orderId,
+          error: markupResult.error
+        });
+      }
+    }
 
     if (chatId) {
       const messageResult = await sendTelegramChatMessage({

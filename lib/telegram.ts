@@ -115,6 +115,22 @@ export async function sendTelegramChatMessage({
   });
 }
 
+export async function removeTelegramMessageButtons({
+  chatId,
+  messageId
+}: {
+  chatId: string | number;
+  messageId: number;
+}): Promise<TelegramApiResult> {
+  return callTelegramApi("editMessageReplyMarkup", {
+    chat_id: chatId,
+    message_id: messageId,
+    reply_markup: {
+      inline_keyboard: []
+    }
+  });
+}
+
 function buildTelegramMessage(order: TelegramOrderNotification) {
   const productLines =
     order.items
@@ -147,28 +163,24 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
 }
 
 function buildOrderKeyboard(orderId: string) {
-  const adminUrl = buildAdminOrdersUrl();
   const keyboard: TelegramInlineKeyboardButton[][] = [
     [
       {
-        text: "✅ Confirmer",
+        text: "\u2705 Confirmer",
         callback_data: `order_confirm:${orderId}`
       },
       {
-        text: "❌ Annuler",
+        text: "\u274C Annuler",
         callback_data: `order_cancel:${orderId}`
+      }
+    ],
+    [
+      {
+        text: "\uD83D\uDC40 Voir admin",
+        url: buildAdminOrdersUrl()
       }
     ]
   ];
-
-  if (adminUrl) {
-    keyboard.push([
-      {
-        text: "👀 Voir admin",
-        url: adminUrl
-      }
-    ]);
-  }
 
   return {
     inline_keyboard: keyboard
@@ -176,11 +188,9 @@ function buildOrderKeyboard(orderId: string) {
 }
 
 function buildAdminOrdersUrl() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-
-  if (!siteUrl) {
-    return null;
-  }
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    "https://oreshki-github-io.vercel.app";
 
   return `${siteUrl.replace(/\/$/, "")}/admin/orders`;
 }
@@ -208,7 +218,7 @@ function splitTelegramMessage(message: string) {
 }
 
 async function callTelegramApi(
-  method: "answerCallbackQuery" | "sendMessage",
+  method: "answerCallbackQuery" | "sendMessage" | "editMessageReplyMarkup",
   body: Record<string, unknown>
 ): Promise<TelegramApiResult> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
