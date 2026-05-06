@@ -190,7 +190,7 @@ function buildOrderKeyboard(orderId: string) {
 function buildAdminOrdersUrl() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://oreshki-github-io.vercel.app";
+    "https://www.oreshki.fr";
 
   return `${siteUrl.replace(/\/$/, "")}/admin/orders`;
 }
