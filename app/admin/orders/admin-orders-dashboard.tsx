@@ -18,6 +18,7 @@ import {
   isCancelledOrderStatus,
   type OrderStatus
 } from "@/lib/order-status";
+import { formatPhoneInput } from "@/lib/phone";
 
 const DELIVERY_LABELS = {
   pickup: "Retrait",
@@ -259,7 +260,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
                         {order.customer_name}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 align-middle">
-                        {order.phone}
+                        {formatPhoneInput(order.phone)}
                       </td>
                       <td className="px-3 py-4 align-middle">
                         {DELIVERY_LABELS[order.delivery_method]}
@@ -423,7 +424,7 @@ function MobileOrderCard({
       </div>
 
       <div className="mt-4 grid gap-2 text-sm">
-        <MobileDetail label="Telephone" value={order.phone} />
+        <MobileDetail label="Telephone" value={formatPhoneInput(order.phone)} />
         <MobileDetail label="Mode" value={DELIVERY_LABELS[order.delivery_method]} />
         <MobileDetail label="Total" value={formatCurrency(order.total_amount)} />
       </div>
@@ -500,7 +501,7 @@ function OrderDetailsPanel({
 
       <dl className="mt-5 space-y-3 text-sm">
         <Detail label="Date" value={formatDate(order.created_at)} />
-        <Detail label="Telephone" value={order.phone} />
+        <Detail label="Telephone" value={formatPhoneInput(order.phone)} />
         <Detail label="Email" value={order.email || "-"} />
         <Detail label="Contact prefere" value={order.preferred_contact_method} />
         <Detail

@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent, ReactNode } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Minus, Plus, Send, ShoppingBag, Trash2, X } from "lucide-react";
 
@@ -13,6 +13,11 @@ import type {
   DeliveryMethod,
   PreferredContactMethod
 } from "@/lib/order-types";
+import {
+  formatPhoneInput,
+  isValidPhoneNumber,
+  normalizePhoneNumber
+} from "@/lib/phone";
 import { getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
 import type { ProductItem, SiteContent } from "@/lib/site-data";
@@ -78,7 +83,6 @@ export function CartDrawer({
     totalAmount: number;
   } | null>(null);
   const [submitError, setSubmitError] = useState("");
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   const cartProducts = useMemo(
     () =>
@@ -91,12 +95,6 @@ export function CartDrawer({
   const deliveryFee = items.length ? getDeliveryFee(values.deliveryMethod) : 0;
   const total = subtotal + deliveryFee;
 
-  useEffect(() => {
-    if (!items.length) {
-      setCheckoutOpen(false);
-    }
-  }, [items.length]);
-
   function updateValue<Key extends keyof CheckoutValues>(
     key: Key,
     value: CheckoutValues[Key]
@@ -106,6 +104,16 @@ export function CartDrawer({
     setSubmitError("");
   }
 
+  function handlePhoneBlur() {
+    const formattedPhone = formatPhoneInput(values.phone);
+
+    setValues((current) => ({ ...current, phone: formattedPhone }));
+
+    if (isValidPhoneNumber(formattedPhone)) {
+      setErrors((current) => ({ ...current, phone: undefined }));
+    }
+  }
+
   function validate() {
     const nextErrors: CheckoutErrors = {};
 
@@ -113,7 +121,9 @@ export function CartDrawer({
     if (!values.customerName.trim()) {
       nextErrors.customerName = content.errors.customerName;
     }
-    if (!values.phone.trim()) nextErrors.phone = content.errors.phone;
+    if (!isValidPhoneNumber(values.phone)) {
+      nextErrors.phone = content.errors.phone;
+    }
     if (values.deliveryMethod === "delivery" && !values.address.trim()) {
       nextErrors.address = content.errors.address;
     }
@@ -127,12 +137,16 @@ export function CartDrawer({
 
     if (!validate()) return;
 
+    const normalizedPhone = normalizePhoneNumber(values.phone);
+
+    if (!normalizedPhone) return;
+
     setSubmitting(true);
     setSubmitError("");
 
     const payload: CreateOrderRequest = {
       customerName: values.customerName.trim(),
-      phone: values.phone.trim(),
+      phone: normalizedPhone,
       email: values.email.trim() || undefined,
       preferredContactMethod: values.preferredContactMethod,
       deliveryMethod: values.deliveryMethod,
@@ -189,7 +203,6 @@ export function CartDrawer({
     setTimeout(() => {
       setOrderId(null);
       setSubmittedPricing(null);
-      setCheckoutOpen(false);
       setSubmitError("");
       setErrors({});
     }, 250);
@@ -303,53 +316,42 @@ export function CartDrawer({
                     </div>
                   )}
 
-                  <div className="mt-6 rounded-3xl bg-cocoa p-5 text-cream">
-                    <div className="space-y-3 text-sm">
-                      <SummaryRow
-                        label={content.subtotal}
-                        value={formatPrice(subtotal)}
-                      />
-                      <SummaryRow
-                        label={content.deliveryFee}
-                        value={
-                          values.deliveryMethod === "delivery"
-                            ? formatPrice(deliveryFee)
-                            : formatPrice(0)
-                        }
-                        note={
-                          values.deliveryMethod === "delivery"
-                            ? content.deliveryFeeLabel
-                            : content.pickupFeeLabel
-                        }
-                      />
-                      <div className="flex items-center justify-between border-t border-cream/15 pt-3">
-                        <span className="text-cream/75">{content.total}</span>
-                        <strong className="font-serif text-3xl">
-                          {formatPrice(total)}
-                        </strong>
+                  {items.length ? (
+                    <>
+                      <div className="mt-6 rounded-3xl bg-cocoa p-5 text-cream">
+                        <div className="space-y-3 text-sm">
+                          <SummaryRow
+                            label={content.subtotal}
+                            value={formatPrice(subtotal)}
+                          />
+                          <SummaryRow
+                            label={content.deliveryFee}
+                            value={
+                              values.deliveryMethod === "delivery"
+                                ? formatPrice(deliveryFee)
+                                : formatPrice(0)
+                            }
+                            note={
+                              values.deliveryMethod === "delivery"
+                                ? content.deliveryFeeLabel
+                                : content.pickupFeeLabel
+                            }
+                          />
+                          <div className="flex items-center justify-between border-t border-cream/15 pt-3">
+                            <span className="text-cream/75">{content.total}</span>
+                            <strong className="font-serif text-3xl">
+                              {formatPrice(total)}
+                            </strong>
+                          </div>
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-cream/68">
+                          {content.noPayment}
+                        </p>
                       </div>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-cream/68">
-                      {content.noPayment}
-                    </p>
-                  </div>
 
-                  {!checkoutOpen && items.length ? (
-                    <button
-                      type="button"
-                      onClick={() => setCheckoutOpen(true)}
-                      className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-cocoa px-6 py-3 text-sm font-semibold text-cream shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-espresso"
-                    >
-                      {content.proceedToCheckout}
-                    </button>
-                  ) : null}
-
-                  <AnimatePresence initial={false}>
-                    {checkoutOpen && items.length ? (
                       <motion.form
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 12 }}
                         className="mt-6 grid gap-4"
                         onSubmit={handleSubmit}
                         noValidate
@@ -370,10 +372,17 @@ export function CartDrawer({
                           </Field>
                           <Field label={content.phone} error={errors.phone}>
                             <input
+                              type="tel"
+                              inputMode="tel"
+                              autoComplete="tel"
                               value={values.phone}
                               onChange={(event) =>
-                                updateValue("phone", event.target.value)
+                                updateValue(
+                                  "phone",
+                                  formatPhoneInput(event.target.value)
+                                )
                               }
+                              onBlur={handlePhoneBlur}
                               className={inputClass(Boolean(errors.phone))}
                               placeholder={content.phonePlaceholder}
                             />
@@ -484,8 +493,8 @@ export function CartDrawer({
                           <Send className="ml-2 h-4 w-4" aria-hidden="true" />
                         </button>
                       </motion.form>
-                    ) : null}
-                  </AnimatePresence>
+                    </>
+                  ) : null}
                 </>
               )}
             </div>

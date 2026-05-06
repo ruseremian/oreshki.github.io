@@ -164,7 +164,6 @@ export const siteContent = {
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
-      proceedToCheckout: "Оформить заказ",
       name: "Имя",
       namePlaceholder: "Как к вам обращаться",
       phone: "Телефон",
@@ -191,7 +190,7 @@ export const siteContent = {
       errors: {
         items: "Корзина пуста",
         customerName: "Укажите имя",
-        phone: "Укажите телефон",
+        phone: "Введите корректный номер телефона.",
         address: "Укажите адрес доставки",
         submit: "Не удалось отправить заказ. Проверьте соединение.",
         server: "Не удалось отправить заказ. Попробуйте ещё раз."
@@ -340,7 +339,6 @@ export const siteContent = {
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",
-      proceedToCheckout: "Valider la commande",
       name: "Nom",
       namePlaceholder: "Votre nom",
       phone: "Téléphone",
@@ -367,7 +365,7 @@ export const siteContent = {
       errors: {
         items: "Votre panier est vide",
         customerName: "Indiquez votre nom",
-        phone: "Indiquez votre téléphone",
+        phone: "Veuillez entrer un numéro de téléphone valide.",
         address: "Indiquez l'adresse de livraison",
         submit: "Impossible d'envoyer la commande. Vérifiez votre connexion.",
         server: "Impossible d'envoyer la commande. Réessayez."

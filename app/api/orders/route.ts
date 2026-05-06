@@ -7,6 +7,7 @@ import type {
   CreateOrderResponse
 } from "@/lib/order-types";
 import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
+import { normalizePhoneNumber } from "@/lib/phone";
 import { calculateOrderPricing } from "@/lib/pricing";
 import { productById, type ProductId } from "@/lib/products";
 import {
@@ -247,8 +248,10 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
     errors.customerName = "Customer name is required";
   }
 
-  if (!body.phone?.trim()) {
-    errors.phone = "Phone is required";
+  const normalizedPhone = body.phone ? normalizePhoneNumber(body.phone) : null;
+
+  if (!normalizedPhone) {
+    errors.phone = "Phone is invalid";
   }
 
   if (
@@ -294,7 +297,7 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
     success: true as const,
     data: {
       customerName: body.customerName!.trim(),
-      phone: body.phone!.trim(),
+      phone: normalizedPhone!,
       email: body.email?.trim(),
       preferredContactMethod: body.preferredContactMethod!,
       deliveryMethod: body.deliveryMethod!,
