@@ -1,4 +1,9 @@
 import { formatPrice, productById, type ProductId } from "@/lib/products";
+import {
+  INSTAGRAM_URL,
+  TELEGRAM_URL,
+  WHATSAPP_URL
+} from "@/lib/social-links";
 
 export type { ProductId } from "@/lib/products";
 
@@ -7,17 +12,17 @@ export type ContactMethod = "whatsapp" | "telegram" | "instagram" | "phone";
 export type FulfillmentMethod = "pickup" | "delivery";
 
 export const links = {
-  instagram: "https://www.instagram.com/aida_221?igsh=MTVnZGNvanU2dzB2cg==",
-  telegram: "tg://resolve?phone=33649635568",
-  whatsappBase: "https://wa.me/33649635568"
+  instagram: INSTAGRAM_URL,
+  telegram: TELEGRAM_URL,
+  whatsappBase: WHATSAPP_URL
 };
 
 export function createWhatsAppLink(message: string) {
   return `${links.whatsappBase}?text=${encodeURIComponent(message)}`;
 }
 
-export function createTelegramLink(message: string) {
-  return `https://t.me/share/url?url=&text=${encodeURIComponent(message)}`;
+export function createTelegramLink() {
+  return links.telegram;
 }
 
 export const languages: { code: Language; label: string }[] = [
