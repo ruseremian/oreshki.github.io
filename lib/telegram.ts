@@ -24,6 +24,14 @@ type TelegramNotificationResult =
   | { success: true; messageIds: number[] }
   | { success: false; error: string };
 
+type TelegramApiResult =
+  | { success: true }
+  | { success: false; error: string };
+
+type TelegramInlineKeyboardButton =
+  | { text: string; callback_data: string }
+  | { text: string; url: string };
+
 export async function sendTelegramNotification(
   order: TelegramOrderNotification
 ): Promise<TelegramNotificationResult> {
@@ -40,7 +48,7 @@ export async function sendTelegramNotification(
   const messages = splitTelegramMessage(buildTelegramMessage(order));
   const messageIds: number[] = [];
 
-  for (const text of messages) {
+  for (const [index, text] of messages.entries()) {
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
       {
@@ -51,7 +59,10 @@ export async function sendTelegramNotification(
         body: JSON.stringify({
           chat_id: chatId,
           text,
-          parse_mode: "HTML"
+          parse_mode: "HTML",
+          ...(index === 0
+            ? { reply_markup: buildOrderKeyboard(order.orderId) }
+            : {})
         })
       }
     );
@@ -72,6 +83,36 @@ export async function sendTelegramNotification(
     success: true,
     messageIds
   };
+}
+
+export async function answerTelegramCallbackQuery({
+  callbackQueryId,
+  text,
+  showAlert = false
+}: {
+  callbackQueryId: string;
+  text: string;
+  showAlert?: boolean;
+}): Promise<TelegramApiResult> {
+  return callTelegramApi("answerCallbackQuery", {
+    callback_query_id: callbackQueryId,
+    text,
+    show_alert: showAlert
+  });
+}
+
+export async function sendTelegramChatMessage({
+  chatId,
+  text
+}: {
+  chatId: string | number;
+  text: string;
+}): Promise<TelegramApiResult> {
+  return callTelegramApi("sendMessage", {
+    chat_id: chatId,
+    text,
+    parse_mode: "HTML"
+  });
 }
 
 function buildTelegramMessage(order: TelegramOrderNotification) {
@@ -105,6 +146,45 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
   ].join("\n");
 }
 
+function buildOrderKeyboard(orderId: string) {
+  const adminUrl = buildAdminOrdersUrl();
+  const keyboard: TelegramInlineKeyboardButton[][] = [
+    [
+      {
+        text: "✅ Confirmer",
+        callback_data: `order_confirm:${orderId}`
+      },
+      {
+        text: "❌ Annuler",
+        callback_data: `order_cancel:${orderId}`
+      }
+    ]
+  ];
+
+  if (adminUrl) {
+    keyboard.push([
+      {
+        text: "👀 Voir admin",
+        url: adminUrl
+      }
+    ]);
+  }
+
+  return {
+    inline_keyboard: keyboard
+  };
+}
+
+function buildAdminOrdersUrl() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+  if (!siteUrl) {
+    return null;
+  }
+
+  return `${siteUrl.replace(/\/$/, "")}/admin/orders`;
+}
+
 function splitTelegramMessage(message: string) {
   if (message.length <= TELEGRAM_MESSAGE_LIMIT) {
     return [message];
@@ -127,6 +207,41 @@ function splitTelegramMessage(message: string) {
   return chunks;
 }
 
+async function callTelegramApi(
+  method: "answerCallbackQuery" | "sendMessage",
+  body: Record<string, unknown>
+): Promise<TelegramApiResult> {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+
+  if (!token) {
+    return {
+      success: false,
+      error: "Missing Telegram bot token"
+    };
+  }
+
+  const response = await fetch(
+    `https://api.telegram.org/bot${token}/${method}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    }
+  );
+  const payload = await response.json().catch(() => null);
+
+  if (!response.ok || !isGenericTelegramSuccessPayload(payload)) {
+    return {
+      success: false,
+      error: `Telegram API request failed with ${response.status}: ${getTelegramErrorMessage(payload)}`
+    };
+  }
+
+  return { success: true };
+}
+
 function formatDeliveryMethod(deliveryMethod: DeliveryMethod) {
   return deliveryMethod === "delivery" ? "Livraison" : "Retrait";
 }
@@ -143,6 +258,17 @@ function escapeHtml(value: string) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function isGenericTelegramSuccessPayload(
+  payload: unknown
+): payload is { ok: true } {
+  return (
+    payload !== null &&
+    typeof payload === "object" &&
+    "ok" in payload &&
+    payload.ok === true
+  );
 }
 
 function isTelegramSuccessPayload(
