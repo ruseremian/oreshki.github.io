@@ -549,9 +549,6 @@ function Confirmation({
       <ContactButtons
         labels={content.contactLabels}
         className="mt-6 justify-center"
-        message={content.confirmationMessage
-          .replace("{orderId}", orderId)
-          .replace("{total}", total)}
       />
       <button
         type="button"

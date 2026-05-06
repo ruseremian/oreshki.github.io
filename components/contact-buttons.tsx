@@ -13,14 +13,12 @@ type ContactButtonsProps = {
     SiteContent["contact"],
     "instagramAria" | "telegramAria" | "whatsappAria"
   >;
-  message?: string;
   className?: string;
 };
 
 export function ContactButtons({
   labels,
   aria,
-  message = "Hello, I would like to order oreshki.",
   className = ""
 }: ContactButtonsProps) {
   return (
@@ -42,7 +40,7 @@ export function ContactButtons({
         {labels.telegram}
       </Button>
       <Button
-        href={createWhatsAppLink(message)}
+        href={createWhatsAppLink()}
         variant="secondary"
         aria-label={aria?.whatsappAria ?? labels.whatsapp}
       >

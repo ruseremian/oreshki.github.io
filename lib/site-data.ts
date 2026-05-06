@@ -17,8 +17,8 @@ export const links = {
   whatsappBase: WHATSAPP_URL
 };
 
-export function createWhatsAppLink(message: string) {
-  return `${links.whatsappBase}?text=${encodeURIComponent(message)}`;
+export function createWhatsAppLink() {
+  return links.whatsappBase;
 }
 
 export function createTelegramLink() {
@@ -200,7 +200,6 @@ export const siteContent = {
       confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали.",
       orderNumber: "Номер заказа",
       confirmationTotal: "Сумма заказа",
-      confirmationMessage: "Здравствуйте! Я только что оформила заказ {orderId} на сайте. Итого: {total}.",
       back: "Вернуться на сайт",
       contactLabels: {
         instagram: "Instagram",
@@ -378,7 +377,6 @@ export const siteContent = {
         "Votre commande a été reçue. Nous vous contacterons rapidement.",
       orderNumber: "Numéro de commande",
       confirmationTotal: "Total de la commande",
-      confirmationMessage: "Bonjour ! Je viens de passer la commande {orderId} sur le site. Total : {total}.",
       back: "Retour au site",
       contactLabels: {
         instagram: "Instagram",
