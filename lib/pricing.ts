@@ -1,7 +1,7 @@
 import type { DeliveryMethod } from "@/lib/order-types";
 import { productById, type ProductId } from "@/lib/products";
 
-export const DELIVERY_FEE = 3.99;
+export const DELIVERY_FEE = 3;
 
 export function getDeliveryFee(deliveryMethod: DeliveryMethod) {
   return deliveryMethod === "delivery" ? DELIVERY_FEE : 0;

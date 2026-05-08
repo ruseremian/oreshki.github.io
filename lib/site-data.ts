@@ -157,7 +157,7 @@ export const siteContent = {
       subtotal: "Промежуточный итог",
       deliveryFee: "Стоимость доставки",
       pickupFeeLabel: "Самовывоз бесплатно",
-      deliveryFeeLabel: "Доставка: 3,99 €",
+      deliveryFeeLabel: "Доставка: 3 €",
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
@@ -329,7 +329,7 @@ export const siteContent = {
       subtotal: "Sous-total",
       deliveryFee: "Frais de livraison",
       pickupFeeLabel: "Retrait gratuit",
-      deliveryFeeLabel: "Livraison: 3,99 €",
+      deliveryFeeLabel: "Livraison: 3 €",
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",
