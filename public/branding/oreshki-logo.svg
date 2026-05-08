@@ -1,38 +1,9 @@
-<svg width="520" height="190" viewBox="0 0 520 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oreshki logo">
-  <title>Oreshki logo</title>
-  <g transform="translate(210 12)">
-    <path
-      d="M50 4C26.2 4 8 24.1 8 51.2C8 86.6 36.4 110.7 50 139.8C63.6 110.7 92 86.6 92 51.2C92 24.1 73.8 4 50 4Z"
-      fill="#E8C99F"
-    />
-    <path
-      d="M50 15.5C32.2 15.5 19.1 30.9 19.1 51.2C19.1 79.4 40 99.6 50 120.7C60 99.6 80.9 79.4 80.9 51.2C80.9 30.9 67.8 15.5 50 15.5Z"
-      fill="#C88642"
-    />
-    <path
-      d="M50 15.5V120.7M37.2 25.4C43.5 30.7 47 38 47 46.1C47 58.7 38.7 69.8 25.8 76.7M62.8 25.4C56.5 30.7 53 38 53 46.1C53 58.7 61.3 69.8 74.2 76.7M25.3 52.5C34.2 54 42 58.2 47 64.4M74.7 52.5C65.8 54 58 58.2 53 64.4"
-      stroke="#442719"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M21.8 98.4C30.1 106.2 40 110.3 50 110.3C60 110.3 69.9 106.2 78.2 98.4"
-      stroke="#442719"
-      stroke-width="6"
-      stroke-linecap="round"
-    />
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="oreshkiLogoTitle">
+  <title id="oreshkiLogoTitle">Oreshki</title>
+  <g transform="translate(28 20)">
+    <path d="M40 4C61 4 76 21 76 42C76 66 59 82 40 82C21 82 4 66 4 42C4 21 19 4 40 4Z" fill="#F3E2C6"/>
+    <path d="M40 8C58 8 70 23 70 42C70 62 57 76 40 76C23 76 10 62 10 42C10 23 22 8 40 8Z" stroke="#8B532C" stroke-width="6"/>
+    <path d="M40 12V72M27 20C22 30 20 38 20 47C20 58 25 66 33 72M53 20C58 30 60 38 60 47C60 58 55 66 47 72M26 45H54" stroke="#5A321E" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <text
-    x="260"
-    y="170"
-    text-anchor="middle"
-    fill="#442719"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="55"
-    font-weight="600"
-    letter-spacing="10"
-  >
-    ORESHKI
-  </text>
+  <text x="130" y="75" fill="#4B2B1C" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600">Oreshki</text>
 </svg>

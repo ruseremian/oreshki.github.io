@@ -9,7 +9,11 @@ import type {
 import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
 import { normalizePhoneNumber } from "@/lib/phone";
 import { calculateOrderPricing } from "@/lib/pricing";
-import { productById, type ProductId } from "@/lib/products";
+import {
+  getProductOrderName,
+  productById,
+  type ProductId
+} from "@/lib/products";
 import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
@@ -60,7 +64,10 @@ export async function POST(request: NextRequest) {
 
       return {
         product_id: product.id,
-        product_name: product.name,
+        product_name: getProductOrderName(
+          product.id,
+          validation.data.language
+        ),
         quantity: item.quantity,
         unit_price: product.price,
         line_total: lineTotal
@@ -303,7 +310,8 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
       deliveryMethod: body.deliveryMethod!,
       address: body.address?.trim(),
       preferredDate: body.preferredDate,
-      notes: body.notes?.trim()
+      notes: body.notes?.trim(),
+      language: normalizeLanguage(body.language)
     },
     items
   };
@@ -323,6 +331,12 @@ function normalizeItems(items: CartOrderItem[] | undefined) {
           productById.has(item.productId)
       ) ?? []
   );
+}
+
+function normalizeLanguage(
+  language: CreateOrderRequest["language"]
+): NonNullable<CreateOrderRequest["language"]> {
+  return language === "ru" ? "ru" : "fr";
 }
 
 function safeLogBody(body: RawOrderBody) {

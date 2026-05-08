@@ -69,6 +69,7 @@ function LandingPage() {
         onOpenChange={setCartOpen}
         content={content.cart}
         products={content.products.items}
+        language={language}
       />
     </>
   );

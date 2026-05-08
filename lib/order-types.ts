@@ -25,6 +25,7 @@ export type CartOrderItem = {
 };
 
 export type CreateOrderRequest = CheckoutCustomer & {
+  language?: "fr" | "ru";
   items: CartOrderItem[];
 };
 

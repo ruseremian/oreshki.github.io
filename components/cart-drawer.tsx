@@ -20,7 +20,7 @@ import {
 } from "@/lib/phone";
 import { getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
-import type { ProductItem, SiteContent } from "@/lib/site-data";
+import type { Language, ProductItem, SiteContent } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 type CartDrawerProps = {
@@ -28,6 +28,7 @@ type CartDrawerProps = {
   onOpenChange: (open: boolean) => void;
   content: SiteContent["cart"];
   products: readonly ProductItem[];
+  language: Language;
 };
 
 type CheckoutValues = {
@@ -43,6 +44,12 @@ type CheckoutValues = {
 
 type CheckoutErrors = Partial<Record<keyof CheckoutValues | "items", string>>;
 
+type SubmittedItem = {
+  name: string;
+  quantity: number;
+  lineTotal: number;
+};
+
 const contactMethods: PreferredContactMethod[] = [
   "whatsapp",
   "telegram",
@@ -54,7 +61,8 @@ export function CartDrawer({
   open,
   onOpenChange,
   content,
-  products
+  products,
+  language
 }: CartDrawerProps) {
   const {
     items,
@@ -82,6 +90,7 @@ export function CartDrawer({
     deliveryFee: number;
     totalAmount: number;
   } | null>(null);
+  const [submittedItems, setSubmittedItems] = useState<SubmittedItem[]>([]);
   const [submitError, setSubmitError] = useState("");
 
   const cartProducts = useMemo(
@@ -154,6 +163,7 @@ export function CartDrawer({
         values.deliveryMethod === "delivery" ? values.address.trim() : undefined,
       preferredDate: values.preferredDate || undefined,
       notes: values.notes.trim() || undefined,
+      language,
       items: items.map((item) => ({
         productId: item.productId,
         quantity: item.quantity
@@ -190,6 +200,13 @@ export function CartDrawer({
         deliveryFee: data.deliveryFee,
         totalAmount: data.totalAmount
       });
+      setSubmittedItems(
+        cartProducts.map((entry) => ({
+          name: entry.product.fullName,
+          quantity: entry.quantity,
+          lineTotal: entry.product.basePrice * entry.quantity
+        }))
+      );
       clearCart();
     } catch {
       setSubmitError(content.errors.submit);
@@ -203,6 +220,7 @@ export function CartDrawer({
     setTimeout(() => {
       setOrderId(null);
       setSubmittedPricing(null);
+      setSubmittedItems([]);
       setSubmitError("");
       setErrors({});
     }, 250);
@@ -253,6 +271,7 @@ export function CartDrawer({
                 <Confirmation
                   orderId={orderId}
                   pricing={submittedPricing}
+                  items={submittedItems}
                   content={content}
                   onClose={closeAndReset}
                 />
@@ -269,7 +288,7 @@ export function CartDrawer({
                             <div className="flex items-start justify-between gap-4">
                               <div>
                                 <h3 className="font-serif text-xl text-cocoa">
-                                  {entry.product.title}
+                                  {entry.product.fullName}
                                 </h3>
                                 <p className="mt-1 text-sm text-cocoa/58">
                                   {formatPrice(entry.product.basePrice)}
@@ -508,6 +527,7 @@ export function CartDrawer({
 function Confirmation({
   orderId,
   pricing,
+  items,
   content,
   onClose
 }: {
@@ -517,6 +537,7 @@ function Confirmation({
     deliveryFee: number;
     totalAmount: number;
   } | null;
+  items: SubmittedItem[];
   content: SiteContent["cart"];
   onClose: () => void;
 }) {
@@ -537,6 +558,24 @@ function Confirmation({
       </p>
       {pricing ? (
         <div className="mt-5 rounded-2xl bg-cream px-4 py-3 text-sm text-cocoa/75">
+          {items.length ? (
+            <div className="mb-3 space-y-2 border-b border-almond/60 pb-3 text-left">
+              {items.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex items-start justify-between gap-4"
+                >
+                  <span className="font-medium text-cocoa">
+                    {item.name}
+                    <span className="ml-2 text-cocoa/55">x{item.quantity}</span>
+                  </span>
+                  <span className="font-semibold text-cocoa">
+                    {formatPrice(item.lineTotal)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : null}
           <div className="flex justify-between gap-4">
             <span>{content.subtotal}</span>
             <span className="font-semibold text-cocoa">

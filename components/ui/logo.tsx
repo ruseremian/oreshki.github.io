@@ -18,16 +18,16 @@ const sizeStyles: Record<
   }
 > = {
   xs: {
-    root: "h-11 w-32 sm:h-14 sm:w-40"
+    root: "h-10 w-44 sm:h-12 sm:w-52"
   },
   sm: {
-    root: "h-20 w-56"
+    root: "h-14 w-60"
   },
   md: {
-    root: "h-24 w-64"
+    root: "h-16 w-72"
   },
   lg: {
-    root: "h-28 w-72"
+    root: "h-20 w-80"
   }
 };
 

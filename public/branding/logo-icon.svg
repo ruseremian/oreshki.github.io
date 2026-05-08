@@ -1,7 +1,6 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oreshki artisan bakery logo">
-  <rect width="512" height="512" rx="128" fill="#fff8ea"/>
-  <path d="M256 60c-79 0-145 63-145 142 0 106 105 179 145 258 40-79 145-152 145-258 0-79-66-142-145-142Z" fill="#dfc29c"/>
-  <path d="M256 84c-66 0-121 52-121 118 0 91 86 153 121 218 35-65 121-127 121-218 0-66-55-118-121-118Z" fill="#b97836"/>
-  <path d="M256 84v336M195 141c25 16 40 41 40 67 0 40-37 71-72 86M317 141c-25 16-40 41-40 67 0 40 37 71 72 86M185 229c23 4 44 15 59 32M327 229c-23 4-44 15-59 32" stroke="#432719" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M148 367c30 28 69 44 108 44s78-16 108-44" stroke="#432719" stroke-width="23" stroke-linecap="round"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oreshki">
+  <rect width="512" height="512" rx="128" fill="#FFF8EA"/>
+  <path d="M256 92C323 92 371 146 371 216C371 294 316 346 256 346C196 346 141 294 141 216C141 146 189 92 256 92Z" fill="#F3E2C6"/>
+  <path d="M256 112C312 112 350 159 350 216C350 276 309 322 256 322C203 322 162 276 162 216C162 159 200 112 256 112Z" stroke="#8B532C" stroke-width="24"/>
+  <path d="M256 128V306M216 154C201 184 195 208 195 236C195 268 210 292 234 309M296 154C311 184 317 208 317 236C317 268 302 292 278 309M214 222H298" stroke="#5A321E" stroke-width="20" stroke-linecap="round"/>
 </svg>

@@ -78,12 +78,15 @@ export const siteContent = {
       title: "Три формата для знакомства, семьи и друзей",
       description:
         "Выберите формат для пробы, классический набор для дома или большой формат для щедрого стола.",
+      customQuantityNote:
+        "Нужен индивидуальный формат? Напишите нам напрямую в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
       items: [
         {
           id: "pieces12",
           title: "12 pièces",
+          fullName: productById.get("pieces12")!.orderName.ru,
           quantity: "12 штук",
           positioning: "Формат для пробы",
           description: "Формат для пробы — 2 коробки по 6 штук.",
@@ -95,6 +98,7 @@ export const siteContent = {
         {
           id: "pieces24",
           title: "24 pièces",
+          fullName: productById.get("pieces24")!.orderName.ru,
           quantity: "24 штуки",
           positioning: "Классический формат",
           description: "Классический формат — идеально для семьи или друзей.",
@@ -106,9 +110,10 @@ export const siteContent = {
         {
           id: "pieces48",
           title: "48 pièces",
+          fullName: productById.get("pieces48")!.orderName.ru,
           quantity: "48 штук",
           positioning: "Большой формат",
-          description: "Большой формат — без специальной подарочной упаковки.",
+          description: "Большой формат поставляется в двух отдельных упаковках.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
@@ -250,12 +255,15 @@ export const siteContent = {
       title: "Trois formats pour découvrir et partager",
       description:
         "Choisissez le format découverte, le format classique pour la maison ou le grand format généreux.",
+      customQuantityNote:
+        "Besoin d’une quantité personnalisée ? Contactez-nous directement via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
       items: [
         {
           id: "pieces12",
           title: "12 pièces",
+          fullName: productById.get("pieces12")!.orderName.fr,
           quantity: "12 pièces",
           positioning: "Format découverte",
           description: "Format découverte — 2 boîtes de 6 pièces.",
@@ -267,6 +275,7 @@ export const siteContent = {
         {
           id: "pieces24",
           title: "24 pièces",
+          fullName: productById.get("pieces24")!.orderName.fr,
           quantity: "24 pièces",
           positioning: "Format classique",
           description: "Format classique — idéal à partager.",
@@ -278,9 +287,10 @@ export const siteContent = {
         {
           id: "pieces48",
           title: "48 pièces",
+          fullName: productById.get("pieces48")!.orderName.fr,
           quantity: "48 pièces",
           positioning: "Grand format généreux",
-          description: "Grand format généreux — sans emballage spécial.",
+          description: "Grand format généreux — livré en deux emballages séparés.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,

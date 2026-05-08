@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
+import { INSTAGRAM_URL, TELEGRAM_URL, WHATSAPP_URL } from "@/lib/social-links";
 import { ProductId, SiteContent } from "@/lib/site-data";
 
 type ProductsProps = {
@@ -50,6 +51,10 @@ export function Products({ content, onOrder }: ProductsProps) {
           ))}
         </div>
 
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-cocoa/68">
+          <LinkedCustomQuantityNote text={content.customQuantityNote} />
+        </p>
+
         <AnimatePresence>
           {addedProductId ? (
             <motion.div
@@ -65,5 +70,35 @@ export function Products({ content, onOrder }: ProductsProps) {
         </AnimatePresence>
       </div>
     </section>
+  );
+}
+
+function LinkedCustomQuantityNote({ text }: { text: string }) {
+  const links: Record<string, string> = {
+    Instagram: INSTAGRAM_URL,
+    Telegram: TELEGRAM_URL,
+    WhatsApp: WHATSAPP_URL
+  };
+
+  return (
+    <>
+      {text.split(/(Instagram|Telegram|WhatsApp)/).map((part, index) => {
+        const href = links[part];
+
+        return href ? (
+          <a
+            key={`${part}-${index}`}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-caramel underline decoration-caramel/30 underline-offset-4 transition hover:text-cocoa"
+          >
+            {part}
+          </a>
+        ) : (
+          part
+        );
+      })}
+    </>
   );
 }
