@@ -35,6 +35,16 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     alternateLocale: ["ru_RU"],
     images: ["/images/oreshki-hero.jpg"]
+  },
+  icons: {
+    icon: [
+      {
+        url: "/branding/logo-icon.svg",
+        type: "image/svg+xml"
+      }
+    ],
+    shortcut: "/branding/logo-icon.svg",
+    apple: "/branding/logo-icon.svg"
   }
 };
 

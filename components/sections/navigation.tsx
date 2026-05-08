@@ -4,6 +4,7 @@ import { ShoppingBag } from "lucide-react";
 
 import { useCart } from "@/components/cart-provider";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
 import { Language, languages, SiteContent } from "@/lib/site-data";
 
@@ -25,16 +26,19 @@ export function Navigation({
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-cocoa/10 bg-cream/95 shadow-sm backdrop-blur-xl">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8"
         aria-label={content.aria}
       >
-        <a href="#" className="group flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-cocoa text-sm font-bold text-cream transition group-hover:bg-caramel">
-            О
-          </span>
-          <span className="hidden font-serif text-lg font-semibold text-cocoa sm:block">
-            {content.brand}
-          </span>
+        <a
+          href="#"
+          className="group flex min-w-0 items-center text-cocoa transition hover:text-caramel"
+        >
+          <Logo size="xs" showSubtitle={false} className="sm:hidden" />
+          <Logo
+            size="xs"
+            showSubtitle
+            className="hidden transition group-hover:text-caramel sm:inline-flex"
+          />
         </a>
 
         <div className="hidden items-center gap-2 md:flex">

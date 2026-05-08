@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 
 import type { AdminOrder } from "./page";
+import { Logo } from "@/components/ui/logo";
 import {
   ORDER_STATUSES,
   ORDER_STATUS_LABELS,
@@ -68,6 +69,9 @@ export function LoginScreen() {
         onSubmit={handleSubmit}
         className="w-full max-w-md rounded-lg border border-almond/60 bg-white/85 p-6 shadow-soft"
       >
+        <div className="mb-6 flex justify-center">
+          <Logo size="md" showSubtitle />
+        </div>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-caramel">
           Administration
         </p>

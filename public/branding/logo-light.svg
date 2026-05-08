@@ -1,0 +1,9 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oreshki artisan bakery logo">
+  <path d="M480 72c-79 0-145 63-145 142 0 106 105 179 145 258 40-79 145-152 145-258 0-79-66-142-145-142Z" fill="#fff8ea"/>
+  <path d="M480 96c-66 0-121 52-121 118 0 91 86 153 121 218 35-65 121-127 121-218 0-66-55-118-121-118Z" fill="#f3e3c7"/>
+  <path d="M480 96v336M419 153c25 16 40 41 40 67 0 40-37 71-72 86M541 153c-25 16-40 41-40 67 0 40 37 71 72 86M409 241c23 4 44 15 59 32M551 241c-23 4-44 15-59 32" stroke="#fff8ea" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M372 379c30 28 69 44 108 44s78-16 108-44" stroke="#fff8ea" stroke-width="23" stroke-linecap="round"/>
+  <text x="480" y="554" text-anchor="middle" fill="#fff8ea" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="600" letter-spacing="14">ORESHKI</text>
+  <text x="480" y="626" text-anchor="middle" fill="#f3e3c7" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8">DOUCEUR ARTISANALE</text>
+  <text x="480" y="663" text-anchor="middle" fill="#f3e3c7" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8">FAITE MAISON</text>
+</svg>

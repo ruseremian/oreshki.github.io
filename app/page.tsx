@@ -56,7 +56,7 @@ function LandingPage() {
         onLanguageChange={setLanguage}
         onCartOpen={() => setCartOpen(true)}
       />
-      <main className="pt-[65px]">
+      <main className="pt-[72px] sm:pt-[86px]">
         <Hero content={content.hero} onOrder={scrollToProducts} />
         <Products content={content.products} onOrder={addProductToCart} />
         <About content={content.about} />
