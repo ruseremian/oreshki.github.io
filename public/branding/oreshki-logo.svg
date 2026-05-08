@@ -1,0 +1,38 @@
+<svg width="520" height="190" viewBox="0 0 520 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oreshki logo">
+  <title>Oreshki logo</title>
+  <g transform="translate(210 12)">
+    <path
+      d="M50 4C26.2 4 8 24.1 8 51.2C8 86.6 36.4 110.7 50 139.8C63.6 110.7 92 86.6 92 51.2C92 24.1 73.8 4 50 4Z"
+      fill="#E8C99F"
+    />
+    <path
+      d="M50 15.5C32.2 15.5 19.1 30.9 19.1 51.2C19.1 79.4 40 99.6 50 120.7C60 99.6 80.9 79.4 80.9 51.2C80.9 30.9 67.8 15.5 50 15.5Z"
+      fill="#C88642"
+    />
+    <path
+      d="M50 15.5V120.7M37.2 25.4C43.5 30.7 47 38 47 46.1C47 58.7 38.7 69.8 25.8 76.7M62.8 25.4C56.5 30.7 53 38 53 46.1C53 58.7 61.3 69.8 74.2 76.7M25.3 52.5C34.2 54 42 58.2 47 64.4M74.7 52.5C65.8 54 58 58.2 53 64.4"
+      stroke="#442719"
+      stroke-width="6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M21.8 98.4C30.1 106.2 40 110.3 50 110.3C60 110.3 69.9 106.2 78.2 98.4"
+      stroke="#442719"
+      stroke-width="6"
+      stroke-linecap="round"
+    />
+  </g>
+  <text
+    x="260"
+    y="170"
+    text-anchor="middle"
+    fill="#442719"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="55"
+    font-weight="600"
+    letter-spacing="10"
+  >
+    ORESHKI
+  </text>
+</svg>
