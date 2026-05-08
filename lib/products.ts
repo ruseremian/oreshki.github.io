@@ -17,7 +17,7 @@ export const products: Product[] = [
     name: "Классические орешки",
     description:
       "Хрустящие скорлупки, нежная начинка и настоящий домашний вкус.",
-    price: 15.99,
+    price: 16,
     image: "/images/oreshki-classic.jpg",
     category: "cookies",
     available: true
@@ -27,7 +27,7 @@ export const products: Product[] = [
     name: "Подарочная коробка",
     description:
       "Элегантная коробка для тёплого подарка, праздника или красивого жеста.",
-    price: 25.99,
+    price: 32,
     image: "/images/oreshki-gift-box.jpg",
     category: "gift",
     available: true
@@ -37,7 +37,7 @@ export const products: Product[] = [
     name: "Мини-набор",
     description:
       "Небольшой формат, чтобы попробовать орешки или добавить сладкий акцент к кофе.",
-    price: 6.99,
+    price: 8,
     image: "/images/oreshki-mini.jpg",
     category: "cookies",
     available: true
@@ -49,6 +49,8 @@ export const productById = new Map(products.map((product) => [product.id, produc
 export function formatPrice(amount: number) {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
-    currency: "EUR"
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
   }).format(amount);
 }

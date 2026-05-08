@@ -258,7 +258,7 @@ function formatDeliveryMethod(deliveryMethod: DeliveryMethod) {
 
 function formatEuros(value: number) {
   return new Intl.NumberFormat("fr-FR", {
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 2
   }).format(value);
 }

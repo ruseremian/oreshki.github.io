@@ -581,7 +581,9 @@ function MobileDetail({ label, value }: { label: string; value: string }) {
 function formatCurrency(value: number) {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
-    currency: "EUR"
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
   }).format(value);
 }
 
