@@ -34,7 +34,6 @@ type CartDrawerProps = {
 type CheckoutValues = {
   customerName: string;
   phone: string;
-  email: string;
   preferredContactMethod: PreferredContactMethod;
   deliveryMethod: DeliveryMethod;
   address: string;
@@ -72,14 +71,14 @@ export function CartDrawer({
     removeItem,
     clearCart
   } = useCart();
+  const minimumPreferredDate = useMemo(() => getTomorrowDateInputValue(), []);
   const [values, setValues] = useState<CheckoutValues>({
     customerName: "",
     phone: "",
-    email: "",
     preferredContactMethod: "whatsapp",
     deliveryMethod: "pickup",
     address: "",
-    preferredDate: "",
+    preferredDate: minimumPreferredDate,
     notes: ""
   });
   const [errors, setErrors] = useState<CheckoutErrors>({});
@@ -156,7 +155,6 @@ export function CartDrawer({
     const payload: CreateOrderRequest = {
       customerName: values.customerName.trim(),
       phone: normalizedPhone,
-      email: values.email.trim() || undefined,
       preferredContactMethod: values.preferredContactMethod,
       deliveryMethod: values.deliveryMethod,
       address:
@@ -379,8 +377,13 @@ export function CartDrawer({
                           {content.checkout}
                         </h3>
                         <div className="grid gap-4 sm:grid-cols-2">
-                          <Field label={content.name} error={errors.customerName}>
+                          <Field
+                            label={content.name}
+                            error={errors.customerName}
+                            required
+                          >
                             <input
+                              required
                               value={values.customerName}
                               onChange={(event) =>
                                 updateValue("customerName", event.target.value)
@@ -389,8 +392,9 @@ export function CartDrawer({
                               placeholder={content.namePlaceholder}
                             />
                           </Field>
-                          <Field label={content.phone} error={errors.phone}>
+                          <Field label={content.phone} error={errors.phone} required>
                             <input
+                              required
                               type="tel"
                               inputMode="tel"
                               autoComplete="tel"
@@ -408,18 +412,6 @@ export function CartDrawer({
                           </Field>
                         </div>
 
-                        <Field label={content.email}>
-                          <input
-                            type="email"
-                            value={values.email}
-                            onChange={(event) =>
-                              updateValue("email", event.target.value)
-                            }
-                            className={inputClass(false)}
-                            placeholder={content.emailPlaceholder}
-                          />
-                        </Field>
-
                         <Field label={content.contactMethod}>
                           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                             {contactMethods.map((method) => (
@@ -436,7 +428,7 @@ export function CartDrawer({
                           </div>
                         </Field>
 
-                        <Field label={content.deliveryMethod}>
+                        <Field label={content.deliveryMethod} required>
                           <div className="grid grid-cols-2 gap-2">
                             <ChoiceButton
                               active={values.deliveryMethod === "pickup"}
@@ -456,8 +448,13 @@ export function CartDrawer({
                         </Field>
 
                         {values.deliveryMethod === "delivery" ? (
-                          <Field label={content.address} error={errors.address}>
+                          <Field
+                            label={content.address}
+                            error={errors.address}
+                            required
+                          >
                             <input
+                              required
                               value={values.address}
                               onChange={(event) =>
                                 updateValue("address", event.target.value)
@@ -472,9 +469,16 @@ export function CartDrawer({
                           <Field label={content.preferredDate}>
                             <input
                               type="date"
+                              min={minimumPreferredDate}
                               value={values.preferredDate}
                               onChange={(event) =>
-                                updateValue("preferredDate", event.target.value)
+                                updateValue(
+                                  "preferredDate",
+                                  normalizePreferredDate(
+                                    event.target.value,
+                                    minimumPreferredDate
+                                  )
+                                )
                               }
                               className={inputClass(false)}
                             />
@@ -651,16 +655,21 @@ function QuantityButton({
 
 function Field({
   label,
+  required = false,
   error,
   children
 }: {
   label: string;
+  required?: boolean;
   error?: string;
   children: ReactNode;
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-semibold text-cocoa">{label}</span>
+      <span className="mb-2 block text-sm font-semibold text-cocoa">
+        {label}
+        {required ? <span aria-hidden="true"> *</span> : null}
+      </span>
       {children}
       {error ? <span className="mt-2 block text-sm text-rose">{error}</span> : null}
     </label>
@@ -697,4 +706,19 @@ function inputClass(hasError: boolean) {
     "w-full rounded-2xl border bg-white/72 px-4 py-3 text-sm text-cocoa shadow-sm transition placeholder:text-cocoa/35 focus:border-caramel focus:outline-none focus:ring-4 focus:ring-caramel/10",
     hasError ? "border-rose/70" : "border-cocoa/12"
   );
+}
+
+function getTomorrowDateInputValue() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const year = tomorrow.getFullYear();
+  const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
+  const day = String(tomorrow.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function normalizePreferredDate(value: string, minimumDate: string) {
+  return value && value < minimumDate ? minimumDate : value;
 }

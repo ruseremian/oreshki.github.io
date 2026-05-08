@@ -11,7 +11,6 @@ export type DeliveryMethod = "pickup" | "delivery";
 export type CheckoutCustomer = {
   customerName: string;
   phone: string;
-  email?: string;
   preferredContactMethod: PreferredContactMethod;
   deliveryMethod: DeliveryMethod;
   address?: string;

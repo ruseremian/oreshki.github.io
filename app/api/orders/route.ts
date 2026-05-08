@@ -28,6 +28,7 @@ type FieldErrors = NonNullable<
 
 type RawOrderBody = Partial<CreateOrderRequest> & {
   customer_name?: string;
+  email?: string;
   preferred_contact_method?: string;
   delivery_method?: string;
   preferred_date?: string;
@@ -92,7 +93,7 @@ export async function POST(request: NextRequest) {
       .insert({
         customer_name: validation.data.customerName,
         phone: validation.data.phone,
-        email: validation.data.email || null,
+        email: null,
         preferred_contact_method: validation.data.preferredContactMethod,
         delivery_method: validation.data.deliveryMethod,
         address:
@@ -234,7 +235,6 @@ function normalizeBody(body: RawOrderBody): Partial<CreateOrderRequest> {
   return {
     customerName: body.customerName ?? body.customer_name,
     phone: body.phone,
-    email: body.email,
     preferredContactMethod:
       body.preferredContactMethod ??
       (body.preferred_contact_method as CheckoutCustomer["preferredContactMethod"]),
@@ -305,7 +305,6 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
     data: {
       customerName: body.customerName!.trim(),
       phone: normalizedPhone!,
-      email: body.email?.trim(),
       preferredContactMethod: body.preferredContactMethod!,
       deliveryMethod: body.deliveryMethod!,
       address: body.address?.trim(),
