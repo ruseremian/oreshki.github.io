@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 
 const metadataTitle = "Oreshki faits maison au caramel | Dessert artisanal";
 const metadataDescription =
-  "Découvrez des oreshki faits maison : biscuits croustillants en forme de noix, garnis de lait concentré caramélisé. Petites séries, coffrets cadeaux et commande en ligne.";
+  "Découvrez des oreshki faits maison : biscuits croustillants en forme de noix, garnis de lait concentré caramélisé. Petites séries, formats 12, 24 et 48 pièces, commande en ligne.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://oreshki-github-io.vercel.app"),

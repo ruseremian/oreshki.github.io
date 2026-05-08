@@ -1,5 +1,5 @@
-export type ProductCategory = "cookies" | "gift";
-export type ProductId = "classic" | "gift" | "mini";
+export type ProductCategory = "cookies";
+export type ProductId = "pieces12" | "pieces24" | "pieces48";
 
 export type Product = {
   id: ProductId;
@@ -13,32 +13,29 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "classic",
-    name: "Классические орешки",
-    description:
-      "Хрустящие скорлупки, нежная начинка и настоящий домашний вкус.",
-    price: 16,
-    image: "/images/oreshki-classic.jpg",
+    id: "pieces12",
+    name: "12 pièces",
+    description: "Формат для пробы — 2 коробки по 6 штук.",
+    price: 8,
+    image: "/images/oreshki-12.jpg",
     category: "cookies",
     available: true
   },
   {
-    id: "gift",
-    name: "Подарочная коробка",
-    description:
-      "Элегантная коробка для тёплого подарка, праздника или красивого жеста.",
-    price: 32,
-    image: "/images/oreshki-gift-box.jpg",
-    category: "gift",
+    id: "pieces24",
+    name: "24 pièces",
+    description: "Классический формат — идеально для семьи или друзей.",
+    price: 16,
+    image: "/images/oreshki-24.jpg",
+    category: "cookies",
     available: true
   },
   {
-    id: "mini",
-    name: "Мини-набор",
-    description:
-      "Небольшой формат, чтобы попробовать орешки или добавить сладкий акцент к кофе.",
-    price: 8,
-    image: "/images/oreshki-mini.jpg",
+    id: "pieces48",
+    name: "48 pièces",
+    description: "Большой формат — без специальной подарочной упаковки.",
+    price: 32,
+    image: "/images/oreshki-48.jpg",
     category: "cookies",
     available: true
   }

@@ -31,15 +31,15 @@ export const languages: { code: Language; label: string }[] = [
 ];
 
 const productImages: Record<ProductId, string> = {
-  classic: "/images/oreshki-classic.jpg",
-  gift: "/images/oreshki-gift-box.jpg",
-  mini: "/images/oreshki-mini.jpg"
+  pieces12: "/images/oreshki-12.jpg",
+  pieces24: "/images/oreshki-24.jpg",
+  pieces48: "/images/oreshki-48.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
-  classic: productById.get("classic")!.price,
-  gift: productById.get("gift")!.price,
-  mini: productById.get("mini")!.price
+  pieces12: productById.get("pieces12")!.price,
+  pieces24: productById.get("pieces24")!.price,
+  pieces48: productById.get("pieces48")!.price
 };
 
 export const siteContent = {
@@ -70,52 +70,49 @@ export const siteContent = {
         "Приготовление за 24–48 ч",
         "Самовывоз или локальная доставка",
         "Оплата при заказе или получении",
-        "Для коробок рекомендуем предзаказ"
+        "Предзаказ помогает подготовить свежую партию"
       ]
     },
     products: {
       eyebrow: "Ассортимент",
-      title: "Три формата для знакомства, семьи и подарка",
+      title: "Три формата для знакомства, семьи и друзей",
       description:
-        "Выберите маленький набор к кофе, фирменный формат для дома или элегантную коробку для тёплого подарка.",
+        "Выберите формат для пробы, классический набор для дома или большой формат для щедрого стола.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
       items: [
         {
-          id: "mini",
-          title: "Мини-набор",
-          quantity: "~10 штук",
-          positioning: "Идеально для знакомства",
-          description:
-            "Небольшой формат, чтобы попробовать орешки или добавить сладкий акцент к кофе.",
-          price: formatPrice(productBasePrices.mini),
-          basePrice: productBasePrices.mini,
-          image: productImages.mini,
-          imageAlt: "Небольшая порция орешков со сгущёнкой рядом с чашкой кофе"
+          id: "pieces12",
+          title: "12 pièces",
+          quantity: "12 штук",
+          positioning: "Формат для пробы",
+          description: "Формат для пробы — 2 коробки по 6 штук.",
+          price: formatPrice(productBasePrices.pieces12),
+          basePrice: productBasePrices.pieces12,
+          image: productImages.pieces12,
+          imageAlt: "Две коробки домашних орешков со сгущёнкой по 6 штук"
         },
         {
-          id: "classic",
-          title: "Классические орешки",
-          quantity: "~25 штук",
-          positioning: "Фирменный формат",
-          description:
-            "Наш фирменный формат: хрустящие скорлупки, нежная начинка и настоящий домашний вкус.",
-          price: formatPrice(productBasePrices.classic),
-          basePrice: productBasePrices.classic,
-          image: productImages.classic,
-          imageAlt: "Орешки со сгущёнкой крупным планом, один орешек раскрыт с карамельной начинкой"
+          id: "pieces24",
+          title: "24 pièces",
+          quantity: "24 штуки",
+          positioning: "Классический формат",
+          description: "Классический формат — идеально для семьи или друзей.",
+          price: formatPrice(productBasePrices.pieces24),
+          basePrice: productBasePrices.pieces24,
+          image: productImages.pieces24,
+          imageAlt: "Домашние орешки со сгущёнкой в формате 24 штуки"
         },
         {
-          id: "gift",
-          title: "Подарочная коробка",
-          quantity: "~40 штук + упаковка",
-          positioning: "Лучше всего для подарка",
-          description:
-            "Элегантная коробка для тёплого подарка, праздника или красивого жеста.",
-          price: formatPrice(productBasePrices.gift),
-          basePrice: productBasePrices.gift,
-          image: productImages.gift,
-          imageAlt: "Бежевая подарочная коробка с домашними орешками и лентой"
+          id: "pieces48",
+          title: "48 pièces",
+          quantity: "48 штук",
+          positioning: "Большой формат",
+          description: "Большой формат — без специальной подарочной упаковки.",
+          price: formatPrice(productBasePrices.pieces48),
+          basePrice: productBasePrices.pieces48,
+          image: productImages.pieces48,
+          imageAlt: "Большой формат домашних орешков со сгущёнкой 48 штук"
         }
       ]
     },
@@ -130,7 +127,7 @@ export const siteContent = {
     },
     reviews: {
       eyebrow: "Отзывы",
-      title: "Тёплые слова после первой коробки",
+      title: "Тёплые слова после первой порции",
       ratingLabel: "5 из 5 звёзд",
       items: [
         {
@@ -139,7 +136,7 @@ export const siteContent = {
         },
         {
           name: "Марк",
-          text: "Заказывали на день рождения, всё исчезло за несколько минут. Коробка выглядела очень красиво."
+          text: "Заказывали на день рождения, всё исчезло за несколько минут. Все остались довольны."
         },
         {
           name: "Елена",
@@ -184,7 +181,7 @@ export const siteContent = {
       addressPlaceholder: "Улица, дом, город",
       preferredDate: "Желаемая дата",
       notes: "Комментарий",
-      notesPlaceholder: "Время, упаковка, пожелания",
+      notesPlaceholder: "Время, пожелания",
       submit: "Отправить заказ",
       submitting: "Отправляем...",
       errors: {
@@ -212,7 +209,7 @@ export const siteContent = {
       description:
         "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим наличие, дату приготовления и варианты самовывоза или доставки.",
       note:
-        "Для подарочных коробок и праздничных заказов лучше написать заранее: так мы успеем подготовить свежую партию и аккуратную упаковку.",
+        "Для больших и праздничных заказов лучше написать заранее: так мы успеем подготовить свежую партию.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -245,52 +242,49 @@ export const siteContent = {
         "Préparation sous 24–48h",
         "Retrait ou livraison locale",
         "Paiement à la commande ou à la réception",
-        "Précommande conseillée pour les coffrets"
+        "Précommande conseillée pour les grandes quantités"
       ]
     },
     products: {
       eyebrow: "Assortiment",
-      title: "Trois formats pour découvrir, partager ou offrir",
+      title: "Trois formats pour découvrir et partager",
       description:
-        "Choisissez le mini format pour goûter, notre boîte signature pour la maison ou un coffret élégant pour offrir.",
+        "Choisissez le format découverte, le format classique pour la maison ou le grand format généreux.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
       items: [
         {
-          id: "mini",
-          title: "Mini set",
-          quantity: "~10 pièces",
-          positioning: "Idéal pour découvrir",
-          description:
-            "Le petit format parfait pour découvrir les oreshki ou accompagner un café.",
-          price: formatPrice(productBasePrices.mini),
-          basePrice: productBasePrices.mini,
-          image: productImages.mini,
-          imageAlt: "Petit format d’oreshki au caramel près d’une tasse de café"
+          id: "pieces12",
+          title: "12 pièces",
+          quantity: "12 pièces",
+          positioning: "Format découverte",
+          description: "Format découverte — 2 boîtes de 6 pièces.",
+          price: formatPrice(productBasePrices.pieces12),
+          basePrice: productBasePrices.pieces12,
+          image: productImages.pieces12,
+          imageAlt: "Deux boîtes d’oreshki faits maison de 6 pièces chacune"
         },
         {
-          id: "classic",
-          title: "Classic",
-          quantity: "~25 pièces",
-          positioning: "Format signature",
-          description:
-            "Notre format signature : des coques croustillantes, une garniture fondante et le vrai goût maison.",
-          price: formatPrice(productBasePrices.classic),
-          basePrice: productBasePrices.classic,
-          image: productImages.classic,
-          imageAlt: "Oreshki au caramel en gros plan avec un biscuit ouvert montrant la garniture"
+          id: "pieces24",
+          title: "24 pièces",
+          quantity: "24 pièces",
+          positioning: "Format classique",
+          description: "Format classique — idéal à partager.",
+          price: formatPrice(productBasePrices.pieces24),
+          basePrice: productBasePrices.pieces24,
+          image: productImages.pieces24,
+          imageAlt: "Format 24 pièces d’oreshki faits maison au caramel"
         },
         {
-          id: "gift",
-          title: "Gift box",
-          quantity: "~40 pièces + packaging",
-          positioning: "Parfait à offrir",
-          description:
-            "Un coffret élégant pour offrir une douceur artisanale, rare et généreuse.",
-          price: formatPrice(productBasePrices.gift),
-          basePrice: productBasePrices.gift,
-          image: productImages.gift,
-          imageAlt: "Coffret cadeau beige rempli d’oreshki au caramel avec un ruban"
+          id: "pieces48",
+          title: "48 pièces",
+          quantity: "48 pièces",
+          positioning: "Grand format généreux",
+          description: "Grand format généreux — sans emballage spécial.",
+          price: formatPrice(productBasePrices.pieces48),
+          basePrice: productBasePrices.pieces48,
+          image: productImages.pieces48,
+          imageAlt: "Grand format 48 pièces d’oreshki faits maison au caramel"
         }
       ]
     },
@@ -305,7 +299,7 @@ export const siteContent = {
     },
     reviews: {
       eyebrow: "Avis",
-      title: "Des mots doux après la première boîte",
+      title: "Des mots doux après la première dégustation",
       ratingLabel: "5 étoiles sur 5",
       items: [
         {
@@ -314,7 +308,7 @@ export const siteContent = {
         },
         {
           name: "Marc",
-          text: "Commandés pour un anniversaire, tout est parti en quelques minutes. Le coffret était très élégant."
+          text: "Commandés pour un anniversaire, tout est parti en quelques minutes. Tout le monde s’est régalé."
         },
         {
           name: "Elena",
@@ -330,7 +324,7 @@ export const siteContent = {
       quantity: "Quantité",
       emptyTitle: "Votre panier est vide",
       emptyText:
-        "Ajoutez un coffret depuis la section produits, puis finalisez votre commande ici.",
+        "Ajoutez un format depuis la section produits, puis finalisez votre commande ici.",
       total: "Total",
       subtotal: "Sous-total",
       deliveryFee: "Frais de livraison",
@@ -359,7 +353,7 @@ export const siteContent = {
       addressPlaceholder: "Rue, numéro, ville",
       preferredDate: "Date souhaitée",
       notes: "Notes",
-      notesPlaceholder: "Horaire, emballage, préférences",
+      notesPlaceholder: "Horaire, préférences",
       submit: "Envoyer la commande",
       submitting: "Envoi...",
       errors: {
@@ -388,7 +382,7 @@ export const siteContent = {
       description:
         "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons la disponibilité, la date de préparation et les options de retrait ou livraison.",
       note:
-        "Pour les coffrets cadeaux et les commandes de fête, la précommande nous aide à préparer une fournée fraîche et un emballage soigné.",
+        "Pour les grandes quantités et les commandes de fête, la précommande nous aide à préparer une fournée fraîche.",
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"
