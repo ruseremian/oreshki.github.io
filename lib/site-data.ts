@@ -136,15 +136,15 @@ export const siteContent = {
       ratingLabel: "5 из 5 звёзд",
       items: [
         {
-          name: "Анна",
+          name: "Ruslan",
           text: "Тот самый вкус из детства. Скорлупки хрустящие, начинки много — невозможно остановиться."
         },
         {
-          name: "Марк",
+          name: "Danièle",
           text: "Заказывали на день рождения, всё исчезло за несколько минут. Все остались довольны."
         },
         {
-          name: "Елена",
+          name: "Charlotte",
           text: "Свежие, не приторные и очень аккуратные. Видно, что сделано вручную."
         }
       ]
@@ -313,15 +313,15 @@ export const siteContent = {
       ratingLabel: "5 étoiles sur 5",
       items: [
         {
-          name: "Anna",
+          name: "Ruslan",
           text: "Exactement le goût de mon enfance. Les coques sont croustillantes, la garniture est généreuse… impossible de s’arrêter."
         },
         {
-          name: "Marc",
+          name: "Danièle",
           text: "Commandés pour un anniversaire, tout est parti en quelques minutes. Tout le monde s’est régalé."
         },
         {
-          name: "Elena",
+          name: "Charlotte",
           text: "Très frais, pas trop sucré, et vraiment fait avec soin. On sent la différence avec un dessert industriel."
         }
       ]
