@@ -18,16 +18,16 @@ const sizeStyles: Record<
   }
 > = {
   xs: {
-    root: "h-10 w-[3.75rem] sm:h-12 sm:w-[4.5rem]"
+    root: "h-11 w-28 sm:h-14 sm:w-36"
   },
   sm: {
-    root: "h-14 w-[5.25rem]"
+    root: "h-20 w-48"
   },
   md: {
-    root: "h-20 w-[7.5rem]"
+    root: "h-24 w-56"
   },
   lg: {
-    root: "h-24 w-36"
+    root: "h-28 w-64"
   }
 };
 
@@ -49,8 +49,8 @@ export function Logo({
         src="/branding/oreshki-logo.png"
         alt="Oreshki logo"
         fill
-        sizes="(max-width: 640px) 60px, 120px"
-        className="object-contain"
+        sizes="(max-width: 640px) 112px, 224px"
+        className="translate-y-[28%] scale-[3.2] object-contain"
         priority={size === "xs"}
       />
     </span>
