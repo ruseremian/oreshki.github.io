@@ -322,7 +322,7 @@ export const siteContent = {
         },
         {
           name: "Charlotte",
-          text: "Très frais, pas trop sucré, et vraiment fait avec soin. On sent la différence avec un dessert industriel."
+          text: "Très frais et vraiment fait avec soin. On sent la différence avec un dessert industriel."
         }
       ]
     },
