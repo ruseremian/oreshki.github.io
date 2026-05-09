@@ -26,7 +26,7 @@ export function Navigation({
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-cocoa/10 bg-cream/95 shadow-sm backdrop-blur-xl">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:px-6 lg:px-8"
         aria-label={content.aria}
       >
         <a
@@ -53,7 +53,7 @@ export function Navigation({
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <div
             className="flex rounded-full border border-cocoa/10 bg-white/55 p-1 shadow-sm"
             role="group"
@@ -65,7 +65,7 @@ export function Navigation({
                 type="button"
                 onClick={() => onLanguageChange(item.code)}
                 className={cn(
-                  "h-8 min-w-10 rounded-full px-3 text-xs font-bold transition",
+                  "h-8 min-w-8 rounded-full px-2 text-xs font-bold transition sm:min-w-10 sm:px-3",
                   language === item.code
                     ? "bg-cocoa text-cream shadow-sm"
                     : "text-cocoa/65 hover:bg-cocoa/5 hover:text-cocoa"

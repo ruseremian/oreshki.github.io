@@ -26,7 +26,7 @@ export function ProductCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="group overflow-hidden rounded-3xl border border-cocoa/8 bg-cream shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow"
+      className="group min-w-0 overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow sm:rounded-3xl"
     >
       <div className="overflow-hidden">
         <Image
@@ -35,20 +35,20 @@ export function ProductCard({
           width={900}
           height={700}
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="aspect-[5/4] w-full object-cover transition duration-700 group-hover:scale-105"
+          className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105 sm:aspect-[5/4]"
         />
       </div>
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <div className="mb-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-caramel">
+          <span className="max-w-full rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-caramel sm:tracking-[0.14em]">
             {product.positioning}
           </span>
           <span className="rounded-full border border-cocoa/10 bg-white/60 px-3 py-1 text-xs font-semibold text-cocoa/62">
             {product.quantity}
           </span>
         </div>
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="font-serif text-2xl leading-tight text-cocoa">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h3 className="min-w-0 flex-1 font-serif text-2xl leading-tight text-cocoa">
             {product.title}
           </h3>
           <p className="shrink-0 rounded-full bg-caramel/12 px-3 py-1 text-sm font-bold text-caramel">

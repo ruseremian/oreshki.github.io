@@ -11,13 +11,13 @@ type ReviewsProps = {
 
 export function Reviews({ content }: ReviewsProps) {
   return (
-    <section id="reviews" className="scroll-mt-24 bg-cocoa py-12 text-cream sm:py-16 lg:py-18">
+    <section id="reviews" className="scroll-mt-24 bg-cocoa py-10 text-cream sm:py-16 lg:py-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-almond">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-almond sm:tracking-[0.28em]">
             {content.eyebrow}
           </p>
-          <h2 className="font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-[2rem] leading-tight sm:text-4xl md:text-5xl">
             {content.title}
           </h2>
         </div>
@@ -30,7 +30,7 @@ export function Reviews({ content }: ReviewsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: index * 0.08 }}
-              className="rounded-3xl border border-cream/12 bg-cream/[0.07] p-6 shadow-soft backdrop-blur"
+              className="rounded-2xl border border-cream/12 bg-cream/[0.07] p-5 shadow-soft backdrop-blur sm:rounded-3xl sm:p-6"
             >
               <div className="flex items-center justify-between gap-4">
                 <Quote className="h-7 w-7 text-almond" aria-hidden="true" />
@@ -44,7 +44,7 @@ export function Reviews({ content }: ReviewsProps) {
                   ))}
                 </div>
               </div>
-              <p className="mt-5 min-h-36 text-base leading-8 text-cream/82">
+              <p className="mt-5 text-base leading-7 text-cream/82 md:min-h-36 md:leading-8">
                 «{review.text}»
               </p>
               <p className="mt-6 font-serif text-xl text-cream">

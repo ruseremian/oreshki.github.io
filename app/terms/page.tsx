@@ -50,8 +50,8 @@ const terms = [
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-cream text-cocoa">
-      <main className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <article className="mx-auto max-w-3xl rounded-2xl border border-cocoa/10 bg-white/55 px-6 py-10 shadow-soft backdrop-blur sm:px-10">
+      <main className="px-4 py-10 sm:px-6 sm:py-20 lg:px-8">
+        <article className="mx-auto max-w-3xl rounded-2xl border border-cocoa/10 bg-white/55 px-4 py-8 shadow-soft backdrop-blur sm:px-10 sm:py-10">
           <Link
             href="/"
             className="text-sm font-semibold text-caramel transition hover:text-cocoa"
@@ -60,19 +60,19 @@ export default function TermsPage() {
           </Link>
 
           <header className="mt-8">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-caramel">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-caramel sm:tracking-[0.28em]">
               Oreshki
             </p>
-            <h1 className="mt-3 font-serif text-4xl leading-tight text-cocoa sm:text-5xl">
+            <h1 className="mt-3 font-serif text-[2rem] leading-tight text-cocoa sm:text-5xl">
               Conditions d&apos;utilisation
             </h1>
-            <p className="mt-5 text-base leading-8 text-cocoa/70">
+            <p className="mt-5 text-base leading-7 text-cocoa/70 sm:leading-8">
               Ces conditions encadrent l&apos;utilisation du site Oreshki et les commandes
               de desserts artisanaux proposées aux clients.
             </p>
           </header>
 
-          <div className="mt-10 space-y-8 text-base leading-8 text-cocoa/75">
+          <div className="mt-8 space-y-7 text-base leading-7 text-cocoa/75 sm:mt-10 sm:space-y-8 sm:leading-8">
             {terms.map((item) => (
               <section key={item.title}>
                 <h2 className="font-serif text-2xl text-cocoa">{item.title}</h2>

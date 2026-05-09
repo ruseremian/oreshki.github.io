@@ -67,12 +67,12 @@ export function LoginScreen() {
     <main className="flex min-h-screen items-center justify-center bg-cream px-4 py-10 text-cocoa">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md rounded-lg border border-almond/60 bg-white/85 p-6 shadow-soft"
+        className="w-full max-w-md rounded-lg border border-almond/60 bg-white/85 p-5 shadow-soft sm:p-6"
       >
         <div className="mb-6 flex justify-center">
           <Logo size="md" showSubtitle />
         </div>
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-caramel">
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-caramel sm:tracking-[0.18em]">
           Administration
         </p>
         <h1 className="mt-3 font-serif text-3xl text-espresso">
@@ -186,11 +186,11 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
   }
 
   return (
-    <main className="min-h-screen bg-cream px-4 py-6 text-cocoa sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-cream px-3 py-5 text-cocoa sm:px-6 sm:py-6 lg:px-8">
       <div className="mx-auto max-w-[96rem]">
         <header className="flex flex-col gap-2 border-b border-almond/60 pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-caramel">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-caramel sm:tracking-[0.18em]">
               Administration
             </p>
             <h1 className="mt-2 font-serif text-3xl text-espresso sm:text-4xl">
@@ -202,7 +202,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
           </p>
         </header>
 
-        <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <section className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
           <MetricCard label="Total commandes" value={metrics.totalOrders} />
           <MetricCard
             label="Chiffre d'affaires"
@@ -329,10 +329,10 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
       </div>
 
       {mobileDetailsOpen ? (
-        <div className="fixed inset-0 z-[90] bg-cream p-4 text-cocoa md:hidden">
+        <div className="fixed inset-0 z-[90] bg-cream p-3 text-cocoa md:hidden">
           <div className="flex h-full flex-col overflow-hidden rounded-lg border border-almond/60 bg-white/95 shadow-soft">
             <div className="flex items-center justify-between border-b border-almond/60 px-4 py-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-caramel">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-caramel">
                 Details commande
               </p>
               <button
@@ -356,11 +356,11 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
 
 function MetricCard({ label, value }: { label: string; value: ReactNode }) {
   return (
-    <div className="rounded-lg border border-almond/60 bg-white/80 p-4 shadow-sm">
-      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cocoa/60">
+    <div className="min-w-0 rounded-lg border border-almond/60 bg-white/80 p-3 shadow-sm sm:p-4">
+      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-cocoa/60 sm:text-xs sm:tracking-[0.14em]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-espresso">{value}</p>
+      <p className="mt-2 break-words text-xl font-semibold text-espresso sm:text-2xl">{value}</p>
     </div>
   );
 }
@@ -413,16 +413,16 @@ function MobileOrderCard({
             : "rounded-lg border border-almond/60 bg-white/85 p-4 shadow-sm"
       }
     >
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cocoa/55">
             {formatDate(order.created_at)}
           </p>
-          <h2 className="mt-1 truncate font-serif text-2xl text-espresso">
+          <h2 className="mt-1 break-words font-serif text-2xl text-espresso">
             {order.customer_name}
           </h2>
         </div>
-        <span className="shrink-0 rounded-full bg-oat px-3 py-1 text-xs font-semibold text-cocoa">
+        <span className="rounded-full bg-oat px-3 py-1 text-xs font-semibold text-cocoa">
           {ORDER_STATUS_LABELS[order.status]}
         </span>
       </div>
@@ -474,12 +474,12 @@ function OrderDetailsPanel({
           : "rounded-lg border border-almond/60 bg-white/85 p-5 shadow-soft xl:sticky xl:top-6 xl:max-h-[78vh] xl:overflow-auto"
       }
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-caramel">
             Details commande
           </p>
-          <h2 className="mt-2 font-serif text-2xl text-espresso">
+          <h2 className="mt-2 break-words font-serif text-2xl text-espresso">
             {order.customer_name}
           </h2>
         </div>
@@ -525,10 +525,10 @@ function OrderDetailsPanel({
           {order.items.map((item) => (
             <div
               key={item.id}
-              className="flex items-start justify-between gap-4 rounded-md bg-cream px-3 py-2 text-sm"
+              className="flex flex-wrap items-start justify-between gap-3 rounded-md bg-cream px-3 py-2 text-sm"
             >
-              <div>
-                <p className="font-medium text-espresso">{item.product_name}</p>
+              <div className="min-w-0">
+                <p className="break-words font-medium text-espresso">{item.product_name}</p>
                 <p className="text-cocoa/65">
                   {item.quantity} x {formatCurrency(item.unit_price)}
                 </p>
@@ -538,19 +538,19 @@ function OrderDetailsPanel({
           ))}
         </div>
         <div className="mt-4 space-y-2 border-t border-almond/50 pt-4 text-sm">
-          <div className="flex justify-between gap-4">
+          <div className="flex flex-wrap justify-between gap-2">
             <span className="text-cocoa/65">Sous-total</span>
             <span className="font-semibold text-espresso">
               {formatCurrency(order.subtotal_amount)}
             </span>
           </div>
-          <div className="flex justify-between gap-4">
+          <div className="flex flex-wrap justify-between gap-2">
             <span className="text-cocoa/65">Frais de livraison</span>
             <span className="font-semibold text-espresso">
               {formatCurrency(order.delivery_fee)}
             </span>
           </div>
-          <div className="flex justify-between gap-4 border-t border-almond/50 pt-3 text-base font-semibold text-espresso">
+          <div className="flex flex-wrap justify-between gap-2 border-t border-almond/50 pt-3 text-base font-semibold text-espresso">
             <span>Total</span>
             <span>{formatCurrency(order.total_amount)}</span>
           </div>
@@ -571,9 +571,9 @@ function Detail({ label, value }: { label: string; value: string }) {
 
 function MobileDetail({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex items-start justify-between gap-4">
       <span className="text-cocoa/55">{label}</span>
-      <span className="text-right font-medium text-cocoa">{value}</span>
+      <span className="min-w-0 break-words text-right font-medium text-cocoa">{value}</span>
     </div>
   );
 }

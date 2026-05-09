@@ -12,7 +12,7 @@ type AboutProps = {
 
 export function About({ content }: AboutProps) {
   return (
-    <section id="about" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+    <section id="about" className="overflow-hidden scroll-mt-24 py-10 sm:py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -26,7 +26,7 @@ export function About({ content }: AboutProps) {
             title={content.title}
             description={content.description}
           />
-          <p className="mt-5 max-w-xl text-base leading-8 text-cocoa/70">
+          <p className="mt-4 max-w-xl text-base leading-7 text-cocoa/70 sm:mt-5 sm:leading-8">
             {content.note}
           </p>
         </motion.div>
@@ -36,9 +36,9 @@ export function About({ content }: AboutProps) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.65 }}
-          className="relative"
+          className="relative min-w-0"
         >
-          <div className="absolute -right-4 top-8 h-44 w-44 rounded-full bg-sage/12 blur-3xl" />
+          <div className="absolute -right-2 top-8 h-32 w-32 rounded-full bg-sage/12 blur-3xl sm:-right-4 sm:h-44 sm:w-44" />
           <div className="relative overflow-hidden rounded-[1.5rem] border border-white/70 shadow-soft">
             <Image
               src="/images/oreshki-handmade.jpg"

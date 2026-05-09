@@ -22,11 +22,12 @@ export function ContactButtons({
   className = ""
 }: ContactButtonsProps) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
+    <div className={`flex w-full flex-col gap-3 sm:w-auto sm:flex-row ${className}`}>
       <Button
         href={links.instagram}
         variant="secondary"
         aria-label={aria?.instagramAria ?? labels.instagram}
+        className="w-full sm:w-auto"
       >
         <Instagram className="mr-2 h-4 w-4" aria-hidden="true" />
         {labels.instagram}
@@ -35,6 +36,7 @@ export function ContactButtons({
         href={links.telegram}
         variant="secondary"
         aria-label={aria?.telegramAria ?? labels.telegram}
+        className="w-full sm:w-auto"
       >
         <Send className="mr-2 h-4 w-4" aria-hidden="true" />
         {labels.telegram}
@@ -43,6 +45,7 @@ export function ContactButtons({
         href={createWhatsAppLink()}
         variant="secondary"
         aria-label={aria?.whatsappAria ?? labels.whatsapp}
+        className="w-full sm:w-auto"
       >
         <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
         {labels.whatsapp}

@@ -20,14 +20,14 @@ export function SectionHeading({
         align === "center" ? "text-center" : "mx-0 text-left"
       )}
     >
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-caramel">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-caramel sm:tracking-[0.28em]">
         {eyebrow}
       </p>
-      <h2 className="font-serif text-3xl leading-tight text-cocoa sm:text-4xl md:text-5xl">
+      <h2 className="font-serif text-[2rem] leading-tight text-cocoa sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-cocoa/70">{description}</p>
+        <p className="mt-4 text-base leading-7 text-cocoa/70 sm:mt-5 sm:leading-8">{description}</p>
       ) : null}
     </div>
   );

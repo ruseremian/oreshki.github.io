@@ -13,21 +13,21 @@ type HeroProps = {
 
 export function Hero({ content, onOrder }: HeroProps) {
   return (
-    <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+    <section className="relative overflow-hidden pb-10 pt-6 sm:pb-16 sm:pt-12 lg:pb-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10"
         >
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em] text-caramel">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-caramel sm:mb-5 sm:tracking-[0.3em]">
             {content.eyebrow}
           </p>
-          <h1 className="max-w-3xl font-serif text-4xl leading-[1.05] text-cocoa sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-3xl font-serif text-[2.35rem] leading-[1.05] text-cocoa min-[390px]:text-4xl sm:text-6xl lg:text-7xl">
             {content.title}
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-cocoa/72">
+          <p className="mt-4 max-w-xl text-base leading-7 text-cocoa/72 sm:mt-5 sm:text-lg sm:leading-8">
             {content.subtitle}
           </p>
           <p className="mt-4 text-sm font-semibold text-caramel">
@@ -53,7 +53,7 @@ export function Hero({ content, onOrder }: HeroProps) {
             </button>
           </div>
 
-          <ul className="mt-8 grid max-w-xl gap-3 text-sm text-cocoa/72 sm:grid-cols-2">
+          <ul className="mt-6 grid max-w-xl gap-3 text-sm text-cocoa/72 sm:mt-8 sm:grid-cols-2">
             {content.logistics.map((item) => (
               <li
                 key={item}
@@ -73,7 +73,7 @@ export function Hero({ content, onOrder }: HeroProps) {
           className="relative"
         >
           <div className="absolute -inset-4 rounded-[2rem] bg-caramel/10 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/40 shadow-glow">
+          <div className="relative overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/40 shadow-glow sm:rounded-[1.75rem]">
             <Image
               src="/images/oreshki-hero.jpg"
               alt={content.imageAlt}

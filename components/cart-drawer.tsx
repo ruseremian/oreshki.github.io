@@ -245,12 +245,12 @@ export function CartDrawer({
             className="absolute right-0 top-0 flex h-full w-full max-w-xl flex-col overflow-hidden bg-cream shadow-glow sm:rounded-l-[2rem]"
             aria-label={content.title}
           >
-            <div className="flex items-center justify-between border-b border-cocoa/10 px-5 py-4 sm:px-7">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-caramel">
+            <div className="flex items-center justify-between gap-3 border-b border-cocoa/10 px-4 py-3 sm:px-7 sm:py-4">
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-caramel sm:tracking-[0.24em]">
                   {content.eyebrow}
                 </p>
-                <h2 className="mt-1 font-serif text-3xl text-cocoa">
+                <h2 className="mt-1 font-serif text-2xl text-cocoa sm:text-3xl">
                   {content.title}
                 </h2>
               </div>
@@ -264,7 +264,7 @@ export function CartDrawer({
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-5 py-5 sm:px-7">
+            <div className="flex-1 overflow-y-auto px-4 py-4 sm:px-7 sm:py-5">
               {orderId ? (
                 <Confirmation
                   orderId={orderId}
@@ -281,10 +281,10 @@ export function CartDrawer({
                         entry ? (
                           <div
                             key={entry.productId}
-                            className="rounded-3xl border border-cocoa/10 bg-white/62 p-4"
+                            className="rounded-2xl border border-cocoa/10 bg-white/62 p-4 sm:rounded-3xl"
                           >
-                            <div className="flex items-start justify-between gap-4">
-                              <div>
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="min-w-0">
                                 <h3 className="font-serif text-xl text-cocoa">
                                   {entry.product.fullName}
                                 </h3>
@@ -301,7 +301,7 @@ export function CartDrawer({
                                 <Trash2 className="h-4 w-4" aria-hidden="true" />
                               </button>
                             </div>
-                            <div className="mt-4 flex items-center justify-between">
+                            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                               <div className="inline-flex items-center rounded-full border border-cocoa/10 bg-cream p-1">
                                 <QuantityButton onClick={() => decreaseItem(entry.productId)}>
                                   <Minus className="h-4 w-4" aria-hidden="true" />
@@ -322,7 +322,7 @@ export function CartDrawer({
                       )}
                     </div>
                   ) : (
-                    <div className="rounded-3xl border border-dashed border-cocoa/18 bg-white/50 p-8 text-center">
+                    <div className="rounded-2xl border border-dashed border-cocoa/18 bg-white/50 p-6 text-center sm:rounded-3xl sm:p-8">
                       <ShoppingBag className="mx-auto h-10 w-10 text-caramel" />
                       <h3 className="mt-4 font-serif text-2xl text-cocoa">
                         {content.emptyTitle}
@@ -335,7 +335,7 @@ export function CartDrawer({
 
                   {items.length ? (
                     <>
-                      <div className="mt-6 rounded-3xl bg-cocoa p-5 text-cream">
+                      <div className="mt-6 rounded-2xl bg-cocoa p-4 text-cream sm:rounded-3xl sm:p-5">
                         <div className="space-y-3 text-sm">
                           <SummaryRow
                             label={content.subtotal}
@@ -354,9 +354,9 @@ export function CartDrawer({
                                 : content.pickupFeeLabel
                             }
                           />
-                          <div className="flex items-center justify-between border-t border-cream/15 pt-3">
+                          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cream/15 pt-3">
                             <span className="text-cream/75">{content.total}</span>
-                            <strong className="font-serif text-3xl">
+                            <strong className="font-serif text-2xl sm:text-3xl">
                               {formatPrice(total)}
                             </strong>
                           </div>
@@ -413,7 +413,7 @@ export function CartDrawer({
                         </div>
 
                         <Field label={content.contactMethod}>
-                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                          <div className="grid grid-cols-1 gap-2 min-[360px]:grid-cols-2 sm:grid-cols-4">
                             {contactMethods.map((method) => (
                               <ChoiceButton
                                 key={method}
@@ -429,7 +429,7 @@ export function CartDrawer({
                         </Field>
 
                         <Field label={content.deliveryMethod} required>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-1 gap-2 min-[360px]:grid-cols-2">
                             <ChoiceButton
                               active={values.deliveryMethod === "pickup"}
                               onClick={() => updateValue("deliveryMethod", "pickup")}
@@ -548,11 +548,11 @@ function Confirmation({
   const total = pricing ? formatPrice(pricing.totalAmount) : "";
 
   return (
-    <div className="rounded-[1.75rem] border border-cocoa/10 bg-white/70 p-6 text-center shadow-soft">
+    <div className="rounded-2xl border border-cocoa/10 bg-white/70 p-5 text-center shadow-soft sm:rounded-[1.75rem] sm:p-6">
       <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-sage/15 text-sage">
         <Check className="h-7 w-7" aria-hidden="true" />
       </div>
-      <h3 className="mt-5 font-serif text-3xl text-cocoa">
+      <h3 className="mt-5 font-serif text-2xl text-cocoa sm:text-3xl">
         {content.confirmationTitle}
       </h3>
       <p className="mt-3 text-sm leading-7 text-cocoa/68">
@@ -567,7 +567,7 @@ function Confirmation({
               {items.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-start justify-between gap-4"
+                  className="flex flex-wrap items-start justify-between gap-2"
                 >
                   <span className="font-medium text-cocoa">
                     {item.name}
@@ -690,7 +690,7 @@ function ChoiceButton({
       type="button"
       onClick={onClick}
       className={cn(
-        "min-h-11 rounded-full border px-4 text-sm font-semibold transition",
+        "min-h-11 w-full rounded-full border px-4 text-sm font-semibold transition",
         active
           ? "border-cocoa bg-cocoa text-cream"
           : "border-cocoa/12 bg-white/65 text-cocoa/70 hover:border-caramel/40 hover:bg-white hover:text-cocoa"
@@ -703,7 +703,7 @@ function ChoiceButton({
 
 function inputClass(hasError: boolean) {
   return cn(
-    "w-full rounded-2xl border bg-white/72 px-4 py-3 text-sm text-cocoa shadow-sm transition placeholder:text-cocoa/35 focus:border-caramel focus:outline-none focus:ring-4 focus:ring-caramel/10",
+    "w-full min-w-0 rounded-2xl border bg-white/72 px-4 py-3 text-sm text-cocoa shadow-sm transition placeholder:text-cocoa/35 focus:border-caramel focus:outline-none focus:ring-4 focus:ring-caramel/10",
     hasError ? "border-rose/70" : "border-cocoa/12"
   );
 }
