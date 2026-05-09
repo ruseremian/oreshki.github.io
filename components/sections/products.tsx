@@ -29,7 +29,7 @@ export function Products({ content, onOrder }: ProductsProps) {
   }
 
   return (
-    <section id="products" className="bg-white/42 py-20 sm:py-24">
+    <section className="bg-white/42 py-12 sm:py-16 lg:py-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={content.eyebrow}
@@ -37,7 +37,7 @@ export function Products({ content, onOrder }: ProductsProps) {
           description={content.description}
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div id="products" className="mt-8 grid scroll-mt-24 gap-6 sm:mt-10 md:grid-cols-3">
           {content.items.map((product, index) => (
             <ProductCard
               key={product.title}

@@ -11,7 +11,7 @@ type ReviewsProps = {
 
 export function Reviews({ content }: ReviewsProps) {
   return (
-    <section id="reviews" className="bg-cocoa py-20 text-cream sm:py-24">
+    <section id="reviews" className="scroll-mt-24 bg-cocoa py-12 text-cream sm:py-16 lg:py-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-almond">
@@ -22,7 +22,7 @@ export function Reviews({ content }: ReviewsProps) {
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:mt-10 md:grid-cols-3">
           {content.items.map((review, index) => (
             <motion.article
               key={review.name}

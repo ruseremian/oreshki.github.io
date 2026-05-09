@@ -12,8 +12,8 @@ type AboutProps = {
 
 export function About({ content }: AboutProps) {
   return (
-    <section id="about" className="py-20 sm:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+    <section id="about" className="scroll-mt-24 py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export function About({ content }: AboutProps) {
             title={content.title}
             description={content.description}
           />
-          <p className="mt-6 max-w-xl text-base leading-8 text-cocoa/70">
+          <p className="mt-5 max-w-xl text-base leading-8 text-cocoa/70">
             {content.note}
           </p>
         </motion.div>

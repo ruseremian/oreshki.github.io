@@ -13,8 +13,8 @@ type HeroProps = {
 
 export function Hero({ content, onOrder }: HeroProps) {
   return (
-    <section className="relative overflow-hidden pb-20 pt-12 sm:pt-16 lg:pb-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+    <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,14 +27,14 @@ export function Hero({ content, onOrder }: HeroProps) {
           <h1 className="max-w-3xl font-serif text-4xl leading-[1.05] text-cocoa sm:text-6xl lg:text-7xl">
             {content.title}
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-cocoa/72">
+          <p className="mt-5 max-w-xl text-lg leading-8 text-cocoa/72">
             {content.subtitle}
           </p>
-          <p className="mt-5 text-sm font-semibold text-caramel">
+          <p className="mt-4 text-sm font-semibold text-caramel">
             {content.trustLine}
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={onOrder}
@@ -53,7 +53,7 @@ export function Hero({ content, onOrder }: HeroProps) {
             </button>
           </div>
 
-          <ul className="mt-10 grid max-w-xl gap-3 text-sm text-cocoa/72 sm:grid-cols-2">
+          <ul className="mt-8 grid max-w-xl gap-3 text-sm text-cocoa/72 sm:grid-cols-2">
             {content.logistics.map((item) => (
               <li
                 key={item}

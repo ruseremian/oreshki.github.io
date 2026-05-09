@@ -12,7 +12,7 @@ type ContactProps = {
 
 export function Contact({ content }: ContactProps) {
   return (
-    <section id="contact" className="py-20 sm:py-24">
+    <section id="contact" className="scroll-mt-24 py-12 sm:py-16 lg:py-18">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -29,10 +29,10 @@ export function Contact({ content }: ContactProps) {
           <ContactButtons
             labels={{ instagram: "Instagram", telegram: "Telegram", whatsapp: "WhatsApp" }}
             aria={content}
-            className="mt-9 justify-center"
+            className="mt-7 justify-center"
           />
 
-          <p className="mx-auto mt-8 max-w-2xl rounded-3xl border border-cocoa/10 bg-white/48 px-6 py-5 text-sm leading-7 text-cocoa/68 shadow-soft">
+          <p className="mx-auto mt-6 max-w-2xl rounded-3xl border border-cocoa/10 bg-white/48 px-6 py-5 text-sm leading-7 text-cocoa/68 shadow-soft">
             {content.note}
           </p>
         </motion.div>
