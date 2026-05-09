@@ -61,10 +61,12 @@ export function Products({ content, onOrder }: ProductsProps) {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 12 }}
-              className="fixed bottom-5 left-1/2 z-[70] w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-full bg-cocoa px-5 py-3 text-center text-sm font-semibold text-cream shadow-glow"
+              className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] left-4 right-4 z-[70] max-w-[calc(100vw-2rem)] rounded-full bg-cocoa px-5 py-3 text-center text-sm font-semibold text-cream shadow-glow sm:left-1/2 sm:right-auto sm:w-full sm:max-w-sm sm:-translate-x-1/2"
               role="status"
             >
-              {content.added}
+              <span className="block whitespace-normal break-words">
+                {content.added}
+              </span>
             </motion.div>
           ) : null}
         </AnimatePresence>
