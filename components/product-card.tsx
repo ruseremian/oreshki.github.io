@@ -22,11 +22,15 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="group min-w-0 overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow sm:rounded-3xl"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.45,
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      className="group min-w-0 overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition-shadow duration-300 hover:shadow-glow sm:rounded-3xl"
     >
       <div className="overflow-hidden">
         <Image
@@ -35,7 +39,7 @@ export function ProductCard({
           width={900}
           height={700}
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105 sm:aspect-[5/4]"
+          className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] sm:aspect-[5/4]"
         />
       </div>
       <div className="p-5 sm:p-6">
