@@ -34,7 +34,7 @@ export const products: Product[] = [
       fr: "Format découverte — 12 pièces",
       ru: "Формат для пробы — 12 штук"
     },
-    description: "Формат для пробы — 2 коробки по 6 штук.",
+    description: "Домашние орешки с начинкой из варёной сгущёнки. Готовятся из нежного теста с маслом и яйцами, с мягкой сладкой начинкой внутри. Формат для пробы — 2 коробки по 6 штук.",
     price: 8,
     image: "/images/oreshki-12.jpg",
     category: "cookies",
@@ -47,7 +47,7 @@ export const products: Product[] = [
       fr: "Format classique — 24 pièces",
       ru: "Классический формат — 24 штуки"
     },
-    description: "Классический формат — идеально для семьи или друзей.",
+    description: "Домашние орешки с начинкой из варёной сгущёнки. Готовятся из нежного теста с маслом и яйцами, с мягкой сладкой начинкой внутри. Классический формат — идеально для семьи или друзей.",
     price: 16,
     image: "/images/oreshki-24.jpg",
     category: "cookies",
@@ -60,7 +60,7 @@ export const products: Product[] = [
       fr: "Grand format généreux — 48 pièces",
       ru: "Большой формат — 48 штук"
     },
-    description: "Большой формат поставляется в двух отдельных упаковках.",
+    description: "Домашние орешки с начинкой из варёной сгущёнки. Готовятся из нежного теста с маслом и яйцами, с мягкой сладкой начинкой внутри. Большой формат поставляется в двух отдельных упаковках.",
     price: 32,
     image: "/images/oreshki-48.jpg",
     category: "cookies",
@@ -74,7 +74,7 @@ export const products: Product[] = [
       ru: "Домашние пельмени — 1 кг"
     },
     description:
-      "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon.",
+      "Raviolis traditionnels préparés avec une pâte fine et une farce à base de viande assaisonnée, d’oignons et d’épices. À cuire dans l’eau ou dans un bouillon.",
     price: 10,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
@@ -89,7 +89,7 @@ export const products: Product[] = [
       ru: "Котлеты по-киевски — за штуку"
     },
     description:
-      "Escalopes roulées au beurre parfumé, croustillantes et fondantes.",
+      "Escalopes roulées préparées avec du poulet, du beurre parfumé, des herbes et une chapelure croustillante. Fondantes à l’intérieur et dorées à l’extérieur.",
     price: 4,
     unit: "par pièce",
     image: "/images/kotleti-kievski.jpg",
@@ -104,7 +104,7 @@ export const products: Product[] = [
       ru: "Домашние вареники — 1 кг"
     },
     description:
-      "Vareniki faits maison avec une garniture généreuse selon les disponibilités.",
+      "Raviolis maison garnis selon les recettes : pommes de terre, fromage. Préparés avec une pâte souple et généreusement garnis.",
     price: 10,
     unit: "1 kg",
     image: "/images/vareniki.jpg",
@@ -119,7 +119,7 @@ export const products: Product[] = [
       ru: "Домашние блинчики — за штуку"
     },
     description:
-      "Fines crêpes maison garnies selon les recettes traditionnelles.",
+      "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons.",
     price: 0.8,
     unit: "par pièce",
     image: "/images/blinchiki.jpg",
@@ -134,7 +134,7 @@ export const products: Product[] = [
       ru: "Домашние голубцы — за штуку"
     },
     description:
-      "Choux farcis préparés maison avec une recette familiale généreuse.",
+      "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et une sauce mijotée maison.",
     price: 0.8,
     unit: "par pièce",
     image: "/images/golubci.jpg",
@@ -149,7 +149,7 @@ export const products: Product[] = [
       ru: "Жареные пирожки — за штуку"
     },
     description:
-      "Pirojki maison à la pâte moelleuse et à la garniture généreuse.",
+      "Petits chaussons frits préparés avec une pâte moelleuse et des garnitures variées : pommes de terre, chou, viande, foie ou œuf avec oignons.",
     price: 1,
     unit: "par pièce",
     image: "/images/pirojki.jpg",
@@ -164,7 +164,7 @@ export const products: Product[] = [
       ru: "Домашние сигаретки"
     },
     description:
-      "Délicates pâtisseries roulées artisanales préparées maison selon une recette traditionnelle.",
+      "Fines pâtisseries roulées préparées avec une pâte légère et une garniture sucrée selon les recettes maison. Légèrement croustillantes et saupoudrées de sucre glace.",
     price: 10,
     unit: "boîte",
     image: "/images/sigaretki.jpg",

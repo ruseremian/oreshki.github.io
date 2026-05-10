@@ -107,7 +107,8 @@ export const siteContent = {
           fullName: productById.get("pieces12")!.orderName.ru,
           quantity: "12 штук",
           positioning: "Формат для пробы",
-          description: "Формат для пробы — 2 коробки по 6 штук.",
+          description:
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Формат для пробы — 2 коробки по 6 штук.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces12,
@@ -119,7 +120,8 @@ export const siteContent = {
           fullName: productById.get("pieces24")!.orderName.ru,
           quantity: "24 штуки",
           positioning: "Классический формат",
-          description: "Классический формат — идеально для семьи или друзей.",
+          description:
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Классический формат — идеально для семьи или друзей.",
           price: formatPrice(productBasePrices.pieces24),
           basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
@@ -131,7 +133,8 @@ export const siteContent = {
           fullName: productById.get("pieces48")!.orderName.ru,
           quantity: "48 штук",
           positioning: "Большой формат",
-          description: "Большой формат поставляется в двух отдельных упаковках.",
+          description:
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Большой формат поставляется в двух отдельных упаковках.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
@@ -144,7 +147,7 @@ export const siteContent = {
           quantity: "коробка",
           positioning: "Тонкая домашняя выпечка",
           description:
-            "Нежная хрустящая выпечка с лёгкой сладостью, приготовленная дома по традиционному рецепту.",
+            "Тонкая рулетная выпечка из лёгкого теста со сладкой начинкой по домашнему рецепту. Слегка хрустящие, с сахарной пудрой.",
           price: formatPrice(productBasePrices.sigaretki),
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
@@ -165,7 +168,7 @@ export const siteContent = {
             quantity: "1 кг",
             positioning: "Традиционные пельмени ручной работы",
             description:
-              "Домашние пельмени, приготовленные вручную. Идеально варить в воде или бульоне.",
+              "Традиционные пельмени ручной работы из тонкого теста с начинкой из мяса, лука и специй. Идеально варить в воде или бульоне.",
             price: formatPrice(productBasePrices.pelmeni),
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
@@ -178,7 +181,7 @@ export const siteContent = {
             quantity: "за штуку",
             positioning: "Классические котлеты с ароматным маслом",
             description:
-              "Сытная домашняя классика: хрустящая корочка и нежная начинка внутри.",
+              "Куриные котлеты с ароматным маслом, зеленью и хрустящей панировкой. Румяные снаружи и нежные внутри.",
             price: formatPrice(productBasePrices["kotleti-kievski"]),
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
@@ -191,7 +194,7 @@ export const siteContent = {
             quantity: "1 кг",
             positioning: "Традиционные вареники с начинкой",
             description:
-              "Домашние вареники с различными начинками: картофель, творог или фрукты.",
+              "Домашние вареники из мягкого теста с щедрой начинкой по традиционным рецептам: картофель или творог.",
             price: formatPrice(productBasePrices.vareniki),
             basePrice: productBasePrices.vareniki,
             image: productImages.vareniki,
@@ -204,7 +207,7 @@ export const siteContent = {
             quantity: "за штуку",
             positioning: "Традиционные русские блинчики",
             description:
-              "Тонкие домашние блинчики с традиционными сладкими или солёными начинками.",
+              "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы. Мягкие, нежные и удобные для семейного стола.",
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
@@ -217,7 +220,7 @@ export const siteContent = {
             quantity: "за штуку",
             positioning: "Традиционные голубцы",
             description:
-              "Домашние голубцы по традиционному семейному рецепту.",
+              "Капустные листья с начинкой из риса, мяса, овощей и специй. Готовятся дома в мягком соусе, как сытное семейное блюдо.",
             price: formatPrice(productBasePrices.golubci),
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
@@ -230,7 +233,7 @@ export const siteContent = {
             quantity: "за штуку",
             positioning: "Традиционные домашние пирожки",
             description:
-              "Домашние жареные пирожки с хрустящей корочкой и сочной начинкой: картошка, капуста, мясо, печень, яйцо с луком и другие.",
+              "Домашние жареные пирожки из мягкого теста с румяной корочкой. Начинки по традиционным рецептам: картошка, капуста, мясо, печень или яйцо с луком.",
             price: formatPrice(productBasePrices.pirojki),
             basePrice: productBasePrices.pirojki,
             image: productImages.pirojki,
@@ -406,7 +409,8 @@ export const siteContent = {
           fullName: productById.get("pieces12")!.orderName.fr,
           quantity: "12 pièces",
           positioning: "Format découverte",
-          description: "Format découverte — 2 boîtes de 6 pièces.",
+          description:
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Format découverte — 2 boîtes de 6 pièces.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces12,
@@ -418,7 +422,8 @@ export const siteContent = {
           fullName: productById.get("pieces24")!.orderName.fr,
           quantity: "24 pièces",
           positioning: "Format classique",
-          description: "Format classique — idéal à partager.",
+          description:
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Format classique — idéal à partager.",
           price: formatPrice(productBasePrices.pieces24),
           basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
@@ -430,7 +435,8 @@ export const siteContent = {
           fullName: productById.get("pieces48")!.orderName.fr,
           quantity: "48 pièces",
           positioning: "Grand format généreux",
-          description: "Grand format généreux — livré en deux emballages séparés.",
+          description:
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Grand format généreux — livré en deux emballages séparés.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
@@ -443,7 +449,7 @@ export const siteContent = {
           quantity: "boîte",
           positioning: "Pâtisseries roulées artisanales",
           description:
-            "Délicates pâtisseries croustillantes légèrement sucrées, préparées maison selon une recette traditionnelle.",
+            "Fines pâtisseries roulées à la pâte légère, garnies selon les recettes maison. Légèrement croustillantes et saupoudrées de sucre glace.",
           price: formatPrice(productBasePrices.sigaretki),
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
@@ -464,7 +470,7 @@ export const siteContent = {
             quantity: "1 kg",
             positioning: "Raviolis traditionnels faits maison",
             description:
-              "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon. Une spécialité généreuse et réconfortante.",
+              "Raviolis traditionnels préparés à la main avec une pâte fine et une farce de viande, oignons et épices. À cuire dans l’eau ou dans un bouillon.",
             price: formatPrice(productBasePrices.pelmeni),
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
@@ -477,7 +483,7 @@ export const siteContent = {
             quantity: "par pièce",
             positioning: "Escalopes roulées au beurre parfumé",
             description:
-              "Une spécialité généreuse, croustillante à l’extérieur et fondante à l’intérieur. Préparée maison.",
+              "Escalopes de poulet roulées avec du beurre parfumé, des herbes et une chapelure croustillante. Dorées à l’extérieur et fondantes à l’intérieur.",
             price: formatPrice(productBasePrices["kotleti-kievski"]),
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
@@ -490,7 +496,7 @@ export const siteContent = {
             quantity: "1 kg",
             positioning: "Raviolis traditionnels garnis",
             description:
-              "Vareniki faits maison avec une garniture généreuse selon les disponibilités : pommes de terre, fromage ou fruits.",
+              "Vareniki maison préparés avec une pâte souple et une garniture généreuse selon les recettes traditionnelles : pommes de terre ou fromage.",
             price: formatPrice(productBasePrices.vareniki),
             basePrice: productBasePrices.vareniki,
             image: productImages.vareniki,
@@ -503,7 +509,7 @@ export const siteContent = {
             quantity: "par pièce",
             positioning: "Crêpes russes traditionnelles",
             description:
-              "Fines crêpes maison garnies selon les recettes traditionnelles. Servies sucrées ou salées.",
+              "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons. Moelleuses, délicates et faciles à partager.",
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
@@ -516,7 +522,7 @@ export const siteContent = {
             quantity: "par pièce",
             positioning: "Choux farcis traditionnels",
             description:
-              "Choux farcis préparés maison avec une recette familiale généreuse et réconfortante.",
+              "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et des épices. Mijotées maison dans une sauce douce et réconfortante.",
             price: formatPrice(productBasePrices.golubci),
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
@@ -529,7 +535,7 @@ export const siteContent = {
             quantity: "par pièce",
             positioning: "Petits chaussons frits traditionnels",
             description:
-              "Pirojki maison à la pâte moelleuse et à la garniture généreuse. Disponibles selon les recettes traditionnelles : pommes de terre, chou, viande, foie ou œuf avec oignons.",
+              "Pirojki frits maison à la pâte moelleuse et à la croûte dorée. Garnitures traditionnelles : pommes de terre, chou, viande, foie ou œuf avec oignons.",
             price: formatPrice(productBasePrices.pirojki),
             basePrice: productBasePrices.pirojki,
             image: productImages.pirojki,
