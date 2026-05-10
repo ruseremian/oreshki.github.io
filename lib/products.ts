@@ -4,7 +4,10 @@ export type ProductId =
   | "pieces24"
   | "pieces48"
   | "pelmeni"
-  | "kotleti-kievski";
+  | "kotleti-kievski"
+  | "vareniki"
+  | "blinchiki"
+  | "golubci";
 
 export type Product = {
   id: ProductId;
@@ -88,6 +91,51 @@ export const products: Product[] = [
     price: 14,
     unit: "portion",
     image: "/images/kotleti-kievski.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "vareniki",
+    name: "Vareniki maison",
+    orderName: {
+      fr: "Vareniki maison",
+      ru: "Домашние вареники"
+    },
+    description:
+      "Vareniki faits maison avec une garniture généreuse selon les disponibilités.",
+    price: 11,
+    unit: "portion",
+    image: "/images/vareniki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "blinchiki",
+    name: "Blinchiki maison",
+    orderName: {
+      fr: "Blinchiki maison",
+      ru: "Домашние блинчики"
+    },
+    description:
+      "Fines crêpes maison garnies selon les recettes traditionnelles.",
+    price: 9,
+    unit: "portion",
+    image: "/images/blinchiki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "golubci",
+    name: "Golubci maison",
+    orderName: {
+      fr: "Golubci maison",
+      ru: "Домашние голубцы"
+    },
+    description:
+      "Choux farcis préparés maison avec une recette familiale généreuse.",
+    price: 13,
+    unit: "portion",
+    image: "/images/golubci.jpg",
     category: "specialties",
     available: true
   }

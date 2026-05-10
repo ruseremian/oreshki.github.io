@@ -35,7 +35,10 @@ const productImages: Record<ProductId, string> = {
   pieces24: "/images/oreshki-24.jpg",
   pieces48: "/images/oreshki-48.jpg",
   pelmeni: "/images/pelmeni.jpg",
-  "kotleti-kievski": "/images/kotleti-kievski.jpg"
+  "kotleti-kievski": "/images/kotleti-kievski.jpg",
+  vareniki: "/images/vareniki.jpg",
+  blinchiki: "/images/blinchiki.jpg",
+  golubci: "/images/golubci.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
@@ -43,7 +46,10 @@ const productBasePrices: Record<ProductId, number> = {
   pieces24: productById.get("pieces24")!.price,
   pieces48: productById.get("pieces48")!.price,
   pelmeni: productById.get("pelmeni")!.price,
-  "kotleti-kievski": productById.get("kotleti-kievski")!.price
+  "kotleti-kievski": productById.get("kotleti-kievski")!.price,
+  vareniki: productById.get("vareniki")!.price,
+  blinchiki: productById.get("blinchiki")!.price,
+  golubci: productById.get("golubci")!.price
 };
 
 export const siteContent = {
@@ -154,6 +160,45 @@ export const siteContent = {
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
             imageAlt: "Домашние котлеты по-киевски с ароматным маслом"
+          },
+          {
+            id: "vareniki",
+            title: "Домашние вареники",
+            fullName: productById.get("vareniki")!.orderName.ru,
+            quantity: "порция",
+            positioning: "Традиционные вареники с начинкой",
+            description:
+              "Домашние вареники с различными начинками: картофель, творог или фрукты.",
+            price: formatPrice(productBasePrices.vareniki),
+            basePrice: productBasePrices.vareniki,
+            image: productImages.vareniki,
+            imageAlt: "Домашние вареники с традиционной начинкой"
+          },
+          {
+            id: "blinchiki",
+            title: "Домашние блинчики",
+            fullName: productById.get("blinchiki")!.orderName.ru,
+            quantity: "порция",
+            positioning: "Традиционные русские блинчики",
+            description:
+              "Тонкие домашние блинчики с традиционными сладкими или солёными начинками.",
+            price: formatPrice(productBasePrices.blinchiki),
+            basePrice: productBasePrices.blinchiki,
+            image: productImages.blinchiki,
+            imageAlt: "Домашние тонкие русские блинчики"
+          },
+          {
+            id: "golubci",
+            title: "Домашние голубцы",
+            fullName: productById.get("golubci")!.orderName.ru,
+            quantity: "порция",
+            positioning: "Традиционные голубцы",
+            description:
+              "Домашние голубцы по традиционному семейному рецепту.",
+            price: formatPrice(productBasePrices.golubci),
+            basePrice: productBasePrices.golubci,
+            image: productImages.golubci,
+            imageAlt: "Домашние голубцы по семейному рецепту"
           }
         ]
       }
@@ -364,6 +409,45 @@ export const siteContent = {
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
             imageAlt: "Kotleti po-kievski maison au beurre parfumé"
+          },
+          {
+            id: "vareniki",
+            title: "Vareniki maison",
+            fullName: productById.get("vareniki")!.orderName.fr,
+            quantity: "portion",
+            positioning: "Raviolis traditionnels garnis",
+            description:
+              "Vareniki faits maison avec une garniture généreuse selon les disponibilités : pommes de terre, fromage ou fruits.",
+            price: formatPrice(productBasePrices.vareniki),
+            basePrice: productBasePrices.vareniki,
+            image: productImages.vareniki,
+            imageAlt: "Vareniki maison avec garniture traditionnelle"
+          },
+          {
+            id: "blinchiki",
+            title: "Blinchiki maison",
+            fullName: productById.get("blinchiki")!.orderName.fr,
+            quantity: "portion",
+            positioning: "Crêpes russes traditionnelles",
+            description:
+              "Fines crêpes maison garnies selon les recettes traditionnelles. Servies sucrées ou salées.",
+            price: formatPrice(productBasePrices.blinchiki),
+            basePrice: productBasePrices.blinchiki,
+            image: productImages.blinchiki,
+            imageAlt: "Blinchiki maison, crêpes russes traditionnelles"
+          },
+          {
+            id: "golubci",
+            title: "Golubci maison",
+            fullName: productById.get("golubci")!.orderName.fr,
+            quantity: "portion",
+            positioning: "Choux farcis traditionnels",
+            description:
+              "Choux farcis préparés maison avec une recette familiale généreuse et réconfortante.",
+            price: formatPrice(productBasePrices.golubci),
+            basePrice: productBasePrices.golubci,
+            image: productImages.golubci,
+            imageAlt: "Golubci maison, choux farcis traditionnels"
           }
         ]
       }
