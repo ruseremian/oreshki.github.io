@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import { ProductId, ProductItem } from "@/lib/site-data";
 
@@ -20,6 +21,8 @@ export function ProductCard({
   added,
   onOrder
 }: ProductCardProps) {
+  const [imageSrc, setImageSrc] = useState(product.image);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
@@ -34,12 +37,13 @@ export function ProductCard({
     >
       <div className="overflow-hidden">
         <Image
-          src={product.image}
+          src={imageSrc}
           alt={product.imageAlt}
           width={900}
           height={700}
           sizes="(min-width: 768px) 33vw, 100vw"
           className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] sm:aspect-[5/4]"
+          onError={() => setImageSrc("/images/oreshki-handmade.jpg")}
         />
       </div>
       <div className="p-5 sm:p-6">

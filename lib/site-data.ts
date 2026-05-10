@@ -33,13 +33,17 @@ export const languages: { code: Language; label: string }[] = [
 const productImages: Record<ProductId, string> = {
   pieces12: "/images/oreshki-12.jpg",
   pieces24: "/images/oreshki-24.jpg",
-  pieces48: "/images/oreshki-48.jpg"
+  pieces48: "/images/oreshki-48.jpg",
+  pelmeni: "/images/pelmeni.jpg",
+  "kotleti-kievski": "/images/kotleti-kievski.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
   pieces12: productById.get("pieces12")!.price,
   pieces24: productById.get("pieces24")!.price,
-  pieces48: productById.get("pieces48")!.price
+  pieces48: productById.get("pieces48")!.price,
+  pelmeni: productById.get("pelmeni")!.price,
+  "kotleti-kievski": productById.get("kotleti-kievski")!.price
 };
 
 export const siteContent = {
@@ -119,7 +123,40 @@ export const siteContent = {
           image: productImages.pieces48,
           imageAlt: "Большой формат домашних орешков со сгущёнкой 48 штук"
         }
-      ]
+      ],
+      specialties: {
+        title: "Другие домашние блюда",
+        intro:
+          "Помимо орешков, мы иногда предлагаем другие традиционные домашние блюда.",
+        items: [
+          {
+            id: "pelmeni",
+            title: "Домашние пельмени",
+            fullName: productById.get("pelmeni")!.orderName.ru,
+            quantity: "порция",
+            positioning: "Традиционные пельмени ручной работы",
+            description:
+              "Домашние пельмени, приготовленные вручную. Идеально варить в воде или бульоне.",
+            price: formatPrice(productBasePrices.pelmeni),
+            basePrice: productBasePrices.pelmeni,
+            image: productImages.pelmeni,
+            imageAlt: "Домашние пельмени ручной работы"
+          },
+          {
+            id: "kotleti-kievski",
+            title: "Котлеты по-киевски",
+            fullName: productById.get("kotleti-kievski")!.orderName.ru,
+            quantity: "порция",
+            positioning: "Классические котлеты с ароматным маслом",
+            description:
+              "Сытная домашняя классика: хрустящая корочка и нежная начинка внутри.",
+            price: formatPrice(productBasePrices["kotleti-kievski"]),
+            basePrice: productBasePrices["kotleti-kievski"],
+            image: productImages["kotleti-kievski"],
+            imageAlt: "Домашние котлеты по-киевски с ароматным маслом"
+          }
+        ]
+      }
     },
     about: {
       eyebrow: "История",
@@ -296,7 +333,40 @@ export const siteContent = {
           image: productImages.pieces48,
           imageAlt: "Grand format 48 pièces d’oreshki faits maison au caramel"
         }
-      ]
+      ],
+      specialties: {
+        title: "Autres spécialités maison",
+        intro:
+          "En plus des oreshki, nous proposons ponctuellement d’autres spécialités traditionnelles faites maison.",
+        items: [
+          {
+            id: "pelmeni",
+            title: "Pelmeni maison",
+            fullName: productById.get("pelmeni")!.orderName.fr,
+            quantity: "portion",
+            positioning: "Raviolis traditionnels faits maison",
+            description:
+              "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon. Une spécialité généreuse et réconfortante.",
+            price: formatPrice(productBasePrices.pelmeni),
+            basePrice: productBasePrices.pelmeni,
+            image: productImages.pelmeni,
+            imageAlt: "Pelmeni maison préparés à la main"
+          },
+          {
+            id: "kotleti-kievski",
+            title: "Kotleti po-kievski",
+            fullName: productById.get("kotleti-kievski")!.orderName.fr,
+            quantity: "portion",
+            positioning: "Escalopes roulées au beurre parfumé",
+            description:
+              "Une spécialité généreuse, croustillante à l’extérieur et fondante à l’intérieur. Préparée maison.",
+            price: formatPrice(productBasePrices["kotleti-kievski"]),
+            basePrice: productBasePrices["kotleti-kievski"],
+            image: productImages["kotleti-kievski"],
+            imageAlt: "Kotleti po-kievski maison au beurre parfumé"
+          }
+        ]
+      }
     },
     about: {
       eyebrow: "Histoire",
@@ -401,4 +471,6 @@ export const siteContent = {
 } as const;
 
 export type SiteContent = (typeof siteContent)[Language];
-export type ProductItem = SiteContent["products"]["items"][number];
+export type ProductItem =
+  | SiteContent["products"]["items"][number]
+  | SiteContent["products"]["specialties"]["items"][number];

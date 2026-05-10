@@ -51,6 +51,31 @@ export function Products({ content, onOrder }: ProductsProps) {
           ))}
         </div>
 
+        <div className="mt-12 border-t border-cocoa/10 pt-10 sm:mt-14 sm:pt-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="font-serif text-3xl leading-tight text-cocoa sm:text-4xl">
+              {content.specialties.title}
+            </h3>
+            <p className="mt-4 text-sm leading-7 text-cocoa/68 sm:text-base">
+              {content.specialties.intro}
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-5xl gap-5 md:grid-cols-2 lg:gap-6">
+            {content.specialties.items.map((product, index) => (
+              <ProductCard
+                key={product.title}
+                product={product}
+                index={index}
+                orderLabel={content.order}
+                addedLabel={content.added}
+                added={addedProductId === product.id}
+                onOrder={handleOrder}
+              />
+            ))}
+          </div>
+        </div>
+
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-cocoa/68">
           <LinkedCustomQuantityNote text={content.customQuantityNote} />
         </p>

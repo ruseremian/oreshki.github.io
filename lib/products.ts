@@ -1,5 +1,10 @@
-export type ProductCategory = "cookies";
-export type ProductId = "pieces12" | "pieces24" | "pieces48";
+export type ProductCategory = "cookies" | "specialties";
+export type ProductId =
+  | "pieces12"
+  | "pieces24"
+  | "pieces48"
+  | "pelmeni"
+  | "kotleti-kievski";
 
 export type Product = {
   id: ProductId;
@@ -10,6 +15,7 @@ export type Product = {
   };
   description: string;
   price: number;
+  unit?: string;
   image: string;
   category: ProductCategory;
   available: boolean;
@@ -53,6 +59,36 @@ export const products: Product[] = [
     price: 32,
     image: "/images/oreshki-48.jpg",
     category: "cookies",
+    available: true
+  },
+  {
+    id: "pelmeni",
+    name: "Pelmeni maison",
+    orderName: {
+      fr: "Pelmeni maison",
+      ru: "Домашние пельмени"
+    },
+    description:
+      "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon.",
+    price: 12,
+    unit: "portion",
+    image: "/images/pelmeni.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "kotleti-kievski",
+    name: "Kotleti po-kievski",
+    orderName: {
+      fr: "Kotleti po-kievski",
+      ru: "Котлеты по-киевски"
+    },
+    description:
+      "Escalopes roulées au beurre parfumé, croustillantes et fondantes.",
+    price: 14,
+    unit: "portion",
+    image: "/images/kotleti-kievski.jpg",
+    category: "specialties",
     available: true
   }
 ];

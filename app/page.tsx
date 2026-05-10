@@ -25,6 +25,10 @@ function LandingPage() {
   const [language, setLanguage] = useState<Language>("fr");
   const [cartOpen, setCartOpen] = useState(false);
   const content = siteContent[language];
+  const cartProducts = [
+    ...content.products.items,
+    ...content.products.specialties.items
+  ];
   const { addItem } = useCart();
 
   useEffect(() => {
@@ -68,7 +72,7 @@ function LandingPage() {
         open={cartOpen}
         onOpenChange={setCartOpen}
         content={content.cart}
-        products={content.products.items}
+        products={cartProducts}
         language={language}
       />
     </>
