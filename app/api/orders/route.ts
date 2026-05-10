@@ -22,6 +22,15 @@ import { sendTelegramNotification } from "@/lib/telegram";
 
 export const runtime = "nodejs";
 
+const trustedProductPrices: Partial<Record<ProductId, number>> = {
+  "kotleti-kievski": 4,
+  pelmeni: 10,
+  vareniki: 10,
+  golubci: 0.8,
+  pirojki: 1,
+  blinchiki: 0.8
+};
+
 type FieldErrors = NonNullable<
   Extract<CreateOrderResponse, { success: false }>["fieldErrors"]
 >;
@@ -340,7 +349,7 @@ function getTrustedProductPrice(productId: ProductId) {
     throw new Error(`Trusted price missing for product ${productId}`);
   }
 
-  return product.price;
+  return trustedProductPrices[productId] ?? product.price;
 }
 
 function normalizeLanguage(

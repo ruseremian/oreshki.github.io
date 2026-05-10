@@ -75,7 +75,7 @@ export const products: Product[] = [
     },
     description:
       "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon.",
-    price: 12,
+    price: 10,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
     category: "specialties",
@@ -85,13 +85,13 @@ export const products: Product[] = [
     id: "kotleti-kievski",
     name: "Kotleti po-kievski",
     orderName: {
-      fr: "Kotleti po-kievski — 1 kg",
-      ru: "Котлеты по-киевски — 1 кг"
+      fr: "Kotleti po-kievski — par pièce",
+      ru: "Котлеты по-киевски — за штуку"
     },
     description:
       "Escalopes roulées au beurre parfumé, croustillantes et fondantes.",
-    price: 14,
-    unit: "1 kg",
+    price: 4,
+    unit: "par pièce",
     image: "/images/kotleti-kievski.jpg",
     category: "specialties",
     available: true
@@ -105,7 +105,7 @@ export const products: Product[] = [
     },
     description:
       "Vareniki faits maison avec une garniture généreuse selon les disponibilités.",
-    price: 11,
+    price: 10,
     unit: "1 kg",
     image: "/images/vareniki.jpg",
     category: "specialties",
@@ -115,13 +115,13 @@ export const products: Product[] = [
     id: "blinchiki",
     name: "Blinchiki maison",
     orderName: {
-      fr: "Blinchiki maison — 1 kg",
-      ru: "Домашние блинчики — 1 кг"
+      fr: "Blinchiki maison — par pièce",
+      ru: "Домашние блинчики — за штуку"
     },
     description:
       "Fines crêpes maison garnies selon les recettes traditionnelles.",
-    price: 9,
-    unit: "1 kg",
+    price: 0.8,
+    unit: "par pièce",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
@@ -130,13 +130,13 @@ export const products: Product[] = [
     id: "golubci",
     name: "Golubci maison",
     orderName: {
-      fr: "Golubci maison — 1 kg",
-      ru: "Домашние голубцы — 1 кг"
+      fr: "Golubci maison — par pièce",
+      ru: "Домашние голубцы — за штуку"
     },
     description:
       "Choux farcis préparés maison avec une recette familiale généreuse.",
-    price: 13,
-    unit: "1 kg",
+    price: 0.8,
+    unit: "par pièce",
     image: "/images/golubci.jpg",
     category: "specialties",
     available: true
@@ -145,13 +145,13 @@ export const products: Product[] = [
     id: "pirojki",
     name: "Pirojki maison",
     orderName: {
-      fr: "Pirojki maison — 1 kg",
-      ru: "Жареные пирожки — 1 кг"
+      fr: "Pirojki maison — par pièce",
+      ru: "Жареные пирожки — за штуку"
     },
     description:
       "Pirojki maison à la pâte moelleuse et à la garniture généreuse.",
-    price: 12,
-    unit: "1 kg",
+    price: 1,
+    unit: "par pièce",
     image: "/images/pirojki.jpg",
     category: "specialties",
     available: true

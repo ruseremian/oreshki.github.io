@@ -73,7 +73,7 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Традиционные блюда: сладкое и солёное",
-      title: "Домашняя кухня Кавказа",
+      title: "Домашняя Кавказская кухня",
       subtitle:
         "Пирожные, десерты и солёные блюда, приготовленные вручную по семейным рецептам небольшими партиями.",
       trustLine: "Ручная работа • Семейные рецепты • Предзаказ приветствуется",
@@ -175,7 +175,7 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Котлеты по-киевски",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
-            quantity: "1 кг",
+            quantity: "за штуку",
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Сытная домашняя классика: хрустящая корочка и нежная начинка внутри.",
@@ -201,7 +201,7 @@ export const siteContent = {
             id: "blinchiki",
             title: "Домашние блинчики",
             fullName: productById.get("blinchiki")!.orderName.ru,
-            quantity: "1 кг",
+            quantity: "за штуку",
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с традиционными сладкими или солёными начинками.",
@@ -214,7 +214,7 @@ export const siteContent = {
             id: "golubci",
             title: "Домашние голубцы",
             fullName: productById.get("golubci")!.orderName.ru,
-            quantity: "1 кг",
+            quantity: "за штуку",
             positioning: "Традиционные голубцы",
             description:
               "Домашние голубцы по традиционному семейному рецепту.",
@@ -227,7 +227,7 @@ export const siteContent = {
             id: "pirojki",
             title: "Жареные пирожки",
             fullName: productById.get("pirojki")!.orderName.ru,
-            quantity: "1 кг",
+            quantity: "за штуку",
             positioning: "Традиционные домашние пирожки",
             description:
               "Домашние жареные пирожки с хрустящей корочкой и сочной начинкой: картошка, капуста, мясо, печень, яйцо с луком и другие.",
@@ -474,7 +474,7 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.fr,
-            quantity: "1 kg",
+            quantity: "par pièce",
             positioning: "Escalopes roulées au beurre parfumé",
             description:
               "Une spécialité généreuse, croustillante à l’extérieur et fondante à l’intérieur. Préparée maison.",
@@ -500,7 +500,7 @@ export const siteContent = {
             id: "blinchiki",
             title: "Blinchiki maison",
             fullName: productById.get("blinchiki")!.orderName.fr,
-            quantity: "1 kg",
+            quantity: "par pièce",
             positioning: "Crêpes russes traditionnelles",
             description:
               "Fines crêpes maison garnies selon les recettes traditionnelles. Servies sucrées ou salées.",
@@ -513,7 +513,7 @@ export const siteContent = {
             id: "golubci",
             title: "Golubci maison",
             fullName: productById.get("golubci")!.orderName.fr,
-            quantity: "1 kg",
+            quantity: "par pièce",
             positioning: "Choux farcis traditionnels",
             description:
               "Choux farcis préparés maison avec une recette familiale généreuse et réconfortante.",
@@ -526,7 +526,7 @@ export const siteContent = {
             id: "pirojki",
             title: "Pirojki maison",
             fullName: productById.get("pirojki")!.orderName.fr,
-            quantity: "1 kg",
+            quantity: "par pièce",
             positioning: "Petits chaussons frits traditionnels",
             description:
               "Pirojki maison à la pâte moelleuse et à la garniture généreuse. Disponibles selon les recettes traditionnelles : pommes de terre, chou, viande, foie ou œuf avec oignons.",
