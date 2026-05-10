@@ -353,7 +353,7 @@ export const siteContent = {
       description:
         "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления и варианты самовывоза или доставки.",
       note:
-        "Для событий, семейных заказов и специалитетов по запросу лучше написать заранее: так мы успеем подготовить всё свежим.",
+        "Для событий и семейных заказов по запросу лучше написать заранее: так мы успеем подготовить всё свежим.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -444,7 +444,7 @@ export const siteContent = {
         },
         {
           id: "sigaretki",
-          title: "Sigaretki maison",
+          title: "Sigaretki",
           fullName: productById.get("sigaretki")!.orderName.fr,
           quantity: "boîte",
           positioning: "Pâtisseries roulées artisanales",
@@ -465,7 +465,7 @@ export const siteContent = {
         items: [
           {
             id: "pelmeni",
-            title: "Pelmeni maison",
+            title: "Pelmeni",
             fullName: productById.get("pelmeni")!.orderName.fr,
             quantity: "1 kg",
             positioning: "Raviolis traditionnels faits maison",
@@ -491,7 +491,7 @@ export const siteContent = {
           },
           {
             id: "vareniki",
-            title: "Vareniki maison",
+            title: "Vareniki",
             fullName: productById.get("vareniki")!.orderName.fr,
             quantity: "1 kg",
             positioning: "Raviolis traditionnels garnis",
@@ -504,7 +504,7 @@ export const siteContent = {
           },
           {
             id: "blinchiki",
-            title: "Blinchiki maison",
+            title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.fr,
             quantity: "par pièce",
             positioning: "Crêpes russes traditionnelles",
@@ -517,7 +517,7 @@ export const siteContent = {
           },
           {
             id: "golubci",
-            title: "Golubci maison",
+            title: "Golubci",
             fullName: productById.get("golubci")!.orderName.fr,
             quantity: "par pièce",
             positioning: "Choux farcis traditionnels",
@@ -530,7 +530,7 @@ export const siteContent = {
           },
           {
             id: "pirojki",
-            title: "Pirojki maison",
+            title: "Pirojki",
             fullName: productById.get("pirojki")!.orderName.fr,
             quantity: "par pièce",
             positioning: "Petits chaussons frits traditionnels",

@@ -26,9 +26,9 @@ const trustedProductPrices: Partial<Record<ProductId, number>> = {
   "kotleti-kievski": 4,
   pelmeni: 10,
   vareniki: 10,
-  golubci: 0.8,
+  golubci: 1,
   pirojki: 1,
-  blinchiki: 0.8
+  blinchiki: 1
 };
 
 type FieldErrors = NonNullable<

@@ -68,9 +68,9 @@ export const products: Product[] = [
   },
   {
     id: "pelmeni",
-    name: "Pelmeni maison",
+    name: "Pelmeni",
     orderName: {
-      fr: "Pelmeni maison — 1 kg",
+      fr: "Pelmeni — 1 kg",
       ru: "Домашние пельмени — 1 кг"
     },
     description:
@@ -98,9 +98,9 @@ export const products: Product[] = [
   },
   {
     id: "vareniki",
-    name: "Vareniki maison",
+    name: "Vareniki",
     orderName: {
-      fr: "Vareniki maison — 1 kg",
+      fr: "Vareniki — 1 kg",
       ru: "Домашние вареники — 1 кг"
     },
     description:
@@ -113,14 +113,14 @@ export const products: Product[] = [
   },
   {
     id: "blinchiki",
-    name: "Blinchiki maison",
+    name: "Blinchiki",
     orderName: {
-      fr: "Blinchiki maison — par pièce",
+      fr: "Blinchiki — par pièce",
       ru: "Домашние блинчики — за штуку"
     },
     description:
       "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons.",
-    price: 0.8,
+    price: 1,
     unit: "par pièce",
     image: "/images/blinchiki.jpg",
     category: "specialties",
@@ -128,14 +128,14 @@ export const products: Product[] = [
   },
   {
     id: "golubci",
-    name: "Golubci maison",
+    name: "Golubci",
     orderName: {
-      fr: "Golubci maison — par pièce",
+      fr: "Golubci — par pièce",
       ru: "Домашние голубцы — за штуку"
     },
     description:
       "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et une sauce mijotée maison.",
-    price: 0.8,
+    price: 1,
     unit: "par pièce",
     image: "/images/golubci.jpg",
     category: "specialties",
@@ -143,9 +143,9 @@ export const products: Product[] = [
   },
   {
     id: "pirojki",
-    name: "Pirojki maison",
+    name: "Pirojki",
     orderName: {
-      fr: "Pirojki maison — par pièce",
+      fr: "Pirojki — par pièce",
       ru: "Жареные пирожки — за штуку"
     },
     description:
@@ -158,9 +158,9 @@ export const products: Product[] = [
   },
   {
     id: "sigaretki",
-    name: "Sigaretki maison",
+    name: "Sigaretki",
     orderName: {
-      fr: "Sigaretki maison",
+      fr: "Sigaretki",
       ru: "Домашние сигаретки"
     },
     description:
