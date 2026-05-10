@@ -6,7 +6,7 @@ import { LegalFooter } from "@/components/legal-footer";
 export const metadata: Metadata = {
   title: "Politique de confidentialité | Oreshki",
   description:
-    "Politique de confidentialité du site Oreshki concernant les commandes, les données clients et leur utilisation."
+    "Politique de confidentialité du site Oreshki concernant les commandes de spécialités maison, les données clients et leur utilisation."
 };
 
 const collectedData = [
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
             </h1>
             <p className="mt-5 text-base leading-7 text-cocoa/70 sm:leading-8">
               Cette politique explique quelles données sont collectées lors d&apos;une
-              commande sur le site Oreshki, pourquoi elles sont utilisées et comment
+              commande de spécialités maison, pourquoi elles sont utilisées et comment
               elles sont protégées.
             </p>
           </header>

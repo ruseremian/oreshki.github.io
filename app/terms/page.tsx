@@ -6,14 +6,14 @@ import { LegalFooter } from "@/components/legal-footer";
 export const metadata: Metadata = {
   title: "Conditions d'utilisation | Oreshki",
   description:
-    "Conditions d'utilisation du site Oreshki pour les commandes de desserts artisanaux."
+    "Conditions d'utilisation du site Oreshki pour les commandes de spécialités artisanales faites maison."
 };
 
 const terms = [
   {
     title: "Activité",
     body:
-      "Le site Oreshki présente et permet de commander des oreshki faits maison et des desserts artisanaux préparés en petites quantités."
+      "Le site Oreshki présente et permet de commander des pâtisseries, desserts et plats salés artisanaux préparés maison en petites quantités."
   },
   {
     title: "Disponibilité et préparation",
@@ -68,7 +68,7 @@ export default function TermsPage() {
             </h1>
             <p className="mt-5 text-base leading-7 text-cocoa/70 sm:leading-8">
               Ces conditions encadrent l&apos;utilisation du site Oreshki et les commandes
-              de desserts artisanaux proposées aux clients.
+              de spécialités artisanales faites maison proposées aux clients.
             </p>
           </header>
 

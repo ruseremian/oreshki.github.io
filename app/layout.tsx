@@ -15,9 +15,10 @@ const playfair = Playfair_Display({
   display: "swap"
 });
 
-const metadataTitle = "Oreshki faits maison au caramel | Dessert artisanal";
+const metadataTitle =
+  "Spécialités maison d’Europe de l’Est à Strasbourg | Oreshki";
 const metadataDescription =
-  "Découvrez des oreshki faits maison : biscuits croustillants en forme de noix, garnis de lait concentré caramélisé. Petites séries, formats 12, 24 et 48 pièces, commande en ligne.";
+  "Pâtisseries, desserts et plats salés artisanaux faits maison, inspirés des traditions d’Europe de l’Est et du Caucase. Commandes en ligne, retrait ou livraison locale.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://oreshki-github-io.vercel.app"),

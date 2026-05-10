@@ -70,11 +70,11 @@ export const siteContent = {
       languageLabel: "Выбрать язык"
     },
     hero: {
-      eyebrow: "Домашние сладкие и солёные блюда",
-      title: "Домашняя выпечка и блюда Восточной Европы",
+      eyebrow: "Домашние специалитеты: сладкое и солёное",
+      title: "Домашние блюда Восточной Европы и Кавказа",
       subtitle:
-        "Орешки со сгущёнкой, домашняя выпечка и традиционные солёные блюда, приготовленные вручную небольшими партиями.",
-      trustLine: "Ручная работа • Сладкое и солёное • Рекомендуем предзаказ",
+        "Пирожные, десерты и солёные блюда, приготовленные вручную по семейным рецептам небольшими партиями.",
+      trustLine: "Ручная работа • Семейные рецепты • Предзаказ приветствуется",
       order: "Заказать",
       discover: "Смотреть ассортимент",
       imageAlt: "Домашние орешки со сгущёнкой на бежевой керамической тарелке",
@@ -87,16 +87,16 @@ export const siteContent = {
     },
     products: {
       eyebrow: "Два направления",
-      title: "Домашняя выпечка и традиционные блюда",
+      title: "Домашняя выпечка и блюда к столу",
       description:
-        "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
+        "Выберите сладкие изделия для чаепития или солёные специалитеты для семейного стола — всё готовится вручную и по предзаказу.",
       customQuantityNote:
-        "Нужен индивидуальный формат? Напишите нам напрямую в Instagram, Telegram или WhatsApp.",
+        "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
       itemsEyebrow: "Сладкое",
       itemsTitle: "Домашняя выпечка",
-      itemsIntro: "Орешки остаются нашим фирменным десертом, а сигаретки дополняют сладкую витрину тонкой домашней выпечкой.",
+      itemsIntro: "Домашние десерты и выпечка для тёплого чаепития: фирменные орешки, нежные сигаретки и сладкие рецепты ручной работы.",
       itemsBadge: "Сладкое",
       items: [
         {
@@ -151,9 +151,9 @@ export const siteContent = {
       ],
       specialties: {
         eyebrow: "Солёное",
-        title: "Домашние блюда",
+        title: "Домашние блюда к столу",
         intro:
-          "Традиционные солёные блюда Восточной Европы для уютного обеда, семейного ужина или праздничного стола.",
+          "Традиционные солёные блюда Восточной Европы и Кавказа для уютного обеда, семейного ужина или праздничного стола.",
         badge: "Солёное",
         items: [
           {
@@ -226,12 +226,12 @@ export const siteContent = {
     },
     about: {
       eyebrow: "История",
-      title: "Восточноевропейская сладость, приготовленная вручную",
+      title: "Семейные рецепты, приготовленные вручную",
       description:
-        "Орешки — это маленькое печенье в форме грецкого ореха, которое часто готовят для семейных праздников и тёплых встреч. Каждая скорлупка выпекается отдельно, затем наполняется варёной сгущёнкой.",
+        "Мы готовим домашние сладкие и солёные специалитеты небольшими партиями: от фирменных орешков до сытных блюд для семейного стола.",
       note:
-        "Мы готовим небольшими партиями, чтобы сохранить главное: хрустящую текстуру, щедрую начинку и аромат настоящего домашнего десерта.",
-      imageAlt: "Руки наполняют скорлупки орешков варёной сгущёнкой"
+        "В основе — семейные рецепты, ручная работа и щедрая подача, чтобы каждый заказ ощущался как тёплое домашнее угощение.",
+      imageAlt: "Руки готовят домашние орешки с варёной сгущёнкой"
     },
     reviews: {
       eyebrow: "Отзывы",
@@ -278,7 +278,7 @@ export const siteContent = {
       quantity: "Количество",
       emptyTitle: "Корзина пуста",
       emptyText:
-        "Добавьте набор орешков из раздела продуктов, и здесь появится оформление заказа.",
+        "Добавьте сладости или солёные блюда из ассортимента, и здесь появится оформление заказа.",
       total: "Итого",
       subtotal: "Промежуточный итог",
       deliveryFee: "Стоимость доставки",
@@ -331,11 +331,11 @@ export const siteContent = {
     },
     contact: {
       eyebrow: "Контакты",
-      title: "Хотите орешки?",
+      title: "Готовите семейный стол или праздник?",
       description:
-        "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим наличие, дату приготовления и варианты самовывоза или доставки.",
+        "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления и варианты самовывоза или доставки.",
       note:
-        "Для больших и праздничных заказов лучше написать заранее: так мы успеем подготовить свежую партию.",
+        "Для событий, семейных заказов и специалитетов по запросу лучше написать заранее: так мы успеем подготовить всё свежим.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -356,11 +356,11 @@ export const siteContent = {
       languageLabel: "Choisir la langue"
     },
     hero: {
-      eyebrow: "Maison sucrée & salée",
-      title: "Pâtisseries & spécialités maison",
+      eyebrow: "Spécialités maison sucrées & salées",
+      title: "Spécialités artisanales d’Europe de l’Est et du Caucase",
       subtitle:
-        "Des spécialités artisanales d’Europe de l’Est, préparées à la main en petites séries : douceurs au caramel, pâtisseries fines et plats salés traditionnels.",
-      trustLine: "Fait maison • Sucré & salé • Précommande recommandée",
+        "Pâtisseries, desserts et plats salés faits maison, préparés à la main en petites séries selon des recettes familiales.",
+      trustLine: "Fait maison • Recettes familiales • Précommande recommandée",
       order: "Commander",
       discover: "Découvrir les univers",
       imageAlt: "Oreshki faits maison au caramel sur une assiette en céramique beige",
@@ -375,14 +375,14 @@ export const siteContent = {
       eyebrow: "Deux univers",
       title: "Pâtisserie artisanale et traiteur maison",
       description:
-        "Retrouvez nos douceurs signature d’un côté, et nos spécialités salées traditionnelles de l’autre.",
+        "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
       customQuantityNote:
-        "Besoin d’une quantité personnalisée ? Contactez-nous directement via Instagram, Telegram ou WhatsApp.",
+        "Besoin d’une quantité personnalisée, d’une commande familiale ou d’une spécialité pour un événement ? Contactez-nous via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
       itemsEyebrow: "Univers sucré",
       itemsTitle: "La Pâtisserie",
-      itemsIntro: "Douceurs artisanales faites maison, avec les oreshki au caramel comme produit signature.",
+      itemsIntro: "Desserts et pâtisseries faits maison pour le thé ou le partage, avec les oreshki au caramel comme signature iconique.",
       itemsBadge: "Sucré",
       items: [
         {
@@ -439,7 +439,7 @@ export const siteContent = {
         eyebrow: "Univers salé",
         title: "Le Traiteur",
         intro:
-          "Spécialités salées traditionnelles, façonnées à la main dans un esprit généreux et familial.",
+          "Spécialités salées d’Europe de l’Est et du Caucase, façonnées à la main dans un esprit généreux et familial.",
         badge: "Salé",
         items: [
           {
@@ -512,12 +512,12 @@ export const siteContent = {
     },
     about: {
       eyebrow: "Histoire",
-      title: "Une douceur d’Europe de l’Est, préparée à la main",
+      title: "Des recettes familiales préparées à la main",
       description:
-        "Les oreshki sont de petits biscuits en forme de noix, traditionnellement préparés pour les grandes occasions. Chaque coque est cuite une par une, puis garnie d’un caramel fondant au lait concentré.",
+        "Notre table réunit des douceurs, des desserts et des plats salés inspirés des traditions d’Europe de l’Est et du Caucase, préparés maison en petites séries.",
       note:
-        "Nous les préparons en petites séries pour préserver ce qui fait leur charme : une texture croustillante, un cœur généreux et ce parfum de dessert fait maison.",
-      imageAlt: "Des mains garnissent des coques d’oreshki avec du caramel au lait concentré"
+        "Les oreshki restent notre signature, mais chaque spécialité suit la même exigence : une préparation artisanale, des portions généreuses et le goût chaleureux des recettes de famille.",
+      imageAlt: "Préparation artisanale d’oreshki au caramel"
     },
     reviews: {
       eyebrow: "Avis",
@@ -552,7 +552,7 @@ export const siteContent = {
         },
         {
           name: "Charlotte",
-          text: "Très frais et vraiment fait avec soin. On sent la différence avec un dessert industriel."
+          text: "Très frais et vraiment fait avec soin. On sent la différence d’une cuisine maison préparée à la main."
         }
       ]
     },
@@ -564,7 +564,7 @@ export const siteContent = {
       quantity: "Quantité",
       emptyTitle: "Votre panier est vide",
       emptyText:
-        "Ajoutez un format depuis la section produits, puis finalisez votre commande ici.",
+        "Ajoutez des pâtisseries ou des plats depuis l’assortiment, puis finalisez votre commande ici.",
       total: "Total",
       subtotal: "Sous-total",
       deliveryFee: "Frais de livraison",
@@ -618,11 +618,11 @@ export const siteContent = {
     },
     contact: {
       eyebrow: "Contact",
-      title: "Une envie d’oreshki ?",
+      title: "Une table familiale ou un événement à préparer ?",
       description:
-        "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons la disponibilité, la date de préparation et les options de retrait ou livraison.",
+        "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons l’assortiment, la date de préparation et les options de retrait ou livraison.",
       note:
-        "Pour les grandes quantités et les commandes de fête, la précommande nous aide à préparer une fournée fraîche.",
+        "Pour les grandes quantités, les repas de famille, les événements ou les spécialités sur demande, la précommande nous aide à tout préparer frais.",
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"

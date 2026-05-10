@@ -152,7 +152,7 @@ export const products: Product[] = [
     price: 10,
     unit: "boîte",
     image: "/images/sigaretki.jpg",
-    category: "specialties",
+    category: "cookies",
     available: true
   }
 ];

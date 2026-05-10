@@ -8,7 +8,7 @@ export function LegalFooter() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 py-7 text-center text-sm text-cocoa/65 sm:flex-row sm:px-6 sm:py-8 sm:text-left lg:px-8">
         <div className="flex flex-col items-center gap-3 sm:items-start">
           <Logo size="sm" showSubtitle />
-          <p>Desserts artisanaux faits maison.</p>
+          <p>Spécialités artisanales sucrées et salées faites maison.</p>
         </div>
         <nav
           aria-label="Liens légaux"
