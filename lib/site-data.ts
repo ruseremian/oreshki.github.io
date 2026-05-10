@@ -235,16 +235,34 @@ export const siteContent = {
     },
     reviews: {
       eyebrow: "Отзывы",
-      title: "Тёплые слова после первой порции",
+      title: "Тёплые слова после домашнего стола",
       ratingLabel: "5 из 5 звёзд",
+      previousLabel: "Предыдущий отзыв",
+      nextLabel: "Следующий отзыв",
       items: [
+        {
+          name: "Serguei",
+          text: "Порции очень щедрые, сразу видно, что всё домашнее. Пельмени напомнили семейные обеды."
+        },
+        {
+          name: "Milena",
+          text: "Орешки были свежие, красивые и с щедрой начинкой. Подали к чаю — всем очень понравилось."
+        },
+        {
+          name: "Ilona",
+          text: "Щедрая, простая и очень вкусная еда. Видно, что всё приготовлено с заботой."
+        },
+        {
+          name: "Svetlana",
+          text: "Котлеты были хрустящие снаружи и нежные внутри. Очень вкусно и по-домашнему."
+        },
+        {
+          name: "Arthur",
+          text: "Заказывали несколько блюд на вечер, порции были отличные, и всё очень быстро закончилось."
+        },
         {
           name: "Ruslan",
           text: "Тот самый вкус из детства. Скорлупки хрустящие, начинки много — невозможно остановиться."
-        },
-        {
-          name: "Danièle",
-          text: "Заказывали на день рождения, всё исчезло за несколько минут. Все остались довольны."
         },
         {
           name: "Charlotte",
@@ -503,16 +521,34 @@ export const siteContent = {
     },
     reviews: {
       eyebrow: "Avis",
-      title: "Des mots doux après la première dégustation",
+      title: "Des mots doux autour de la table",
       ratingLabel: "5 étoiles sur 5",
+      previousLabel: "Avis précédent",
+      nextLabel: "Avis suivant",
       items: [
+        {
+          name: "Serguei",
+          text: "Les portions sont vraiment généreuses, on sent que c’est fait maison. Les pelmeni avaient le goût des repas de famille."
+        },
+        {
+          name: "Milena",
+          text: "Les oreshki étaient frais, bien garnis et très beaux. On les a servis avec le thé, tout le monde a adoré."
+        },
+        {
+          name: "Ilona",
+          text: "Cuisine généreuse, simple et pleine de goût. Les plats donnent vraiment l’impression d’avoir été préparés avec soin."
+        },
+        {
+          name: "Svetlana",
+          text: "Les kotleti étaient croustillantes à l’extérieur et fondantes à l’intérieur. Très bon équilibre, très réconfortant."
+        },
+        {
+          name: "Arthur",
+          text: "On a commandé plusieurs spécialités pour une soirée, les quantités étaient parfaites et tout est parti très vite."
+        },
         {
           name: "Ruslan",
           text: "Exactement le goût de mon enfance. Les coques sont croustillantes, la garniture est généreuse… impossible de s’arrêter."
-        },
-        {
-          name: "Danièle",
-          text: "Commandés pour un anniversaire, tout est parti en quelques minutes. Tout le monde s’est régalé."
         },
         {
           name: "Charlotte",
