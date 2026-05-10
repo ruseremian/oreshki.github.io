@@ -69,13 +69,13 @@ export const products: Product[] = [
     id: "pelmeni",
     name: "Pelmeni maison",
     orderName: {
-      fr: "Pelmeni maison",
-      ru: "Домашние пельмени"
+      fr: "Pelmeni maison — 1 kg",
+      ru: "Домашние пельмени — 1 кг"
     },
     description:
       "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon.",
     price: 12,
-    unit: "portion",
+    unit: "1 kg",
     image: "/images/pelmeni.jpg",
     category: "specialties",
     available: true
@@ -84,13 +84,13 @@ export const products: Product[] = [
     id: "kotleti-kievski",
     name: "Kotleti po-kievski",
     orderName: {
-      fr: "Kotleti po-kievski",
-      ru: "Котлеты по-киевски"
+      fr: "Kotleti po-kievski — 1 kg",
+      ru: "Котлеты по-киевски — 1 кг"
     },
     description:
       "Escalopes roulées au beurre parfumé, croustillantes et fondantes.",
     price: 14,
-    unit: "portion",
+    unit: "1 kg",
     image: "/images/kotleti-kievski.jpg",
     category: "specialties",
     available: true
@@ -99,13 +99,13 @@ export const products: Product[] = [
     id: "vareniki",
     name: "Vareniki maison",
     orderName: {
-      fr: "Vareniki maison",
-      ru: "Домашние вареники"
+      fr: "Vareniki maison — 1 kg",
+      ru: "Домашние вареники — 1 кг"
     },
     description:
       "Vareniki faits maison avec une garniture généreuse selon les disponibilités.",
     price: 11,
-    unit: "portion",
+    unit: "1 kg",
     image: "/images/vareniki.jpg",
     category: "specialties",
     available: true
@@ -114,13 +114,13 @@ export const products: Product[] = [
     id: "blinchiki",
     name: "Blinchiki maison",
     orderName: {
-      fr: "Blinchiki maison",
-      ru: "Домашние блинчики"
+      fr: "Blinchiki maison — 1 kg",
+      ru: "Домашние блинчики — 1 кг"
     },
     description:
       "Fines crêpes maison garnies selon les recettes traditionnelles.",
     price: 9,
-    unit: "portion",
+    unit: "1 kg",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
@@ -129,13 +129,13 @@ export const products: Product[] = [
     id: "golubci",
     name: "Golubci maison",
     orderName: {
-      fr: "Golubci maison",
-      ru: "Домашние голубцы"
+      fr: "Golubci maison — 1 kg",
+      ru: "Домашние голубцы — 1 кг"
     },
     description:
       "Choux farcis préparés maison avec une recette familiale généreuse.",
     price: 13,
-    unit: "portion",
+    unit: "1 kg",
     image: "/images/golubci.jpg",
     category: "specialties",
     available: true

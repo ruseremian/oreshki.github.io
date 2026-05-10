@@ -38,14 +38,14 @@ export function Products({ content, onOrder }: ProductsProps) {
         />
 
         <div id="patisserie" className="mt-8 scroll-mt-24 sm:mt-10">
-          <div className="mb-6 max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-caramel">
+          <div className="mx-auto mb-6 max-w-3xl text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-caramel">
               {content.itemsEyebrow}
             </p>
-            <h3 className="mt-2 font-serif text-3xl leading-tight text-cocoa sm:text-4xl">
+            <h3 className="font-serif text-3xl leading-tight text-cocoa sm:text-4xl">
               {content.itemsTitle}
             </h3>
-            <p className="mt-3 text-sm leading-7 text-cocoa/68 sm:text-base">
+            <p className="mt-4 text-sm leading-7 text-cocoa/68 sm:text-base">
               {content.itemsIntro}
             </p>
           </div>

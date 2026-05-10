@@ -70,8 +70,8 @@ export const siteContent = {
       languageLabel: "Выбрать язык"
     },
     hero: {
-      eyebrow: "Домашние специалитеты: сладкое и солёное",
-      title: "Домашние блюда Восточной Европы и Кавказа",
+      eyebrow: "Традиционные блюда: сладкое и солёное",
+      title: "Домашняя кухня Кавказа",
       subtitle:
         "Пирожные, десерты и солёные блюда, приготовленные вручную по семейным рецептам небольшими партиями.",
       trustLine: "Ручная работа • Семейные рецепты • Предзаказ приветствуется",
@@ -89,7 +89,7 @@ export const siteContent = {
       eyebrow: "Два направления",
       title: "Домашняя выпечка и блюда к столу",
       description:
-        "Выберите сладкие изделия для чаепития или солёные специалитеты для семейного стола — всё готовится вручную и по предзаказу.",
+        "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
       customQuantityNote:
         "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
@@ -160,7 +160,7 @@ export const siteContent = {
             id: "pelmeni",
             title: "Домашние пельмени",
             fullName: productById.get("pelmeni")!.orderName.ru,
-            quantity: "порция",
+            quantity: "1 кг",
             positioning: "Традиционные пельмени ручной работы",
             description:
               "Домашние пельмени, приготовленные вручную. Идеально варить в воде или бульоне.",
@@ -173,7 +173,7 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Котлеты по-киевски",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
-            quantity: "порция",
+            quantity: "1 кг",
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Сытная домашняя классика: хрустящая корочка и нежная начинка внутри.",
@@ -186,7 +186,7 @@ export const siteContent = {
             id: "vareniki",
             title: "Домашние вареники",
             fullName: productById.get("vareniki")!.orderName.ru,
-            quantity: "порция",
+            quantity: "1 кг",
             positioning: "Традиционные вареники с начинкой",
             description:
               "Домашние вареники с различными начинками: картофель, творог или фрукты.",
@@ -199,7 +199,7 @@ export const siteContent = {
             id: "blinchiki",
             title: "Домашние блинчики",
             fullName: productById.get("blinchiki")!.orderName.ru,
-            quantity: "порция",
+            quantity: "1 кг",
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с традиционными сладкими или солёными начинками.",
@@ -212,7 +212,7 @@ export const siteContent = {
             id: "golubci",
             title: "Домашние голубцы",
             fullName: productById.get("golubci")!.orderName.ru,
-            quantity: "порция",
+            quantity: "1 кг",
             positioning: "Традиционные голубцы",
             description:
               "Домашние голубцы по традиционному семейному рецепту.",
@@ -228,7 +228,7 @@ export const siteContent = {
       eyebrow: "История",
       title: "Семейные рецепты, приготовленные вручную",
       description:
-        "Мы готовим домашние сладкие и солёные специалитеты небольшими партиями: от фирменных орешков до сытных блюд для семейного стола.",
+        "Мы готовим домашние сладкие и солёные блюда небольшими партиями: от фирменных орешков до сытных блюд для семейного стола.",
       note:
         "В основе — семейные рецепты, ручная работа и щедрая подача, чтобы каждый заказ ощущался как тёплое домашнее угощение.",
       imageAlt: "Руки готовят домашние орешки с варёной сгущёнкой"
@@ -242,7 +242,7 @@ export const siteContent = {
       items: [
         {
           name: "Serguei",
-          text: "Порции очень щедрые, сразу видно, что всё домашнее. Пельмени напомнили семейные обеды."
+          text: "Заказ был очень щедрым, сразу видно, что всё домашнее. Пельмени напомнили семейные обеды."
         },
         {
           name: "Milena",
@@ -357,7 +357,7 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Spécialités maison sucrées & salées",
-      title: "Spécialités artisanales d’Europe de l’Est et du Caucase",
+      title: "Spécialités artisanales du Caucase",
       subtitle:
         "Pâtisseries, desserts et plats salés faits maison, préparés à la main en petites séries selon des recettes familiales.",
       trustLine: "Fait maison • Recettes familiales • Précommande recommandée",
@@ -446,7 +446,7 @@ export const siteContent = {
             id: "pelmeni",
             title: "Pelmeni maison",
             fullName: productById.get("pelmeni")!.orderName.fr,
-            quantity: "portion",
+            quantity: "1 kg",
             positioning: "Raviolis traditionnels faits maison",
             description:
               "Pelmeni préparés à la main, parfaits à cuire à l’eau ou au bouillon. Une spécialité généreuse et réconfortante.",
@@ -459,7 +459,7 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.fr,
-            quantity: "portion",
+            quantity: "1 kg",
             positioning: "Escalopes roulées au beurre parfumé",
             description:
               "Une spécialité généreuse, croustillante à l’extérieur et fondante à l’intérieur. Préparée maison.",
@@ -472,7 +472,7 @@ export const siteContent = {
             id: "vareniki",
             title: "Vareniki maison",
             fullName: productById.get("vareniki")!.orderName.fr,
-            quantity: "portion",
+            quantity: "1 kg",
             positioning: "Raviolis traditionnels garnis",
             description:
               "Vareniki faits maison avec une garniture généreuse selon les disponibilités : pommes de terre, fromage ou fruits.",
@@ -485,7 +485,7 @@ export const siteContent = {
             id: "blinchiki",
             title: "Blinchiki maison",
             fullName: productById.get("blinchiki")!.orderName.fr,
-            quantity: "portion",
+            quantity: "1 kg",
             positioning: "Crêpes russes traditionnelles",
             description:
               "Fines crêpes maison garnies selon les recettes traditionnelles. Servies sucrées ou salées.",
@@ -498,7 +498,7 @@ export const siteContent = {
             id: "golubci",
             title: "Golubci maison",
             fullName: productById.get("golubci")!.orderName.fr,
-            quantity: "portion",
+            quantity: "1 kg",
             positioning: "Choux farcis traditionnels",
             description:
               "Choux farcis préparés maison avec une recette familiale généreuse et réconfortante.",
@@ -516,7 +516,7 @@ export const siteContent = {
       description:
         "Notre table réunit des douceurs, des desserts et des plats salés inspirés des traditions d’Europe de l’Est et du Caucase, préparés maison en petites séries.",
       note:
-        "Les oreshki restent notre signature, mais chaque spécialité suit la même exigence : une préparation artisanale, des portions généreuses et le goût chaleureux des recettes de famille.",
+        "Les oreshki restent notre signature, mais chaque spécialité suit la même exigence : une préparation artisanale, des quantités généreuses et le goût chaleureux des recettes de famille.",
       imageAlt: "Préparation artisanale d’oreshki au caramel"
     },
     reviews: {
@@ -528,7 +528,7 @@ export const siteContent = {
       items: [
         {
           name: "Serguei",
-          text: "Les portions sont vraiment généreuses, on sent que c’est fait maison. Les pelmeni avaient le goût des repas de famille."
+          text: "Les quantités sont vraiment généreuses, on sent que c’est fait maison. Les pelmeni avaient le goût des repas de famille."
         },
         {
           name: "Milena",
