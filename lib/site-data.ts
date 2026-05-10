@@ -92,6 +92,8 @@ export const siteContent = {
       title: "Домашняя выпечка и блюда к столу",
       description:
         "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
+      artisanDisclaimer:
+        "Так как вся продукция готовится вручную, внешний вид изделий может немного отличаться.",
       customQuantityNote:
         "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
@@ -394,6 +396,8 @@ export const siteContent = {
       title: "Pâtisserie artisanale et traiteur maison",
       description:
         "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
+      artisanDisclaimer:
+        "Chaque produit étant préparé artisanalement, l’apparence finale peut légèrement varier.",
       customQuantityNote:
         "Besoin d’une quantité personnalisée, d’une commande familiale ou d’une spécialité pour un événement ? Contactez-nous via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",

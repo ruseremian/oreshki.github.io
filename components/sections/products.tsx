@@ -95,6 +95,10 @@ export function Products({ content, onOrder }: ProductsProps) {
           </div>
         </div>
 
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm italic leading-7 text-cocoa/52">
+          {content.artisanDisclaimer}
+        </p>
+
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-cocoa/68">
           <LinkedCustomQuantityNote text={content.customQuantityNote} />
         </p>
