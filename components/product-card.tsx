@@ -9,6 +9,7 @@ type ProductCardProps = {
   index: number;
   orderLabel: string;
   addedLabel: string;
+  categoryLabel?: string;
   added: boolean;
   onOrder: (productId: ProductId) => void;
 };
@@ -18,6 +19,7 @@ export function ProductCard({
   index,
   orderLabel,
   addedLabel,
+  categoryLabel,
   added,
   onOrder
 }: ProductCardProps) {
@@ -48,6 +50,11 @@ export function ProductCard({
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-4 flex flex-wrap content-start gap-2 md:min-h-16">
+          {categoryLabel ? (
+            <span className="rounded-full border border-caramel/20 bg-white/65 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-caramel">
+              {categoryLabel}
+            </span>
+          ) : null}
           <span className="max-w-full rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-caramel sm:tracking-[0.14em]">
             {product.positioning}
           </span>

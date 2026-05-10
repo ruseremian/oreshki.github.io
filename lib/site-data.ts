@@ -61,8 +61,8 @@ export const siteContent = {
       brand: "Орешки",
       order: "Заказать",
       items: [
-        { label: "Продукты", href: "#products" },
-        { label: "О нас", href: "#about" },
+        { label: "Выпечка", href: "#patisserie" },
+        { label: "Блюда", href: "#traiteur" },
         { label: "Отзывы", href: "#reviews" },
         { label: "Контакты", href: "#contact" }
       ],
@@ -70,13 +70,13 @@ export const siteContent = {
       languageLabel: "Выбрать язык"
     },
     hero: {
-      eyebrow: "Домашняя кондитерская",
-      title: "Домашние орешки со сгущёнкой",
+      eyebrow: "Домашние сладкие и солёные блюда",
+      title: "Домашняя выпечка и блюда Восточной Европы",
       subtitle:
-        "Тот самый вкус детства — золотистая хрустящая скорлупка и нежная карамельная начинка из варёной сгущёнки.",
-      trustLine: "Ручная работа • Маленькие партии • Рекомендуем предзаказ",
+        "Орешки со сгущёнкой, домашняя выпечка и традиционные солёные блюда, приготовленные вручную небольшими партиями.",
+      trustLine: "Ручная работа • Сладкое и солёное • Рекомендуем предзаказ",
       order: "Заказать",
-      discover: "Посмотреть форматы",
+      discover: "Смотреть ассортимент",
       imageAlt: "Домашние орешки со сгущёнкой на бежевой керамической тарелке",
       logistics: [
         "Приготовление за 24–48 ч",
@@ -86,14 +86,18 @@ export const siteContent = {
       ]
     },
     products: {
-      eyebrow: "Ассортимент",
-      title: "Три формата для знакомства, семьи и друзей",
+      eyebrow: "Два направления",
+      title: "Домашняя выпечка и традиционные блюда",
       description:
-        "Выберите формат для пробы, классический набор для дома или большой формат для щедрого стола.",
+        "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
       customQuantityNote:
         "Нужен индивидуальный формат? Напишите нам напрямую в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
+      itemsEyebrow: "Сладкое",
+      itemsTitle: "Домашняя выпечка",
+      itemsIntro: "Орешки остаются нашим фирменным десертом, а сигаретки дополняют сладкую витрину тонкой домашней выпечкой.",
+      itemsBadge: "Сладкое",
       items: [
         {
           id: "pieces12",
@@ -130,12 +134,27 @@ export const siteContent = {
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
           imageAlt: "Большой формат домашних орешков со сгущёнкой 48 штук"
+        },
+        {
+          id: "sigaretki",
+          title: "Домашние сигаретки",
+          fullName: productById.get("sigaretki")!.orderName.ru,
+          quantity: "коробка",
+          positioning: "Тонкая домашняя выпечка",
+          description:
+            "Нежная хрустящая выпечка с лёгкой сладостью, приготовленная дома по традиционному рецепту.",
+          price: formatPrice(productBasePrices.sigaretki),
+          basePrice: productBasePrices.sigaretki,
+          image: productImages.sigaretki,
+          imageAlt: "Домашние сигаретки, традиционная рулетная выпечка"
         }
       ],
       specialties: {
-        title: "Другие домашние блюда",
+        eyebrow: "Солёное",
+        title: "Домашние блюда",
         intro:
-          "Помимо орешков, мы иногда предлагаем другие традиционные домашние блюда.",
+          "Традиционные солёные блюда Восточной Европы для уютного обеда, семейного ужина или праздничного стола.",
+        badge: "Солёное",
         items: [
           {
             id: "pelmeni",
@@ -201,19 +220,6 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Домашние голубцы по семейному рецепту"
-          },
-          {
-            id: "sigaretki",
-            title: "Домашние сигаретки",
-            fullName: productById.get("sigaretki")!.orderName.ru,
-            quantity: "коробка",
-            positioning: "Традиционная домашняя выпечка",
-            description:
-              "Нежная домашняя выпечка по традиционному рецепту, слегка посыпанная сахарной пудрой.",
-            price: formatPrice(productBasePrices.sigaretki),
-            basePrice: productBasePrices.sigaretki,
-            image: productImages.sigaretki,
-            imageAlt: "Домашние сигаретки с сахарной пудрой"
           }
         ]
       }
@@ -323,8 +329,8 @@ export const siteContent = {
       brand: "Oreshki",
       order: "Commander",
       items: [
-        { label: "Produits", href: "#products" },
-        { label: "À propos", href: "#about" },
+        { label: "Pâtisserie", href: "#patisserie" },
+        { label: "Traiteur", href: "#traiteur" },
         { label: "Avis", href: "#reviews" },
         { label: "Contact", href: "#contact" }
       ],
@@ -332,13 +338,13 @@ export const siteContent = {
       languageLabel: "Choisir la langue"
     },
     hero: {
-      eyebrow: "Pâtisserie maison",
-      title: "Oreshki faits maison au caramel",
+      eyebrow: "Maison sucrée & salée",
+      title: "Pâtisseries & spécialités maison",
       subtitle:
-        "Le goût de l’enfance — des coques dorées, croustillantes et garnies d’un cœur fondant au lait concentré caramélisé.",
-      trustLine: "Faits à la main • Petites séries • Précommande recommandée",
+        "Des spécialités artisanales d’Europe de l’Est, préparées à la main en petites séries : douceurs au caramel, pâtisseries fines et plats salés traditionnels.",
+      trustLine: "Fait maison • Sucré & salé • Précommande recommandée",
       order: "Commander",
-      discover: "Découvrir les formats",
+      discover: "Découvrir les univers",
       imageAlt: "Oreshki faits maison au caramel sur une assiette en céramique beige",
       logistics: [
         "Préparation sous 24–48h",
@@ -348,14 +354,18 @@ export const siteContent = {
       ]
     },
     products: {
-      eyebrow: "Assortiment",
-      title: "Trois formats pour découvrir et partager",
+      eyebrow: "Deux univers",
+      title: "Pâtisserie artisanale et traiteur maison",
       description:
-        "Choisissez le format découverte, le format classique pour la maison ou le grand format généreux.",
+        "Retrouvez nos douceurs signature d’un côté, et nos spécialités salées traditionnelles de l’autre.",
       customQuantityNote:
         "Besoin d’une quantité personnalisée ? Contactez-nous directement via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
+      itemsEyebrow: "Univers sucré",
+      itemsTitle: "La Pâtisserie",
+      itemsIntro: "Douceurs artisanales faites maison, avec les oreshki au caramel comme produit signature.",
+      itemsBadge: "Sucré",
       items: [
         {
           id: "pieces12",
@@ -392,12 +402,27 @@ export const siteContent = {
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
           imageAlt: "Grand format 48 pièces d’oreshki faits maison au caramel"
+        },
+        {
+          id: "sigaretki",
+          title: "Sigaretki maison",
+          fullName: productById.get("sigaretki")!.orderName.fr,
+          quantity: "boîte",
+          positioning: "Pâtisseries roulées artisanales",
+          description:
+            "Délicates pâtisseries croustillantes légèrement sucrées, préparées maison selon une recette traditionnelle.",
+          price: formatPrice(productBasePrices.sigaretki),
+          basePrice: productBasePrices.sigaretki,
+          image: productImages.sigaretki,
+          imageAlt: "Sigaretki maison, pâtisseries roulées artisanales"
         }
       ],
       specialties: {
-        title: "Autres spécialités maison",
+        eyebrow: "Univers salé",
+        title: "Le Traiteur",
         intro:
-          "En plus des oreshki, nous proposons ponctuellement d’autres spécialités traditionnelles faites maison.",
+          "Spécialités salées traditionnelles, façonnées à la main dans un esprit généreux et familial.",
+        badge: "Salé",
         items: [
           {
             id: "pelmeni",
@@ -463,19 +488,6 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Golubci maison, choux farcis traditionnels"
-          },
-          {
-            id: "sigaretki",
-            title: "Sigaretki maison",
-            fullName: productById.get("sigaretki")!.orderName.fr,
-            quantity: "boîte",
-            positioning: "Petites pâtisseries roulées artisanales",
-            description:
-              "Délicates pâtisseries croustillantes légèrement sucrées, préparées maison selon une recette traditionnelle.",
-            price: formatPrice(productBasePrices.sigaretki),
-            basePrice: productBasePrices.sigaretki,
-            image: productImages.sigaretki,
-            imageAlt: "Sigaretki maison, pâtisseries roulées artisanales"
           }
         ]
       }

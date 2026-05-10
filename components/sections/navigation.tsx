@@ -90,7 +90,7 @@ export function Navigation({
             ) : null}
           </button>
           <Button
-            href="#products"
+            href="#patisserie"
             size="sm"
             aria-label={content.order}
             className="hidden sm:inline-flex"

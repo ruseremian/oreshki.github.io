@@ -29,7 +29,7 @@ export function Products({ content, onOrder }: ProductsProps) {
   }
 
   return (
-    <section className="bg-white/42 py-10 sm:py-16 lg:py-18">
+    <section id="products" className="bg-white/42 py-10 sm:py-16 lg:py-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={content.eyebrow}
@@ -37,22 +37,40 @@ export function Products({ content, onOrder }: ProductsProps) {
           description={content.description}
         />
 
-        <div id="products" className="mt-8 grid scroll-mt-24 gap-5 sm:mt-10 md:grid-cols-3 lg:gap-6">
-          {content.items.map((product, index) => (
-            <ProductCard
-              key={product.title}
-              product={product}
-              index={index}
-              orderLabel={content.order}
-              addedLabel={content.added}
-              added={addedProductId === product.id}
-              onOrder={handleOrder}
-            />
-          ))}
+        <div id="patisserie" className="mt-8 scroll-mt-24 sm:mt-10">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-caramel">
+              {content.itemsEyebrow}
+            </p>
+            <h3 className="mt-2 font-serif text-3xl leading-tight text-cocoa sm:text-4xl">
+              {content.itemsTitle}
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-cocoa/68 sm:text-base">
+              {content.itemsIntro}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {content.items.map((product, index) => (
+              <ProductCard
+                key={product.title}
+                product={product}
+                index={index}
+                orderLabel={content.order}
+                addedLabel={content.added}
+                categoryLabel={content.itemsBadge}
+                added={addedProductId === product.id}
+                onOrder={handleOrder}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 border-t border-cocoa/10 pt-10 sm:mt-14 sm:pt-12">
+        <div id="traiteur" className="mt-12 scroll-mt-24 border-t border-cocoa/10 pt-10 sm:mt-14 sm:pt-12">
           <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-caramel">
+              {content.specialties.eyebrow}
+            </p>
             <h3 className="font-serif text-3xl leading-tight text-cocoa sm:text-4xl">
               {content.specialties.title}
             </h3>
@@ -69,6 +87,7 @@ export function Products({ content, onOrder }: ProductsProps) {
                 index={index}
                 orderLabel={content.order}
                 addedLabel={content.added}
+                categoryLabel={content.specialties.badge}
                 added={addedProductId === product.id}
                 onOrder={handleOrder}
               />

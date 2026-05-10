@@ -45,7 +45,7 @@ function LandingPage() {
   }, [language]);
 
   function scrollToProducts() {
-    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("patisserie")?.scrollIntoView({ behavior: "smooth" });
   }
 
   function addProductToCart(productId: ProductId) {
