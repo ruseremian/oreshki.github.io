@@ -38,7 +38,8 @@ const productImages: Record<ProductId, string> = {
   "kotleti-kievski": "/images/kotleti-kievski.jpg",
   vareniki: "/images/vareniki.jpg",
   blinchiki: "/images/blinchiki.jpg",
-  golubci: "/images/golubci.jpg"
+  golubci: "/images/golubci.jpg",
+  sigaretki: "/images/sigaretki.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
@@ -49,7 +50,8 @@ const productBasePrices: Record<ProductId, number> = {
   "kotleti-kievski": productById.get("kotleti-kievski")!.price,
   vareniki: productById.get("vareniki")!.price,
   blinchiki: productById.get("blinchiki")!.price,
-  golubci: productById.get("golubci")!.price
+  golubci: productById.get("golubci")!.price,
+  sigaretki: productById.get("sigaretki")!.price
 };
 
 export const siteContent = {
@@ -199,6 +201,19 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Домашние голубцы по семейному рецепту"
+          },
+          {
+            id: "sigaretki",
+            title: "Домашние сигаретки",
+            fullName: productById.get("sigaretki")!.orderName.ru,
+            quantity: "коробка",
+            positioning: "Традиционная домашняя выпечка",
+            description:
+              "Нежная домашняя выпечка по традиционному рецепту, слегка посыпанная сахарной пудрой.",
+            price: formatPrice(productBasePrices.sigaretki),
+            basePrice: productBasePrices.sigaretki,
+            image: productImages.sigaretki,
+            imageAlt: "Домашние сигаретки с сахарной пудрой"
           }
         ]
       }
@@ -448,6 +463,19 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Golubci maison, choux farcis traditionnels"
+          },
+          {
+            id: "sigaretki",
+            title: "Sigaretki maison",
+            fullName: productById.get("sigaretki")!.orderName.fr,
+            quantity: "boîte",
+            positioning: "Petites pâtisseries roulées artisanales",
+            description:
+              "Délicates pâtisseries croustillantes légèrement sucrées, préparées maison selon une recette traditionnelle.",
+            price: formatPrice(productBasePrices.sigaretki),
+            basePrice: productBasePrices.sigaretki,
+            image: productImages.sigaretki,
+            imageAlt: "Sigaretki maison, pâtisseries roulées artisanales"
           }
         ]
       }

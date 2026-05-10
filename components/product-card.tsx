@@ -33,7 +33,7 @@ export function ProductCard({
         delay: index * 0.07,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="group min-w-0 overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition-shadow duration-300 hover:shadow-glow sm:rounded-3xl"
+      className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition-shadow duration-300 hover:shadow-glow sm:rounded-3xl"
     >
       <div className="overflow-hidden">
         <Image
@@ -46,7 +46,7 @@ export function ProductCard({
           onError={() => setImageSrc("/images/oreshki-handmade.jpg")}
         />
       </div>
-      <div className="p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-4 flex flex-wrap gap-2">
           <span className="max-w-full rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-caramel sm:tracking-[0.14em]">
             {product.positioning}
@@ -63,17 +63,19 @@ export function ProductCard({
             {product.price}
           </p>
         </div>
-        <p className="mt-4 min-h-24 text-sm leading-7 text-cocoa/68">
+        <p className="mt-4 text-sm leading-7 text-cocoa/68">
           {product.description}
         </p>
-        <button
-          type="button"
-          onClick={() => onOrder(product.id)}
-          className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full border border-cocoa/15 bg-white/70 px-6 py-3 text-sm font-semibold text-cocoa backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-caramel/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-caramel"
-          aria-label={`${orderLabel}: ${product.title}`}
-        >
-          {added ? addedLabel : orderLabel}
-        </button>
+        <div className="mt-auto pt-6">
+          <button
+            type="button"
+            onClick={() => onOrder(product.id)}
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-cocoa/15 bg-white/70 px-6 py-3 text-sm font-semibold text-cocoa backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-caramel/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-caramel"
+            aria-label={`${orderLabel}: ${product.title}`}
+          >
+            {added ? addedLabel : orderLabel}
+          </button>
+        </div>
       </div>
     </motion.article>
   );

@@ -7,7 +7,8 @@ export type ProductId =
   | "kotleti-kievski"
   | "vareniki"
   | "blinchiki"
-  | "golubci";
+  | "golubci"
+  | "sigaretki";
 
 export type Product = {
   id: ProductId;
@@ -136,6 +137,21 @@ export const products: Product[] = [
     price: 13,
     unit: "portion",
     image: "/images/golubci.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "sigaretki",
+    name: "Sigaretki maison",
+    orderName: {
+      fr: "Sigaretki maison",
+      ru: "Домашние сигаретки"
+    },
+    description:
+      "Délicates pâtisseries roulées artisanales préparées maison selon une recette traditionnelle.",
+    price: 10,
+    unit: "boîte",
+    image: "/images/sigaretki.jpg",
     category: "specialties",
     available: true
   }
