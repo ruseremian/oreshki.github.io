@@ -35,19 +35,19 @@ export function ProductCard({
       }}
       className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-cocoa/8 bg-cream shadow-soft transition-shadow duration-300 hover:shadow-glow sm:rounded-3xl"
     >
-      <div className="overflow-hidden">
+      <div className="aspect-[4/3] overflow-hidden sm:aspect-[5/4]">
         <Image
           src={imageSrc}
           alt={product.imageAlt}
           width={900}
           height={700}
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] sm:aspect-[5/4]"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           onError={() => setImageSrc("/images/oreshki-handmade.jpg")}
         />
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-4 flex flex-wrap content-start gap-2 md:min-h-16">
           <span className="max-w-full rounded-full bg-caramel/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-caramel sm:tracking-[0.14em]">
             {product.positioning}
           </span>
@@ -55,15 +55,15 @@ export function ProductCard({
             {product.quantity}
           </span>
         </div>
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-wrap items-start justify-between gap-3 md:min-h-[4.25rem]">
           <h3 className="min-w-0 flex-1 font-serif text-2xl leading-tight text-cocoa">
             {product.title}
           </h3>
-          <p className="shrink-0 rounded-full bg-caramel/12 px-3 py-1 text-sm font-bold text-caramel">
+          <p className="shrink-0 self-start rounded-full bg-caramel/12 px-3 py-1 text-sm font-bold leading-6 text-caramel">
             {product.price}
           </p>
         </div>
-        <p className="mt-4 text-sm leading-7 text-cocoa/68">
+        <p className="mt-4 flex-1 text-sm leading-7 text-cocoa/68">
           {product.description}
         </p>
         <div className="mt-auto pt-6">
