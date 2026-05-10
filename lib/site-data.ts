@@ -39,6 +39,7 @@ const productImages: Record<ProductId, string> = {
   vareniki: "/images/vareniki.jpg",
   blinchiki: "/images/blinchiki.jpg",
   golubci: "/images/golubci.jpg",
+  pirojki: "/images/pirojki.jpg",
   sigaretki: "/images/sigaretki.jpg"
 };
 
@@ -51,6 +52,7 @@ const productBasePrices: Record<ProductId, number> = {
   vareniki: productById.get("vareniki")!.price,
   blinchiki: productById.get("blinchiki")!.price,
   golubci: productById.get("golubci")!.price,
+  pirojki: productById.get("pirojki")!.price,
   sigaretki: productById.get("sigaretki")!.price
 };
 
@@ -220,6 +222,19 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Домашние голубцы по семейному рецепту"
+          },
+          {
+            id: "pirojki",
+            title: "Жареные пирожки",
+            fullName: productById.get("pirojki")!.orderName.ru,
+            quantity: "1 кг",
+            positioning: "Традиционные домашние пирожки",
+            description:
+              "Домашние жареные пирожки с хрустящей корочкой и сочной начинкой: картошка, капуста, мясо, печень, яйцо с луком и другие.",
+            price: formatPrice(productBasePrices.pirojki),
+            basePrice: productBasePrices.pirojki,
+            image: productImages.pirojki,
+            imageAlt: "Домашние жареные пирожки с разными начинками"
           }
         ]
       }
@@ -506,6 +521,19 @@ export const siteContent = {
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
             imageAlt: "Golubci maison, choux farcis traditionnels"
+          },
+          {
+            id: "pirojki",
+            title: "Pirojki maison",
+            fullName: productById.get("pirojki")!.orderName.fr,
+            quantity: "1 kg",
+            positioning: "Petits chaussons frits traditionnels",
+            description:
+              "Pirojki maison à la pâte moelleuse et à la garniture généreuse. Disponibles selon les recettes traditionnelles : pommes de terre, chou, viande, foie ou œuf avec oignons.",
+            price: formatPrice(productBasePrices.pirojki),
+            basePrice: productBasePrices.pirojki,
+            image: productImages.pirojki,
+            imageAlt: "Pirojki maison frits avec garnitures traditionnelles"
           }
         ]
       }

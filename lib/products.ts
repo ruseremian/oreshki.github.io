@@ -8,6 +8,7 @@ export type ProductId =
   | "vareniki"
   | "blinchiki"
   | "golubci"
+  | "pirojki"
   | "sigaretki";
 
 export type Product = {
@@ -137,6 +138,21 @@ export const products: Product[] = [
     price: 13,
     unit: "1 kg",
     image: "/images/golubci.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "pirojki",
+    name: "Pirojki maison",
+    orderName: {
+      fr: "Pirojki maison — 1 kg",
+      ru: "Жареные пирожки — 1 кг"
+    },
+    description:
+      "Pirojki maison à la pâte moelleuse et à la garniture généreuse.",
+    price: 12,
+    unit: "1 kg",
+    image: "/images/pirojki.jpg",
     category: "specialties",
     available: true
   },

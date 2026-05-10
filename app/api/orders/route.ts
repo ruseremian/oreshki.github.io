@@ -61,7 +61,8 @@ export async function POST(request: NextRequest) {
         throw new Error(`Product validation failed for ${item.productId}`);
       }
 
-      const lineTotal = product.price * item.quantity;
+      const unitPrice = getTrustedProductPrice(product.id);
+      const lineTotal = unitPrice * item.quantity;
 
       return {
         product_id: product.id,
@@ -70,7 +71,7 @@ export async function POST(request: NextRequest) {
           validation.data.language
         ),
         quantity: item.quantity,
-        unit_price: product.price,
+        unit_price: unitPrice,
         line_total: lineTotal
       };
     });
@@ -330,6 +331,16 @@ function normalizeItems(items: CartOrderItem[] | undefined) {
           productById.has(item.productId)
       ) ?? []
   );
+}
+
+function getTrustedProductPrice(productId: ProductId) {
+  const product = productById.get(productId);
+
+  if (!product) {
+    throw new Error(`Trusted price missing for product ${productId}`);
+  }
+
+  return product.price;
 }
 
 function normalizeLanguage(
