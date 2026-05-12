@@ -1,4 +1,7 @@
-import type { DeliveryMethod } from "@/lib/order-types";
+import type {
+  DeliveryMethod,
+  PreferredContactMethod
+} from "@/lib/order-types";
 
 const TELEGRAM_MESSAGE_LIMIT = 4096;
 
@@ -13,6 +16,8 @@ type TelegramOrderNotification = {
   orderId: string;
   customerName: string;
   phone: string;
+  preferredContactMethod?: PreferredContactMethod | null;
+  preferredDate?: string | null;
   deliveryMethod: DeliveryMethod;
   address?: string | null;
   items: TelegramOrderItem[];
@@ -134,6 +139,12 @@ export async function removeTelegramMessageButtons({
 }
 
 function buildTelegramMessage(order: TelegramOrderNotification) {
+  const contactLine = order.preferredContactMethod
+    ? `\uD83D\uDCAC <b>Contact pr\u00e9f\u00e9r\u00e9:</b> ${escapeHtml(formatPreferredContactMethod(order.preferredContactMethod))}`
+    : null;
+  const preferredDateLine = order.preferredDate
+    ? `\uD83D\uDCC5 <b>Date souhait\u00e9e:</b> ${escapeHtml(formatPreferredDate(order.preferredDate))}`
+    : null;
   const productLines =
     order.items
       .map(
@@ -148,6 +159,8 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
     `\uD83C\uDD94 <b>ID:</b> ${escapeHtml(order.orderId)}`,
     `\uD83D\uDC64 <b>Client:</b> ${escapeHtml(order.customerName)}`,
     `\uD83D\uDCDE <b>T\u00e9l\u00e9phone:</b> ${escapeHtml(order.phone)}`,
+    contactLine,
+    preferredDateLine,
     "",
     `\uD83D\uDE9A <b>Mode:</b> ${escapeHtml(formatDeliveryMethod(order.deliveryMethod))}`,
     `\uD83D\uDCCD <b>Adresse:</b> ${escapeHtml(order.address || "-")}`,
@@ -161,7 +174,9 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
     "",
     "Notes:",
     escapeHtml(order.notes || "-")
-  ].join("\n");
+  ]
+    .filter((line): line is string => line !== null)
+    .join("\n");
 }
 
 function buildOrderKeyboard(orderId: string) {
@@ -256,6 +271,38 @@ async function callTelegramApi(
 
 function formatDeliveryMethod(deliveryMethod: DeliveryMethod) {
   return deliveryMethod === "delivery" ? "Livraison" : "Retrait";
+}
+
+function formatPreferredContactMethod(contactMethod: PreferredContactMethod) {
+  const labels: Record<PreferredContactMethod, string> = {
+    whatsapp: "WhatsApp",
+    telegram: "Telegram",
+    instagram: "Instagram",
+    phone: "T\u00e9l\u00e9phone"
+  };
+
+  return labels[contactMethod];
+}
+
+function formatPreferredDate(value: string) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (match) {
+    const [, year, month, day] = match;
+    return `${day}/${month}/${year}`;
+  }
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  }).format(date);
 }
 
 function formatEuros(value: number) {

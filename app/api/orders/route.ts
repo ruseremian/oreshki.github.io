@@ -175,6 +175,8 @@ export async function POST(request: NextRequest) {
         orderId: orderInsert.data.id,
         customerName: validation.data.customerName,
         phone: validation.data.phone,
+        preferredContactMethod: validation.data.preferredContactMethod,
+        preferredDate: validation.data.preferredDate || null,
         deliveryMethod: validation.data.deliveryMethod,
         address:
           validation.data.deliveryMethod === "delivery"
