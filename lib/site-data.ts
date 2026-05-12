@@ -37,6 +37,8 @@ const productImages: Record<ProductId, string> = {
   pelmeni: "/images/pelmeni.jpg",
   "kotleti-kievski": "/images/kotleti-kievski.jpg",
   vareniki: "/images/vareniki.jpg",
+  "vareniki-fromage": "/images/vareniki.jpg",
+  "vareniki-pommes-terre": "/images/vareniki.jpg",
   blinchiki: "/images/blinchiki.jpg",
   golubci: "/images/golubci.jpg",
   pirojki: "/images/pirojki.jpg",
@@ -53,6 +55,8 @@ const productBasePrices: Record<ProductId, number> = {
   pelmeni: productById.get("pelmeni")!.price,
   "kotleti-kievski": productById.get("kotleti-kievski")!.price,
   vareniki: productById.get("vareniki")!.price,
+  "vareniki-fromage": productById.get("vareniki-fromage")!.price,
+  "vareniki-pommes-terre": productById.get("vareniki-pommes-terre")!.price,
   blinchiki: productById.get("blinchiki")!.price,
   golubci: productById.get("golubci")!.price,
   pirojki: productById.get("pirojki")!.price,
@@ -232,17 +236,33 @@ export const siteContent = {
             imageAlt: "Домашние котлеты по-киевски с ароматным маслом"
           },
           {
-            id: "vareniki",
+            id: "vareniki-fromage",
             title: "Домашние вареники",
-            fullName: productById.get("vareniki")!.orderName.ru,
+            fullName: productById.get("vareniki-fromage")!.orderName.ru,
             quantity: "1 кг",
             positioning: "Традиционные вареники с начинкой",
             description:
               "Домашние вареники из мягкого теста с щедрой начинкой по традиционным рецептам: картофель или творог.",
-            price: formatPrice(productBasePrices.vareniki),
-            basePrice: productBasePrices.vareniki,
-            image: productImages.vareniki,
-            imageAlt: "Домашние вареники с традиционной начинкой"
+            price: formatPrice(productBasePrices["vareniki-fromage"]),
+            basePrice: productBasePrices["vareniki-fromage"],
+            image: productImages["vareniki-fromage"],
+            imageAlt: "Домашние вареники с традиционной начинкой",
+            variants: [
+              {
+                id: "vareniki-fromage",
+                label: "С творогом",
+                fullName: productById.get("vareniki-fromage")!.orderName.ru,
+                price: formatPrice(productBasePrices["vareniki-fromage"]),
+                basePrice: productBasePrices["vareniki-fromage"]
+              },
+              {
+                id: "vareniki-pommes-terre",
+                label: "С картошкой",
+                fullName: productById.get("vareniki-pommes-terre")!.orderName.ru,
+                price: formatPrice(productBasePrices["vareniki-pommes-terre"]),
+                basePrice: productBasePrices["vareniki-pommes-terre"]
+              }
+            ]
           },
           {
             id: "blinchiki",
@@ -261,7 +281,7 @@ export const siteContent = {
             id: "golubci",
             title: "Домашние голубцы",
             fullName: productById.get("golubci")!.orderName.ru,
-            quantity: "за штуку",
+            quantity: "1 кг",
             positioning: "Традиционные голубцы",
             description:
               "Капустные листья с начинкой из риса, мяса, овощей и специй. Готовятся дома в мягком соусе, как сытное семейное блюдо.",
@@ -572,17 +592,33 @@ export const siteContent = {
             imageAlt: "Kotleti po-kievski maison au beurre parfumé"
           },
           {
-            id: "vareniki",
+            id: "vareniki-fromage",
             title: "Vareniki",
-            fullName: productById.get("vareniki")!.orderName.fr,
+            fullName: productById.get("vareniki-fromage")!.orderName.fr,
             quantity: "1 kg",
             positioning: "Raviolis traditionnels garnis",
             description:
               "Vareniki maison préparés avec une pâte souple et une garniture généreuse selon les recettes traditionnelles : pommes de terre ou fromage.",
-            price: formatPrice(productBasePrices.vareniki),
-            basePrice: productBasePrices.vareniki,
-            image: productImages.vareniki,
-            imageAlt: "Vareniki maison avec garniture traditionnelle"
+            price: formatPrice(productBasePrices["vareniki-fromage"]),
+            basePrice: productBasePrices["vareniki-fromage"],
+            image: productImages["vareniki-fromage"],
+            imageAlt: "Vareniki maison avec garniture traditionnelle",
+            variants: [
+              {
+                id: "vareniki-fromage",
+                label: "Fromage blanc",
+                fullName: productById.get("vareniki-fromage")!.orderName.fr,
+                price: formatPrice(productBasePrices["vareniki-fromage"]),
+                basePrice: productBasePrices["vareniki-fromage"]
+              },
+              {
+                id: "vareniki-pommes-terre",
+                label: "Pommes de terre",
+                fullName: productById.get("vareniki-pommes-terre")!.orderName.fr,
+                price: formatPrice(productBasePrices["vareniki-pommes-terre"]),
+                basePrice: productBasePrices["vareniki-pommes-terre"]
+              }
+            ]
           },
           {
             id: "blinchiki",
@@ -601,7 +637,7 @@ export const siteContent = {
             id: "golubci",
             title: "Golubci",
             fullName: productById.get("golubci")!.orderName.fr,
-            quantity: "par pièce",
+            quantity: "1 kg",
             positioning: "Choux farcis traditionnels",
             description:
               "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et des épices. Mijotées maison dans une sauce douce et réconfortante.",

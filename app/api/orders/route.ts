@@ -27,9 +27,10 @@ const trustedProductPrices: Partial<Record<ProductId, number>> = {
   "napoleon-chocolat": 6,
   "napoleon-pistache": 7,
   "kotleti-kievski": 4,
-  pelmeni: 10,
-  vareniki: 10,
-  golubci: 1,
+  pelmeni: 13,
+  "vareniki-fromage": 11,
+  "vareniki-pommes-terre": 9,
+  golubci: 17,
   pirojki: 1,
   blinchiki: 1
 };

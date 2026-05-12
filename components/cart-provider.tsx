@@ -128,7 +128,7 @@ export function useCart() {
 function sanitizeItems(items: CartItem[]) {
   return items.filter(
     (item) =>
-      productById.has(item.productId) &&
+      Boolean(productById.get(item.productId)?.available) &&
       Number.isInteger(item.quantity) &&
       item.quantity > 0
   );

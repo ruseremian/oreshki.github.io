@@ -9,6 +9,8 @@ export type ProductId =
   | "pelmeni"
   | "kotleti-kievski"
   | "vareniki"
+  | "vareniki-fromage"
+  | "vareniki-pommes-terre"
   | "blinchiki"
   | "golubci"
   | "pirojki"
@@ -78,7 +80,7 @@ export const products: Product[] = [
     },
     description:
       "Raviolis traditionnels préparés avec une pâte fine et une farce à base de viande assaisonnée, d’oignons et d’épices. À cuire dans l’eau ou dans un bouillon.",
-    price: 10,
+    price: 13,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
     category: "specialties",
@@ -112,6 +114,36 @@ export const products: Product[] = [
     unit: "1 kg",
     image: "/images/vareniki.jpg",
     category: "specialties",
+    available: false
+  },
+  {
+    id: "vareniki-fromage",
+    name: "Vareniki — Fromage blanc",
+    orderName: {
+      fr: "Vareniki — Fromage blanc",
+      ru: "Вареники — с творогом"
+    },
+    description:
+      "Vareniki maison au fromage blanc, préparés avec une pâte souple et une garniture généreuse.",
+    price: 11,
+    unit: "1 kg",
+    image: "/images/vareniki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "vareniki-pommes-terre",
+    name: "Vareniki — Pommes de terre",
+    orderName: {
+      fr: "Vareniki — Pommes de terre",
+      ru: "Вареники — с картошкой"
+    },
+    description:
+      "Vareniki maison aux pommes de terre, préparés avec une pâte souple et une garniture généreuse.",
+    price: 9,
+    unit: "1 kg",
+    image: "/images/vareniki.jpg",
+    category: "specialties",
     available: true
   },
   {
@@ -133,13 +165,13 @@ export const products: Product[] = [
     id: "golubci",
     name: "Golubci",
     orderName: {
-      fr: "Golubci — par pièce",
-      ru: "Домашние голубцы — за штуку"
+      fr: "Golubci — 1 kg",
+      ru: "Домашние голубцы — 1 кг"
     },
     description:
       "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et une sauce mijotée maison.",
-    price: 1,
-    unit: "par pièce",
+    price: 17,
+    unit: "1 kg",
     image: "/images/golubci.jpg",
     category: "specialties",
     available: true
