@@ -120,7 +120,7 @@ export const siteContent = {
           quantity: "12 штук",
           positioning: "Формат для пробы",
           description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Формат для пробы — 2 коробки по 6 штук.",
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Формат для пробы — 2 коробки по 6 штук.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces12,
@@ -133,7 +133,7 @@ export const siteContent = {
           quantity: "24 штуки",
           positioning: "Классический формат",
           description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Классический формат — идеально для семьи или друзей.",
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Классический формат — идеально для семьи или друзей.",
           price: formatPrice(productBasePrices.pieces24),
           basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
@@ -146,7 +146,7 @@ export const siteContent = {
           quantity: "48 штук",
           positioning: "Большой формат",
           description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки. Большой формат поставляется в двух отдельных упаковках.",
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Большой формат поставляется в двух отдельных упаковках.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
@@ -476,7 +476,7 @@ export const siteContent = {
           quantity: "12 pièces",
           positioning: "Format découverte",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Format découverte — 2 boîtes de 6 pièces.",
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et d’une noisette entière à l’intérieur. Format découverte — 2 boîtes de 6 pièces.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces12,
@@ -489,7 +489,7 @@ export const siteContent = {
           quantity: "24 pièces",
           positioning: "Format classique",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Format classique — idéal à partager.",
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et d’une noisette entière à l’intérieur. Format classique — idéal à partager.",
           price: formatPrice(productBasePrices.pieces24),
           basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
@@ -502,7 +502,7 @@ export const siteContent = {
           quantity: "48 pièces",
           positioning: "Grand format généreux",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé. Grand format généreux — livré en deux emballages séparés.",
+            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et d’une noisette entière à l’intérieur. Grand format généreux — livré en deux emballages séparés.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,

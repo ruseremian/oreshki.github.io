@@ -50,18 +50,25 @@ export function Products({ content, onOrder }: ProductsProps) {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
             {content.items.map((product, index) => (
-              <ProductCard
+              <div
                 key={product.title}
-                product={product}
-                index={index}
-                orderLabel={content.order}
-                addedLabel={content.added}
-                categoryLabel={content.itemsBadge}
-                addedProductId={addedProductId}
-                onOrder={handleOrder}
-              />
+                className={getPatisserieGridItemClass(
+                  index,
+                  content.items.length
+                )}
+              >
+                <ProductCard
+                  product={product}
+                  index={index}
+                  orderLabel={content.order}
+                  addedLabel={content.added}
+                  categoryLabel={content.itemsBadge}
+                  addedProductId={addedProductId}
+                  onOrder={handleOrder}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -121,6 +128,14 @@ export function Products({ content, onOrder }: ProductsProps) {
       </div>
     </section>
   );
+}
+
+function getPatisserieGridItemClass(index: number, itemCount: number) {
+  if (itemCount % 3 === 2 && index >= itemCount - 2) {
+    return "min-w-0 lg:col-span-3";
+  }
+
+  return "min-w-0 lg:col-span-2";
 }
 
 function LinkedCustomQuantityNote({ text }: { text: string }) {
