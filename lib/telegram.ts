@@ -5,6 +5,8 @@ const TELEGRAM_MESSAGE_LIMIT = 4096;
 type TelegramOrderItem = {
   product_name: string;
   quantity: number;
+  unit_price: number;
+  line_total: number;
 };
 
 type TelegramOrderNotification = {
@@ -136,7 +138,7 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
     order.items
       .map(
         (item) =>
-          `- ${escapeHtml(item.product_name)} x${escapeHtml(String(item.quantity))}`
+          `- ${escapeHtml(item.product_name)} x${escapeHtml(String(item.quantity))} (${formatEuros(item.unit_price)} \u20ac / unité, total ${formatEuros(item.line_total)} \u20ac)`
       )
       .join("\n") || "-";
 

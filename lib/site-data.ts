@@ -40,7 +40,10 @@ const productImages: Record<ProductId, string> = {
   blinchiki: "/images/blinchiki.jpg",
   golubci: "/images/golubci.jpg",
   pirojki: "/images/pirojki.jpg",
-  sigaretki: "/images/sigaretki.jpg"
+  sigaretki: "/images/sigaretki.jpg",
+  "napoleon-blanc": "/images/napoleon.jpg",
+  "napoleon-chocolat": "/images/napoleon.jpg",
+  "napoleon-pistache": "/images/napoleon.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
@@ -53,7 +56,10 @@ const productBasePrices: Record<ProductId, number> = {
   blinchiki: productById.get("blinchiki")!.price,
   golubci: productById.get("golubci")!.price,
   pirojki: productById.get("pirojki")!.price,
-  sigaretki: productById.get("sigaretki")!.price
+  sigaretki: productById.get("sigaretki")!.price,
+  "napoleon-blanc": productById.get("napoleon-blanc")!.price,
+  "napoleon-chocolat": productById.get("napoleon-chocolat")!.price,
+  "napoleon-pistache": productById.get("napoleon-pistache")!.price
 };
 
 export const siteContent = {
@@ -154,6 +160,45 @@ export const siteContent = {
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
           imageAlt: "Домашние сигаретки, традиционная рулетная выпечка"
+        },
+        {
+          id: "napoleon-blanc",
+          title: "Наполеон — белый",
+          fullName: productById.get("napoleon-blanc")!.orderName.ru,
+          quantity: "порция",
+          positioning: "Традиционный слоёный торт",
+          description:
+            "Нежный домашний Наполеон с тонкими слоями теста и лёгким кремом. Мягкий, воздушный и идеально сбалансированный по сладости.",
+          price: formatPrice(productBasePrices["napoleon-blanc"]),
+          basePrice: productBasePrices["napoleon-blanc"],
+          image: productImages["napoleon-blanc"],
+          imageAlt: "Домашний белый Наполеон с тонкими слоями и лёгким кремом"
+        },
+        {
+          id: "napoleon-chocolat",
+          title: "Наполеон — шоколадный",
+          fullName: productById.get("napoleon-chocolat")!.orderName.ru,
+          quantity: "порция",
+          positioning: "Домашний шоколадный вариант",
+          description:
+            "Домашний шоколадный Наполеон с насыщенным вкусом какао, нежным кремом и мягкими коржами.",
+          price: formatPrice(productBasePrices["napoleon-chocolat"]),
+          basePrice: productBasePrices["napoleon-chocolat"],
+          image: productImages["napoleon-chocolat"],
+          imageAlt: "Домашний шоколадный Наполеон с кремом и мягкими коржами"
+        },
+        {
+          id: "napoleon-pistache",
+          title: "Наполеон — фисташковый",
+          fullName: productById.get("napoleon-pistache")!.orderName.ru,
+          quantity: "порция",
+          positioning: "Фисташковый домашний торт",
+          description:
+            "Фисташковый Наполеон с нежным кремом и лёгким ореховым вкусом. Домашний десерт с мягкой текстурой и ярким фисташковым акцентом.",
+          price: formatPrice(productBasePrices["napoleon-pistache"]),
+          basePrice: productBasePrices["napoleon-pistache"],
+          image: productImages["napoleon-pistache"],
+          imageAlt: "Домашний фисташковый Наполеон с нежным кремом"
         }
       ],
       specialties: {
@@ -458,6 +503,45 @@ export const siteContent = {
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
           imageAlt: "Sigaretki maison, pâtisseries roulées artisanales"
+        },
+        {
+          id: "napoleon-blanc",
+          title: "Napoléon blanc",
+          fullName: productById.get("napoleon-blanc")!.orderName.fr,
+          quantity: "portion",
+          positioning: "Gâteau feuilleté traditionnel",
+          description:
+            "Un Napoléon maison aux fines couches de pâte et à la crème légère. Doux, fondant et parfaitement équilibré en sucre.",
+          price: formatPrice(productBasePrices["napoleon-blanc"]),
+          basePrice: productBasePrices["napoleon-blanc"],
+          image: productImages["napoleon-blanc"],
+          imageAlt: "Napoléon blanc maison aux fines couches de pâte et crème légère"
+        },
+        {
+          id: "napoleon-chocolat",
+          title: "Napoléon chocolat",
+          fullName: productById.get("napoleon-chocolat")!.orderName.fr,
+          quantity: "portion",
+          positioning: "Version chocolatée maison",
+          description:
+            "Un Napoléon maison au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
+          price: formatPrice(productBasePrices["napoleon-chocolat"]),
+          basePrice: productBasePrices["napoleon-chocolat"],
+          image: productImages["napoleon-chocolat"],
+          imageAlt: "Napoléon chocolat maison avec crème onctueuse"
+        },
+        {
+          id: "napoleon-pistache",
+          title: "Napoléon pistache",
+          fullName: productById.get("napoleon-pistache")!.orderName.fr,
+          quantity: "portion",
+          positioning: "Version à la pistache",
+          description:
+            "Un Napoléon maison à la pistache avec une crème délicate et une légère note de fruits secs. Une texture fondante et un goût raffiné.",
+          price: formatPrice(productBasePrices["napoleon-pistache"]),
+          basePrice: productBasePrices["napoleon-pistache"],
+          image: productImages["napoleon-pistache"],
+          imageAlt: "Napoléon pistache maison avec crème délicate"
         }
       ],
       specialties: {

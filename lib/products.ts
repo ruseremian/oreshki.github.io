@@ -3,6 +3,9 @@ export type ProductId =
   | "pieces12"
   | "pieces24"
   | "pieces48"
+  | "napoleon-blanc"
+  | "napoleon-chocolat"
+  | "napoleon-pistache"
   | "pelmeni"
   | "kotleti-kievski"
   | "vareniki"
@@ -168,6 +171,48 @@ export const products: Product[] = [
     price: 10,
     unit: "boîte",
     image: "/images/sigaretki.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-blanc",
+    name: "Napoléon blanc",
+    orderName: {
+      fr: "Napoléon blanc",
+      ru: "Наполеон — белый"
+    },
+    description:
+      "Un Napoléon maison aux fines couches de pâte et à la crème légère. Doux, fondant et parfaitement équilibré en sucre.",
+    price: 6,
+    image: "/images/napoleon.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-chocolat",
+    name: "Napoléon chocolat",
+    orderName: {
+      fr: "Napoléon chocolat",
+      ru: "Наполеон — шоколадный"
+    },
+    description:
+      "Un Napoléon maison au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
+    price: 6,
+    image: "/images/napoleon.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-pistache",
+    name: "Napoléon pistache",
+    orderName: {
+      fr: "Napoléon pistache",
+      ru: "Наполеон — фисташковый"
+    },
+    description:
+      "Un Napoléon maison à la pistache avec une crème délicate et une légère note de fruits secs. Une texture fondante et un goût raffiné.",
+    price: 7,
+    image: "/images/napoleon.jpg",
     category: "cookies",
     available: true
   }

@@ -8,7 +8,7 @@ import type {
 } from "@/lib/order-types";
 import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
 import { normalizePhoneNumber } from "@/lib/phone";
-import { calculateOrderPricing } from "@/lib/pricing";
+import { getDeliveryFee } from "@/lib/pricing";
 import {
   getProductOrderName,
   productById,
@@ -23,6 +23,9 @@ import { sendTelegramNotification } from "@/lib/telegram";
 export const runtime = "nodejs";
 
 const trustedProductPrices: Partial<Record<ProductId, number>> = {
+  "napoleon-blanc": 6,
+  "napoleon-chocolat": 6,
+  "napoleon-pistache": 7,
   "kotleti-kievski": 4,
   pelmeni: 10,
   vareniki: 10,
@@ -85,10 +88,16 @@ export async function POST(request: NextRequest) {
       };
     });
 
-    const pricing = calculateOrderPricing(
-      validation.items,
-      validation.data.deliveryMethod
+    const subtotal = normalizedItems.reduce(
+      (sum, item) => sum + item.line_total,
+      0
     );
+    const deliveryFee = getDeliveryFee(validation.data.deliveryMethod);
+    const pricing = {
+      subtotal,
+      deliveryFee,
+      total: subtotal + deliveryFee
+    };
     console.log("[orders] computed total", {
       subtotalAmount: pricing.subtotal,
       deliveryFee: pricing.deliveryFee,
