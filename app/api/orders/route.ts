@@ -23,9 +23,10 @@ import { sendTelegramNotification } from "@/lib/telegram";
 export const runtime = "nodejs";
 
 const trustedProductPrices: Partial<Record<ProductId, number>> = {
-  "napoleon-blanc": 6,
-  "napoleon-chocolat": 6,
-  "napoleon-pistache": 7,
+  "napoleon-blanc": 2,
+  "napoleon-chocolat": 2,
+  "napoleon-pistache": 2.5,
+  "napoleon-velvet-rouge": 2.5,
   "kotleti-kievski": 4,
   pelmeni: 13,
   "vareniki-fromage": 11,

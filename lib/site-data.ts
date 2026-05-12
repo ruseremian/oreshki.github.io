@@ -45,7 +45,8 @@ const productImages: Record<ProductId, string> = {
   sigaretki: "/images/sigaretki.jpg",
   "napoleon-blanc": "/images/napoleon.jpg",
   "napoleon-chocolat": "/images/napoleon.jpg",
-  "napoleon-pistache": "/images/napoleon.jpg"
+  "napoleon-pistache": "/images/napoleon.jpg",
+  "napoleon-velvet-rouge": "/images/napoleon.jpg"
 };
 
 const productBasePrices: Record<ProductId, number> = {
@@ -63,7 +64,8 @@ const productBasePrices: Record<ProductId, number> = {
   sigaretki: productById.get("sigaretki")!.price,
   "napoleon-blanc": productById.get("napoleon-blanc")!.price,
   "napoleon-chocolat": productById.get("napoleon-chocolat")!.price,
-  "napoleon-pistache": productById.get("napoleon-pistache")!.price
+  "napoleon-pistache": productById.get("napoleon-pistache")!.price,
+  "napoleon-velvet-rouge": productById.get("napoleon-velvet-rouge")!.price
 };
 
 export const siteContent = {
@@ -169,14 +171,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Наполеон",
           fullName: productById.get("napoleon-blanc")!.orderName.ru,
-          quantity: "3 варианта",
+          quantity: "за штуку",
           positioning: "Традиционный слоёный торт",
           description:
-            "Домашний Наполеон с тонкими слоями теста и нежным кремом. Доступен в вариантах: белый, шоколадный или фисташковый.",
+            "Домашний Наполеон с тонкими слоями теста и нежным кремом. Доступен в вариантах: белый, шоколадный, фисташковый или красный вельвет.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Домашний Наполеон в вариантах белый, шоколадный и фисташковый",
+          imageAlt: "Домашний Наполеон в вариантах белый, шоколадный, фисташковый и красный вельвет",
           variants: [
             {
               id: "napoleon-blanc",
@@ -198,6 +200,13 @@ export const siteContent = {
               fullName: productById.get("napoleon-pistache")!.orderName.ru,
               price: formatPrice(productBasePrices["napoleon-pistache"]),
               basePrice: productBasePrices["napoleon-pistache"]
+            },
+            {
+              id: "napoleon-velvet-rouge",
+              label: "Красный вельвет",
+              fullName: productById.get("napoleon-velvet-rouge")!.orderName.ru,
+              price: formatPrice(productBasePrices["napoleon-velvet-rouge"]),
+              basePrice: productBasePrices["napoleon-velvet-rouge"]
             }
           ]
         }
@@ -365,7 +374,7 @@ export const siteContent = {
       subtotal: "Промежуточный итог",
       deliveryFee: "Стоимость доставки",
       pickupFeeLabel: "Самовывоз бесплатно",
-      deliveryFeeLabel: "Доставка: 3 €",
+      deliveryFeeLabel: "Доставка: 7 €",
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
@@ -525,14 +534,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Napoléon",
           fullName: productById.get("napoleon-blanc")!.orderName.fr,
-          quantity: "3 variantes",
+          quantity: "par pièce",
           positioning: "Gâteau feuilleté traditionnel",
           description:
-            "Gâteau Napoléon maison aux fines couches de pâte et à la crème fondante. Disponible en version blanc, chocolat ou pistache.",
+            "Gâteau Napoléon maison aux fines couches de pâte et à la crème fondante. Disponible en version blanc, chocolat, pistache ou velvet rouge.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Napoléon maison en versions blanc, chocolat et pistache",
+          imageAlt: "Napoléon maison en versions blanc, chocolat, pistache et velvet rouge",
           variants: [
             {
               id: "napoleon-blanc",
@@ -554,6 +563,13 @@ export const siteContent = {
               fullName: productById.get("napoleon-pistache")!.orderName.fr,
               price: formatPrice(productBasePrices["napoleon-pistache"]),
               basePrice: productBasePrices["napoleon-pistache"]
+            },
+            {
+              id: "napoleon-velvet-rouge",
+              label: "Velvet rouge",
+              fullName: productById.get("napoleon-velvet-rouge")!.orderName.fr,
+              price: formatPrice(productBasePrices["napoleon-velvet-rouge"]),
+              basePrice: productBasePrices["napoleon-velvet-rouge"]
             }
           ]
         }
@@ -721,7 +737,7 @@ export const siteContent = {
       subtotal: "Sous-total",
       deliveryFee: "Frais de livraison",
       pickupFeeLabel: "Retrait gratuit",
-      deliveryFeeLabel: "Livraison: 3 €",
+      deliveryFeeLabel: "Livraison: 7 €",
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",

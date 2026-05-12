@@ -306,9 +306,11 @@ function formatPreferredDate(value: string) {
 }
 
 function formatEuros(value: number) {
+  const fractionDigits = Number.isInteger(value) ? 0 : 2;
+
   return new Intl.NumberFormat("fr-FR", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits
   }).format(value);
 }
 

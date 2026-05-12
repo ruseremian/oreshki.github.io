@@ -579,11 +579,13 @@ function MobileDetail({ label, value }: { label: string; value: string }) {
 }
 
 function formatCurrency(value: number) {
+  const fractionDigits = Number.isInteger(value) ? 0 : 2;
+
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits
   }).format(value);
 }
 

@@ -6,6 +6,7 @@ export type ProductId =
   | "napoleon-blanc"
   | "napoleon-chocolat"
   | "napoleon-pistache"
+  | "napoleon-velvet-rouge"
   | "pelmeni"
   | "kotleti-kievski"
   | "vareniki"
@@ -211,11 +212,12 @@ export const products: Product[] = [
     name: "Napoléon maison — Blanc",
     orderName: {
       fr: "Napoléon maison — Blanc",
-      ru: "Наполеон — белый"
+      ru: "Домашний Наполеон — Белый"
     },
     description:
       "Un Napoléon maison aux fines couches de pâte et à la crème légère. Doux, fondant et parfaitement équilibré en sucre.",
-    price: 6,
+    price: 2,
+    unit: "par pièce",
     image: "/images/napoleon.jpg",
     category: "cookies",
     available: true
@@ -225,11 +227,12 @@ export const products: Product[] = [
     name: "Napoléon maison — Chocolat",
     orderName: {
       fr: "Napoléon maison — Chocolat",
-      ru: "Наполеон — шоколадный"
+      ru: "Домашний Наполеон — Шоколадный"
     },
     description:
       "Un Napoléon maison au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
-    price: 6,
+    price: 2,
+    unit: "par pièce",
     image: "/images/napoleon.jpg",
     category: "cookies",
     available: true
@@ -239,11 +242,27 @@ export const products: Product[] = [
     name: "Napoléon maison — Pistache",
     orderName: {
       fr: "Napoléon maison — Pistache",
-      ru: "Наполеон — фисташковый"
+      ru: "Домашний Наполеон — Фисташковый"
     },
     description:
       "Un Napoléon maison à la pistache avec une crème délicate et une légère note de fruits secs. Une texture fondante et un goût raffiné.",
-    price: 7,
+    price: 2.5,
+    unit: "par pièce",
+    image: "/images/napoleon.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-velvet-rouge",
+    name: "Napoléon maison — Velvet rouge",
+    orderName: {
+      fr: "Napoléon maison — Velvet rouge",
+      ru: "Домашний Наполеон — Красный вельвет"
+    },
+    description:
+      "Un Napoléon maison façon velvet rouge avec une crème délicate, des couches fondantes et une touche gourmande de cacao.",
+    price: 2.5,
+    unit: "par pièce",
     image: "/images/napoleon.jpg",
     category: "cookies",
     available: true
@@ -257,10 +276,12 @@ export function getProductOrderName(productId: ProductId, language: "fr" | "ru" 
 }
 
 export function formatPrice(amount: number) {
+  const fractionDigits = Number.isInteger(amount) ? 0 : 2;
+
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits
   }).format(amount);
 }
