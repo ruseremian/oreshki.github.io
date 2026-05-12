@@ -176,9 +176,9 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-blanc",
-    name: "Napoléon blanc",
+    name: "Napoléon maison — Blanc",
     orderName: {
-      fr: "Napoléon blanc",
+      fr: "Napoléon maison — Blanc",
       ru: "Наполеон — белый"
     },
     description:
@@ -190,9 +190,9 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-chocolat",
-    name: "Napoléon chocolat",
+    name: "Napoléon maison — Chocolat",
     orderName: {
-      fr: "Napoléon chocolat",
+      fr: "Napoléon maison — Chocolat",
       ru: "Наполеон — шоколадный"
     },
     description:
@@ -204,9 +204,9 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-pistache",
-    name: "Napoléon pistache",
+    name: "Napoléon maison — Pistache",
     orderName: {
-      fr: "Napoléon pistache",
+      fr: "Napoléon maison — Pistache",
       ru: "Наполеон — фисташковый"
     },
     description:

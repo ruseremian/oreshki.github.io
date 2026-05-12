@@ -59,7 +59,7 @@ export function Products({ content, onOrder }: ProductsProps) {
                 orderLabel={content.order}
                 addedLabel={content.added}
                 categoryLabel={content.itemsBadge}
-                added={addedProductId === product.id}
+                addedProductId={addedProductId}
                 onOrder={handleOrder}
               />
             ))}
@@ -88,7 +88,7 @@ export function Products({ content, onOrder }: ProductsProps) {
                 orderLabel={content.order}
                 addedLabel={content.added}
                 categoryLabel={content.specialties.badge}
-                added={addedProductId === product.id}
+                addedProductId={addedProductId}
                 onOrder={handleOrder}
               />
             ))}

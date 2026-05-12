@@ -20,7 +20,12 @@ import {
 } from "@/lib/phone";
 import { getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
-import type { Language, ProductItem, SiteContent } from "@/lib/site-data";
+import type {
+  Language,
+  ProductId,
+  ProductItem,
+  SiteContent
+} from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 type CartDrawerProps = {
@@ -47,6 +52,12 @@ type SubmittedItem = {
   name: string;
   quantity: number;
   lineTotal: number;
+};
+
+type CartDisplayProduct = {
+  id: ProductId;
+  fullName: string;
+  basePrice: number;
 };
 
 const contactMethods: PreferredContactMethod[] = [
@@ -95,7 +106,7 @@ export function CartDrawer({
   const cartProducts = useMemo(
     () =>
       items.flatMap((item) => {
-        const product = products.find((candidate) => candidate.id === item.productId);
+        const product = findCartProduct(products, item.productId);
         return product ? [{ ...item, product }] : [];
       }),
     [items, products]
@@ -721,4 +732,24 @@ function getTomorrowDateInputValue() {
 
 function normalizePreferredDate(value: string, minimumDate: string) {
   return value && value < minimumDate ? minimumDate : value;
+}
+
+function findCartProduct(
+  products: readonly ProductItem[],
+  productId: ProductId
+): CartDisplayProduct | null {
+  for (const product of products) {
+    if (product.id === productId) {
+      return product;
+    }
+
+    const variants = "variants" in product ? product.variants : undefined;
+    const variant = variants?.find((candidate) => candidate.id === productId);
+
+    if (variant) {
+      return variant;
+    }
+  }
+
+  return null;
 }

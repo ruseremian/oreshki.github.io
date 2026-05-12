@@ -10,7 +10,7 @@ type ProductCardProps = {
   orderLabel: string;
   addedLabel: string;
   categoryLabel?: string;
-  added: boolean;
+  addedProductId: ProductId | null;
   onOrder: (productId: ProductId) => void;
 };
 
@@ -20,10 +20,20 @@ export function ProductCard({
   orderLabel,
   addedLabel,
   categoryLabel,
-  added,
+  addedProductId,
   onOrder
 }: ProductCardProps) {
   const [imageSrc, setImageSrc] = useState(product.image);
+  const variants = "variants" in product ? product.variants : undefined;
+  const [selectedProductId, setSelectedProductId] = useState<ProductId>(
+    product.id
+  );
+  const selectedVariant =
+    variants?.find((variant) => variant.id === selectedProductId) ??
+    variants?.[0];
+  const selectedOrderId = selectedVariant?.id ?? product.id;
+  const displayedPrice = selectedVariant?.price ?? product.price;
+  const added = addedProductId === selectedOrderId;
 
   return (
     <motion.article
@@ -64,12 +74,36 @@ export function ProductCard({
             {product.title}
           </h3>
           <p className="shrink-0 self-start rounded-full bg-caramel/12 px-3 py-1 text-sm font-bold leading-6 text-caramel">
-            {product.price}
+            {displayedPrice}
           </p>
         </div>
         <p className="mt-4 text-sm leading-7 text-cocoa/68 md:min-h-[7rem]">
           {product.description}
         </p>
+        {variants ? (
+          <div className="mt-4 grid gap-2">
+            {variants.map((variant) => {
+              const selected = variant.id === selectedOrderId;
+
+              return (
+                <button
+                  key={variant.id}
+                  type="button"
+                  onClick={() => setSelectedProductId(variant.id)}
+                  aria-pressed={selected}
+                  className={
+                    selected
+                      ? "flex min-h-11 w-full items-center justify-between gap-3 rounded-2xl border border-caramel bg-white px-4 py-2 text-left text-sm font-semibold text-cocoa shadow-sm transition"
+                      : "flex min-h-11 w-full items-center justify-between gap-3 rounded-2xl border border-cocoa/10 bg-white/58 px-4 py-2 text-left text-sm font-semibold text-cocoa/68 transition hover:border-caramel/45 hover:bg-white"
+                  }
+                >
+                  <span className="min-w-0 break-words">{variant.label}</span>
+                  <span className="shrink-0 text-caramel">{variant.price}</span>
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
         <div className="mt-4 flex min-h-8 items-center">
           <span className="rounded-full border border-cocoa/10 bg-white/60 px-3 py-1 text-xs font-semibold text-cocoa/62">
             {product.quantity}
@@ -78,9 +112,9 @@ export function ProductCard({
         <div className="mt-auto pt-6">
           <button
             type="button"
-            onClick={() => onOrder(product.id)}
+            onClick={() => onOrder(selectedOrderId)}
             className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-cocoa/15 bg-white/70 px-6 py-3 text-sm font-semibold text-cocoa backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-caramel/40 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-caramel"
-            aria-label={`${orderLabel}: ${product.title}`}
+            aria-label={`${orderLabel}: ${selectedVariant?.fullName ?? product.title}`}
           >
             {added ? addedLabel : orderLabel}
           </button>
