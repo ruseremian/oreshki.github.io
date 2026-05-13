@@ -169,10 +169,10 @@ export const siteContent = {
         },
         {
           id: "napoleon-blanc",
-          title: "Слоёный торт",
+          title: "Пирожные",
           fullName: productById.get("napoleon-blanc")!.orderName.ru,
           quantity: "4 варианта",
-          positioning: "Традиционный слоёный торт",
+          positioning: "Традиционные пирожные",
           description:
             "Домашние пирожные ручной работы с нежным кремом. Доступны варианты: Наполеон, красный вельвет, фисташковое или шоколадное пирожное.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
@@ -533,10 +533,10 @@ export const siteContent = {
         },
         {
           id: "napoleon-blanc",
-          title: "Gâteau feuilleté",
+          title: "Gâteaux",
           fullName: productById.get("napoleon-blanc")!.orderName.fr,
           quantity: "4 variantes",
-          positioning: "Gâteau feuilleté traditionnel",
+          positioning: "Gâteaux traditionnels",
           description:
             "Gâteaux maison à la crème fondante. Disponibles en Napoleon, velvet rouge, pistache ou chocolat.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
