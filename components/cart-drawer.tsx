@@ -18,6 +18,10 @@ import {
   isValidPhoneNumber,
   normalizePhoneNumber
 } from "@/lib/phone";
+import {
+  getMinimumPreferredDateInputValue,
+  normalizePreferredDate
+} from "@/lib/preferred-date";
 import { getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
 import type {
@@ -82,7 +86,10 @@ export function CartDrawer({
     removeItem,
     clearCart
   } = useCart();
-  const minimumPreferredDate = useMemo(() => getTomorrowDateInputValue(), []);
+  const minimumPreferredDate = useMemo(
+    () => getMinimumPreferredDateInputValue(),
+    []
+  );
   const [values, setValues] = useState<CheckoutValues>({
     customerName: "",
     phone: "",
@@ -146,6 +153,9 @@ export function CartDrawer({
     if (values.deliveryMethod === "delivery" && !values.address.trim()) {
       nextErrors.address = content.errors.address;
     }
+    if (values.preferredDate && values.preferredDate < minimumPreferredDate) {
+      nextErrors.preferredDate = content.errors.preferredDate;
+    }
 
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
@@ -198,6 +208,9 @@ export function CartDrawer({
           address: data.fieldErrors?.address
             ? content.errors.address
             : current.address,
+          preferredDate: data.fieldErrors?.preferredDate
+            ? content.errors.preferredDate
+            : current.preferredDate,
           items: data.fieldErrors?.items ? content.errors.items : current.items
         }));
         return;
@@ -477,7 +490,10 @@ export function CartDrawer({
                         ) : null}
 
                         <div className="grid gap-4 sm:grid-cols-2">
-                          <Field label={content.preferredDate}>
+                          <Field
+                            label={content.preferredDate}
+                            error={errors.preferredDate}
+                          >
                             <input
                               type="date"
                               min={minimumPreferredDate}
@@ -717,21 +733,6 @@ function inputClass(hasError: boolean) {
     "w-full min-w-0 rounded-2xl border bg-white/72 px-4 py-3 text-sm text-cocoa shadow-sm transition placeholder:text-cocoa/35 focus:border-caramel focus:outline-none focus:ring-4 focus:ring-caramel/10",
     hasError ? "border-rose/70" : "border-cocoa/12"
   );
-}
-
-function getTomorrowDateInputValue() {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const year = tomorrow.getFullYear();
-  const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
-  const day = String(tomorrow.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
-
-function normalizePreferredDate(value: string, minimumDate: string) {
-  return value && value < minimumDate ? minimumDate : value;
 }
 
 function findCartProduct(

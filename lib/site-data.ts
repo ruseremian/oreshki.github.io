@@ -406,6 +406,7 @@ export const siteContent = {
         customerName: "Укажите имя",
         phone: "Введите корректный номер телефона.",
         address: "Укажите адрес доставки",
+        preferredDate: "Выберите дату не раньше чем через 3 дня.",
         submit: "Не удалось отправить заказ. Проверьте соединение.",
         server: "Не удалось отправить заказ. Попробуйте ещё раз."
       },
@@ -769,6 +770,7 @@ export const siteContent = {
         customerName: "Indiquez votre nom",
         phone: "Veuillez entrer un numéro de téléphone valide.",
         address: "Indiquez l'adresse de livraison",
+        preferredDate: "Choisissez une date au plus tôt dans 3 jours.",
         submit: "Impossible d'envoyer la commande. Vérifiez votre connexion.",
         server: "Impossible d'envoyer la commande. Réessayez."
       },

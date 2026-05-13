@@ -15,6 +15,10 @@ import {
   type ProductId
 } from "@/lib/products";
 import {
+  getMinimumPreferredDateInputValue,
+  isPreferredDateAllowed
+} from "@/lib/preferred-date";
+import {
   createSupabaseAdmin,
   MissingSupabaseEnvError
 } from "@/lib/supabase-admin";
@@ -302,6 +306,15 @@ function validateOrder(body: Partial<CreateOrderRequest>) {
 
   if (body.deliveryMethod === "delivery" && !body.address?.trim()) {
     errors.address = "Address is required for delivery";
+  }
+  if (
+    body.preferredDate &&
+    !isPreferredDateAllowed(
+      body.preferredDate,
+      getMinimumPreferredDateInputValue()
+    )
+  ) {
+    errors.preferredDate = "Preferred date is too early";
   }
 
   const items = normalizeItems(body.items);
