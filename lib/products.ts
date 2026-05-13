@@ -4,9 +4,9 @@ export type ProductId =
   | "pieces24"
   | "pieces48"
   | "napoleon-blanc"
+  | "napoleon-velvet-rouge"
   | "napoleon-chocolat"
   | "napoleon-pistache"
-  | "napoleon-velvet-rouge"
   | "pelmeni"
   | "kotleti-kievski"
   | "vareniki"
@@ -209,13 +209,13 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-blanc",
-    name: "Napoléon maison — Blanc",
+    name: "Napoleon",
     orderName: {
-      fr: "Napoléon maison — Blanc",
-      ru: "Домашний Наполеон — Белый"
+      fr: "Napoleon",
+      ru: "Наполеон"
     },
     description:
-      "Un Napoléon maison aux fines couches de pâte et à la crème légère. Doux, fondant et parfaitement équilibré en sucre.",
+      "Un gâteau Napoleon aux fines couches de pâte et à la crème légère. Doux, fondant et parfaitement équilibré en sucre.",
     price: 2,
     unit: "par pièce",
     image: "/images/napoleon.jpg",
@@ -223,14 +223,29 @@ export const products: Product[] = [
     available: true
   },
   {
-    id: "napoleon-chocolat",
-    name: "Napoléon maison — Chocolat",
+    id: "napoleon-velvet-rouge",
+    name: "Velvet rouge",
     orderName: {
-      fr: "Napoléon maison — Chocolat",
-      ru: "Домашний Наполеон — Шоколадный"
+      fr: "Velvet rouge",
+      ru: "Красный вельвет"
     },
     description:
-      "Un Napoléon maison au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
+      "Un gâteau velvet rouge maison à la texture tendre et à la crème légère. Doux, moelleux et généreux.",
+    price: 2.5,
+    unit: "par pièce",
+    image: "/images/napoleon.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-chocolat",
+    name: "Gâteau au chocolat",
+    orderName: {
+      fr: "Gâteau au chocolat",
+      ru: "Шоколадное пирожное"
+    },
+    description:
+      "Un gâteau au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
     price: 2,
     unit: "par pièce",
     image: "/images/napoleon.jpg",
@@ -239,28 +254,13 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-pistache",
-    name: "Napoléon maison — Pistache",
+    name: "Gâteau à la pistache",
     orderName: {
-      fr: "Napoléon maison — Pistache",
-      ru: "Домашний Наполеон — Фисташковый"
+      fr: "Gâteau à la pistache",
+      ru: "Фисташковое пирожное"
     },
     description:
-      "Un Napoléon maison à la pistache avec une crème délicate et une légère note de fruits secs. Une texture fondante et un goût raffiné.",
-    price: 2.5,
-    unit: "par pièce",
-    image: "/images/napoleon.jpg",
-    category: "cookies",
-    available: true
-  },
-  {
-    id: "napoleon-velvet-rouge",
-    name: "Napoléon maison — Velvet rouge",
-    orderName: {
-      fr: "Napoléon maison — Velvet rouge",
-      ru: "Домашний Наполеон — Красный вельвет"
-    },
-    description:
-      "Un Napoléon maison façon velvet rouge avec une crème délicate, des couches fondantes et une touche gourmande de cacao.",
+      "Un gâteau à la pistache avec une crème délicate et une légère note de fruits secs. Une texture fondante et un goût raffiné.",
     price: 2.5,
     unit: "par pièce",
     image: "/images/napoleon.jpg",

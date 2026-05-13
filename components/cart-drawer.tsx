@@ -296,7 +296,7 @@ export function CartDrawer({
                           >
                             <div className="flex items-start justify-between gap-3">
                               <div className="min-w-0">
-                                <h3 className="font-serif text-xl text-cocoa">
+                                <h3 className="break-words font-serif text-xl text-cocoa">
                                   {entry.product.fullName}
                                 </h3>
                                 <p className="mt-1 text-sm text-cocoa/58">

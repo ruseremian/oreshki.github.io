@@ -24,9 +24,9 @@ export const runtime = "nodejs";
 
 const trustedProductPrices: Partial<Record<ProductId, number>> = {
   "napoleon-blanc": 2,
+  "napoleon-velvet-rouge": 2.5,
   "napoleon-chocolat": 2,
   "napoleon-pistache": 2.5,
-  "napoleon-velvet-rouge": 2.5,
   "kotleti-kievski": 4,
   pelmeni: 13,
   "vareniki-fromage": 11,

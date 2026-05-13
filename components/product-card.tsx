@@ -93,12 +93,16 @@ export function ProductCard({
                   aria-pressed={selected}
                   className={
                     selected
-                      ? "flex min-h-11 w-full items-center justify-between gap-3 rounded-2xl border border-caramel bg-white px-4 py-2 text-left text-sm font-semibold text-cocoa shadow-sm transition"
-                      : "flex min-h-11 w-full items-center justify-between gap-3 rounded-2xl border border-cocoa/10 bg-white/58 px-4 py-2 text-left text-sm font-semibold text-cocoa/68 transition hover:border-caramel/45 hover:bg-white"
+                      ? "flex min-h-11 w-full items-start justify-between gap-3 rounded-2xl border border-caramel bg-white px-4 py-2 text-left text-sm font-semibold text-cocoa shadow-sm transition"
+                      : "flex min-h-11 w-full items-start justify-between gap-3 rounded-2xl border border-cocoa/10 bg-white/58 px-4 py-2 text-left text-sm font-semibold text-cocoa/68 transition hover:border-caramel/45 hover:bg-white"
                   }
                 >
-                  <span className="min-w-0 break-words">{variant.label}</span>
-                  <span className="shrink-0 text-caramel">{variant.price}</span>
+                  <span className="min-w-0 break-words leading-5">
+                    {variant.label}
+                  </span>
+                  <span className="shrink-0 pt-0.5 text-caramel">
+                    {variant.price}
+                  </span>
                 </button>
               );
             })}
