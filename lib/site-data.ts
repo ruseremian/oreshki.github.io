@@ -169,7 +169,7 @@ export const siteContent = {
         },
         {
           id: "napoleon-blanc",
-          title: "Наполеон",
+          title: "Слоёный торт",
           fullName: productById.get("napoleon-blanc")!.orderName.ru,
           quantity: "4 варианта",
           positioning: "Традиционный слоёный торт",
@@ -532,7 +532,7 @@ export const siteContent = {
         },
         {
           id: "napoleon-blanc",
-          title: "Napoleon",
+          title: "Gâteau feuilleté",
           fullName: productById.get("napoleon-blanc")!.orderName.fr,
           quantity: "4 variantes",
           positioning: "Gâteau feuilleté traditionnel",
