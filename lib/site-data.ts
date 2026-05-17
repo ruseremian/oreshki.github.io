@@ -112,6 +112,7 @@ export const siteContent = {
       title: "Домашняя выпечка и блюда к столу",
       description:
         "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
+      freeDeliveryBadge: "🚚 Бесплатная доставка от 35 €",
       artisanDisclaimer:
         "Так как вся продукция готовится вручную, внешний вид изделий может немного отличаться.",
       customQuantityNote:
@@ -406,9 +407,9 @@ export const siteContent = {
       deliveryFee: "Стоимость доставки",
       pickupFeeLabel: "Самовывоз бесплатно",
       deliveryFeeLabel: "Доставка: 7 €",
-      freeDeliveryLabel: "Бесплатная доставка от 35 €",
+      freeDeliveryLabel: "🚚 Бесплатная доставка от 35 €",
       freeDeliveryRemaining: "Ещё {amount} до бесплатной доставки",
-      freeDeliveryUnlocked: "Доставка бесплатная",
+      freeDeliveryUnlocked: "Бесплатная доставка ✓",
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
@@ -502,6 +503,7 @@ export const siteContent = {
       title: "Pâtisserie artisanale et traiteur maison",
       description:
         "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
+      freeDeliveryBadge: "🚚 Livraison offerte dès 35 €",
       artisanDisclaimer:
         "Chaque produit étant préparé artisanalement, l’apparence finale peut légèrement varier.",
       customQuantityNote:
@@ -796,9 +798,9 @@ export const siteContent = {
       deliveryFee: "Frais de livraison",
       pickupFeeLabel: "Retrait gratuit",
       deliveryFeeLabel: "Livraison: 7 €",
-      freeDeliveryLabel: "Livraison offerte dès 35 €",
+      freeDeliveryLabel: "🚚 Livraison offerte dès 35 €",
       freeDeliveryRemaining: "Plus que {amount} pour la livraison offerte",
-      freeDeliveryUnlocked: "Livraison offerte",
+      freeDeliveryUnlocked: "Livraison offerte ✓",
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",

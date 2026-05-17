@@ -122,10 +122,7 @@ export function CartDrawer({
     ? getDeliveryFee(values.deliveryMethod, subtotal)
     : 0;
   const total = subtotal + deliveryFee;
-  const freeDeliveryMessage =
-    values.deliveryMethod === "delivery"
-      ? getFreeDeliveryMessage(content, subtotal)
-      : content.freeDeliveryLabel;
+  const freeDeliveryStatus = getFreeDeliveryStatus(content, subtotal);
 
   function updateValue<Key extends keyof CheckoutValues>(
     key: Key,
@@ -366,6 +363,11 @@ export function CartDrawer({
                   {items.length ? (
                     <>
                       <div className="mt-6 rounded-2xl bg-cocoa p-4 text-cream sm:rounded-3xl sm:p-5">
+                        <FreeDeliveryNotice
+                          label={content.freeDeliveryLabel}
+                          status={freeDeliveryStatus}
+                          variant="dark"
+                        />
                         <div className="space-y-3 text-sm">
                           <SummaryRow
                             label={content.subtotal}
@@ -380,7 +382,7 @@ export function CartDrawer({
                             }
                             note={
                               values.deliveryMethod === "delivery"
-                                ? freeDeliveryMessage
+                                ? freeDeliveryStatus
                                 : content.pickupFeeLabel
                             }
                           />
@@ -459,7 +461,12 @@ export function CartDrawer({
                         </Field>
 
                         <Field label={content.deliveryMethod} required>
-                          <div className="grid grid-cols-1 gap-2 min-[360px]:grid-cols-2">
+                          <FreeDeliveryNotice
+                            label={content.freeDeliveryLabel}
+                            status={freeDeliveryStatus}
+                            variant="light"
+                          />
+                          <div className="mt-3 grid grid-cols-1 gap-2 min-[360px]:grid-cols-2">
                             <ChoiceButton
                               active={values.deliveryMethod === "pickup"}
                               onClick={() => updateValue("deliveryMethod", "pickup")}
@@ -668,6 +675,37 @@ function SummaryRow({
   );
 }
 
+function FreeDeliveryNotice({
+  label,
+  status,
+  variant
+}: {
+  label: string;
+  status: string;
+  variant: "dark" | "light";
+}) {
+  return (
+    <div
+      className={cn(
+        "mb-4 flex flex-col gap-1 rounded-2xl border px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between",
+        variant === "dark"
+          ? "border-cream/15 bg-cream/8 text-cream"
+          : "border-caramel/20 bg-caramel/8 text-cocoa"
+      )}
+    >
+      <span className="font-semibold">{label}</span>
+      <span
+        className={cn(
+          "text-xs font-semibold",
+          variant === "dark" ? "text-cream/70" : "text-caramel"
+        )}
+      >
+        {status}
+      </span>
+    </div>
+  );
+}
+
 function QuantityButton({
   onClick,
   children
@@ -761,7 +799,7 @@ function findCartProduct(
   return null;
 }
 
-function getFreeDeliveryMessage(
+function getFreeDeliveryStatus(
   content: SiteContent["cart"],
   subtotal: number
 ) {

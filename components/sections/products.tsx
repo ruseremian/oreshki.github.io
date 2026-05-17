@@ -36,6 +36,9 @@ export function Products({ content, onOrder }: ProductsProps) {
           title={content.title}
           description={content.description}
         />
+        <p className="mx-auto mt-5 w-fit rounded-full border border-caramel/20 bg-cream/70 px-4 py-2 text-center text-sm font-semibold text-caramel shadow-soft">
+          {content.freeDeliveryBadge}
+        </p>
 
         <div id="patisserie" className="mt-8 scroll-mt-24 sm:mt-10">
           <div className="mx-auto mb-6 max-w-3xl text-center">
