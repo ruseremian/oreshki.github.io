@@ -179,14 +179,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Пирожные",
           fullName: productById.get("napoleon-blanc")!.orderName.ru,
-          quantity: "5 вариантов",
+          quantity: "4 варианта",
           positioning: "Традиционные пирожные",
           description:
-            "Домашние пирожные с нежным кремом, доступны во вкусах: шоколад, кофе, фисташка, красный вельвет и Наполеон.",
+            "Домашние пирожные с нежным кремом, доступны во вкусах: шоколад-кофе, фисташка, красный вельвет и Наполеон.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Домашние пирожные Наполеон, красный вельвет, фисташка, кофе и шоколад",
+          imageAlt: "Домашние пирожные Наполеон, красный вельвет, фисташка и шоколад-кофе",
           variants: [
             {
               id: "napoleon-blanc",
@@ -211,17 +211,10 @@ export const siteContent = {
             },
             {
               id: "napoleon-chocolat",
-              label: "Шоколадное пирожное",
+              label: "Шоколад-кофе",
               fullName: productById.get("napoleon-chocolat")!.orderName.ru,
               price: formatPrice(productBasePrices["napoleon-chocolat"]),
               basePrice: productBasePrices["napoleon-chocolat"]
-            },
-            {
-              id: "napoleon-cafe",
-              label: "Кофейное пирожное",
-              fullName: productById.get("napoleon-cafe")!.orderName.ru,
-              price: formatPrice(productBasePrices["napoleon-cafe"]),
-              basePrice: productBasePrices["napoleon-cafe"]
             }
           ]
         }
@@ -576,14 +569,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Gâteaux",
           fullName: productById.get("napoleon-blanc")!.orderName.fr,
-          quantity: "5 variantes",
+          quantity: "4 variantes",
           positioning: "Gâteaux traditionnels",
           description:
-            "Petits gâteaux maison fondants, disponibles selon les parfums : chocolat, café, pistache, velvet rouge et Napoleon.",
+            "Petits gâteaux maison fondants, disponibles selon les parfums : chocolat-café, pistache, velvet rouge et Napoleon.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Gâteaux maison Napoleon, velvet rouge, pistache, café et chocolat",
+          imageAlt: "Gâteaux maison Napoleon, velvet rouge, pistache et chocolat-café",
           variants: [
             {
               id: "napoleon-blanc",
@@ -608,17 +601,10 @@ export const siteContent = {
             },
             {
               id: "napoleon-chocolat",
-              label: "Gâteau au chocolat",
+              label: "Gâteau chocolat-café",
               fullName: productById.get("napoleon-chocolat")!.orderName.fr,
               price: formatPrice(productBasePrices["napoleon-chocolat"]),
               basePrice: productBasePrices["napoleon-chocolat"]
-            },
-            {
-              id: "napoleon-cafe",
-              label: "Gâteau au café",
-              fullName: productById.get("napoleon-cafe")!.orderName.fr,
-              price: formatPrice(productBasePrices["napoleon-cafe"]),
-              basePrice: productBasePrices["napoleon-cafe"]
             }
           ]
         }

@@ -100,7 +100,7 @@ export const products: Product[] = [
     },
     description:
       "Raviolis traditionnels préparés avec une pâte fine et une farce au poulet, des oignons et des épices. À cuire dans l’eau ou dans un bouillon.",
-    price: 13,
+    price: 12,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
     category: "specialties",
@@ -130,7 +130,7 @@ export const products: Product[] = [
     },
     description:
       "Raviolis traditionnels préparés avec une pâte fine et une farce au bœuf, des oignons et des épices. À cuire dans l’eau ou dans un bouillon.",
-    price: 13,
+    price: 14,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
     category: "specialties",
@@ -288,13 +288,13 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-chocolat",
-    name: "Gâteau au chocolat",
+    name: "Gâteau chocolat-café",
     orderName: {
-      fr: "Gâteau au chocolat",
-      ru: "Шоколадное пирожное"
+      fr: "Gâteau chocolat-café",
+      ru: "Пирожное шоколад-кофе"
     },
     description:
-      "Un gâteau au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
+      "Un gâteau chocolat-café avec une crème onctueuse, un goût de cacao intense et une note de café.",
     price: 2,
     unit: "par pièce",
     image: "/images/napoleon.jpg",
@@ -303,13 +303,13 @@ export const products: Product[] = [
   },
   {
     id: "napoleon-cafe",
-    name: "Gâteau au café",
+    name: "Gâteau chocolat-café",
     orderName: {
-      fr: "Gâteau au café",
-      ru: "Кофейное пирожное"
+      fr: "Gâteau chocolat-café",
+      ru: "Пирожное шоколад-кофе"
     },
     description:
-      "Un gâteau au café avec une crème douce et parfumée. Fondant, délicat et équilibré.",
+      "Un gâteau chocolat-café avec une crème onctueuse, un goût de cacao intense et une note de café.",
     price: 2,
     unit: "par pièce",
     image: "/images/napoleon.jpg",
