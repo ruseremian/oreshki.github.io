@@ -22,7 +22,7 @@ import {
   getMinimumPreferredDateInputValue,
   normalizePreferredDate
 } from "@/lib/preferred-date";
-import { getDeliveryFee } from "@/lib/pricing";
+import { FREE_DELIVERY_THRESHOLD, getDeliveryFee } from "@/lib/pricing";
 import { formatPrice } from "@/lib/products";
 import type {
   Language,
@@ -118,8 +118,14 @@ export function CartDrawer({
       }),
     [items, products]
   );
-  const deliveryFee = items.length ? getDeliveryFee(values.deliveryMethod) : 0;
+  const deliveryFee = items.length
+    ? getDeliveryFee(values.deliveryMethod, subtotal)
+    : 0;
   const total = subtotal + deliveryFee;
+  const freeDeliveryMessage =
+    values.deliveryMethod === "delivery"
+      ? getFreeDeliveryMessage(content, subtotal)
+      : content.freeDeliveryLabel;
 
   function updateValue<Key extends keyof CheckoutValues>(
     key: Key,
@@ -374,7 +380,7 @@ export function CartDrawer({
                             }
                             note={
                               values.deliveryMethod === "delivery"
-                                ? content.deliveryFeeLabel
+                                ? freeDeliveryMessage
                                 : content.pickupFeeLabel
                             }
                           />
@@ -753,4 +759,18 @@ function findCartProduct(
   }
 
   return null;
+}
+
+function getFreeDeliveryMessage(
+  content: SiteContent["cart"],
+  subtotal: number
+) {
+  if (subtotal >= FREE_DELIVERY_THRESHOLD) {
+    return content.freeDeliveryUnlocked;
+  }
+
+  return content.freeDeliveryRemaining.replace(
+    "{amount}",
+    formatPrice(FREE_DELIVERY_THRESHOLD - subtotal)
+  );
 }

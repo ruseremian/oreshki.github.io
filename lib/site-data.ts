@@ -35,6 +35,9 @@ const productImages: Record<ProductId, string> = {
   pieces24: "/images/oreshki-24.jpg",
   pieces48: "/images/oreshki-48.jpg",
   pelmeni: "/images/pelmeni.jpg",
+  "pelmeni-poulet": "/images/pelmeni.jpg",
+  "pelmeni-mix-porc-boeuf": "/images/pelmeni.jpg",
+  "pelmeni-boeuf": "/images/pelmeni.jpg",
   "kotleti-kievski": "/images/kotleti-kievski.jpg",
   vareniki: "/images/vareniki.jpg",
   "vareniki-fromage": "/images/vareniki.jpg",
@@ -46,6 +49,7 @@ const productImages: Record<ProductId, string> = {
   "napoleon-blanc": "/images/napoleon.jpg",
   "napoleon-velvet-rouge": "/images/napoleon.jpg",
   "napoleon-chocolat": "/images/napoleon.jpg",
+  "napoleon-cafe": "/images/napoleon.jpg",
   "napoleon-pistache": "/images/napoleon.jpg"
 };
 
@@ -54,6 +58,9 @@ const productBasePrices: Record<ProductId, number> = {
   pieces24: productById.get("pieces24")!.price,
   pieces48: productById.get("pieces48")!.price,
   pelmeni: productById.get("pelmeni")!.price,
+  "pelmeni-poulet": productById.get("pelmeni-poulet")!.price,
+  "pelmeni-mix-porc-boeuf": productById.get("pelmeni-mix-porc-boeuf")!.price,
+  "pelmeni-boeuf": productById.get("pelmeni-boeuf")!.price,
   "kotleti-kievski": productById.get("kotleti-kievski")!.price,
   vareniki: productById.get("vareniki")!.price,
   "vareniki-fromage": productById.get("vareniki-fromage")!.price,
@@ -65,6 +72,7 @@ const productBasePrices: Record<ProductId, number> = {
   "napoleon-blanc": productById.get("napoleon-blanc")!.price,
   "napoleon-velvet-rouge": productById.get("napoleon-velvet-rouge")!.price,
   "napoleon-chocolat": productById.get("napoleon-chocolat")!.price,
+  "napoleon-cafe": productById.get("napoleon-cafe")!.price,
   "napoleon-pistache": productById.get("napoleon-pistache")!.price
 };
 
@@ -161,7 +169,7 @@ export const siteContent = {
           quantity: "коробка",
           positioning: "Тонкая домашняя выпечка",
           description:
-            "Тонкая рулетная выпечка из лёгкого теста со сладкой начинкой по домашнему рецепту. Слегка хрустящие, с сахарной пудрой.",
+            "Домашние сигаретки — нежная выпечка с лёгкой хрустящей текстурой и приятной сладостью. Отлично подходят к чаю или кофе.",
           price: formatPrice(productBasePrices.sigaretki),
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
@@ -171,14 +179,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Пирожные",
           fullName: productById.get("napoleon-blanc")!.orderName.ru,
-          quantity: "4 варианта",
+          quantity: "5 вариантов",
           positioning: "Традиционные пирожные",
           description:
-            "Домашние пирожные ручной работы с нежным кремом. Доступны варианты: Наполеон, красный вельвет, фисташковое или шоколадное пирожное.",
+            "Домашние пирожные с нежным кремом, доступны во вкусах: шоколад, кофе, фисташка, красный вельвет и Наполеон.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Домашние пирожные Наполеон, красный вельвет, фисташковое и шоколадное",
+          imageAlt: "Домашние пирожные Наполеон, красный вельвет, фисташка, кофе и шоколад",
           variants: [
             {
               id: "napoleon-blanc",
@@ -207,6 +215,13 @@ export const siteContent = {
               fullName: productById.get("napoleon-chocolat")!.orderName.ru,
               price: formatPrice(productBasePrices["napoleon-chocolat"]),
               basePrice: productBasePrices["napoleon-chocolat"]
+            },
+            {
+              id: "napoleon-cafe",
+              label: "Кофейное пирожное",
+              fullName: productById.get("napoleon-cafe")!.orderName.ru,
+              price: formatPrice(productBasePrices["napoleon-cafe"]),
+              basePrice: productBasePrices["napoleon-cafe"]
             }
           ]
         }
@@ -229,7 +244,30 @@ export const siteContent = {
             price: formatPrice(productBasePrices.pelmeni),
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
-            imageAlt: "Домашние пельмени ручной работы"
+            imageAlt: "Домашние пельмени ручной работы",
+            variants: [
+              {
+                id: "pelmeni-poulet",
+                label: "Курица",
+                fullName: productById.get("pelmeni-poulet")!.orderName.ru,
+                price: formatPrice(productBasePrices["pelmeni-poulet"]),
+                basePrice: productBasePrices["pelmeni-poulet"]
+              },
+              {
+                id: "pelmeni-mix-porc-boeuf",
+                label: "Микс свинина / говядина",
+                fullName: productById.get("pelmeni-mix-porc-boeuf")!.orderName.ru,
+                price: formatPrice(productBasePrices["pelmeni-mix-porc-boeuf"]),
+                basePrice: productBasePrices["pelmeni-mix-porc-boeuf"]
+              },
+              {
+                id: "pelmeni-boeuf",
+                label: "Говядина",
+                fullName: productById.get("pelmeni-boeuf")!.orderName.ru,
+                price: formatPrice(productBasePrices["pelmeni-boeuf"]),
+                basePrice: productBasePrices["pelmeni-boeuf"]
+              }
+            ]
           },
           {
             id: "kotleti-kievski",
@@ -375,6 +413,9 @@ export const siteContent = {
       deliveryFee: "Стоимость доставки",
       pickupFeeLabel: "Самовывоз бесплатно",
       deliveryFeeLabel: "Доставка: 7 €",
+      freeDeliveryLabel: "Бесплатная доставка от 35 €",
+      freeDeliveryRemaining: "Ещё {amount} до бесплатной доставки",
+      freeDeliveryUnlocked: "Доставка бесплатная",
       noPayment:
         "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
       checkout: "Оформление заказа",
@@ -525,7 +566,7 @@ export const siteContent = {
           quantity: "boîte",
           positioning: "Pâtisseries roulées artisanales",
           description:
-            "Fines pâtisseries roulées à la pâte légère, garnies selon les recettes maison. Légèrement croustillantes et saupoudrées de sucre glace.",
+            "Petites pâtisseries roulées maison, légèrement croustillantes et délicatement sucrées. Parfaites avec un thé ou un café.",
           price: formatPrice(productBasePrices.sigaretki),
           basePrice: productBasePrices.sigaretki,
           image: productImages.sigaretki,
@@ -535,14 +576,14 @@ export const siteContent = {
           id: "napoleon-blanc",
           title: "Gâteaux",
           fullName: productById.get("napoleon-blanc")!.orderName.fr,
-          quantity: "4 variantes",
+          quantity: "5 variantes",
           positioning: "Gâteaux traditionnels",
           description:
-            "Gâteaux maison à la crème fondante. Disponibles en Napoleon, velvet rouge, pistache ou chocolat.",
+            "Petits gâteaux maison fondants, disponibles selon les parfums : chocolat, café, pistache, velvet rouge et Napoleon.",
           price: formatPrice(productBasePrices["napoleon-blanc"]),
           basePrice: productBasePrices["napoleon-blanc"],
           image: productImages["napoleon-blanc"],
-          imageAlt: "Gâteaux maison Napoleon, velvet rouge, pistache et chocolat",
+          imageAlt: "Gâteaux maison Napoleon, velvet rouge, pistache, café et chocolat",
           variants: [
             {
               id: "napoleon-blanc",
@@ -571,6 +612,13 @@ export const siteContent = {
               fullName: productById.get("napoleon-chocolat")!.orderName.fr,
               price: formatPrice(productBasePrices["napoleon-chocolat"]),
               basePrice: productBasePrices["napoleon-chocolat"]
+            },
+            {
+              id: "napoleon-cafe",
+              label: "Gâteau au café",
+              fullName: productById.get("napoleon-cafe")!.orderName.fr,
+              price: formatPrice(productBasePrices["napoleon-cafe"]),
+              basePrice: productBasePrices["napoleon-cafe"]
             }
           ]
         }
@@ -593,7 +641,30 @@ export const siteContent = {
             price: formatPrice(productBasePrices.pelmeni),
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
-            imageAlt: "Pelmeni maison préparés à la main"
+            imageAlt: "Pelmeni maison préparés à la main",
+            variants: [
+              {
+                id: "pelmeni-poulet",
+                label: "Poulet",
+                fullName: productById.get("pelmeni-poulet")!.orderName.fr,
+                price: formatPrice(productBasePrices["pelmeni-poulet"]),
+                basePrice: productBasePrices["pelmeni-poulet"]
+              },
+              {
+                id: "pelmeni-mix-porc-boeuf",
+                label: "Mix porc / bœuf",
+                fullName: productById.get("pelmeni-mix-porc-boeuf")!.orderName.fr,
+                price: formatPrice(productBasePrices["pelmeni-mix-porc-boeuf"]),
+                basePrice: productBasePrices["pelmeni-mix-porc-boeuf"]
+              },
+              {
+                id: "pelmeni-boeuf",
+                label: "Bœuf",
+                fullName: productById.get("pelmeni-boeuf")!.orderName.fr,
+                price: formatPrice(productBasePrices["pelmeni-boeuf"]),
+                basePrice: productBasePrices["pelmeni-boeuf"]
+              }
+            ]
           },
           {
             id: "kotleti-kievski",
@@ -739,6 +810,9 @@ export const siteContent = {
       deliveryFee: "Frais de livraison",
       pickupFeeLabel: "Retrait gratuit",
       deliveryFeeLabel: "Livraison: 7 €",
+      freeDeliveryLabel: "Livraison offerte dès 35 €",
+      freeDeliveryRemaining: "Plus que {amount} pour la livraison offerte",
+      freeDeliveryUnlocked: "Livraison offerte",
       noPayment:
         "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
       checkout: "Commander",

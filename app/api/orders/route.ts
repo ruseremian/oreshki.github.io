@@ -30,13 +30,17 @@ const trustedProductPrices: Partial<Record<ProductId, number>> = {
   "napoleon-blanc": 2,
   "napoleon-velvet-rouge": 2.5,
   "napoleon-chocolat": 2,
+  "napoleon-cafe": 2,
   "napoleon-pistache": 2.5,
   "kotleti-kievski": 4,
   pelmeni: 13,
+  "pelmeni-poulet": 13,
+  "pelmeni-mix-porc-boeuf": 13,
+  "pelmeni-boeuf": 13,
   "vareniki-fromage": 11,
   "vareniki-pommes-terre": 9,
   golubci: 17,
-  pirojki: 1,
+  pirojki: 2,
   blinchiki: 1
 };
 
@@ -98,7 +102,7 @@ export async function POST(request: NextRequest) {
       (sum, item) => sum + item.line_total,
       0
     );
-    const deliveryFee = getDeliveryFee(validation.data.deliveryMethod);
+    const deliveryFee = getDeliveryFee(validation.data.deliveryMethod, subtotal);
     const pricing = {
       subtotal,
       deliveryFee,

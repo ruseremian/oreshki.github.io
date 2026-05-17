@@ -2,9 +2,12 @@ import type { DeliveryMethod } from "@/lib/order-types";
 import { productById, type ProductId } from "@/lib/products";
 
 export const DELIVERY_FEE = 7;
+export const FREE_DELIVERY_THRESHOLD = 35;
 
-export function getDeliveryFee(deliveryMethod: DeliveryMethod) {
-  return deliveryMethod === "delivery" ? DELIVERY_FEE : 0;
+export function getDeliveryFee(deliveryMethod: DeliveryMethod, subtotal = 0) {
+  if (deliveryMethod !== "delivery") return 0;
+
+  return subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
 }
 
 export function calculateOrderSubtotal(
@@ -21,7 +24,7 @@ export function calculateOrderPricing(
   deliveryMethod: DeliveryMethod
 ) {
   const subtotal = calculateOrderSubtotal(items);
-  const deliveryFee = getDeliveryFee(deliveryMethod);
+  const deliveryFee = getDeliveryFee(deliveryMethod, subtotal);
 
   return {
     subtotal,

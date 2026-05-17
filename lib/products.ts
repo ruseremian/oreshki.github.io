@@ -6,8 +6,12 @@ export type ProductId =
   | "napoleon-blanc"
   | "napoleon-velvet-rouge"
   | "napoleon-chocolat"
+  | "napoleon-cafe"
   | "napoleon-pistache"
   | "pelmeni"
+  | "pelmeni-poulet"
+  | "pelmeni-mix-porc-boeuf"
+  | "pelmeni-boeuf"
   | "kotleti-kievski"
   | "vareniki"
   | "vareniki-fromage"
@@ -81,6 +85,51 @@ export const products: Product[] = [
     },
     description:
       "Raviolis traditionnels préparés avec une pâte fine et une farce à base de viande assaisonnée, d’oignons et d’épices. À cuire dans l’eau ou dans un bouillon.",
+    price: 13,
+    unit: "1 kg",
+    image: "/images/pelmeni.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "pelmeni-poulet",
+    name: "Pelmeni — Poulet",
+    orderName: {
+      fr: "Pelmeni — Poulet",
+      ru: "Пельмени — Курица"
+    },
+    description:
+      "Raviolis traditionnels préparés avec une pâte fine et une farce au poulet, des oignons et des épices. À cuire dans l’eau ou dans un bouillon.",
+    price: 13,
+    unit: "1 kg",
+    image: "/images/pelmeni.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "pelmeni-mix-porc-boeuf",
+    name: "Pelmeni — Mix porc / bœuf",
+    orderName: {
+      fr: "Pelmeni — Mix porc / bœuf",
+      ru: "Пельмени — Микс свинина / говядина"
+    },
+    description:
+      "Raviolis traditionnels préparés avec une pâte fine et une farce porc-bœuf, des oignons et des épices. À cuire dans l’eau ou dans un bouillon.",
+    price: 13,
+    unit: "1 kg",
+    image: "/images/pelmeni.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "pelmeni-boeuf",
+    name: "Pelmeni — Bœuf",
+    orderName: {
+      fr: "Pelmeni — Bœuf",
+      ru: "Пельмени — Говядина"
+    },
+    description:
+      "Raviolis traditionnels préparés avec une pâte fine et une farce au bœuf, des oignons et des épices. À cuire dans l’eau ou dans un bouillon.",
     price: 13,
     unit: "1 kg",
     image: "/images/pelmeni.jpg",
@@ -186,7 +235,7 @@ export const products: Product[] = [
     },
     description:
       "Petits chaussons frits préparés avec une pâte moelleuse et des garnitures variées : pommes de terre, chou, viande, foie ou œuf avec oignons.",
-    price: 1,
+    price: 2,
     unit: "par pièce",
     image: "/images/pirojki.jpg",
     category: "specialties",
@@ -200,7 +249,7 @@ export const products: Product[] = [
       ru: "Домашние сигаретки"
     },
     description:
-      "Fines pâtisseries roulées préparées avec une pâte légère et une garniture sucrée selon les recettes maison. Légèrement croustillantes et saupoudrées de sucre glace.",
+      "Petites pâtisseries roulées maison, légèrement croustillantes et délicatement sucrées. Parfaites avec un thé ou un café.",
     price: 10,
     unit: "boîte",
     image: "/images/sigaretki.jpg",
@@ -246,6 +295,21 @@ export const products: Product[] = [
     },
     description:
       "Un gâteau au chocolat avec une crème onctueuse et un goût de cacao plus intense. Gourmand et généreux.",
+    price: 2,
+    unit: "par pièce",
+    image: "/images/napoleon.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "napoleon-cafe",
+    name: "Gâteau au café",
+    orderName: {
+      fr: "Gâteau au café",
+      ru: "Кофейное пирожное"
+    },
+    description:
+      "Un gâteau au café avec une crème douce et parfumée. Fondant, délicat et équilibré.",
     price: 2,
     unit: "par pièce",
     image: "/images/napoleon.jpg",
