@@ -473,7 +473,7 @@ export const siteContent = {
       description:
         "Оформите заявку на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления, самовывоз в Страсбурге по договорённости или доставку по Страсбургу и ближайшим коммунам.",
       note:
-        "Если заказ нужен раньше чем через 3 дня, напишите напрямую в WhatsApp, Telegram или Instagram. WhatsApp используется только для подтверждения заказов, деталей доставки или самовывоза и вопросов клиентов.",
+        "Для индивидуальных количеств, семейных заказов, событий и блюд по запросу напишите напрямую в WhatsApp, Telegram или Instagram. WhatsApp используется только для подтверждения заказов, деталей доставки или самовывоза и вопросов клиентов.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -876,7 +876,7 @@ export const siteContent = {
       description:
         "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons l’assortiment, la date de préparation, le retrait sur rendez-vous ou la livraison.",
       note:
-        "WhatsApp sert uniquement à confirmer les commandes, les détails de retrait ou de livraison et à répondre aux questions clients. Aucun message marketing n'est envoyé sans accord explicite.",
+        "Pour les quantités personnalisées, les commandes familiales, les événements ou les spécialités sur demande, contactez-nous directement via WhatsApp, Telegram ou Instagram. Aucun message marketing n'est envoyé sans accord explicite.",
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"
