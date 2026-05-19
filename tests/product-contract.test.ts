@@ -48,4 +48,33 @@ describe("product content contract", () => {
       }
     }
   });
+
+  it("shows Blinchiki as one storefront product with three same-price variants", () => {
+    const blinchiki = siteContent.fr.products.specialties.items.find(
+      (product) => product.id === "blinchiki"
+    );
+
+    assert.ok(blinchiki, "French storefront should include Blinchiki");
+
+    const variants = blinchiki && "variants" in blinchiki
+      ? blinchiki.variants
+      : [];
+
+    assert.deepEqual(
+      variants.map((variant) => variant.label),
+      ["Viande", "Fromage", "Champignons"]
+    );
+    assert.deepEqual(
+      variants.map((variant) => variant.id),
+      ["blinchiki-viande", "blinchiki-fromage", "blinchiki-champignons"]
+    );
+
+    for (const variant of variants) {
+      assert.equal(
+        productById.get(variant.id)?.price,
+        productById.get("blinchiki")?.price
+      );
+      assert.equal(variant.basePrice, productById.get("blinchiki")?.price);
+    }
+  });
 });

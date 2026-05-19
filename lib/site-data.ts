@@ -43,6 +43,9 @@ const productImages: Record<ProductId, string> = {
   "vareniki-fromage": "/images/vareniki.jpg",
   "vareniki-pommes-terre": "/images/vareniki.jpg",
   blinchiki: "/images/blinchiki.jpg",
+  "blinchiki-viande": "/images/blinchiki.jpg",
+  "blinchiki-fromage": "/images/blinchiki.jpg",
+  "blinchiki-champignons": "/images/blinchiki.jpg",
   golubci: "/images/golubci.jpg",
   pirojki: "/images/pirojki.jpg",
   sigaretki: "/images/sigaretki.jpg",
@@ -66,6 +69,9 @@ const productBasePrices: Record<ProductId, number> = {
   "vareniki-fromage": productById.get("vareniki-fromage")!.price,
   "vareniki-pommes-terre": productById.get("vareniki-pommes-terre")!.price,
   blinchiki: productById.get("blinchiki")!.price,
+  "blinchiki-viande": productById.get("blinchiki-viande")!.price,
+  "blinchiki-fromage": productById.get("blinchiki-fromage")!.price,
+  "blinchiki-champignons": productById.get("blinchiki-champignons")!.price,
   golubci: productById.get("golubci")!.price,
   pirojki: productById.get("pirojki")!.price,
   sigaretki: productById.get("sigaretki")!.price,
@@ -320,7 +326,30 @@ export const siteContent = {
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
-            imageAlt: "Домашние тонкие русские блинчики"
+            imageAlt: "Домашние тонкие русские блинчики",
+            variants: [
+              {
+                id: "blinchiki-viande",
+                label: "Мясо",
+                fullName: productById.get("blinchiki-viande")!.orderName.ru,
+                price: formatPrice(productBasePrices["blinchiki-viande"]),
+                basePrice: productBasePrices["blinchiki-viande"]
+              },
+              {
+                id: "blinchiki-fromage",
+                label: "Сыр",
+                fullName: productById.get("blinchiki-fromage")!.orderName.ru,
+                price: formatPrice(productBasePrices["blinchiki-fromage"]),
+                basePrice: productBasePrices["blinchiki-fromage"]
+              },
+              {
+                id: "blinchiki-champignons",
+                label: "Грибы",
+                fullName: productById.get("blinchiki-champignons")!.orderName.ru,
+                price: formatPrice(productBasePrices["blinchiki-champignons"]),
+                basePrice: productBasePrices["blinchiki-champignons"]
+              }
+            ]
           },
           {
             id: "golubci",
@@ -495,7 +524,7 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Spécialités maison sucrées & salées",
-      title: "Spécialités artisanales du Caucase",
+      title: "Spécialités artisanales Russes",
       subtitle:
         "Pâtisseries, desserts et plats salés faits maison, préparés à la main en petites séries selon des recettes familiales.",
       trustLine: "Fait maison • Recettes familiales • Précommande recommandée",
@@ -630,7 +659,7 @@ export const siteContent = {
         eyebrow: "Univers salé",
         title: "Le Traiteur",
         intro:
-          "Spécialités salées d’Europe de l’Est et du Caucase, façonnées à la main dans un esprit généreux et familial.",
+          "Spécialités salées d’Europe de l’Est et russes, façonnées à la main dans un esprit généreux et familial.",
         badge: "Salé",
         items: [
           {
@@ -722,7 +751,30 @@ export const siteContent = {
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
-            imageAlt: "Blinchiki maison, crêpes russes traditionnelles"
+            imageAlt: "Blinchiki maison, crêpes russes traditionnelles",
+            variants: [
+              {
+                id: "blinchiki-viande",
+                label: "Viande",
+                fullName: productById.get("blinchiki-viande")!.orderName.fr,
+                price: formatPrice(productBasePrices["blinchiki-viande"]),
+                basePrice: productBasePrices["blinchiki-viande"]
+              },
+              {
+                id: "blinchiki-fromage",
+                label: "Fromage",
+                fullName: productById.get("blinchiki-fromage")!.orderName.fr,
+                price: formatPrice(productBasePrices["blinchiki-fromage"]),
+                basePrice: productBasePrices["blinchiki-fromage"]
+              },
+              {
+                id: "blinchiki-champignons",
+                label: "Champignons",
+                fullName: productById.get("blinchiki-champignons")!.orderName.fr,
+                price: formatPrice(productBasePrices["blinchiki-champignons"]),
+                basePrice: productBasePrices["blinchiki-champignons"]
+              }
+            ]
           },
           {
             id: "golubci",
@@ -757,7 +809,7 @@ export const siteContent = {
       eyebrow: "Histoire",
       title: "Des recettes familiales préparées à la main",
       description:
-        "Notre table réunit des douceurs, des desserts et des plats salés inspirés des traditions d’Europe de l’Est et du Caucase, préparés maison en petites séries.",
+        "Notre table réunit des douceurs, des desserts et des plats salés inspirés des traditions d’Europe de l’Est et russes, préparés maison en petites séries.",
       note:
         "Les oreshki restent notre signature, mais chaque spécialité suit la même exigence : une préparation artisanale, des quantités généreuses et le goût chaleureux des recettes de famille.",
       imageAlt: "Préparation artisanale d’oreshki au caramel"

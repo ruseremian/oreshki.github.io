@@ -17,6 +17,9 @@ export type ProductId =
   | "vareniki-fromage"
   | "vareniki-pommes-terre"
   | "blinchiki"
+  | "blinchiki-viande"
+  | "blinchiki-fromage"
+  | "blinchiki-champignons"
   | "golubci"
   | "pirojki"
   | "sigaretki";
@@ -205,6 +208,51 @@ export const products: Product[] = [
     },
     description:
       "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons.",
+    price: 1,
+    unit: "par pièce",
+    image: "/images/blinchiki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "blinchiki-viande",
+    name: "Blinchiki — Viande",
+    orderName: {
+      fr: "Blinchiki — Viande",
+      ru: "Блинчики — мясо"
+    },
+    description:
+      "Fines crêpes maison garnies à la viande selon les recettes familiales.",
+    price: 1,
+    unit: "par pièce",
+    image: "/images/blinchiki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "blinchiki-fromage",
+    name: "Blinchiki — Fromage",
+    orderName: {
+      fr: "Blinchiki — Fromage",
+      ru: "Блинчики — сыр"
+    },
+    description:
+      "Fines crêpes maison garnies au fromage selon les recettes familiales.",
+    price: 1,
+    unit: "par pièce",
+    image: "/images/blinchiki.jpg",
+    category: "specialties",
+    available: true
+  },
+  {
+    id: "blinchiki-champignons",
+    name: "Blinchiki — Champignons",
+    orderName: {
+      fr: "Blinchiki — Champignons",
+      ru: "Блинчики — грибы"
+    },
+    description:
+      "Fines crêpes maison garnies aux champignons selon les recettes familiales.",
     price: 1,
     unit: "par pièce",
     image: "/images/blinchiki.jpg",

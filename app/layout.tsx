@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 const metadataTitle =
   "Spécialités maison d’Europe de l’Est à Strasbourg | Oreshki";
 const metadataDescription =
-  "Pâtisseries, desserts et plats salés artisanaux faits maison, inspirés des traditions d’Europe de l’Est et du Caucase. Commandes en ligne, retrait ou livraison locale.";
+  "Pâtisseries, desserts et plats salés artisanaux faits maison, inspirés des traditions d’Europe de l’Est et russes. Commandes en ligne, retrait ou livraison locale.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://oreshki-github-io.vercel.app"),
