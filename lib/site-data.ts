@@ -120,7 +120,7 @@ export const siteContent = {
         "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
       freeDeliveryBadge: "🚚 Бесплатная доставка от 35 €",
       fulfillmentNote:
-        "Доставка возможна в Страсбурге и ближайших коммунах после подтверждения. Самовывоз — в Страсбурге, только по договорённости; точные детали сообщаются после заявки.",
+        "Доставка возможна в Страсбурге и ближайших коммунах после подтверждения. Самовывоз — в Иттенхайме, только по договорённости; точные детали сообщаются после заявки.",
       artisanDisclaimer:
         "Продукция домашнего приготовления. Изделия могут содержать глютен, яйца, молоко, орехи и другие аллергены.",
       allergenDisclaimer:
@@ -545,7 +545,7 @@ export const siteContent = {
         "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
       freeDeliveryBadge: "🚚 Livraison offerte dès 35 €",
       fulfillmentNote:
-        "Livraison possible à Strasbourg et dans les communes voisines après confirmation. Retrait à Strasbourg uniquement sur rendez-vous; les détails exacts sont envoyés après la demande.",
+        "Livraison possible à Strasbourg et dans les communes voisines après confirmation. Retrait à Ittenheim uniquement sur rendez-vous; les détails exacts sont envoyés après la demande.",
       artisanDisclaimer:
         "Produits faits maison. Ils peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes.",
       allergenDisclaimer:
