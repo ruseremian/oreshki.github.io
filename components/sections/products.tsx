@@ -39,6 +39,9 @@ export function Products({ content, onOrder }: ProductsProps) {
         <p className="mx-auto mt-5 w-fit rounded-full border border-caramel/20 bg-cream/70 px-4 py-2 text-center text-sm font-semibold text-caramel shadow-soft">
           {content.freeDeliveryBadge}
         </p>
+        <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-7 text-cocoa/68">
+          {content.fulfillmentNote}
+        </p>
 
         <div id="patisserie" className="mt-8 scroll-mt-24 sm:mt-10">
           <div className="mx-auto mb-6 max-w-3xl text-center">

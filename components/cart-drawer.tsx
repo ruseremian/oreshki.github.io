@@ -534,6 +534,9 @@ export function CartDrawer({
                               }
                               className={inputClass(false)}
                             />
+                            <span className="mt-2 block text-sm leading-6 text-cocoa/58">
+                              {content.preferredDateGuidance}
+                            </span>
                           </Field>
                           <Field label={content.notes}>
                             <textarea

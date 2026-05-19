@@ -113,6 +113,8 @@ export const siteContent = {
       description:
         "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
       freeDeliveryBadge: "🚚 Бесплатная доставка от 35 €",
+      fulfillmentNote:
+        "Доставка возможна в Страсбурге и ближайших коммунах после подтверждения. Самовывоз — в Страсбурге, только по договорённости; точные детали сообщаются после заявки.",
       artisanDisclaimer:
         "Продукция домашнего приготовления. Изделия могут содержать глютен, яйца, молоко, орехи и другие аллергены.",
       allergenDisclaimer:
@@ -415,8 +417,8 @@ export const siteContent = {
       noPayment:
         "Оплата онлайн не подключена. Вы отправляете заявку, а финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram или SMS.",
       fulfillmentGuidance:
-        "Самовывоз возможен только по договорённости. Доставка стоит 7 € и становится бесплатной от 35 €; детали доставки подтверждаются вручную.",
-      checkout: "Оформление заказа",
+        "Самовывоз возможен в Страсбурге только по договорённости. Доставка по Страсбургу и ближайшим коммунам стоит 7 € и становится бесплатной от 35 €; детали подтверждаются вручную.",
+      checkout: "Заявка на заказ",
       name: "Имя",
       namePlaceholder: "Как к вам обращаться",
       phone: "Телефон",
@@ -436,11 +438,13 @@ export const siteContent = {
       address: "Адрес доставки",
       addressPlaceholder: "Улица, дом, город",
       preferredDate: "Желаемая дата",
+      preferredDateGuidance:
+        "Пожалуйста, планируйте минимум 3 дня на подготовку. Если заказ нужен раньше, напишите напрямую в WhatsApp, Telegram или Instagram.",
       notes: "Комментарий",
       notesPlaceholder: "Время, пожелания",
       privacyConsent:
         "Я согласен(на), что Oreshki использует мои данные (имя, телефон, детали заказа и самовывоза/доставки) только для обработки этой заявки.",
-      submit: "Отправить заказ",
+      submit: "Отправить заявку",
       submitting: "Отправляем...",
       errors: {
         items: "Корзина пуста",
@@ -452,8 +456,8 @@ export const siteContent = {
         submit: "Не удалось отправить заказ. Проверьте соединение.",
         server: "Не удалось отправить заказ. Попробуйте ещё раз."
       },
-      confirmationTitle: "Заказ принят",
-      confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали.",
+      confirmationTitle: "Заявка получена",
+      confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали, дату и оплату.",
       orderNumber: "Номер заказа",
       confirmationTotal: "Сумма заказа",
       back: "Вернуться на сайт",
@@ -467,9 +471,9 @@ export const siteContent = {
       eyebrow: "Контакты",
       title: "Готовите семейный стол или праздник?",
       description:
-        "Оформите заказ прямо на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления и варианты самовывоза или доставки.",
+        "Оформите заявку на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления, самовывоз в Страсбурге по договорённости или доставку по Страсбургу и ближайшим коммунам.",
       note:
-        "Для событий и семейных заказов по запросу лучше написать заранее: так мы успеем подготовить всё свежим.",
+        "Если заказ нужен раньше чем через 3 дня, напишите напрямую в WhatsApp, Telegram или Instagram. WhatsApp используется только для подтверждения заказов, деталей доставки или самовывоза и вопросов клиентов.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
@@ -511,6 +515,8 @@ export const siteContent = {
       description:
         "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
       freeDeliveryBadge: "🚚 Livraison offerte dès 35 €",
+      fulfillmentNote:
+        "Livraison possible à Strasbourg et dans les communes voisines après confirmation. Retrait à Strasbourg uniquement sur rendez-vous; les détails exacts sont envoyés après la demande.",
       artisanDisclaimer:
         "Produits faits maison. Ils peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes.",
       allergenDisclaimer:
@@ -813,8 +819,8 @@ export const siteContent = {
       noPayment:
         "Le paiement en ligne n'est pas activé. Vous envoyez une demande de commande; la confirmation finale et les instructions de paiement sont envoyées manuellement par WhatsApp, Telegram ou SMS.",
       fulfillmentGuidance:
-        "Retrait uniquement sur rendez-vous. Livraison à 7 €, offerte dès 35 €; les détails de retrait ou de livraison sont confirmés manuellement.",
-      checkout: "Commander",
+        "Retrait à Strasbourg uniquement sur rendez-vous. Livraison à Strasbourg et dans les communes voisines: 7 €, offerte dès 35 €; les détails sont confirmés manuellement.",
+      checkout: "Demande de commande",
       name: "Nom",
       namePlaceholder: "Votre nom",
       phone: "Téléphone",
@@ -834,11 +840,13 @@ export const siteContent = {
       address: "Adresse de livraison",
       addressPlaceholder: "Rue, numéro, ville",
       preferredDate: "Date souhaitée",
+      preferredDateGuidance:
+        "Merci de prévoir au minimum 3 jours de préparation. Pour une demande plus urgente, contactez-nous directement via WhatsApp, Telegram ou Instagram.",
       notes: "Notes",
       notesPlaceholder: "Horaire, préférences",
       privacyConsent:
         "J'accepte qu'Oreshki utilise mes données (nom, téléphone, détails de commande et de retrait/livraison) uniquement pour traiter cette demande.",
-      submit: "Envoyer la commande",
+      submit: "Envoyer la demande",
       submitting: "Envoi...",
       errors: {
         items: "Votre panier est vide",
