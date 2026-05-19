@@ -297,9 +297,9 @@ export const products: Product[] = [
       ru: "Домашние сигаретки"
     },
     description:
-      "Petites pâtisseries roulées maison, légèrement croustillantes et délicatement sucrées. Parfaites avec un thé ou un café.",
+      "Les sigaretkis maison à la pomme sont de délicates pâtisseries en pâte feuilletée, garnies d’une préparation parfumée à la pomme. Légères et croustillantes à l’extérieur, elles restent moelleuses, fruitées et légèrement sucrées à l’intérieur. Elles accompagnent parfaitement un thé, un café ou un dessert maison à partager.",
     price: 10,
-    unit: "boîte",
+    unit: "12 pièces",
     image: "/images/sigaretki.jpg",
     category: "cookies",
     available: true
