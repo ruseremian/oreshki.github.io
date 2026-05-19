@@ -444,9 +444,9 @@ export const siteContent = {
       freeDeliveryRemaining: "Ещё {amount} до бесплатной доставки",
       freeDeliveryUnlocked: "Бесплатная доставка ✓",
       noPayment:
-        "Оплата онлайн не подключена. Вы отправляете заявку, а финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram или SMS.",
+        "Оплата онлайн не подключена. Вы отправляете заявку, а финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram, Instagram или SMS.",
       fulfillmentGuidance:
-        "Самовывоз возможен в Иттенхайме только по договорённости. Доставка по Иттенхайму и ближайшим коммунам стоит 7 € и становится бесплатной от 35 €; детали подтверждаются вручную.",
+        "Самовывоз возможен в Иттенхайме только по договорённости. Доставка по Страсбургу и ближайшим коммунам стоит 7 € и становится бесплатной от 35 €; детали подтверждаются вручную.",
       checkout: "Заявка на заказ",
       name: "Имя",
       namePlaceholder: "Как к вам обращаться",
@@ -468,7 +468,7 @@ export const siteContent = {
       addressPlaceholder: "Улица, дом, город",
       preferredDate: "Желаемая дата",
       preferredDateGuidance:
-        "Пожалуйста, планируйте минимум 3 дня на подготовку. Если заказ нужен раньше, напишите напрямую в WhatsApp, Telegram или Instagram.",
+        "Если заказ нужен раньше, напишите напрямую в WhatsApp, Telegram или Instagram.",
       notes: "Комментарий",
       notesPlaceholder: "Время, пожелания",
       privacyConsent:
@@ -871,7 +871,7 @@ export const siteContent = {
       noPayment:
         "Le paiement en ligne n'est pas activé. Vous envoyez une demande de commande; la confirmation finale et les instructions de paiement sont envoyées manuellement par WhatsApp, Telegram ou SMS.",
       fulfillmentGuidance:
-        "Retrait à Ittenheim uniquement sur rendez-vous. Livraison à Ittenheim et dans les communes voisines : 7 €, offerte dès 35 € ; les détails sont confirmés manuellement.",
+        "Retrait à Ittenheim uniquement sur rendez-vous. Livraison à Strasbourg et dans les communes voisines : 7 €, offerte dès 35 € ; les détails sont confirmés manuellement.",
       checkout: "Demande de commande",
       name: "Nom",
       namePlaceholder: "Votre nom",
@@ -893,7 +893,7 @@ export const siteContent = {
       addressPlaceholder: "Rue, numéro, ville",
       preferredDate: "Date souhaitée",
       preferredDateGuidance:
-        "Merci de prévoir au minimum 3 jours de préparation. Pour une demande plus urgente, contactez-nous directement via WhatsApp, Telegram ou Instagram.",
+        "Pour une demande plus urgente, contactez-nous directement via WhatsApp, Telegram ou Instagram.",
       notes: "Notes",
       notesPlaceholder: "Horaire, préférences",
       privacyConsent:

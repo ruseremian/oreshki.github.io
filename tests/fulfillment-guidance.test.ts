@@ -4,7 +4,7 @@ import { describe, it } from "node:test";
 import { siteContent } from "@/lib/site-data";
 
 describe("fulfillment and preorder guidance", () => {
-  it("explains local delivery, Ittenheim pickup, preorder timing, and urgent contact in French", () => {
+  it("explains local delivery, Ittenheim pickup, and urgent contact in French", () => {
     const content = siteContent.fr;
     const text = [
       content.products.fulfillmentNote,
@@ -20,7 +20,6 @@ describe("fulfillment and preorder guidance", () => {
     assert.match(text, /Ittenheim/);
     assert.match(text, /communes voisines/);
     assert.match(text, /rendez-vous/);
-    assert.match(text, /3 jours/);
     assert.match(text, /urgente/);
     assert.match(text, /demande/i);
   });
@@ -41,7 +40,6 @@ describe("fulfillment and preorder guidance", () => {
     assert.match(text, /Иттенхайм/);
     assert.match(text, /ближайш/);
     assert.match(text, /договор/);
-    assert.match(text, /3 дня/);
     assert.match(text, /раньше/);
     assert.match(text, /заявк/i);
   });
