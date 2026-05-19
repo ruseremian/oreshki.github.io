@@ -5,7 +5,7 @@ create table if not exists public.orders (
   customer_name text not null,
   phone text not null,
   email text,
-  language text,
+  language text default 'fr' check (language in ('fr', 'ru')),
   preferred_contact_method text not null,
   delivery_method text not null,
   address text,
