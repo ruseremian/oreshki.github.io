@@ -45,6 +45,7 @@ export type RawOrderBody = Partial<CreateOrderRequest> & {
   preferred_contact_method?: string;
   delivery_method?: string;
   preferred_date?: string;
+  privacy_consent?: boolean;
 };
 
 export function normalizeOrderBody(
@@ -63,6 +64,7 @@ export function normalizeOrderBody(
     preferredDate: body.preferredDate ?? body.preferred_date,
     notes: body.notes,
     language: body.language,
+    privacyConsent: body.privacyConsent ?? body.privacy_consent,
     items: body.items
   };
 }
@@ -108,6 +110,9 @@ export function validateOrder(
   ) {
     errors.preferredDate = "Preferred date is too early";
   }
+  if (body.privacyConsent !== true) {
+    errors.privacyConsent = "Privacy consent is required";
+  }
 
   const items = normalizeItems(body.items);
 
@@ -138,10 +143,15 @@ export function validateOrder(
       address: body.address?.trim(),
       preferredDate: body.preferredDate,
       notes: body.notes?.trim(),
-      language: normalizeOrderLanguage(body.language)
+      language: normalizeOrderLanguage(body.language),
+      privacyConsent: body.privacyConsent
     },
     items
   };
+}
+
+export function createPrivacyConsentTimestamp(now = new Date()) {
+  return now.toISOString();
 }
 
 export function buildOrderLineItems(

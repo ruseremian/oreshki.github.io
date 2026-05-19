@@ -438,6 +438,8 @@ export const siteContent = {
       preferredDate: "Желаемая дата",
       notes: "Комментарий",
       notesPlaceholder: "Время, пожелания",
+      privacyConsent:
+        "Я согласен(на), что Oreshki использует мои данные (имя, телефон, детали заказа и самовывоза/доставки) только для обработки этой заявки.",
       submit: "Отправить заказ",
       submitting: "Отправляем...",
       errors: {
@@ -446,6 +448,7 @@ export const siteContent = {
         phone: "Введите корректный номер телефона.",
         address: "Укажите адрес доставки",
         preferredDate: "Выберите дату не раньше чем через 3 дня.",
+        privacyConsent: "Подтвердите согласие на обработку данных заказа.",
         submit: "Не удалось отправить заказ. Проверьте соединение.",
         server: "Не удалось отправить заказ. Попробуйте ещё раз."
       },
@@ -833,6 +836,8 @@ export const siteContent = {
       preferredDate: "Date souhaitée",
       notes: "Notes",
       notesPlaceholder: "Horaire, préférences",
+      privacyConsent:
+        "J'accepte qu'Oreshki utilise mes données (nom, téléphone, détails de commande et de retrait/livraison) uniquement pour traiter cette demande.",
       submit: "Envoyer la commande",
       submitting: "Envoi...",
       errors: {
@@ -841,6 +846,7 @@ export const siteContent = {
         phone: "Veuillez entrer un numéro de téléphone valide.",
         address: "Indiquez l'adresse de livraison",
         preferredDate: "Choisissez une date au plus tôt dans 3 jours.",
+        privacyConsent: "Cochez le consentement à l'utilisation des données de commande.",
         submit: "Impossible d'envoyer la commande. Vérifiez votre connexion.",
         server: "Impossible d'envoyer la commande. Réessayez."
       },

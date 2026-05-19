@@ -31,6 +31,11 @@ const terms = [
       "Les prix sont indiqués en euros. Le paiement n'est pas effectué en ligne sur le site. Le client envoie une demande de commande, puis la confirmation finale et les instructions de paiement sont envoyées manuellement par WhatsApp, Telegram ou SMS."
   },
   {
+    title: "Consentement aux données de commande",
+    body:
+      "Avant l'envoi d'une demande, le client doit confirmer que ses données de commande peuvent être utilisées uniquement pour traiter la demande, organiser le retrait ou la livraison et communiquer au sujet de cette commande."
+  },
+  {
     title: "Annulation",
     body:
       "Pour annuler une commande, le client doit contacter Oreshki dès que possible. Les commandes annulées ne sont pas comptabilisées comme chiffre d'affaires."

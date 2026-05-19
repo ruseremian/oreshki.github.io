@@ -490,6 +490,10 @@ function OrderDetailsPanel({
         <Detail label="Telephone" value={formatPhoneInput(order.phone)} />
         <Detail label="Email" value={order.email || "-"} />
         <Detail label="Langue" value={formatAdminOrderLanguage(order.language)} />
+        <Detail
+          label="Consentement"
+          value={formatConsentDate(order.privacy_consent_at)}
+        />
         <Detail label="Contact prefere" value={order.preferred_contact_method} />
         <Detail
           label="Mode"
@@ -590,4 +594,12 @@ function formatPreferredDate(value: string | null) {
   return new Intl.DateTimeFormat("fr-FR", {
     dateStyle: "medium"
   }).format(new Date(`${value}T00:00:00`));
+}
+
+function formatConsentDate(value: string | null | undefined) {
+  if (!value) {
+    return "Non renseigne";
+  }
+
+  return formatDate(value);
 }

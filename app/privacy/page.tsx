@@ -71,6 +71,11 @@ export default function PrivacyPage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <p className="mt-4">
+                Avant l&apos;envoi d&apos;une demande de commande, le client doit cocher
+                une case de consentement confirmant que ces données peuvent être
+                utilisées pour traiter la demande.
+              </p>
             </section>
 
             <section>

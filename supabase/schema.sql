@@ -11,6 +11,7 @@ create table if not exists public.orders (
   address text,
   preferred_date date,
   notes text,
+  privacy_consent_at timestamp with time zone,
   subtotal_amount numeric not null default 0,
   delivery_fee numeric not null default 0,
   total_amount numeric not null,

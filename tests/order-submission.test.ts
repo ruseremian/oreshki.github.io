@@ -4,6 +4,7 @@ import { describe, it } from "node:test";
 import {
   buildOrderLineItems,
   calculateSubmissionPricing,
+  createPrivacyConsentTimestamp,
   normalizeOrderBody,
   validateOrder
 } from "@/lib/order-submission";
@@ -17,6 +18,7 @@ const validOrder = {
   preferredDate: "2026-05-22",
   notes: " Please call ",
   language: "fr" as const,
+  privacyConsent: true,
   items: [{ productId: "napoleon-velvet-rouge" as const, quantity: 3 }]
 };
 
@@ -28,6 +30,7 @@ describe("order submission contract", () => {
         preferred_contact_method: "telegram",
         delivery_method: "pickup",
         preferred_date: "2026-05-22",
+        privacy_consent: true,
         phone: "06 12 34 56 78",
         items: []
       }),
@@ -40,6 +43,7 @@ describe("order submission contract", () => {
         preferredDate: "2026-05-22",
         notes: undefined,
         language: undefined,
+        privacyConsent: true,
         items: []
       }
     );
@@ -60,7 +64,8 @@ describe("order submission contract", () => {
       address: "1 rue Test",
       preferredDate: "2026-05-22",
       notes: "Please call",
-      language: "fr"
+      language: "fr",
+      privacyConsent: true
     });
     assert.deepEqual(result.items, [
       { productId: "napoleon-velvet-rouge", quantity: 3 }
@@ -102,6 +107,7 @@ describe("order submission contract", () => {
         preferredContactMethod: "email" as never,
         deliveryMethod: "delivery",
         preferredDate: "2026-05-21",
+        privacyConsent: false,
         items: []
       },
       "2026-05-22"
@@ -117,8 +123,31 @@ describe("order submission contract", () => {
       preferredContactMethod: "Preferred contact method is required",
       address: "Address is required for delivery",
       preferredDate: "Preferred date is too early",
+      privacyConsent: "Privacy consent is required",
       items: "Cart is empty"
     });
+  });
+
+  it("requires consent and creates an auditable consent timestamp", () => {
+    const missingConsent = validateOrder(
+      { ...validOrder, privacyConsent: undefined },
+      "2026-05-22"
+    );
+    const accepted = validateOrder(validOrder, "2026-05-22");
+
+    assert.equal(missingConsent.success, false);
+    assert.equal(accepted.success, true);
+    assert.equal(
+      createPrivacyConsentTimestamp(new Date("2026-05-19T10:30:00.000Z")),
+      "2026-05-19T10:30:00.000Z"
+    );
+
+    if (!missingConsent.success) {
+      assert.equal(
+        missingConsent.errors.privacyConsent,
+        "Privacy consent is required"
+      );
+    }
   });
 
   it("builds persisted line items and trusted totals from server catalog data", () => {

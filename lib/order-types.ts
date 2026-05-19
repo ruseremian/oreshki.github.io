@@ -16,6 +16,7 @@ export type CheckoutCustomer = {
   address?: string;
   preferredDate?: string;
   notes?: string;
+  privacyConsent: boolean;
 };
 
 export type CartOrderItem = {

@@ -4,6 +4,7 @@ import type { CreateOrderResponse } from "@/lib/order-types";
 import {
   buildOrderLineItems,
   calculateSubmissionPricing,
+  createPrivacyConsentTimestamp,
   normalizeOrderBody,
   type RawOrderBody,
   validateOrder
@@ -68,6 +69,7 @@ export async function POST(request: NextRequest) {
             : null,
         preferred_date: validation.data.preferredDate || null,
         language: validation.data.language,
+        privacy_consent_at: createPrivacyConsentTimestamp(),
         notes: validation.data.notes || null,
         subtotal_amount: pricing.subtotal,
         delivery_fee: pricing.deliveryFee,

@@ -48,6 +48,7 @@ type CheckoutValues = {
   address: string;
   preferredDate: string;
   notes: string;
+  privacyConsent: boolean;
 };
 
 type CheckoutErrors = Partial<Record<keyof CheckoutValues | "items", string>>;
@@ -97,7 +98,8 @@ export function CartDrawer({
     deliveryMethod: "pickup",
     address: "",
     preferredDate: minimumPreferredDate,
-    notes: ""
+    notes: "",
+    privacyConsent: false
   });
   const [errors, setErrors] = useState<CheckoutErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -159,6 +161,9 @@ export function CartDrawer({
     if (values.preferredDate && values.preferredDate < minimumPreferredDate) {
       nextErrors.preferredDate = content.errors.preferredDate;
     }
+    if (!values.privacyConsent) {
+      nextErrors.privacyConsent = content.errors.privacyConsent;
+    }
 
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
@@ -186,6 +191,7 @@ export function CartDrawer({
       preferredDate: values.preferredDate || undefined,
       notes: values.notes.trim() || undefined,
       language,
+      privacyConsent: values.privacyConsent,
       items: items.map((item) => ({
         productId: item.productId,
         quantity: item.quantity
@@ -214,6 +220,9 @@ export function CartDrawer({
           preferredDate: data.fieldErrors?.preferredDate
             ? content.errors.preferredDate
             : current.preferredDate,
+          privacyConsent: data.fieldErrors?.privacyConsent
+            ? content.errors.privacyConsent
+            : current.privacyConsent,
           items: data.fieldErrors?.items ? content.errors.items : current.items
         }));
         return;
@@ -540,6 +549,26 @@ export function CartDrawer({
                             />
                           </Field>
                         </div>
+
+                        <label className="flex gap-3 rounded-2xl border border-cocoa/10 bg-white/55 px-4 py-3 text-sm leading-6 text-cocoa/68">
+                          <input
+                            type="checkbox"
+                            checked={values.privacyConsent}
+                            onChange={(event) =>
+                              updateValue("privacyConsent", event.target.checked)
+                            }
+                            className="mt-1 h-4 w-4 shrink-0 rounded border-cocoa/20 text-caramel focus:ring-caramel"
+                            required
+                          />
+                          <span>
+                            {content.privacyConsent}
+                            {errors.privacyConsent ? (
+                              <span className="mt-2 block text-rose">
+                                {errors.privacyConsent}
+                              </span>
+                            ) : null}
+                          </span>
+                        </label>
 
                         {errors.items ? (
                           <p className="text-sm text-rose">{errors.items}</p>
