@@ -67,6 +67,33 @@ describe("order submission contract", () => {
     ]);
   });
 
+  it("normalizes missing or invalid order language to French", () => {
+    assert.equal(
+      validateOrder({ ...validOrder, language: "ru" }, "2026-05-22").success,
+      true
+    );
+
+    const missingLanguage = validateOrder(
+      { ...validOrder, language: undefined },
+      "2026-05-22"
+    );
+    const invalidLanguage = validateOrder(
+      { ...validOrder, language: "en" as never },
+      "2026-05-22"
+    );
+
+    assert.equal(missingLanguage.success, true);
+    assert.equal(invalidLanguage.success, true);
+
+    if (missingLanguage.success) {
+      assert.equal(missingLanguage.data.language, "fr");
+    }
+
+    if (invalidLanguage.success) {
+      assert.equal(invalidLanguage.data.language, "fr");
+    }
+  });
+
   it("rejects invalid cart, customer, contact, fulfillment, address, and date data", () => {
     const result = validateOrder(
       {

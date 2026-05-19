@@ -4,6 +4,7 @@ import type {
   CreateOrderRequest,
   CreateOrderResponse
 } from "@/lib/order-types";
+import { normalizeOrderLanguage, type OrderLanguage } from "@/lib/order-language";
 import { normalizePhoneNumber } from "@/lib/phone";
 import { getDeliveryFee } from "@/lib/pricing";
 import {
@@ -137,7 +138,7 @@ export function validateOrder(
       address: body.address?.trim(),
       preferredDate: body.preferredDate,
       notes: body.notes?.trim(),
-      language: normalizeLanguage(body.language)
+      language: normalizeOrderLanguage(body.language)
     },
     items
   };
@@ -145,7 +146,7 @@ export function validateOrder(
 
 export function buildOrderLineItems(
   items: { productId: ProductId; quantity: number }[],
-  language: "fr" | "ru"
+  language: OrderLanguage
 ) {
   return items.map((item) => {
     const product = productById.get(item.productId);
@@ -205,10 +206,4 @@ function getTrustedProductPrice(productId: ProductId) {
   }
 
   return trustedProductPrices[productId] ?? product.price;
-}
-
-function normalizeLanguage(
-  language: CreateOrderRequest["language"]
-): NonNullable<CreateOrderRequest["language"]> {
-  return language === "ru" ? "ru" : "fr";
 }

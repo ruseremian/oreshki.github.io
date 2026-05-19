@@ -32,6 +32,7 @@ export type AdminOrder = {
   phone: string;
   email: string | null;
   preferred_contact_method: string;
+  language: string | null;
   delivery_method: "pickup" | "delivery";
   address: string | null;
   preferred_date: string | null;

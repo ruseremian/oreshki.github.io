@@ -14,6 +14,7 @@ import { X } from "lucide-react";
 import type { AdminOrder } from "./page";
 import { Logo } from "@/components/ui/logo";
 import { calculateAdminOrderMetrics } from "@/lib/admin-metrics";
+import { formatAdminOrderLanguage } from "@/lib/order-language";
 import {
   ORDER_STATUSES,
   ORDER_STATUS_LABELS,
@@ -488,6 +489,7 @@ function OrderDetailsPanel({
         <Detail label="Date" value={formatDate(order.created_at)} />
         <Detail label="Telephone" value={formatPhoneInput(order.phone)} />
         <Detail label="Email" value={order.email || "-"} />
+        <Detail label="Langue" value={formatAdminOrderLanguage(order.language)} />
         <Detail label="Contact prefere" value={order.preferred_contact_method} />
         <Detail
           label="Mode"

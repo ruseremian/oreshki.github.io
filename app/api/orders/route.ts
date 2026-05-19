@@ -67,6 +67,7 @@ export async function POST(request: NextRequest) {
             ? validation.data.address
             : null,
         preferred_date: validation.data.preferredDate || null,
+        language: validation.data.language,
         notes: validation.data.notes || null,
         subtotal_amount: pricing.subtotal,
         delivery_fee: pricing.deliveryFee,
