@@ -41,4 +41,5 @@ Add behavioral tests for the core customer and owner paths described in the PRD.
 
 - 2026-05-19: Added the baseline `npm run test` and `npm run typecheck` feedback loop using TypeScript compile output plus Node's built-in test runner.
 - 2026-05-19: Added focused behavioral tests for pricing, phone normalization/validation, preferred-date rules, and storefront product/variant catalog references.
-- Remaining: order API, Telegram, admin dashboard/status/metrics, checkout UI, and full end-to-end smoke coverage.
+- 2026-05-19: Added behavioral coverage for order submission validation and trusted totals, Telegram message/button behavior, order status parsing, and admin revenue metrics.
+- Browser-level checkout/admin smoke coverage is not included because the project does not currently have a browser test harness; the Node test suite now covers the stable public contracts that support those flows.

@@ -13,6 +13,7 @@ import { X } from "lucide-react";
 
 import type { AdminOrder } from "./page";
 import { Logo } from "@/components/ui/logo";
+import { calculateAdminOrderMetrics } from "@/lib/admin-metrics";
 import {
   ORDER_STATUSES,
   ORDER_STATUS_LABELS,
@@ -129,27 +130,7 @@ export function AdminOrdersDashboard({ initialOrders }: DashboardProps) {
   const selectedOrder =
     orders.find((order) => order.id === selectedOrderId) ?? orders[0] ?? null;
 
-  const metrics = useMemo(() => {
-    const today = new Date().toDateString();
-    const billableOrders = orders.filter(
-      (order) => !isCancelledOrderStatus(order.status)
-    );
-    const totalRevenue = billableOrders.reduce(
-      (sum, order) => sum + order.total_amount,
-      0
-    );
-
-    return {
-      totalOrders: orders.length,
-      totalRevenue,
-      ordersToday: orders.filter(
-        (order) => new Date(order.created_at).toDateString() === today
-      ).length,
-      averageOrderValue: billableOrders.length
-        ? totalRevenue / billableOrders.length
-        : 0
-    };
-  }, [orders]);
+  const metrics = useMemo(() => calculateAdminOrderMetrics(orders), [orders]);
 
   async function updateStatus(orderId: string, status: OrderStatus) {
     setPendingStatusId(orderId);

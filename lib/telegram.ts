@@ -138,7 +138,7 @@ export async function removeTelegramMessageButtons({
   });
 }
 
-function buildTelegramMessage(order: TelegramOrderNotification) {
+export function buildTelegramMessage(order: TelegramOrderNotification) {
   const contactLine = order.preferredContactMethod
     ? `\uD83D\uDCAC <b>Contact pr\u00e9f\u00e9r\u00e9:</b> ${escapeHtml(formatPreferredContactMethod(order.preferredContactMethod))}`
     : null;
@@ -179,7 +179,7 @@ function buildTelegramMessage(order: TelegramOrderNotification) {
     .join("\n");
 }
 
-function buildOrderKeyboard(orderId: string) {
+export function buildOrderKeyboard(orderId: string) {
   const keyboard: TelegramInlineKeyboardButton[][] = [
     [
       {
@@ -212,7 +212,7 @@ function buildAdminOrdersUrl() {
   return `${siteUrl.replace(/\/$/, "")}/admin/orders`;
 }
 
-function splitTelegramMessage(message: string) {
+export function splitTelegramMessage(message: string) {
   if (message.length <= TELEGRAM_MESSAGE_LIMIT) {
     return [message];
   }
