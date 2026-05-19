@@ -74,6 +74,7 @@ export async function POST(request: NextRequest) {
       .from("orders")
       .update({ status: parsedCallback.status })
       .eq("id", parsedCallback.orderId)
+      .eq("status", "new")
       .select("id, status")
       .single();
 
@@ -83,7 +84,7 @@ export async function POST(request: NextRequest) {
         status: parsedCallback.status,
         error
       });
-      await answerWithError(callbackQueryId, "Commande introuvable ou non mise à jour.");
+      await answerWithError(callbackQueryId, "Commande introuvable ou deja traitee.");
       return NextResponse.json({ success: false }, { status: 500 });
     }
 
