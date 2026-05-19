@@ -12,15 +12,14 @@ export const metadata: Metadata = {
 const collectedData = [
   "nom",
   "numéro de téléphone",
-  "adresse email si elle est fournie",
-  "adresse de livraison si la livraison est sélectionnée",
+  "détails de retrait ou de livraison",
   "détails de la commande, dont les produits, quantités, notes et date souhaitée"
 ];
 
 const purposes = [
   "traiter et confirmer les commandes",
   "contacter les clients au sujet de leur commande",
-  "organiser le retrait ou la livraison locale",
+  "organiser le retrait sur rendez-vous ou la livraison",
   "assurer le support client et répondre aux demandes"
 ];
 
@@ -80,7 +79,8 @@ export default function PrivacyPage() {
                 Les données de commande sont stockées dans la base de données Supabase
                 utilisée par le site. Seul le propriétaire du site ou l&apos;administrateur
                 autorisé peut accéder aux informations nécessaires au traitement des
-                commandes.
+                commandes. Elles sont conservées uniquement le temps nécessaire au suivi
+                et à la gestion des commandes.
               </p>
             </section>
 
@@ -89,7 +89,10 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Les données clients ne sont pas vendues, louées ni partagées à des fins
                 publicitaires. Elles ne sont utilisées que pour la gestion des commandes
-                et la communication avec les clients.
+                et la communication avec les clients. WhatsApp, Telegram ou SMS peuvent
+                être utilisés pour confirmer une commande, organiser un retrait ou une
+                livraison, répondre aux questions clients et envoyer les instructions de
+                paiement. Aucun message marketing n&apos;est envoyé sans accord explicite.
               </p>
             </section>
 
@@ -108,8 +111,7 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Les clients peuvent demander la correction ou la suppression de leurs
                 données personnelles liées à une commande. Pour toute demande concernant
-                vos données, contactez-nous via le formulaire de contact ou nos réseaux
-                sociaux.
+                vos données, contactez-nous au + 33 6 09 13 12 95.
               </p>
             </section>
           </div>

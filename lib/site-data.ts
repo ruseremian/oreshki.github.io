@@ -101,10 +101,10 @@ export const siteContent = {
       discover: "Смотреть ассортимент",
       imageAlt: "Домашние орешки со сгущёнкой на бежевой керамической тарелке",
       logistics: [
-        "Приготовление за 24–48 ч",
-        "Самовывоз или локальная доставка",
-        "Оплата при заказе или получении",
-        "Предзаказ помогает подготовить свежую партию"
+        "Минимум 3 дня на подготовку",
+        "Самовывоз только по договорённости",
+        "Доставка: 7 € или бесплатно от 35 €",
+        "Оплата не онлайн: инструкции после подтверждения"
       ]
     },
     products: {
@@ -114,7 +114,9 @@ export const siteContent = {
         "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
       freeDeliveryBadge: "🚚 Бесплатная доставка от 35 €",
       artisanDisclaimer:
-        "Так как вся продукция готовится вручную, внешний вид изделий может немного отличаться.",
+        "Продукция домашнего приготовления. Изделия могут содержать глютен, яйца, молоко, орехи и другие аллергены.",
+      allergenDisclaimer:
+        "Если у вас есть вопросы по составу, напишите нам перед заказом. Внешний вид изделий может немного отличаться, так как всё готовится вручную.",
       customQuantityNote:
         "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
@@ -411,7 +413,9 @@ export const siteContent = {
       freeDeliveryRemaining: "Ещё {amount} до бесплатной доставки",
       freeDeliveryUnlocked: "Бесплатная доставка ✓",
       noPayment:
-        "Оплата онлайн пока не подключена. Мы подтвердим детали и способ оплаты после заявки.",
+        "Оплата онлайн не подключена. Вы отправляете заявку, а финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram или SMS.",
+      fulfillmentGuidance:
+        "Самовывоз возможен только по договорённости. Доставка стоит 7 € и становится бесплатной от 35 €; детали доставки подтверждаются вручную.",
       checkout: "Оформление заказа",
       name: "Имя",
       namePlaceholder: "Как к вам обращаться",
@@ -492,10 +496,10 @@ export const siteContent = {
       discover: "Découvrir les univers",
       imageAlt: "Oreshki faits maison au caramel sur une assiette en céramique beige",
       logistics: [
-        "Préparation sous 24–48h",
-        "Retrait ou livraison locale",
-        "Paiement à la commande ou à la réception",
-        "Précommande conseillée pour les grandes quantités"
+        "Préparation minimum de 3 jours",
+        "Retrait uniquement sur rendez-vous",
+        "Livraison: 7 € ou offerte dès 35 €",
+        "Paiement non en ligne: instructions après confirmation"
       ]
     },
     products: {
@@ -505,7 +509,9 @@ export const siteContent = {
         "Deux univers complémentaires : des douceurs signature pour le thé, et des plats salés généreux pour la table.",
       freeDeliveryBadge: "🚚 Livraison offerte dès 35 €",
       artisanDisclaimer:
-        "Chaque produit étant préparé artisanalement, l’apparence finale peut légèrement varier.",
+        "Produits faits maison. Ils peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes.",
+      allergenDisclaimer:
+        "Pour toute question sur la composition, contactez-nous avant de commander. Chaque produit étant préparé artisanalement, l'apparence finale peut légèrement varier.",
       customQuantityNote:
         "Besoin d’une quantité personnalisée, d’une commande familiale ou d’une spécialité pour un événement ? Contactez-nous via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",
@@ -802,7 +808,9 @@ export const siteContent = {
       freeDeliveryRemaining: "Plus que {amount} pour la livraison offerte",
       freeDeliveryUnlocked: "Livraison offerte ✓",
       noPayment:
-        "Le paiement en ligne n'est pas encore activé. Nous confirmerons les détails et le mode de paiement après votre demande.",
+        "Le paiement en ligne n'est pas activé. Vous envoyez une demande de commande; la confirmation finale et les instructions de paiement sont envoyées manuellement par WhatsApp, Telegram ou SMS.",
+      fulfillmentGuidance:
+        "Retrait uniquement sur rendez-vous. Livraison à 7 €, offerte dès 35 €; les détails de retrait ou de livraison sont confirmés manuellement.",
       checkout: "Commander",
       name: "Nom",
       namePlaceholder: "Votre nom",
@@ -838,7 +846,7 @@ export const siteContent = {
       },
       confirmationTitle: "Commande reçue",
       confirmationText:
-        "Votre commande a été reçue. Nous vous contacterons rapidement.",
+        "Votre demande de commande a été reçue. Nous vous contacterons rapidement pour confirmer les détails et le paiement.",
       orderNumber: "Numéro de commande",
       confirmationTotal: "Total de la commande",
       back: "Retour au site",
@@ -852,9 +860,9 @@ export const siteContent = {
       eyebrow: "Contact",
       title: "Une table familiale ou un événement à préparer ?",
       description:
-        "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons l’assortiment, la date de préparation et les options de retrait ou livraison.",
+        "Commandez directement sur le site ou écrivez-nous dans le messager qui vous convient. Nous confirmons l’assortiment, la date de préparation, le retrait sur rendez-vous ou la livraison.",
       note:
-        "Pour les grandes quantités, les repas de famille, les événements ou les spécialités sur demande, la précommande nous aide à tout préparer frais.",
+        "WhatsApp sert uniquement à confirmer les commandes, les détails de retrait ou de livraison et à répondre aux questions clients. Aucun message marketing n'est envoyé sans accord explicite.",
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"

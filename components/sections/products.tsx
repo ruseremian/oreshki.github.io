@@ -109,6 +109,10 @@ export function Products({ content, onOrder }: ProductsProps) {
           {content.artisanDisclaimer}
         </p>
 
+        <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-7 text-cocoa/62">
+          {content.allergenDisclaimer}
+        </p>
+
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-cocoa/68">
           <LinkedCustomQuantityNote text={content.customQuantityNote} />
         </p>

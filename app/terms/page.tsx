@@ -18,17 +18,17 @@ const terms = [
   {
     title: "Disponibilité et préparation",
     body:
-      "Les commandes sont soumises à disponibilité. Les produits sont préparés en petites séries afin de préserver leur fraîcheur et leur qualité. Le délai de préparation est généralement de 24 à 48h."
+      "Les commandes sont soumises à disponibilité. Les produits sont faits maison et préparés en petites séries. Un délai minimum de 3 jours est demandé pour les commandes."
   },
   {
     title: "Retrait et livraison",
     body:
-      "Un retrait ou une livraison locale peut être organisé après confirmation de la commande. Les détails pratiques sont convenus directement avec le client."
+      "Le retrait est possible uniquement sur rendez-vous. La livraison coûte 7 € et devient offerte à partir de 35 € de commande. Les détails pratiques de retrait ou de livraison sont confirmés manuellement avec le client."
   },
   {
     title: "Prix et paiement",
     body:
-      "Les prix sont indiqués en euros. Le paiement peut être demandé lors de la confirmation de commande ou effectué au moment du retrait ou de la livraison."
+      "Les prix sont indiqués en euros. Le paiement n'est pas effectué en ligne sur le site. Le client envoie une demande de commande, puis la confirmation finale et les instructions de paiement sont envoyées manuellement par WhatsApp, Telegram ou SMS."
   },
   {
     title: "Annulation",
@@ -38,7 +38,12 @@ const terms = [
   {
     title: "Allergènes",
     body:
-      "Les produits peuvent contenir du gluten, du lait, des oeufs, des fruits à coque ou des traces de fruits à coque. Les clients concernés par des allergies doivent le signaler avant de commander."
+      "Les produits peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes. Les clients concernés par des allergies peuvent contacter Oreshki avant de commander pour poser leurs questions."
+  },
+  {
+    title: "Communication",
+    body:
+      "WhatsApp est utilisé uniquement pour confirmer les commandes, organiser les détails de retrait ou de livraison et répondre aux questions clients. Aucun message marketing n'est envoyé sans accord explicite du client."
   },
   {
     title: "Refus ou annulation d'une commande",

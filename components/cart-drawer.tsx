@@ -482,6 +482,9 @@ export function CartDrawer({
                               {content.delivery}
                             </ChoiceButton>
                           </div>
+                          <p className="mt-3 rounded-2xl border border-cocoa/10 bg-white/55 px-4 py-3 text-sm leading-6 text-cocoa/62">
+                            {content.fulfillmentGuidance}
+                          </p>
                         </Field>
 
                         {values.deliveryMethod === "delivery" ? (
