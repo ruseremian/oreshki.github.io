@@ -77,4 +77,43 @@ describe("product content contract", () => {
       assert.equal(variant.basePrice, productById.get("blinchiki")?.price);
     }
   });
+
+  it("shows Oreshki as one storefront product with three orderable variants", () => {
+    for (const language of ["fr", "ru"] as const) {
+      const items = siteContent[language].products.items;
+      const oreshkiCards = items.filter((product) =>
+        ["pieces12", "pieces24", "pieces48"].includes(product.id)
+      );
+
+      assert.equal(
+        oreshkiCards.length,
+        1,
+        `${language} storefront should show one Oreshki card`
+      );
+
+      const [oreshki] = oreshkiCards;
+      const variants = oreshki && "variants" in oreshki
+        ? oreshki.variants
+        : [];
+
+      assert.deepEqual(
+        variants.map((variant) => variant.id),
+        ["pieces12", "pieces24", "pieces48"],
+        `${language} Oreshki card should expose all size variants`
+      );
+
+      for (const variant of variants) {
+        assert.equal(
+          variant.basePrice,
+          productById.get(variant.id)?.price,
+          `${language} ${variant.id} should keep its catalog price`
+        );
+        assert.equal(
+          productById.get(variant.id)?.available,
+          true,
+          `${language} ${variant.id} should remain orderable`
+        );
+      }
+    }
+  });
 });

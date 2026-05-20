@@ -137,42 +137,39 @@ export const siteContent = {
       items: [
         {
           id: "pieces12",
-          title: "12 pièces",
+          title: "Oreshki",
           fullName: productById.get("pieces12")!.orderName.ru,
-          quantity: "12 штук",
-          positioning: "Формат для пробы",
+          quantity: "3 формата",
+          positioning: "Фирменные орешки",
           description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и кусочками фундука. Формат для пробы — 2 коробки по 6 штук.",
+            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и кусочками фундука.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
-          image: productImages.pieces12,
-          imageAlt: "Две коробки домашних орешков со сгущёнкой по 6 штук"
-        },
-        {
-          id: "pieces24",
-          title: "24 pièces",
-          fullName: productById.get("pieces24")!.orderName.ru,
-          quantity: "24 штуки",
-          positioning: "Классический формат",
-          description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и кусочками фундука. Классический формат — идеально для семьи или друзей.",
-          price: formatPrice(productBasePrices.pieces24),
-          basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
-          imageAlt: "Домашние орешки со сгущёнкой в формате 24 штуки"
-        },
-        {
-          id: "pieces48",
-          title: "48 pièces",
-          fullName: productById.get("pieces48")!.orderName.ru,
-          quantity: "48 штук",
-          positioning: "Большой формат",
-          description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и кусочками фундука. Большой формат поставляется в двух отдельных упаковках.",
-          price: formatPrice(productBasePrices.pieces48),
-          basePrice: productBasePrices.pieces48,
-          image: productImages.pieces48,
-          imageAlt: "Большой формат домашних орешков со сгущёнкой 48 штук"
+          imageAlt: "Домашние орешки со сгущёнкой в формате 24 штуки",
+          variants: [
+            {
+              id: "pieces12",
+              label: "12 штук",
+              fullName: productById.get("pieces12")!.orderName.ru,
+              price: formatPrice(productBasePrices.pieces12),
+              basePrice: productBasePrices.pieces12
+            },
+            {
+              id: "pieces24",
+              label: "24 штуки",
+              fullName: productById.get("pieces24")!.orderName.ru,
+              price: formatPrice(productBasePrices.pieces24),
+              basePrice: productBasePrices.pieces24
+            },
+            {
+              id: "pieces48",
+              label: "48 штук",
+              fullName: productById.get("pieces48")!.orderName.ru,
+              price: formatPrice(productBasePrices.pieces48),
+              basePrice: productBasePrices.pieces48
+            }
+          ]
         },
         {
           id: "sigaretki",
@@ -562,42 +559,39 @@ export const siteContent = {
       items: [
         {
           id: "pieces12",
-          title: "12 pièces",
+          title: "Oreshki",
           fullName: productById.get("pieces12")!.orderName.fr,
-          quantity: "12 pièces",
-          positioning: "Format découverte",
+          quantity: "3 formats",
+          positioning: "Oreshki signature",
           description:
-            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format découverte — 2 boîtes de 6 pièces.",
+            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
-          image: productImages.pieces12,
-          imageAlt: "Deux boîtes d’oreshki faits maison de 6 pièces chacune"
-        },
-        {
-          id: "pieces24",
-          title: "24 pièces",
-          fullName: productById.get("pieces24")!.orderName.fr,
-          quantity: "24 pièces",
-          positioning: "Format classique",
-          description:
-            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format classique — idéal à partager.",
-          price: formatPrice(productBasePrices.pieces24),
-          basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
-          imageAlt: "Format 24 pièces d’oreshki faits maison au caramel"
-        },
-        {
-          id: "pieces48",
-          title: "48 pièces",
-          fullName: productById.get("pieces48")!.orderName.fr,
-          quantity: "48 pièces",
-          positioning: "Grand format généreux",
-          description:
-            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Grand format généreux — livré en deux emballages séparés.",
-          price: formatPrice(productBasePrices.pieces48),
-          basePrice: productBasePrices.pieces48,
-          image: productImages.pieces48,
-          imageAlt: "Grand format 48 pièces d’oreshki faits maison au caramel"
+          imageAlt: "Format 24 pièces d’oreshki faits maison au caramel",
+          variants: [
+            {
+              id: "pieces12",
+              label: "12 pièces",
+              fullName: productById.get("pieces12")!.orderName.fr,
+              price: formatPrice(productBasePrices.pieces12),
+              basePrice: productBasePrices.pieces12
+            },
+            {
+              id: "pieces24",
+              label: "24 pièces",
+              fullName: productById.get("pieces24")!.orderName.fr,
+              price: formatPrice(productBasePrices.pieces24),
+              basePrice: productBasePrices.pieces24
+            },
+            {
+              id: "pieces48",
+              label: "48 pièces",
+              fullName: productById.get("pieces48")!.orderName.fr,
+              price: formatPrice(productBasePrices.pieces48),
+              basePrice: productBasePrices.pieces48
+            }
+          ]
         },
         {
           id: "sigaretki",
