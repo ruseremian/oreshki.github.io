@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { LegalFooter } from "@/components/legal-footer";
+import { BRAND_NAME } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Conditions d'utilisation | Oreshki",
+  title: `Conditions d'utilisation | ${BRAND_NAME}`,
   description:
-    "Conditions d'utilisation du site Oreshki pour les commandes de spécialités artisanales faites maison."
+    `Conditions d'utilisation du site ${BRAND_NAME} pour les commandes de spécialités artisanales faites maison.`
 };
 
 const terms = [
   {
     title: "Activité",
     body:
-      "Le site Oreshki présente et permet de commander des pâtisseries, desserts et plats salés artisanaux préparés maison en petites quantités."
+      `Le site ${BRAND_NAME} présente et permet de commander des pâtisseries, desserts et plats salés artisanaux préparés maison en petites quantités.`
   },
   {
     title: "Disponibilité et préparation",
@@ -38,12 +39,12 @@ const terms = [
   {
     title: "Annulation",
     body:
-      "Pour annuler une commande, le client doit contacter Oreshki dès que possible. Les commandes annulées ne sont pas comptabilisées comme chiffre d'affaires."
+      `Pour annuler une commande, le client doit contacter ${BRAND_NAME} dès que possible. Les commandes annulées ne sont pas comptabilisées comme chiffre d'affaires.`
   },
   {
     title: "Allergènes",
     body:
-      "Les produits peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes. Les clients concernés par des allergies peuvent contacter Oreshki avant de commander pour poser leurs questions."
+      `Les produits peuvent contenir du gluten, des oeufs, du lait, des fruits à coque et d'autres allergènes. Les clients concernés par des allergies peuvent contacter ${BRAND_NAME} avant de commander pour poser leurs questions.`
   },
   {
     title: "Communication",
@@ -71,13 +72,13 @@ export default function TermsPage() {
 
           <header className="mt-8">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-caramel sm:tracking-[0.28em]">
-              Oreshki
+              {BRAND_NAME}
             </p>
             <h1 className="mt-3 font-serif text-[2rem] leading-tight text-cocoa sm:text-5xl">
               Conditions d&apos;utilisation
             </h1>
             <p className="mt-5 text-base leading-7 text-cocoa/70 sm:leading-8">
-              Ces conditions encadrent l&apos;utilisation du site Oreshki et les commandes
+              Ces conditions encadrent l&apos;utilisation du site {BRAND_NAME} et les commandes
               de spécialités artisanales faites maison proposées aux clients.
             </p>
           </header>

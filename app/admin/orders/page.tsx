@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import { AdminOrdersDashboard, LoginScreen } from "./admin-orders-dashboard";
+import { BRAND_NAME } from "@/lib/brand";
 import { hasAdminSession } from "@/lib/admin-auth";
 import { normalizeOrderStatus, type OrderStatus } from "@/lib/order-status";
 import { buildAdminWhatsAppUrl } from "@/lib/order-whatsapp";
@@ -10,7 +11,7 @@ import {
 } from "@/lib/supabase-admin";
 
 export const metadata: Metadata = {
-  title: "Admin commandes | Oreshki"
+  title: `Admin commandes | ${BRAND_NAME}`
 };
 
 export const dynamic = "force-dynamic";

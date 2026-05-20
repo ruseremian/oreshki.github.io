@@ -1,9 +1,9 @@
-<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="oreshkiLogoTitle">
-  <title id="oreshkiLogoTitle">Oreshki</title>
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="maisonZhannaLogoTitle">
+  <title id="maisonZhannaLogoTitle">Maison Zhanna</title>
   <g transform="translate(28 20)">
     <path d="M40 4C61 4 76 21 76 42C76 66 59 82 40 82C21 82 4 66 4 42C4 21 19 4 40 4Z" fill="#F3E2C6"/>
     <path d="M40 8C58 8 70 23 70 42C70 62 57 76 40 76C23 76 10 62 10 42C10 23 22 8 40 8Z" stroke="#8B532C" stroke-width="6"/>
     <path d="M40 12V72M27 20C22 30 20 38 20 47C20 58 25 66 33 72M53 20C58 30 60 38 60 47C60 58 55 66 47 72M26 45H54" stroke="#5A321E" stroke-width="5" stroke-linecap="round"/>
   </g>
-  <text x="130" y="75" fill="#4B2B1C" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600">Oreshki</text>
+  <text x="116" y="74" fill="#4B2B1C" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="600">Maison Zhanna</text>
 </svg>

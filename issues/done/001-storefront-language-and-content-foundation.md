@@ -4,11 +4,11 @@
 
 ## What to build
 
-Create the customer-facing storefront foundation described in the PRD: a polished one-page Oreshki experience with bilingual French/Russian content, remembered language preference, responsive navigation, brand story, reviews, contact links, and legal-page access. This slice should make the site understandable and trustworthy before the ordering mechanics are layered on top.
+Create the customer-facing storefront foundation described in the PRD: a polished one-page Maison Zhanna experience with bilingual French/Russian content, remembered language preference, responsive navigation, brand story, reviews, contact links, and legal-page access. This slice should make the site understandable and trustworthy before the ordering mechanics are layered on top.
 
 ## Acceptance criteria
 
-- [ ] The first viewport clearly communicates the Oreshki brand and handmade bakery/home-cooking offer.
+- [ ] The first viewport clearly communicates the Maison Zhanna brand and handmade bakery/home-cooking offer.
 - [ ] Customers can switch between French and Russian content.
 - [ ] The selected language persists across page reloads.
 - [ ] Navigation works on mobile and desktop and links to the key storefront sections.

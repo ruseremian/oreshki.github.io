@@ -14,6 +14,7 @@ import { X } from "lucide-react";
 import type { AdminOrder } from "./page";
 import { Logo } from "@/components/ui/logo";
 import { calculateAdminOrderMetrics } from "@/lib/admin-metrics";
+import { BRAND_NAME } from "@/lib/brand";
 import { formatAdminOrderLanguage } from "@/lib/order-language";
 import {
   ORDER_STATUSES,
@@ -78,7 +79,7 @@ export function LoginScreen() {
           Administration
         </p>
         <h1 className="mt-3 font-serif text-3xl text-espresso">
-          Commandes Oreshki
+          Commandes {BRAND_NAME}
         </h1>
         <label className="mt-6 block text-sm font-medium text-cocoa">
           Mot de passe

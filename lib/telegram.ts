@@ -2,6 +2,7 @@ import type {
   DeliveryMethod,
   PreferredContactMethod
 } from "@/lib/order-types";
+import { SITE_URL } from "@/lib/brand";
 
 const TELEGRAM_MESSAGE_LIMIT = 4096;
 
@@ -207,7 +208,7 @@ export function buildOrderKeyboard(orderId: string) {
 function buildAdminOrdersUrl() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://www.oreshki.fr";
+    SITE_URL;
 
   return `${siteUrl.replace(/\/$/, "")}/admin/orders`;
 }

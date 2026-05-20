@@ -1,6 +1,6 @@
 ## Problem Statement
 
-Oreshki is a small handmade bakery and home-cooking business in Strasbourg that needs a polished, trustworthy ordering site for local customers. The business sells sweet pastries, signature oreshki, cakes, and savory Eastern European and Caucasus-inspired dishes, but customers need a clearer path than informal messages alone: they should be able to browse the offer, understand pricing, choose pickup or delivery, provide contact details, consent to order data use, and submit a preorder request without friction.
+Maison Zhanna is a small handmade bakery and home-cooking business in Strasbourg that needs a polished, trustworthy ordering site for local customers. The business sells sweet pastries, signature oreshki, cakes, and savory Eastern European and Caucasus-inspired dishes, but customers need a clearer path than informal messages alone: they should be able to browse the offer, understand pricing, choose pickup or delivery, provide contact details, consent to order data use, and submit a preorder request without friction.
 
 The business also needs a lightweight operational workflow behind the storefront. Each preorder request should be captured reliably, priced consistently on the server, forwarded to the owner through Telegram, and visible in an admin dashboard where status can be updated as the request moves from new to confirmed, preparing, ready, delivered, or cancelled.
 
@@ -8,9 +8,9 @@ The current project already implements much of this experience. This PRD documen
 
 ## Solution
 
-Build and maintain a modern one-page bilingual Oreshki storefront with an integrated cart-based preorder flow and a simple order-management backend.
+Build and maintain a modern one-page bilingual Maison Zhanna storefront with an integrated cart-based preorder flow and a simple order-management backend.
 
-Customers land on a warm, product-forward page that presents Oreshki as the brand and visual signature while making clear the broader offer of handmade sweet and savory specialties. The page presents products, story, reviews, local delivery/pickup expectations, allergen guidance, and contact options in French and Russian. French remains the default language because the business operates locally in France, while Russian should feel equally cared for.
+Customers land on a warm, product-forward page that presents Maison Zhanna as the brand while making clear the broader offer of handmade sweet and savory specialties. The page presents products, story, reviews, local delivery/pickup expectations, allergen guidance, and contact options in French and Russian. French remains the default language because the business operates locally in France, while Russian should feel equally cared for.
 
 Customers can add products and variants to a cart, adjust quantities, see subtotal, delivery fee, free delivery progress, and final total, then submit a preorder request with name, phone, preferred contact method, fulfillment method, preferred date, privacy consent, and notes. Checkout should frame submission as a request received, not a fully confirmed order; the owner confirms assortment, date, fulfillment, and payment details afterward.
 
@@ -18,7 +18,7 @@ The server validates every preorder request independently, recalculates trusted 
 
 ## User Stories
 
-1. As a first-time customer, I want to understand what Oreshki sells immediately, so that I know whether the offer matches what I am looking for.
+1. As a first-time customer, I want to understand what Maison Zhanna sells immediately, so that I know whether the offer matches what I am looking for.
 2. As a French-speaking customer, I want the site content in French, so that I can browse and order comfortably.
 3. As a Russian-speaking customer, I want the site content in Russian, so that the brand feels familiar and accessible.
 4. As a returning customer, I want my language preference remembered, so that I do not need to switch languages on every visit.
@@ -104,7 +104,7 @@ The server validates every preorder request independently, recalculates trusted 
 - Use a Next.js App Router application with a single customer-facing landing page and server API routes for order and admin workflows.
 - Treat the customer storefront as a bilingual French/Russian experience, with language stored locally in the browser and applied to the document language.
 - Keep French as the default storefront, legal, and admin language because the business operates locally in France; Russian remains a first-class customer storefront language.
-- Keep Oreshki as the brand and visual signature, while positioning the catalog broadly as handmade sweet and savory specialties.
+- Keep Maison Zhanna as the brand, while positioning the catalog broadly as handmade sweet and savory specialties.
 - Keep product definitions, product IDs, order names, prices, availability, and images in structured product/content modules instead of hard-coded throughout components.
 - Keep product data hard-coded for v1; do not build an admin product editor until catalog changes become frequent enough to justify it.
 - Support two product categories: sweet bakery items and savory specialties.

@@ -1,4 +1,5 @@
 import { formatPrice, productById, type ProductId } from "@/lib/products";
+import { BRAND_NAME } from "@/lib/brand";
 import {
   INSTAGRAM_URL,
   TELEGRAM_URL,
@@ -86,7 +87,7 @@ export const siteContent = {
   ru: {
     nav: {
       aria: "Основная навигация",
-      brand: "Орешки",
+      brand: BRAND_NAME,
       order: "Заказать",
       items: [
         { label: "Выпечка", href: "#patisserie" },
@@ -472,7 +473,7 @@ export const siteContent = {
       notes: "Комментарий",
       notesPlaceholder: "Время, пожелания",
       privacyConsent:
-        "Я согласен(на), что Oreshki использует мои данные (имя, телефон, детали заказа и самовывоза/доставки) только для обработки этой заявки.",
+        `Я согласен(на), что ${BRAND_NAME} использует мои данные (имя, телефон, детали заказа и самовывоза/доставки) только для обработки этой заявки.`,
       submit: "Отправить заявку",
       submitting: "Отправляем...",
       errors: {
@@ -511,7 +512,7 @@ export const siteContent = {
   fr: {
     nav: {
       aria: "Navigation principale",
-      brand: "Oreshki",
+      brand: BRAND_NAME,
       order: "Commander",
       items: [
         { label: "Pâtisserie", href: "#patisserie" },
@@ -530,7 +531,7 @@ export const siteContent = {
       trustLine: "Fait maison • Recettes familiales • Précommande recommandée",
       order: "Commander",
       discover: "Découvrir les univers",
-      imageAlt: "Oreshki faits maison au caramel sur une assiette en céramique beige",
+      imageAlt: "Biscuits oreshki faits maison au caramel sur une assiette en céramique beige",
       logistics: [
         "Préparation minimum de 3 jours",
         "Retrait uniquement sur rendez-vous",
@@ -566,7 +567,7 @@ export const siteContent = {
           quantity: "12 pièces",
           positioning: "Format découverte",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format découverte — 2 boîtes de 6 pièces.",
+            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format découverte — 2 boîtes de 6 pièces.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces12,
@@ -579,7 +580,7 @@ export const siteContent = {
           quantity: "24 pièces",
           positioning: "Format classique",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format classique — idéal à partager.",
+            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Format classique — idéal à partager.",
           price: formatPrice(productBasePrices.pieces24),
           basePrice: productBasePrices.pieces24,
           image: productImages.pieces24,
@@ -592,7 +593,7 @@ export const siteContent = {
           quantity: "48 pièces",
           positioning: "Grand format généreux",
           description:
-            "Oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Grand format généreux — livré en deux emballages séparés.",
+            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur. Grand format généreux — livré en deux emballages séparés.",
           price: formatPrice(productBasePrices.pieces48),
           basePrice: productBasePrices.pieces48,
           image: productImages.pieces48,
@@ -897,7 +898,7 @@ export const siteContent = {
       notes: "Notes",
       notesPlaceholder: "Horaire, préférences",
       privacyConsent:
-        "J'accepte qu'Oreshki utilise mes données (nom, téléphone, détails de commande et de retrait/livraison) uniquement pour traiter cette demande.",
+        `J'accepte que ${BRAND_NAME} utilise mes données (nom, téléphone, détails de commande et de retrait/livraison) uniquement pour traiter cette demande.`,
       submit: "Envoyer la demande",
       submitting: "Envoi...",
       errors: {

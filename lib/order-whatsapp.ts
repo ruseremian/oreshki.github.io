@@ -1,3 +1,5 @@
+import { BRAND_NAME } from "@/lib/brand";
+
 type WhatsAppOrderItem = {
   product_name: string;
   quantity: number;
@@ -41,7 +43,7 @@ export function buildOrderWhatsAppMessage(order: WhatsAppOrderSummary) {
     .join("\n");
 
   return [
-    "Nouvelle commande Oreshki",
+    `Nouvelle commande ${BRAND_NAME}`,
     `Commande: ${order.id}`,
     `Client: ${order.customer_name}`,
     `Téléphone: ${order.phone}`,

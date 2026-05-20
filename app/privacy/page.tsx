@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { LegalFooter } from "@/components/legal-footer";
+import { BRAND_NAME } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité | Oreshki",
+  title: `Politique de confidentialité | ${BRAND_NAME}`,
   description:
-    "Politique de confidentialité du site Oreshki concernant les commandes de spécialités maison, les données clients et leur utilisation."
+    `Politique de confidentialité du site ${BRAND_NAME} concernant les commandes de spécialités maison, les données clients et leur utilisation.`
 };
 
 const collectedData = [
@@ -37,7 +38,7 @@ export default function PrivacyPage() {
 
           <header className="mt-8">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-caramel sm:tracking-[0.28em]">
-              Oreshki
+              {BRAND_NAME}
             </p>
             <h1 className="mt-3 font-serif text-[2rem] leading-tight text-cocoa sm:text-5xl">
               Politique de confidentialité

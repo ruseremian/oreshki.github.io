@@ -21,7 +21,7 @@ https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/setWebhook?url=<SITE_URL>/api/t
 Example:
 
 ```text
-https://api.telegram.org/botXXX/setWebhook?url=https://oreshki-github-io.vercel.app/api/telegram/webhook?secret=YYY
+https://api.telegram.org/botXXX/setWebhook?url=https://maisonzhanna.fr/api/telegram/webhook?secret=YYY
 ```
 
 Remove the webhook:
