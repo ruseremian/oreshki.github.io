@@ -67,7 +67,7 @@ function LandingPage() {
         <Reviews content={content.reviews} />
         <Contact content={content.contact} />
       </main>
-      <LegalFooter />
+      <LegalFooter content={content.footer} />
       <CartDrawer
         open={cartOpen}
         onOpenChange={setCartOpen}

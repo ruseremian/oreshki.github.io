@@ -99,11 +99,11 @@ export const siteContent = {
       languageLabel: "Выбрать язык"
     },
     hero: {
-      eyebrow: "Традиционные блюда: сладкое и солёное",
-      title: "Домашняя Кавказская кухня",
+      eyebrow: "Сладкие и солёные домашние специалитеты",
+      title: "Русские домашние специалитеты",
       subtitle:
-        "Пирожные, десерты и солёные блюда, приготовленные вручную по семейным рецептам небольшими партиями.",
-      trustLine: "Ручная работа • Семейные рецепты • Предзаказ приветствуется",
+        "Выпечка, десерты и солёные блюда домашнего приготовления, сделанные вручную небольшими партиями по семейным рецептам.",
+      trustLine: "Домашнее приготовление • Семейные рецепты • Предзаказ рекомендуется",
       order: "Заказать",
       discover: "Смотреть ассортимент",
       imageAlt: "Домашние орешки со сгущёнкой на бежевой керамической тарелке",
@@ -116,9 +116,9 @@ export const siteContent = {
     },
     products: {
       eyebrow: "Два направления",
-      title: "Домашняя выпечка и блюда к столу",
+      title: "Домашняя выпечка и блюда на заказ",
       description:
-        "Выберите сладкие изделия для чаепития или солёные блюда для семейного стола — всё готовится вручную и по предзаказу.",
+        "Два взаимодополняющих направления: фирменные сладости к чаю и щедрые солёные блюда к столу.",
       freeDeliveryBadge: "🚚 Бесплатная доставка от 35 €",
       fulfillmentNote:
         "Доставка возможна в Страсбурге и ближайших коммунах после подтверждения. Самовывоз — в Иттенхайме, только по договорённости; точные детали сообщаются после заявки.",
@@ -130,9 +130,9 @@ export const siteContent = {
         "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
-      itemsEyebrow: "Сладкое",
+      itemsEyebrow: "Сладкое направление",
       itemsTitle: "Домашняя выпечка",
-      itemsIntro: "Домашние десерты и выпечка для тёплого чаепития: фирменные орешки, нежные сигаретки и сладкие рецепты ручной работы.",
+      itemsIntro: "Домашние десерты и выпечка к чаю или для общего стола, с карамельными орешками как фирменной сладостью.",
       itemsBadge: "Сладкое",
       items: [
         {
@@ -150,21 +150,21 @@ export const siteContent = {
           variants: [
             {
               id: "pieces12",
-              label: "12 штук",
+              label: productById.get("pieces12")!.orderName.ru,
               fullName: productById.get("pieces12")!.orderName.ru,
               price: formatPrice(productBasePrices.pieces12),
               basePrice: productBasePrices.pieces12
             },
             {
               id: "pieces24",
-              label: "24 штуки",
+              label: productById.get("pieces24")!.orderName.ru,
               fullName: productById.get("pieces24")!.orderName.ru,
               price: formatPrice(productBasePrices.pieces24),
               basePrice: productBasePrices.pieces24
             },
             {
               id: "pieces48",
-              label: "48 штук",
+              label: productById.get("pieces48")!.orderName.ru,
               fullName: productById.get("pieces48")!.orderName.ru,
               price: formatPrice(productBasePrices.pieces48),
               basePrice: productBasePrices.pieces48
@@ -173,10 +173,10 @@ export const siteContent = {
         },
         {
           id: "sigaretki",
-          title: "Домашние сигаретки",
+          title: "Sigaretki",
           fullName: productById.get("sigaretki")!.orderName.ru,
-          quantity: "12 pièces",
-          positioning: "Тонкая домашняя выпечка",
+          quantity: "12 штук",
+          positioning: "Рулетная выпечка ручной работы",
           description:
             "Домашние сигаретки с яблоком — нежная выпечка из слоёного теста с ароматной яблочной начинкой. Снаружи они получаются лёгкими и хрустящими, а внутри — мягкими, фруктовыми и в меру сладкими. Отлично подходят к чаю, кофе или как домашний десерт к столу.",
           price: formatPrice(productBasePrices.sigaretki),
@@ -220,7 +220,7 @@ export const siteContent = {
             },
             {
               id: "napoleon-chocolat",
-              label: "Шоколад-кофе",
+              label: "Пирожное шоколад-кофе",
               fullName: productById.get("napoleon-chocolat")!.orderName.ru,
               price: formatPrice(productBasePrices["napoleon-chocolat"]),
               basePrice: productBasePrices["napoleon-chocolat"]
@@ -229,15 +229,15 @@ export const siteContent = {
         }
       ],
       specialties: {
-        eyebrow: "Солёное",
-        title: "Домашние блюда к столу",
+        eyebrow: "Солёное направление",
+        title: "Блюда к столу",
         intro:
-          "Традиционные солёные блюда Восточной Европы и Кавказа для уютного обеда, семейного ужина или праздничного стола.",
+          "Солёные специалитеты Восточной Европы и русской кухни, сделанные вручную в щедром семейном духе.",
         badge: "Солёное",
         items: [
           {
             id: "pelmeni",
-            title: "Домашние пельмени",
+            title: "Pelmeni",
             fullName: productById.get("pelmeni")!.orderName.ru,
             quantity: "1 кг",
             positioning: "Традиционные пельмени ручной работы",
@@ -273,7 +273,7 @@ export const siteContent = {
           },
           {
             id: "kotleti-kievski",
-            title: "Котлеты по-киевски",
+            title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
             quantity: "за штуку",
             positioning: "Классические котлеты с ароматным маслом",
@@ -286,7 +286,7 @@ export const siteContent = {
           },
           {
             id: "vareniki-fromage",
-            title: "Домашние вареники",
+            title: "Vareniki",
             fullName: productById.get("vareniki-fromage")!.orderName.ru,
             quantity: "1 кг",
             positioning: "Традиционные вареники с начинкой",
@@ -315,7 +315,7 @@ export const siteContent = {
           },
           {
             id: "blinchiki",
-            title: "Домашние блинчики",
+            title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.ru,
             quantity: "за штуку",
             positioning: "Традиционные русские блинчики",
@@ -351,7 +351,7 @@ export const siteContent = {
           },
           {
             id: "golubci",
-            title: "Домашние голубцы",
+            title: "Golubci",
             fullName: productById.get("golubci")!.orderName.ru,
             quantity: "1 кг",
             positioning: "Традиционные голубцы",
@@ -364,7 +364,7 @@ export const siteContent = {
           },
           {
             id: "pirojki",
-            title: "Жареные пирожки",
+            title: "Pirojki",
             fullName: productById.get("pirojki")!.orderName.ru,
             quantity: "за штуку",
             positioning: "Традиционные домашние пирожки",
@@ -382,9 +382,9 @@ export const siteContent = {
       eyebrow: "История",
       title: "Семейные рецепты, приготовленные вручную",
       description:
-        "Мы готовим домашние сладкие и солёные блюда небольшими партиями: от фирменных орешков до сытных блюд для семейного стола.",
+        "Наш стол объединяет сладости, десерты и солёные блюда, вдохновлённые традициями Восточной Европы и русской кухни, приготовленные дома небольшими партиями.",
       note:
-        "В основе — семейные рецепты, ручная работа и щедрая подача, чтобы каждый заказ ощущался как тёплое домашнее угощение.",
+        "Орешки остаются нашей фирменной сладостью, но у каждой позиции тот же подход: ручное приготовление, щедрые порции и тёплый вкус семейных рецептов.",
       imageAlt: "Руки готовят домашние орешки с варёной сгущёнкой"
     },
     reviews: {
@@ -442,7 +442,7 @@ export const siteContent = {
       freeDeliveryRemaining: "Ещё {amount} до бесплатной доставки",
       freeDeliveryUnlocked: "Бесплатная доставка ✓",
       noPayment:
-        "Оплата онлайн не подключена. Вы отправляете заявку, а финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram, Instagram или SMS.",
+        "Оплата онлайн не подключена. Вы отправляете заявку на заказ; финальное подтверждение и инструкции по оплате приходят вручную в WhatsApp, Telegram или SMS.",
       fulfillmentGuidance:
         "Самовывоз возможен в Иттенхайме только по договорённости. Доставка по Страсбургу и ближайшим коммунам стоит 7 € и становится бесплатной от 35 €; детали подтверждаются вручную.",
       checkout: "Заявка на заказ",
@@ -450,8 +450,6 @@ export const siteContent = {
       namePlaceholder: "Как к вам обращаться",
       phone: "Телефон",
       phonePlaceholder: "+33 ...",
-      email: "Email, если удобно",
-      emailPlaceholder: "name@example.com",
       contactMethod: "Удобный способ связи",
       methods: {
         whatsapp: "WhatsApp",
@@ -484,7 +482,8 @@ export const siteContent = {
         server: "Не удалось отправить заказ. Попробуйте ещё раз."
       },
       confirmationTitle: "Заявка получена",
-      confirmationText: "Мы скоро свяжемся с вами, чтобы подтвердить детали, дату и оплату.",
+      confirmationText:
+        "Ваша заявка на заказ получена. Мы скоро свяжемся с вами, чтобы подтвердить детали и оплату.",
       orderNumber: "Номер заказа",
       confirmationTotal: "Сумма заказа",
       back: "Вернуться на сайт",
@@ -498,12 +497,20 @@ export const siteContent = {
       eyebrow: "Контакты",
       title: "Готовите семейный стол или праздник?",
       description:
-        "Оформите заявку на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления, самовывоз в Страсбурге по договорённости или доставку по Страсбургу и ближайшим коммунам.",
+        "Оформите заказ на сайте или напишите нам в удобный мессенджер. Мы подтвердим ассортимент, дату приготовления, самовывоз по договорённости или доставку.",
       note:
-        "Для индивидуальных количеств, семейных заказов, событий и блюд по запросу напишите напрямую в WhatsApp, Telegram или Instagram. WhatsApp используется только для подтверждения заказов, деталей доставки или самовывоза и вопросов клиентов.",
+        "Для индивидуальных количеств, семейных заказов, событий и блюд по запросу напишите напрямую в WhatsApp, Telegram или Instagram. Маркетинговые сообщения не отправляются без явного согласия.",
       instagramAria: "Открыть Instagram",
       telegramAria: "Открыть Telegram",
       whatsappAria: "Открыть WhatsApp"
+    },
+    footer: {
+      tagline: "Домашние сладкие и солёные специалитеты ручной работы.",
+      legalAria: "Юридические ссылки",
+      privacyHref: "/privacy?lang=ru",
+      privacy: "Политика конфиденциальности",
+      termsHref: "/terms?lang=ru",
+      terms: "Условия использования"
     }
   },
   fr: {
@@ -572,21 +579,21 @@ export const siteContent = {
           variants: [
             {
               id: "pieces12",
-              label: "12 pièces",
+              label: productById.get("pieces12")!.orderName.fr,
               fullName: productById.get("pieces12")!.orderName.fr,
               price: formatPrice(productBasePrices.pieces12),
               basePrice: productBasePrices.pieces12
             },
             {
               id: "pieces24",
-              label: "24 pièces",
+              label: productById.get("pieces24")!.orderName.fr,
               fullName: productById.get("pieces24")!.orderName.fr,
               price: formatPrice(productBasePrices.pieces24),
               basePrice: productBasePrices.pieces24
             },
             {
               id: "pieces48",
-              label: "48 pièces",
+              label: productById.get("pieces48")!.orderName.fr,
               fullName: productById.get("pieces48")!.orderName.fr,
               price: formatPrice(productBasePrices.pieces48),
               basePrice: productBasePrices.pieces48
@@ -872,8 +879,6 @@ export const siteContent = {
       namePlaceholder: "Votre nom",
       phone: "Téléphone",
       phonePlaceholder: "+33 ...",
-      email: "Email, si vous préférez",
-      emailPlaceholder: "nom@example.com",
       contactMethod: "Méthode de contact préférée",
       methods: {
         whatsapp: "WhatsApp",
@@ -927,6 +932,14 @@ export const siteContent = {
       instagramAria: "Ouvrir Instagram",
       telegramAria: "Ouvrir Telegram",
       whatsappAria: "Ouvrir WhatsApp"
+    },
+    footer: {
+      tagline: "Spécialités artisanales sucrées et salées faites maison.",
+      legalAria: "Liens légaux",
+      privacyHref: "/privacy",
+      privacy: "Politique de confidentialité",
+      termsHref: "/terms",
+      terms: "Conditions d'utilisation"
     }
   }
 } as const;

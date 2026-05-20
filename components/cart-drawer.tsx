@@ -266,7 +266,7 @@ export function CartDrawer({
         <div className="fixed inset-0 z-[80]">
           <motion.button
             type="button"
-            aria-label="Закрыть корзину"
+            aria-label={content.close}
             className="absolute inset-0 bg-espresso/45 backdrop-blur-sm"
             onClick={closeAndReset}
             initial={{ opacity: 0 }}

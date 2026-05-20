@@ -18,6 +18,10 @@ function getContentProducts(language: Language) {
   ] as ContentProduct[];
 }
 
+function sortedKeys(value: object) {
+  return Object.keys(value).sort();
+}
+
 function hasProduct(id: string): id is ProductId {
   return productById.has(id as ProductId);
 }
@@ -47,6 +51,46 @@ describe("product content contract", () => {
         }
       }
     }
+  });
+
+  it("keeps French and Russian storefront product structures aligned", () => {
+    const frenchProducts = getContentProducts("fr");
+    const russianProducts = getContentProducts("ru");
+
+    assert.deepEqual(
+      russianProducts.map((product) => product.id),
+      frenchProducts.map((product) => product.id)
+    );
+
+    for (let index = 0; index < frenchProducts.length; index += 1) {
+      const frenchProduct = frenchProducts[index];
+      const russianProduct = russianProducts[index];
+
+      assert.deepEqual(
+        (russianProduct.variants ?? []).map((variant) => variant.id),
+        (frenchProduct.variants ?? []).map((variant) => variant.id),
+        `${russianProduct.id} should expose the same variants in both languages`
+      );
+    }
+  });
+
+  it("keeps localized customer-facing content sections structurally aligned", () => {
+    for (const section of ["nav", "hero", "products", "about", "reviews", "cart", "contact", "footer"] as const) {
+      assert.deepEqual(
+        sortedKeys(siteContent.ru[section]),
+        sortedKeys(siteContent.fr[section]),
+        `${section} should have matching French and Russian keys`
+      );
+    }
+
+    assert.deepEqual(
+      sortedKeys(siteContent.ru.cart.errors),
+      sortedKeys(siteContent.fr.cart.errors)
+    );
+    assert.deepEqual(
+      sortedKeys(siteContent.ru.cart.methods),
+      sortedKeys(siteContent.fr.cart.methods)
+    );
   });
 
   it("shows Blinchiki as one storefront product with three same-price variants", () => {
@@ -103,6 +147,18 @@ describe("product content contract", () => {
       );
 
       for (const variant of variants) {
+        const orderName = productById.get(variant.id)?.orderName[language];
+
+        assert.equal(
+          variant.label,
+          orderName,
+          `${language} ${variant.id} button label should match the catalog order name`
+        );
+        assert.equal(
+          variant.fullName,
+          orderName,
+          `${language} ${variant.id} fullName should match the catalog order name`
+        );
         assert.equal(
           variant.basePrice,
           productById.get(variant.id)?.price,
