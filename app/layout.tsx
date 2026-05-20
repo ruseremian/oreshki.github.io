@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { BRAND_NAME, SITE_URL } from "@/lib/brand";
 
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
