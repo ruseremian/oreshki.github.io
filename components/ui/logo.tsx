@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { BRAND_NAME } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 type LogoSize = "xs" | "sm" | "md" | "lg";
@@ -48,7 +47,7 @@ export function Logo({
     >
       <Image
         src="/branding/maison-zhanna-logo.svg"
-        alt={`${BRAND_NAME} logo`}
+        alt="maison zhanna logo"
         fill
         sizes="(max-width: 640px) 128px, 288px"
         className="object-contain"
