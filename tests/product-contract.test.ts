@@ -132,6 +132,7 @@ describe("product content contract", () => {
     for (const language of ["fr", "ru"] as const) {
       const sweetProducts = siteContent[language].products.items as readonly ContentProduct[];
       const savoryProducts = siteContent[language].products.specialties.items as readonly ContentProduct[];
+      const frozenTag = language === "fr" ? "Surgelé" : "Замороженные";
 
       for (const product of savoryProducts) {
         const tags = getVisibleTags(product);
@@ -141,7 +142,7 @@ describe("product content contract", () => {
           `${language} ${product.id} should keep its existing quantity tag`
         );
         assert.equal(
-          tags.includes("Surgelé"),
+          tags.includes(frozenTag),
           product.id !== "pirojki",
           `${language} ${product.id} should follow the savory frozen tag rule`
         );
@@ -151,7 +152,7 @@ describe("product content contract", () => {
         const tags = getVisibleTags(product);
 
         assert.equal(
-          tags.includes("Surgelé"),
+          tags.includes(frozenTag),
           false,
           `${language} sweet product ${product.id} should not show the frozen tag`
         );

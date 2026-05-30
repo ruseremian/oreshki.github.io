@@ -240,7 +240,7 @@ export const siteContent = {
             title: "Pelmeni",
             fullName: productById.get("pelmeni")!.orderName.ru,
             quantity: "1 кг",
-            tags: ["1 кг", "Surgelé"],
+            tags: ["1 кг", "Замороженные"],
             positioning: "Традиционные пельмени ручной работы",
             description:
               "Традиционные пельмени ручной работы из тонкого теста с начинкой из мяса, лука и специй. Идеально варить в воде или бульоне.",
@@ -277,7 +277,7 @@ export const siteContent = {
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
             quantity: "за штуку",
-            tags: ["за штуку", "Surgelé"],
+            tags: ["за штуку", "Замороженные"],
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Куриные котлеты с ароматным маслом, зеленью и хрустящей панировкой. Румяные снаружи и нежные внутри.",
@@ -291,7 +291,7 @@ export const siteContent = {
             title: "Vareniki",
             fullName: productById.get("vareniki-fromage")!.orderName.ru,
             quantity: "1 кг",
-            tags: ["1 кг", "Surgelé"],
+            tags: ["1 кг", "Замороженные"],
             positioning: "Традиционные вареники с начинкой",
             description:
               "Домашние вареники из мягкого теста с щедрой начинкой по традиционным рецептам: картофель или творог.",
@@ -321,7 +321,7 @@ export const siteContent = {
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.ru,
             quantity: "за штуку",
-            tags: ["за штуку", "Surgelé"],
+            tags: ["за штуку", "Замороженные"],
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы. Мягкие, нежные и удобные для семейного стола.",
@@ -358,7 +358,7 @@ export const siteContent = {
             title: "Golubci",
             fullName: productById.get("golubci")!.orderName.ru,
             quantity: "1 кг",
-            tags: ["1 кг", "Surgelé"],
+            tags: ["1 кг", "Замороженные"],
             positioning: "Традиционные голубцы",
             description:
               "Капустные листья с начинкой из риса, мяса, овощей и специй. Готовятся дома в мягком соусе, как сытное семейное блюдо.",
