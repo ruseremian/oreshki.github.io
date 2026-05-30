@@ -6,6 +6,8 @@ import { siteContent, type Language } from "@/lib/site-data";
 
 type ContentProduct = {
   id: string;
+  quantity: string;
+  tags?: readonly string[];
   variants?: { id: string }[];
 };
 
@@ -16,6 +18,10 @@ function getContentProducts(language: Language) {
     ...products.items,
     ...products.specialties.items
   ] as ContentProduct[];
+}
+
+function getVisibleTags(product: ContentProduct) {
+  return product.tags ?? [product.quantity];
 }
 
 function sortedKeys(value: object) {
@@ -119,6 +125,37 @@ describe("product content contract", () => {
         productById.get("blinchiki")?.price
       );
       assert.equal(variant.basePrice, productById.get("blinchiki")?.price);
+    }
+  });
+
+  it("adds the frozen tag only to eligible savory storefront products", () => {
+    for (const language of ["fr", "ru"] as const) {
+      const sweetProducts = siteContent[language].products.items as readonly ContentProduct[];
+      const savoryProducts = siteContent[language].products.specialties.items as readonly ContentProduct[];
+
+      for (const product of savoryProducts) {
+        const tags = getVisibleTags(product);
+
+        assert.ok(
+          tags.includes(product.quantity),
+          `${language} ${product.id} should keep its existing quantity tag`
+        );
+        assert.equal(
+          tags.includes("Surgelé"),
+          product.id !== "pirojki",
+          `${language} ${product.id} should follow the savory frozen tag rule`
+        );
+      }
+
+      for (const product of sweetProducts) {
+        const tags = getVisibleTags(product);
+
+        assert.equal(
+          tags.includes("Surgelé"),
+          false,
+          `${language} sweet product ${product.id} should not show the frozen tag`
+        );
+      }
     }
   });
 

@@ -240,6 +240,7 @@ export const siteContent = {
             title: "Pelmeni",
             fullName: productById.get("pelmeni")!.orderName.ru,
             quantity: "1 кг",
+            tags: ["1 кг", "Surgelé"],
             positioning: "Традиционные пельмени ручной работы",
             description:
               "Традиционные пельмени ручной работы из тонкого теста с начинкой из мяса, лука и специй. Идеально варить в воде или бульоне.",
@@ -276,6 +277,7 @@ export const siteContent = {
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
             quantity: "за штуку",
+            tags: ["за штуку", "Surgelé"],
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Куриные котлеты с ароматным маслом, зеленью и хрустящей панировкой. Румяные снаружи и нежные внутри.",
@@ -289,6 +291,7 @@ export const siteContent = {
             title: "Vareniki",
             fullName: productById.get("vareniki-fromage")!.orderName.ru,
             quantity: "1 кг",
+            tags: ["1 кг", "Surgelé"],
             positioning: "Традиционные вареники с начинкой",
             description:
               "Домашние вареники из мягкого теста с щедрой начинкой по традиционным рецептам: картофель или творог.",
@@ -318,6 +321,7 @@ export const siteContent = {
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.ru,
             quantity: "за штуку",
+            tags: ["за штуку", "Surgelé"],
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы. Мягкие, нежные и удобные для семейного стола.",
@@ -354,6 +358,7 @@ export const siteContent = {
             title: "Golubci",
             fullName: productById.get("golubci")!.orderName.ru,
             quantity: "1 кг",
+            tags: ["1 кг", "Surgelé"],
             positioning: "Традиционные голубцы",
             description:
               "Капустные листья с начинкой из риса, мяса, овощей и специй. Готовятся дома в мягком соусе, как сытное семейное блюдо.",
@@ -669,6 +674,7 @@ export const siteContent = {
             title: "Pelmeni",
             fullName: productById.get("pelmeni")!.orderName.fr,
             quantity: "1 kg",
+            tags: ["1 kg", "Surgelé"],
             positioning: "Raviolis traditionnels faits maison",
             description:
               "Raviolis traditionnels préparés à la main avec une pâte fine et une farce de viande, oignons et épices. À cuire dans l’eau ou dans un bouillon.",
@@ -705,6 +711,7 @@ export const siteContent = {
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.fr,
             quantity: "par pièce",
+            tags: ["par pièce", "Surgelé"],
             positioning: "Escalopes roulées au beurre parfumé",
             description:
               "Escalopes de poulet roulées avec du beurre parfumé, des herbes et une chapelure croustillante. Dorées à l’extérieur et fondantes à l’intérieur.",
@@ -718,6 +725,7 @@ export const siteContent = {
             title: "Vareniki",
             fullName: productById.get("vareniki-fromage")!.orderName.fr,
             quantity: "1 kg",
+            tags: ["1 kg", "Surgelé"],
             positioning: "Raviolis traditionnels garnis",
             description:
               "Vareniki maison préparés avec une pâte souple et une garniture généreuse selon les recettes traditionnelles : pommes de terre ou fromage.",
@@ -747,6 +755,7 @@ export const siteContent = {
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.fr,
             quantity: "par pièce",
+            tags: ["par pièce", "Surgelé"],
             positioning: "Crêpes russes traditionnelles",
             description:
               "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons. Moelleuses, délicates et faciles à partager.",
@@ -783,6 +792,7 @@ export const siteContent = {
             title: "Golubci",
             fullName: productById.get("golubci")!.orderName.fr,
             quantity: "1 kg",
+            tags: ["1 kg", "Surgelé"],
             positioning: "Choux farcis traditionnels",
             description:
               "Feuilles de chou farcies avec du riz, de la viande assaisonnée, des légumes et des épices. Mijotées maison dans une sauce douce et réconfortante.",

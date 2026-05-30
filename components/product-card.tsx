@@ -33,6 +33,7 @@ export function ProductCard({
     variants?.[0];
   const selectedOrderId = selectedVariant?.id ?? product.id;
   const displayedPrice = selectedVariant?.price ?? product.price;
+  const productTags = "tags" in product ? product.tags : [product.quantity];
   const added = addedProductId === selectedOrderId;
 
   return (
@@ -108,10 +109,15 @@ export function ProductCard({
             })}
           </div>
         ) : null}
-        <div className="mt-4 flex min-h-8 items-center">
-          <span className="rounded-full border border-cocoa/10 bg-white/60 px-3 py-1 text-xs font-semibold text-cocoa/62">
-            {product.quantity}
-          </span>
+        <div className="mt-4 flex min-h-8 flex-wrap items-center gap-2">
+          {productTags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-cocoa/10 bg-white/60 px-3 py-1 text-xs font-semibold text-cocoa/62"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
         <div className="mt-auto pt-6">
           <button
