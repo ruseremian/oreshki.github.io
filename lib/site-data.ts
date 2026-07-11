@@ -402,8 +402,8 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
-            quantity: "за штуку",
-            tags: ["за штуку", "Замороженные"],
+            quantity: "1 кг",
+            tags: ["1 кг", "Замороженные"],
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Куриные котлеты с ароматным маслом, зеленью и хрустящей панировкой. Румяные снаружи и нежные внутри.",
@@ -446,8 +446,8 @@ export const siteContent = {
             id: "blinchiki",
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.ru,
-            quantity: "за штуку",
-            tags: ["за штуку", "Замороженные"],
+            quantity: "1 кг",
+            tags: ["1 кг", "Замороженные"],
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы с картошкой. Мягкие, нежные и удобные для семейного стола.",
@@ -944,8 +944,8 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.fr,
-            quantity: "par pièce",
-            tags: ["par pièce", "Surgelé"],
+            quantity: "1 kg",
+            tags: ["1 kg", "Surgelé"],
             positioning: "Escalopes roulées au beurre parfumé",
             description:
               "Escalopes de poulet roulées avec du beurre parfumé, des herbes et une chapelure croustillante. Dorées à l’extérieur et fondantes à l’intérieur.",
@@ -988,8 +988,8 @@ export const siteContent = {
             id: "blinchiki",
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.fr,
-            quantity: "par pièce",
-            tags: ["par pièce", "Surgelé"],
+            quantity: "1 kg",
+            tags: ["1 kg", "Surgelé"],
             positioning: "Crêpes russes traditionnelles",
             description:
               "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons et pommes de terre. Moelleuses, délicates et faciles à partager.",

@@ -8,7 +8,7 @@ type ContentProduct = {
   id: string;
   quantity: string;
   tags?: readonly string[];
-  variants?: { id: string }[];
+  variants?: readonly { id: string }[];
 };
 
 function getContentProducts(language: Language) {
@@ -99,7 +99,7 @@ describe("product content contract", () => {
     );
   });
 
-  it("shows Blinchiki as one storefront product with three same-price variants", () => {
+  it("shows Blinchiki as one kilogram storefront product with three priced variants", () => {
     const blinchiki = siteContent.fr.products.specialties.items.find(
       (product) => product.id === "blinchiki"
     );
@@ -118,14 +118,24 @@ describe("product content contract", () => {
       variants.map((variant) => variant.id),
       ["blinchiki-viande", "blinchiki-fromage", "blinchiki-champignons"]
     );
+    assert.deepEqual(getVisibleTags(blinchiki), ["1 kg", "Surgelé"]);
 
-    for (const variant of variants) {
-      assert.equal(
-        productById.get(variant.id)?.price,
-        productById.get("blinchiki")?.price
-      );
-      assert.equal(variant.basePrice, productById.get("blinchiki")?.price);
-    }
+    assert.deepEqual(
+      variants.map((variant) => variant.fullName),
+      [
+        "Blinchiki — Viande — 1 kg",
+        "Blinchiki — Fromage — 1 kg",
+        "Blinchiki — Champignons et pommes de terre — 1 kg"
+      ]
+    );
+    assert.deepEqual(
+      variants.map((variant) => productById.get(variant.id)?.price),
+      [10, 9, 9]
+    );
+    assert.deepEqual(
+      variants.map((variant) => variant.basePrice),
+      [10, 9, 9]
+    );
   });
 
   it("adds the frozen tag only to eligible savory storefront products", () => {

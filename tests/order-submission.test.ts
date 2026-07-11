@@ -170,7 +170,7 @@ describe("order submission contract", () => {
     });
   });
 
-  it("prices each Blinchiki variant identically while preserving the selected variant name", () => {
+  it("prices each Blinchiki kilogram variant while preserving the selected variant name", () => {
     const lineItems = buildOrderLineItems(
       [
         { productId: "blinchiki-viande", quantity: 2 },
@@ -191,28 +191,28 @@ describe("order submission contract", () => {
       [
         {
           product_id: "blinchiki-viande",
-          product_name: "Blinchiki — Viande",
-          unit_price: 1,
-          line_total: 2
+          product_name: "Blinchiki — Viande — 1 kg",
+          unit_price: 10,
+          line_total: 20
         },
         {
           product_id: "blinchiki-fromage",
-          product_name: "Blinchiki — Fromage",
-          unit_price: 1,
-          line_total: 3
+          product_name: "Blinchiki — Fromage — 1 kg",
+          unit_price: 9,
+          line_total: 27
         },
         {
           product_id: "blinchiki-champignons",
-          product_name: "Blinchiki — Champignons et pommes de terre",
-          unit_price: 1,
-          line_total: 4
+          product_name: "Blinchiki — Champignons et pommes de terre — 1 kg",
+          unit_price: 9,
+          line_total: 36
         }
       ]
     );
     assert.deepEqual(pricing, {
-      subtotal: 9,
+      subtotal: 83,
       deliveryFee: 0,
-      total: 9
+      total: 83
     });
   });
 

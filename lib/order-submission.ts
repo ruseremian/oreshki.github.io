@@ -44,10 +44,10 @@ const trustedProductPrices: Partial<Record<ProductId, number>> = {
   "vareniki-pommes-terre": 9,
   golubci: 17,
   pirojki: 2,
-  blinchiki: 1,
-  "blinchiki-viande": 1,
-  "blinchiki-fromage": 1,
-  "blinchiki-champignons": 1
+  blinchiki: 10,
+  "blinchiki-viande": 10,
+  "blinchiki-fromage": 9,
+  "blinchiki-champignons": 9
 };
 
 type FieldErrors = NonNullable<

@@ -338,13 +338,13 @@ export const products: Product[] = [
     id: "blinchiki",
     name: "Blinchiki",
     orderName: {
-      fr: "Blinchiki — par pièce",
-      ru: "Домашние блинчики — за штуку"
+      fr: "Blinchiki — 1 kg",
+      ru: "Домашние блинчики — 1 кг"
     },
     description:
       "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons et pommes de terre.",
-    price: 1,
-    unit: "par pièce",
+    price: 10,
+    unit: "1 kg",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
@@ -353,13 +353,13 @@ export const products: Product[] = [
     id: "blinchiki-viande",
     name: "Blinchiki — Viande",
     orderName: {
-      fr: "Blinchiki — Viande",
-      ru: "Блинчики — мясо"
+      fr: "Blinchiki — Viande — 1 kg",
+      ru: "Блинчики — мясо — 1 кг"
     },
     description:
       "Fines crêpes maison garnies à la viande selon les recettes familiales.",
-    price: 1,
-    unit: "par pièce",
+    price: 10,
+    unit: "1 kg",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
@@ -368,13 +368,13 @@ export const products: Product[] = [
     id: "blinchiki-fromage",
     name: "Blinchiki — Fromage",
     orderName: {
-      fr: "Blinchiki — Fromage",
-      ru: "Блинчики — сыр"
+      fr: "Blinchiki — Fromage — 1 kg",
+      ru: "Блинчики — сыр — 1 кг"
     },
     description:
       "Fines crêpes maison garnies au fromage selon les recettes familiales.",
-    price: 1,
-    unit: "par pièce",
+    price: 9,
+    unit: "1 kg",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
@@ -383,13 +383,13 @@ export const products: Product[] = [
     id: "blinchiki-champignons",
     name: "Blinchiki — Champignons et pommes de terre",
     orderName: {
-      fr: "Blinchiki — Champignons et pommes de terre",
-      ru: "Блинчики — грибы и картошка"
+      fr: "Blinchiki — Champignons et pommes de terre — 1 kg",
+      ru: "Блинчики — грибы и картошка — 1 кг"
     },
     description:
       "Fines crêpes maison garnies aux champignons et pommes de terre selon les recettes familiales.",
-    price: 1,
-    unit: "par pièce",
+    price: 9,
+    unit: "1 kg",
     image: "/images/blinchiki.jpg",
     category: "specialties",
     available: true
