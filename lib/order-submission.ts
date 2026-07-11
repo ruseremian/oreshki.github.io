@@ -18,6 +18,18 @@ import {
 } from "@/lib/preferred-date";
 
 const trustedProductPrices: Partial<Record<ProductId, number>> = {
+  "oreshki-classiques-12": 8,
+  "oreshki-classiques-24": 15.5,
+  "oreshki-classiques-48": 30,
+  "oreshki-pistache-12": 10,
+  "oreshki-pistache-24": 19,
+  "oreshki-pistache-48": 36,
+  "oreshki-kadaifi-12": 10,
+  "oreshki-kadaifi-24": 19,
+  "oreshki-kadaifi-48": 36,
+  "oreshki-framboise-12": 10,
+  "oreshki-framboise-24": 19,
+  "oreshki-framboise-48": 36,
   "napoleon-blanc": 2,
   "napoleon-velvet-rouge": 2.5,
   "napoleon-chocolat": 2,

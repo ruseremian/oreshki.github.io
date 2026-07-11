@@ -216,20 +216,22 @@ describe("order submission contract", () => {
     });
   });
 
-  it("preserves the selected Oreshki flavor names in submitted order lines", () => {
+  it("preserves the selected Oreshki product and format names in submitted order lines", () => {
     const frenchLineItems = buildOrderLineItems(
       [
-        { productId: "oreshki-framboise", quantity: 1 },
-        { productId: "oreshki-pistache", quantity: 1 },
-        { productId: "oreshki-kadaifi", quantity: 1 }
+        { productId: "oreshki-classiques-12", quantity: 1 },
+        { productId: "oreshki-pistache-12", quantity: 1 },
+        { productId: "oreshki-kadaifi-48", quantity: 1 },
+        { productId: "oreshki-framboise-24", quantity: 1 }
       ],
       "fr"
     );
     const russianLineItems = buildOrderLineItems(
       [
-        { productId: "oreshki-framboise", quantity: 1 },
-        { productId: "oreshki-pistache", quantity: 1 },
-        { productId: "oreshki-kadaifi", quantity: 1 }
+        { productId: "oreshki-classiques-12", quantity: 1 },
+        { productId: "oreshki-pistache-12", quantity: 1 },
+        { productId: "oreshki-kadaifi-48", quantity: 1 },
+        { productId: "oreshki-framboise-24", quantity: 1 }
       ],
       "ru"
     );
@@ -237,22 +239,24 @@ describe("order submission contract", () => {
     assert.deepEqual(
       frenchLineItems.map((item) => item.product_name),
       [
-        "Oreshki à la framboise",
-        "Oreshki à la pistache",
-        "Oreshki au kadaïf"
+        "Oreshki classiques — 12 pièces",
+        "Oreshki à la pistache — 12 pièces",
+        "Oreshki au kadaïf — 48 pièces",
+        "Oreshki à la framboise — 24 pièces"
       ]
     );
     assert.deepEqual(
       russianLineItems.map((item) => item.product_name),
       [
-        "Орешки с малиной",
-        "Орешки с фисташкой",
-        "Орешки с кадаифом"
+        "Классические орешки — 12 штук",
+        "Орешки с фисташкой — 12 штук",
+        "Орешки с кадаифом — 48 штук",
+        "Орешки с малиной — 24 штуки"
       ]
     );
     assert.deepEqual(
       frenchLineItems.map((item) => item.unit_price),
-      [8, 8, 8]
+      [8, 10, 36, 19]
     );
   });
 });

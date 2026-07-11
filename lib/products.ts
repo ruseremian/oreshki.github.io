@@ -1,11 +1,17 @@
 export type ProductCategory = "cookies" | "specialties";
 export type ProductId =
-  | "pieces12"
-  | "pieces24"
-  | "pieces48"
-  | "oreshki-framboise"
-  | "oreshki-pistache"
-  | "oreshki-kadaifi"
+  | "oreshki-classiques-12"
+  | "oreshki-classiques-24"
+  | "oreshki-classiques-48"
+  | "oreshki-pistache-12"
+  | "oreshki-pistache-24"
+  | "oreshki-pistache-48"
+  | "oreshki-kadaifi-12"
+  | "oreshki-kadaifi-24"
+  | "oreshki-kadaifi-48"
+  | "oreshki-framboise-12"
+  | "oreshki-framboise-24"
+  | "oreshki-framboise-48"
   | "napoleon-blanc"
   | "napoleon-velvet-rouge"
   | "napoleon-chocolat"
@@ -44,83 +50,167 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "pieces12",
-    name: "Format découverte — 12 pièces",
+    id: "oreshki-classiques-12",
+    name: "Oreshki classiques — 12 pièces",
     orderName: {
-      fr: "Format découverte — 12 pièces",
-      ru: "Формат для пробы — 12 штук"
+      fr: "Oreshki classiques — 12 pièces",
+      ru: "Классические орешки — 12 штук"
     },
-    description: "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Формат для пробы — 2 коробки по 6 штук.",
+    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
     price: 8,
-    image: "/images/oreshki-12.jpg",
-    category: "cookies",
-    available: true
-  },
-  {
-    id: "pieces24",
-    name: "Format classique — 24 pièces",
-    orderName: {
-      fr: "Format classique — 24 pièces",
-      ru: "Классический формат — 24 штуки"
-    },
-    description: "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Классический формат — идеально для семьи или друзей.",
-    price: 16,
     image: "/images/oreshki-24.jpg",
     category: "cookies",
     available: true
   },
   {
-    id: "pieces48",
-    name: "Grand format généreux — 48 pièces",
+    id: "oreshki-classiques-24",
+    name: "Oreshki classiques — 24 pièces",
     orderName: {
-      fr: "Grand format généreux — 48 pièces",
-      ru: "Большой формат — 48 штук"
+      fr: "Oreshki classiques — 24 pièces",
+      ru: "Классические орешки — 24 штуки"
     },
-    description: "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Большой формат поставляется в двух отдельных упаковках.",
-    price: 32,
-    image: "/images/oreshki-48.jpg",
+    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+    price: 15.5,
+    image: "/images/oreshki-24.jpg",
     category: "cookies",
     available: true
   },
   {
-    id: "oreshki-framboise",
-    name: "Oreshki à la framboise",
+    id: "oreshki-classiques-48",
+    name: "Oreshki classiques — 48 pièces",
     orderName: {
-      fr: "Oreshki à la framboise",
-      ru: "Орешки с малиной"
+      fr: "Oreshki classiques — 48 pièces",
+      ru: "Классические орешки — 48 штук"
     },
-    description:
-      "Oreshki maison en version framboise, pour une note fruitée dans l’esprit des douceurs Maison Zhanna.",
-    price: 8,
-    image: "/images/oreshki_framboises.png",
+    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+    price: 30,
+    image: "/images/oreshki-24.jpg",
     category: "cookies",
     available: true
   },
   {
-    id: "oreshki-pistache",
-    name: "Oreshki à la pistache",
+    id: "oreshki-pistache-12",
+    name: "Oreshki à la pistache — 12 pièces",
     orderName: {
-      fr: "Oreshki à la pistache",
-      ru: "Орешки с фисташкой"
+      fr: "Oreshki à la pistache — 12 pièces",
+      ru: "Орешки с фисташкой — 12 штук"
     },
     description:
-      "Oreshki maison en version pistache, une saveur douce et généreuse pour accompagner le thé.",
-    price: 8,
+      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+    price: 10,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
     available: true
   },
   {
-    id: "oreshki-kadaifi",
-    name: "Oreshki au kadaïf",
+    id: "oreshki-pistache-24",
+    name: "Oreshki à la pistache — 24 pièces",
     orderName: {
-      fr: "Oreshki au kadaïf",
-      ru: "Орешки с кадаифом"
+      fr: "Oreshki à la pistache — 24 pièces",
+      ru: "Орешки с фисташкой — 24 штуки"
     },
     description:
-      "Oreshki maison en version kadaïf, une variation gourmande dans le même esprit artisanal.",
-    price: 8,
+      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+    price: 19,
+    image: "/images/oreshki_pistache.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-pistache-48",
+    name: "Oreshki à la pistache — 48 pièces",
+    orderName: {
+      fr: "Oreshki à la pistache — 48 pièces",
+      ru: "Орешки с фисташкой — 48 штук"
+    },
+    description:
+      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+    price: 36,
+    image: "/images/oreshki_pistache.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-kadaifi-12",
+    name: "Oreshki au kadaïf — 12 pièces",
+    orderName: {
+      fr: "Oreshki au kadaïf — 12 pièces",
+      ru: "Орешки с кадаифом — 12 штук"
+    },
+    description:
+      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+    price: 10,
     image: "/images/oreshki_kadaifi.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-kadaifi-24",
+    name: "Oreshki au kadaïf — 24 pièces",
+    orderName: {
+      fr: "Oreshki au kadaïf — 24 pièces",
+      ru: "Орешки с кадаифом — 24 штуки"
+    },
+    description:
+      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+    price: 19,
+    image: "/images/oreshki_kadaifi.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-kadaifi-48",
+    name: "Oreshki au kadaïf — 48 pièces",
+    orderName: {
+      fr: "Oreshki au kadaïf — 48 pièces",
+      ru: "Орешки с кадаифом — 48 штук"
+    },
+    description:
+      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+    price: 36,
+    image: "/images/oreshki_kadaifi.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-framboise-12",
+    name: "Oreshki à la framboise — 12 pièces",
+    orderName: {
+      fr: "Oreshki à la framboise — 12 pièces",
+      ru: "Орешки с малиной — 12 штук"
+    },
+    description:
+      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+    price: 10,
+    image: "/images/oreshki_framboises.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-framboise-24",
+    name: "Oreshki à la framboise — 24 pièces",
+    orderName: {
+      fr: "Oreshki à la framboise — 24 pièces",
+      ru: "Орешки с малиной — 24 штуки"
+    },
+    description:
+      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+    price: 19,
+    image: "/images/oreshki_framboises.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-framboise-48",
+    name: "Oreshki à la framboise — 48 pièces",
+    orderName: {
+      fr: "Oreshki à la framboise — 48 pièces",
+      ru: "Орешки с малиной — 48 штук"
+    },
+    description:
+      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+    price: 36,
+    image: "/images/oreshki_framboises.png",
     category: "cookies",
     available: true
   },

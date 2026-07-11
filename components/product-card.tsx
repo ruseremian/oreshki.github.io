@@ -33,11 +33,15 @@ export function ProductCard({
   const selectedOrderId = selectedVariant?.id ?? product.id;
   const displayedPrice = selectedVariant?.price ?? product.price;
   const selectedImage =
-    selectedVariant && "image" in selectedVariant
+    selectedVariant &&
+    "image" in selectedVariant &&
+    typeof selectedVariant.image === "string"
       ? selectedVariant.image
       : product.image;
   const selectedImageAlt =
-    selectedVariant && "imageAlt" in selectedVariant
+    selectedVariant &&
+    "imageAlt" in selectedVariant &&
+    typeof selectedVariant.imageAlt === "string"
       ? selectedVariant.imageAlt
       : product.imageAlt;
   const [fallbackImageSrc, setFallbackImageSrc] = useState<string | null>(null);
