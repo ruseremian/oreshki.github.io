@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { ProductId, ProductItem } from "@/lib/site-data";
+import type { ProductId, ProductItem, SiteContent } from "@/lib/site-data";
 
 type ProductCardProps = {
   product: ProductItem;
@@ -10,6 +13,7 @@ type ProductCardProps = {
   orderLabel: string;
   addedLabel: string;
   categoryLabel?: string;
+  preparationGuide: SiteContent["products"]["preparationGuide"];
   addedProductId: ProductId | null;
   onOrder: (productId: ProductId) => void;
 };
@@ -20,10 +24,13 @@ export function ProductCard({
   orderLabel,
   addedLabel,
   categoryLabel,
+  preparationGuide,
   addedProductId,
   onOrder
 }: ProductCardProps) {
   const variants = "variants" in product ? product.variants : undefined;
+  const preparation =
+    "preparation" in product ? product.preparation : undefined;
   const [selectedProductId, setSelectedProductId] = useState<ProductId>(
     product.id
   );
@@ -136,6 +143,31 @@ export function ProductCard({
             </span>
           ))}
         </div>
+        {preparation ? (
+          <details className="group/preparation mt-4 overflow-hidden rounded-2xl border border-cocoa/10 bg-white/55">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold text-cocoa transition hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caramel [&::-webkit-details-marker]:hidden">
+              <span>{preparationGuide.summary}</span>
+              <ChevronDown
+                className="h-4 w-4 shrink-0 text-caramel transition-transform group-open/preparation:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            <dl className="space-y-3 border-t border-cocoa/10 px-4 py-4 text-sm leading-6 text-cocoa/68">
+              <PreparationAdvice
+                label={preparationGuide.conservation}
+                value={preparation.conservation}
+              />
+              <PreparationAdvice
+                label={preparationGuide.cooking}
+                value={preparation.cooking}
+              />
+              <PreparationAdvice
+                label={preparationGuide.serving}
+                value={preparation.serving}
+              />
+            </dl>
+          </details>
+        ) : null}
         <div className="mt-auto pt-6">
           <button
             type="button"
@@ -148,5 +180,14 @@ export function ProductCard({
         </div>
       </div>
     </motion.article>
+  );
+}
+
+function PreparationAdvice({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="font-bold text-cocoa">{label}</dt>
+      <dd className="mt-0.5">{value}</dd>
+    </div>
   );
 }

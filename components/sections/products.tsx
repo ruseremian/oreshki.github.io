@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { INSTAGRAM_URL, TELEGRAM_URL, WHATSAPP_URL } from "@/lib/social-links";
-import { ProductId, SiteContent } from "@/lib/site-data";
+import type { ProductId, SiteContent } from "@/lib/site-data";
 
 type ProductsProps = {
   content: SiteContent["products"];
@@ -71,6 +71,7 @@ export function Products({ content, onOrder }: ProductsProps) {
                   orderLabel={content.order}
                   addedLabel={content.added}
                   categoryLabel={content.itemsBadge}
+                  preparationGuide={content.preparationGuide}
                   addedProductId={addedProductId}
                   onOrder={handleOrder}
                 />
@@ -101,6 +102,7 @@ export function Products({ content, onOrder }: ProductsProps) {
                 orderLabel={content.order}
                 addedLabel={content.added}
                 categoryLabel={content.specialties.badge}
+                preparationGuide={content.preparationGuide}
                 addedProductId={addedProductId}
                 onOrder={handleOrder}
               />

@@ -148,6 +148,12 @@ export const siteContent = {
         "Нужен индивидуальный формат, семейный заказ или блюдо к празднику? Напишите нам в Instagram, Telegram или WhatsApp.",
       order: "Добавить в корзину",
       added: "Товар добавлен в корзину",
+      preparationGuide: {
+        summary: "Советы по приготовлению",
+        conservation: "Хранение",
+        cooking: "Приготовление",
+        serving: "Подача"
+      },
       itemsEyebrow: "Сладкое направление",
       itemsTitle: "Домашняя выпечка",
       itemsIntro: "Домашние десерты и выпечка к чаю или для общего стола, с карамельными орешками как фирменной сладостью.",
@@ -299,7 +305,7 @@ export const siteContent = {
         },
         {
           id: "sigaretki",
-          title: "Sigaretki",
+          title: "Сигаретки",
           fullName: productById.get("sigaretki")!.orderName.ru,
           quantity: "12 штук",
           positioning: "Рулетная выпечка ручной работы",
@@ -363,7 +369,7 @@ export const siteContent = {
         items: [
           {
             id: "pelmeni",
-            title: "Pelmeni",
+            title: "Пельмени",
             fullName: productById.get("pelmeni")!.orderName.ru,
             quantity: "1 кг",
             tags: ["1 кг", "Замороженные"],
@@ -374,6 +380,14 @@ export const siteContent = {
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
             imageAlt: "Домашние пельмени ручной работы",
+            preparation: {
+              conservation:
+                "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
+              cooking:
+                "Готовить прямо из замороженного состояния в большой кастрюле со слабо кипящей водой или бульоном. Аккуратно перемешать и варить до полной готовности начинки.",
+              serving:
+                "Подавать горячими со сливочным маслом, сметаной или свежей зеленью."
+            },
             variants: [
               {
                 id: "pelmeni-poulet",
@@ -400,7 +414,7 @@ export const siteContent = {
           },
           {
             id: "kotleti-kievski",
-            title: "Kotleti po-kievski",
+            title: "Котлеты по-киевски",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
             quantity: "1 кг",
             tags: ["1 кг", "Замороженные"],
@@ -410,11 +424,19 @@ export const siteContent = {
             price: formatPrice(productBasePrices["kotleti-kievski"]),
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
-            imageAlt: "Домашние котлеты по-киевски с ароматным маслом"
+            imageAlt: "Домашние котлеты по-киевски с ароматным маслом",
+            preparation: {
+              conservation:
+                "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
+              cooking:
+                "Размораживать в холодильнике, затем готовить в духовке или на сковороде, пока температура внутри курицы не достигнет не менее 70 °C. Во время приготовления перевернуть для равномерной корочки.",
+              serving:
+                "Перед подачей дать котлетам немного постоять, чтобы сохранить ароматное масло внутри."
+            }
           },
           {
             id: "vareniki-fromage",
-            title: "Vareniki",
+            title: "Вареники",
             fullName: productById.get("vareniki-fromage")!.orderName.ru,
             quantity: "1 кг",
             tags: ["1 кг", "Замороженные"],
@@ -425,6 +447,14 @@ export const siteContent = {
             basePrice: productBasePrices["vareniki-fromage"],
             image: productImages["vareniki-fromage"],
             imageAlt: "Домашние вареники с традиционной начинкой",
+            preparation: {
+              conservation:
+                "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
+              cooking:
+                "Готовить прямо из замороженного состояния в большой кастрюле со слабо кипящей подсоленной водой. Аккуратно перемешать и варить, пока тесто не станет мягким, а начинка — горячей.",
+              serving:
+                "Подавать со сметаной; в зависимости от начинки можно добавить сливочное масло или обжаренный лук."
+            },
             variants: [
               {
                 id: "vareniki-fromage",
@@ -444,7 +474,7 @@ export const siteContent = {
           },
           {
             id: "blinchiki",
-            title: "Blinchiki",
+            title: "Блинчики",
             fullName: productById.get("blinchiki")!.orderName.ru,
             quantity: "1 кг",
             tags: ["1 кг", "Замороженные"],
@@ -455,6 +485,14 @@ export const siteContent = {
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
             imageAlt: "Домашние тонкие русские блинчики",
+            preparation: {
+              conservation:
+                "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
+              cooking:
+                "Разогреть на слабом огне на сковороде с небольшим количеством масла, переворачивая, или в духовке до горячей середины. Блинчики с мясом прогреть внутри минимум до 70 °C.",
+              serving:
+                "Подавать сразу после разогрева, без добавок или со сметаной."
+            },
             variants: [
               {
                 id: "blinchiki-viande",
@@ -481,7 +519,7 @@ export const siteContent = {
           },
           {
             id: "golubci",
-            title: "Golubci",
+            title: "Голубцы",
             fullName: productById.get("golubci")!.orderName.ru,
             quantity: "1 кг",
             tags: ["1 кг", "Замороженные"],
@@ -491,11 +529,19 @@ export const siteContent = {
             price: formatPrice(productBasePrices.golubci),
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
-            imageAlt: "Домашние голубцы по семейному рецепту"
+            imageAlt: "Домашние голубцы по семейному рецепту",
+            preparation: {
+              conservation:
+                "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
+              cooking:
+                "Положить в кастрюлю или закрытую форму вместе с соусом и медленно прогреть, пока температура внутри не достигнет не менее 70 °C.",
+              serving:
+                "Подавать горячими с соусом и, по желанию, со сметаной или свежей зеленью."
+            }
           },
           {
             id: "pirojki",
-            title: "Pirojki",
+            title: "Пирожки",
             fullName: productById.get("pirojki")!.orderName.ru,
             quantity: "за штуку",
             positioning: "Традиционные домашние пирожки",
@@ -690,6 +736,12 @@ export const siteContent = {
         "Besoin d’une quantité personnalisée, d’une commande familiale ou d’une spécialité pour un événement ? Contactez-nous via Instagram, Telegram ou WhatsApp.",
       order: "Ajouter au panier",
       added: "Produit ajouté au panier",
+      preparationGuide: {
+        summary: "Conseils de préparation",
+        conservation: "Conservation",
+        cooking: "Préparation",
+        serving: "Service"
+      },
       itemsEyebrow: "Univers sucré",
       itemsTitle: "La Pâtisserie",
       itemsIntro: "Desserts et pâtisseries faits maison pour le thé ou le partage, avec les oreshki au caramel comme signature iconique.",
@@ -916,6 +968,14 @@ export const siteContent = {
             basePrice: productBasePrices.pelmeni,
             image: productImages.pelmeni,
             imageAlt: "Pelmeni maison préparés à la main",
+            preparation: {
+              conservation:
+                "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
+              cooking:
+                "Cuire directement surgelés dans une grande casserole d’eau frémissante ou de bouillon. Remuer délicatement et poursuivre la cuisson jusqu’à ce que la farce soit bien cuite à cœur.",
+              serving:
+                "Servir chauds avec du beurre, de la crème fraîche ou des herbes fraîches."
+            },
             variants: [
               {
                 id: "pelmeni-poulet",
@@ -952,7 +1012,15 @@ export const siteContent = {
             price: formatPrice(productBasePrices["kotleti-kievski"]),
             basePrice: productBasePrices["kotleti-kievski"],
             image: productImages["kotleti-kievski"],
-            imageAlt: "Kotleti po-kievski maison au beurre parfumé"
+            imageAlt: "Kotleti po-kievski maison au beurre parfumé",
+            preparation: {
+              conservation:
+                "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
+              cooking:
+                "Décongeler au réfrigérateur, puis cuire au four ou à la poêle jusqu’à ce que le poulet atteigne au moins 70 °C à cœur. Retourner pendant la cuisson pour une coloration régulière.",
+              serving:
+                "Laisser reposer brièvement avant de servir afin de préserver le beurre parfumé à l’intérieur."
+            }
           },
           {
             id: "vareniki-fromage",
@@ -967,6 +1035,14 @@ export const siteContent = {
             basePrice: productBasePrices["vareniki-fromage"],
             image: productImages["vareniki-fromage"],
             imageAlt: "Vareniki maison avec garniture traditionnelle",
+            preparation: {
+              conservation:
+                "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
+              cooking:
+                "Cuire directement surgelés dans une grande casserole d’eau salée frémissante. Remuer délicatement et poursuivre jusqu’à ce que la pâte soit tendre et la garniture bien chaude.",
+              serving:
+                "Servir avec de la crème fraîche; ajouter du beurre ou des oignons dorés selon la garniture."
+            },
             variants: [
               {
                 id: "vareniki-fromage",
@@ -997,6 +1073,14 @@ export const siteContent = {
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
             imageAlt: "Blinchiki maison, crêpes russes traditionnelles",
+            preparation: {
+              conservation:
+                "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
+              cooking:
+                "Réchauffer à feu doux à la poêle avec un peu de matière grasse, en les retournant, ou au four jusqu’à ce que le centre soit bien chaud. Pour la version viande, atteindre au moins 70 °C à cœur.",
+              serving:
+                "Servir immédiatement après réchauffage, nature ou avec de la crème fraîche."
+            },
             variants: [
               {
                 id: "blinchiki-viande",
@@ -1033,7 +1117,15 @@ export const siteContent = {
             price: formatPrice(productBasePrices.golubci),
             basePrice: productBasePrices.golubci,
             image: productImages.golubci,
-            imageAlt: "Golubci maison, choux farcis traditionnels"
+            imageAlt: "Golubci maison, choux farcis traditionnels",
+            preparation: {
+              conservation:
+                "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
+              cooking:
+                "Placer dans une casserole ou un plat couvert avec la sauce et réchauffer doucement jusqu’à ce que le centre atteigne au moins 70 °C.",
+              serving:
+                "Servir bien chauds avec leur sauce et, selon vos goûts, de la crème fraîche ou des herbes."
+            }
           },
           {
             id: "pirojki",
