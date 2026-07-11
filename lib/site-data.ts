@@ -429,7 +429,7 @@ export const siteContent = {
               conservation:
                 "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
               cooking:
-                "На сковороде: готовить по 10 минут с каждой стороны на среднем огне, затем ещё 3–4 минуты на слабом огне, чтобы котлеты полностью приготовились внутри.",
+                "На сковороде: налить достаточное количество масла, чтобы котлеты были погружены в него примерно наполовину. Готовить по 10 минут с каждой стороны на среднем огне, затем ещё 3–4 минуты на слабом огне, чтобы котлеты полностью приготовились внутри.",
               serving:
                 "Перед подачей дать котлетам немного постоять, чтобы сохранить ароматное масло внутри."
             }
@@ -1017,7 +1017,7 @@ export const siteContent = {
               conservation:
                 "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
               cooking:
-                "À la poêle : cuire 10 minutes de chaque côté à feu moyen, puis poursuivre 3 à 4 minutes à feu doux afin que l’intérieur soit bien cuit.",
+                "À la poêle : verser une quantité généreuse d’huile afin que les kotleti soient immergées environ à mi-hauteur. Cuire 10 minutes de chaque côté à feu moyen, puis poursuivre 3 à 4 minutes à feu doux afin que l’intérieur soit bien cuit.",
               serving:
                 "Laisser reposer brièvement avant de servir afin de préserver le beurre parfumé à l’intérieur."
             }
