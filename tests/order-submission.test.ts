@@ -256,7 +256,7 @@ describe("order submission contract", () => {
     );
     assert.deepEqual(
       frenchLineItems.map((item) => item.unit_price),
-      [8, 10, 36, 19]
+      [8, 12, 45, 23]
     );
   });
 });

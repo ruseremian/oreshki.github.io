@@ -198,7 +198,7 @@ describe("product content contract", () => {
           "oreshki-pistache-24",
           "oreshki-pistache-48"
         ],
-        prices: [10, 19, 36]
+        prices: [12, 23, 45]
       },
       {
         id: "oreshki-kadaifi-12",
@@ -212,7 +212,7 @@ describe("product content contract", () => {
           "oreshki-kadaifi-24",
           "oreshki-kadaifi-48"
         ],
-        prices: [10, 19, 36]
+        prices: [12, 23, 45]
       },
       {
         id: "oreshki-framboise-12",
@@ -226,7 +226,7 @@ describe("product content contract", () => {
           "oreshki-framboise-24",
           "oreshki-framboise-48"
         ],
-        prices: [10, 19, 36]
+        prices: [12, 23, 45]
       }
     ] as const;
 

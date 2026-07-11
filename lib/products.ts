@@ -97,7 +97,7 @@ export const products: Product[] = [
     },
     description:
       "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
-    price: 10,
+    price: 12,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
     available: true
@@ -111,7 +111,7 @@ export const products: Product[] = [
     },
     description:
       "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
-    price: 19,
+    price: 23,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
     available: true
@@ -125,7 +125,7 @@ export const products: Product[] = [
     },
     description:
       "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
-    price: 36,
+    price: 45,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
     available: true
@@ -139,7 +139,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
-    price: 10,
+    price: 12,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
     available: true
@@ -153,7 +153,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
-    price: 19,
+    price: 23,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
     available: true
@@ -167,7 +167,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
-    price: 36,
+    price: 45,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
     available: true
@@ -181,7 +181,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
-    price: 10,
+    price: 12,
     image: "/images/oreshki_framboises.png",
     category: "cookies",
     available: true
@@ -195,7 +195,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
-    price: 19,
+    price: 23,
     image: "/images/oreshki_framboises.png",
     category: "cookies",
     available: true
@@ -209,7 +209,7 @@ export const products: Product[] = [
     },
     description:
       "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
-    price: 36,
+    price: 45,
     image: "/images/oreshki_framboises.png",
     category: "cookies",
     available: true
