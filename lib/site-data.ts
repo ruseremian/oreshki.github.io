@@ -324,7 +324,7 @@ export const siteContent = {
             tags: ["за штуку", "Замороженные"],
             positioning: "Традиционные русские блинчики",
             description:
-              "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы. Мягкие, нежные и удобные для семейного стола.",
+              "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы с картошкой. Мягкие, нежные и удобные для семейного стола.",
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
@@ -346,7 +346,7 @@ export const siteContent = {
               },
               {
                 id: "blinchiki-champignons",
-                label: "Грибы",
+                label: "Грибы и картошка",
                 fullName: productById.get("blinchiki-champignons")!.orderName.ru,
                 price: formatPrice(productBasePrices["blinchiki-champignons"]),
                 basePrice: productBasePrices["blinchiki-champignons"]
@@ -758,7 +758,7 @@ export const siteContent = {
             tags: ["par pièce", "Surgelé"],
             positioning: "Crêpes russes traditionnelles",
             description:
-              "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons. Moelleuses, délicates et faciles à partager.",
+              "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons et pommes de terre. Moelleuses, délicates et faciles à partager.",
             price: formatPrice(productBasePrices.blinchiki),
             basePrice: productBasePrices.blinchiki,
             image: productImages.blinchiki,
@@ -780,7 +780,7 @@ export const siteContent = {
               },
               {
                 id: "blinchiki-champignons",
-                label: "Champignons",
+                label: "Champignons et pommes de terre",
                 fullName: productById.get("blinchiki-champignons")!.orderName.fr,
                 price: formatPrice(productBasePrices["blinchiki-champignons"]),
                 basePrice: productBasePrices["blinchiki-champignons"]

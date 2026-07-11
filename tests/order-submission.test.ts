@@ -203,7 +203,7 @@ describe("order submission contract", () => {
         },
         {
           product_id: "blinchiki-champignons",
-          product_name: "Blinchiki — Champignons",
+          product_name: "Blinchiki — Champignons et pommes de terre",
           unit_price: 1,
           line_total: 4
         }

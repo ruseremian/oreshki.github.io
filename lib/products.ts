@@ -207,7 +207,7 @@ export const products: Product[] = [
       ru: "Домашние блинчики — за штуку"
     },
     description:
-      "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons.",
+      "Fines crêpes maison garnies selon les recettes : viande, fromage, champignons et pommes de terre.",
     price: 1,
     unit: "par pièce",
     image: "/images/blinchiki.jpg",
@@ -246,13 +246,13 @@ export const products: Product[] = [
   },
   {
     id: "blinchiki-champignons",
-    name: "Blinchiki — Champignons",
+    name: "Blinchiki — Champignons et pommes de terre",
     orderName: {
-      fr: "Blinchiki — Champignons",
-      ru: "Блинчики — грибы"
+      fr: "Blinchiki — Champignons et pommes de terre",
+      ru: "Блинчики — грибы и картошка"
     },
     description:
-      "Fines crêpes maison garnies aux champignons selon les recettes familiales.",
+      "Fines crêpes maison garnies aux champignons et pommes de terre selon les recettes familiales.",
     price: 1,
     unit: "par pièce",
     image: "/images/blinchiki.jpg",

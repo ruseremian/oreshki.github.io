@@ -112,7 +112,7 @@ describe("product content contract", () => {
 
     assert.deepEqual(
       variants.map((variant) => variant.label),
-      ["Viande", "Fromage", "Champignons"]
+      ["Viande", "Fromage", "Champignons et pommes de terre"]
     );
     assert.deepEqual(
       variants.map((variant) => variant.id),
