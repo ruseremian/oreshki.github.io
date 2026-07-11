@@ -429,7 +429,7 @@ export const siteContent = {
               conservation:
                 "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
               cooking:
-                "Размораживать в холодильнике, затем готовить в духовке или на сковороде, пока температура внутри курицы не достигнет не менее 70 °C. Во время приготовления перевернуть для равномерной корочки.",
+                "На сковороде: готовить по 10 минут с каждой стороны на среднем огне, затем ещё 3–4 минуты на слабом огне, чтобы котлеты полностью приготовились внутри.",
               serving:
                 "Перед подачей дать котлетам немного постоять, чтобы сохранить ароматное масло внутри."
             }
@@ -489,7 +489,7 @@ export const siteContent = {
               conservation:
                 "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
               cooking:
-                "Разогреть на слабом огне на сковороде с небольшим количеством масла, переворачивая, или в духовке до горячей середины. Блинчики с мясом прогреть внутри минимум до 70 °C.",
+                "Разогревать на сковороде на слабом огне с небольшим количеством масла, регулярно переворачивая, или в духовке, пока блинчики полностью не прогреются внутри.",
               serving:
                 "Подавать сразу после разогрева, без добавок или со сметаной."
             },
@@ -534,7 +534,7 @@ export const siteContent = {
               conservation:
                 "Хранить в морозильной камере при −18 °C. После размораживания повторно не замораживать.",
               cooking:
-                "Положить в кастрюлю или закрытую форму вместе с соусом и медленно прогреть, пока температура внутри не достигнет не менее 70 °C.",
+                "Разогревать голубцы вместе с соусом в кастрюле под крышкой на слабом огне, время от времени аккуратно переворачивая, пока они полностью не прогреются внутри.",
               serving:
                 "Подавать горячими с соусом и, по желанию, со сметаной или свежей зеленью."
             }
@@ -1017,7 +1017,7 @@ export const siteContent = {
               conservation:
                 "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
               cooking:
-                "Décongeler au réfrigérateur, puis cuire au four ou à la poêle jusqu’à ce que le poulet atteigne au moins 70 °C à cœur. Retourner pendant la cuisson pour une coloration régulière.",
+                "À la poêle : cuire 10 minutes de chaque côté à feu moyen, puis poursuivre 3 à 4 minutes à feu doux afin que l’intérieur soit bien cuit.",
               serving:
                 "Laisser reposer brièvement avant de servir afin de préserver le beurre parfumé à l’intérieur."
             }
@@ -1077,7 +1077,7 @@ export const siteContent = {
               conservation:
                 "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
               cooking:
-                "Réchauffer à feu doux à la poêle avec un peu de matière grasse, en les retournant, ou au four jusqu’à ce que le centre soit bien chaud. Pour la version viande, atteindre au moins 70 °C à cœur.",
+                "Réchauffer à la poêle à feu doux avec un peu de matière grasse, en les retournant régulièrement, ou au four jusqu’à ce qu’ils soient bien chauds à l’intérieur.",
               serving:
                 "Servir immédiatement après réchauffage, nature ou avec de la crème fraîche."
             },
@@ -1122,7 +1122,7 @@ export const siteContent = {
               conservation:
                 "À conserver au congélateur à −18 °C. Ne pas recongeler après décongélation.",
               cooking:
-                "Placer dans une casserole ou un plat couvert avec la sauce et réchauffer doucement jusqu’à ce que le centre atteigne au moins 70 °C.",
+                "Réchauffer les golubci avec leur sauce, à couvert et à feu doux dans une casserole, en les retournant délicatement de temps en temps, jusqu’à ce qu’ils soient bien chauds à l’intérieur.",
               serving:
                 "Servir bien chauds avec leur sauce et, selon vos goûts, de la crème fraîche ou des herbes."
             }
