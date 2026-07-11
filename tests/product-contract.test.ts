@@ -160,11 +160,18 @@ describe("product content contract", () => {
     }
   });
 
-  it("shows Oreshki as one storefront product with three orderable variants", () => {
+  it("shows Oreshki as one storefront product with orderable format and flavor variants", () => {
     for (const language of ["fr", "ru"] as const) {
       const items = siteContent[language].products.items;
       const oreshkiCards = items.filter((product) =>
-        ["pieces12", "pieces24", "pieces48"].includes(product.id)
+        [
+          "pieces12",
+          "pieces24",
+          "pieces48",
+          "oreshki-framboise",
+          "oreshki-pistache",
+          "oreshki-kadaifi"
+        ].includes(product.id)
       );
 
       assert.equal(
@@ -180,8 +187,15 @@ describe("product content contract", () => {
 
       assert.deepEqual(
         variants.map((variant) => variant.id),
-        ["pieces12", "pieces24", "pieces48"],
-        `${language} Oreshki card should expose all size variants`
+        [
+          "pieces12",
+          "pieces24",
+          "pieces48",
+          "oreshki-framboise",
+          "oreshki-pistache",
+          "oreshki-kadaifi"
+        ],
+        `${language} Oreshki card should expose all format and flavor variants`
       );
 
       for (const variant of variants) {
@@ -208,6 +222,31 @@ describe("product content contract", () => {
           `${language} ${variant.id} should remain orderable`
         );
       }
+
+      const flavorVariants = variants.filter((variant) =>
+        ["oreshki-framboise", "oreshki-pistache", "oreshki-kadaifi"].includes(
+          variant.id
+        )
+      );
+
+      assert.deepEqual(
+        flavorVariants.map((variant) =>
+          "image" in variant ? variant.image : undefined
+        ),
+        [
+          "/images/oreshki_framboises.png",
+          "/images/oreshki_pistache.png",
+          "/images/oreshki_kadaifi.png"
+        ],
+        `${language} Oreshki flavor variants should expose their own images`
+      );
+      assert.equal(
+        flavorVariants.every((variant) =>
+          "imageAlt" in variant ? Boolean(variant.imageAlt) : false
+        ),
+        true,
+        `${language} Oreshki flavor variants should expose image alt text`
+      );
     }
   });
 });

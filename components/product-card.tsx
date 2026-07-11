@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ProductId, ProductItem } from "@/lib/site-data";
 
@@ -23,7 +23,6 @@ export function ProductCard({
   addedProductId,
   onOrder
 }: ProductCardProps) {
-  const [imageSrc, setImageSrc] = useState(product.image);
   const variants = "variants" in product ? product.variants : undefined;
   const [selectedProductId, setSelectedProductId] = useState<ProductId>(
     product.id
@@ -33,8 +32,22 @@ export function ProductCard({
     variants?.[0];
   const selectedOrderId = selectedVariant?.id ?? product.id;
   const displayedPrice = selectedVariant?.price ?? product.price;
+  const selectedImage =
+    selectedVariant && "image" in selectedVariant
+      ? selectedVariant.image
+      : product.image;
+  const selectedImageAlt =
+    selectedVariant && "imageAlt" in selectedVariant
+      ? selectedVariant.imageAlt
+      : product.imageAlt;
+  const [fallbackImageSrc, setFallbackImageSrc] = useState<string | null>(null);
+  const imageSrc = fallbackImageSrc ?? selectedImage;
   const productTags = "tags" in product ? product.tags : [product.quantity];
   const added = addedProductId === selectedOrderId;
+
+  useEffect(() => {
+    setFallbackImageSrc(null);
+  }, [selectedImage]);
 
   return (
     <motion.article
@@ -51,12 +64,12 @@ export function ProductCard({
       <div className="aspect-[4/3] shrink-0 overflow-hidden sm:aspect-[5/4]">
         <Image
           src={imageSrc}
-          alt={product.imageAlt}
+          alt={selectedImageAlt}
           width={900}
           height={700}
           sizes="(min-width: 768px) 33vw, 100vw"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          onError={() => setImageSrc("/images/oreshki-handmade.jpg")}
+          onError={() => setFallbackImageSrc("/images/oreshki-handmade.jpg")}
         />
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">

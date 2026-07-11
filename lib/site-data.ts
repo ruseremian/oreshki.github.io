@@ -35,6 +35,9 @@ const productImages: Record<ProductId, string> = {
   pieces12: "/images/oreshki-12.jpg",
   pieces24: "/images/oreshki-24.jpg",
   pieces48: "/images/oreshki-48.jpg",
+  "oreshki-framboise": "/images/oreshki_framboises.png",
+  "oreshki-pistache": "/images/oreshki_pistache.png",
+  "oreshki-kadaifi": "/images/oreshki_kadaifi.png",
   pelmeni: "/images/pelmeni.jpg",
   "pelmeni-poulet": "/images/pelmeni.jpg",
   "pelmeni-mix-porc-boeuf": "/images/pelmeni.jpg",
@@ -61,6 +64,9 @@ const productBasePrices: Record<ProductId, number> = {
   pieces12: productById.get("pieces12")!.price,
   pieces24: productById.get("pieces24")!.price,
   pieces48: productById.get("pieces48")!.price,
+  "oreshki-framboise": productById.get("oreshki-framboise")!.price,
+  "oreshki-pistache": productById.get("oreshki-pistache")!.price,
+  "oreshki-kadaifi": productById.get("oreshki-kadaifi")!.price,
   pelmeni: productById.get("pelmeni")!.price,
   "pelmeni-poulet": productById.get("pelmeni-poulet")!.price,
   "pelmeni-mix-porc-boeuf": productById.get("pelmeni-mix-porc-boeuf")!.price,
@@ -139,10 +145,10 @@ export const siteContent = {
           id: "pieces12",
           title: "Oreshki",
           fullName: productById.get("pieces12")!.orderName.ru,
-          quantity: "3 формата",
+          quantity: "3 формата и 3 вкуса",
           positioning: "Фирменные орешки",
           description:
-            "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и кусочками фундука.",
+            "Домашние орешки Maison Zhanna: классические форматы и новые вкусы с малиной, фисташкой или кадаифом.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces24,
@@ -168,6 +174,33 @@ export const siteContent = {
               fullName: productById.get("pieces48")!.orderName.ru,
               price: formatPrice(productBasePrices.pieces48),
               basePrice: productBasePrices.pieces48
+            },
+            {
+              id: "oreshki-framboise",
+              label: productById.get("oreshki-framboise")!.orderName.ru,
+              fullName: productById.get("oreshki-framboise")!.orderName.ru,
+              price: formatPrice(productBasePrices["oreshki-framboise"]),
+              basePrice: productBasePrices["oreshki-framboise"],
+              image: productImages["oreshki-framboise"],
+              imageAlt: "Орешки Maison Zhanna с малиной"
+            },
+            {
+              id: "oreshki-pistache",
+              label: productById.get("oreshki-pistache")!.orderName.ru,
+              fullName: productById.get("oreshki-pistache")!.orderName.ru,
+              price: formatPrice(productBasePrices["oreshki-pistache"]),
+              basePrice: productBasePrices["oreshki-pistache"],
+              image: productImages["oreshki-pistache"],
+              imageAlt: "Орешки Maison Zhanna с фисташкой"
+            },
+            {
+              id: "oreshki-kadaifi",
+              label: productById.get("oreshki-kadaifi")!.orderName.ru,
+              fullName: productById.get("oreshki-kadaifi")!.orderName.ru,
+              price: formatPrice(productBasePrices["oreshki-kadaifi"]),
+              basePrice: productBasePrices["oreshki-kadaifi"],
+              image: productImages["oreshki-kadaifi"],
+              imageAlt: "Орешки Maison Zhanna с кадаифом"
             }
           ]
         },
@@ -573,10 +606,10 @@ export const siteContent = {
           id: "pieces12",
           title: "Oreshki",
           fullName: productById.get("pieces12")!.orderName.fr,
-          quantity: "3 formats",
+          quantity: "3 formats et 3 saveurs",
           positioning: "Oreshki signature",
           description:
-            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
+            "Oreshki Maison Zhanna faits maison, proposés en formats classiques et en nouvelles saveurs framboise, pistache ou kadaïf.",
           price: formatPrice(productBasePrices.pieces12),
           basePrice: productBasePrices.pieces12,
           image: productImages.pieces24,
@@ -602,6 +635,33 @@ export const siteContent = {
               fullName: productById.get("pieces48")!.orderName.fr,
               price: formatPrice(productBasePrices.pieces48),
               basePrice: productBasePrices.pieces48
+            },
+            {
+              id: "oreshki-framboise",
+              label: productById.get("oreshki-framboise")!.orderName.fr,
+              fullName: productById.get("oreshki-framboise")!.orderName.fr,
+              price: formatPrice(productBasePrices["oreshki-framboise"]),
+              basePrice: productBasePrices["oreshki-framboise"],
+              image: productImages["oreshki-framboise"],
+              imageAlt: "Oreshki Maison Zhanna à la framboise"
+            },
+            {
+              id: "oreshki-pistache",
+              label: productById.get("oreshki-pistache")!.orderName.fr,
+              fullName: productById.get("oreshki-pistache")!.orderName.fr,
+              price: formatPrice(productBasePrices["oreshki-pistache"]),
+              basePrice: productBasePrices["oreshki-pistache"],
+              image: productImages["oreshki-pistache"],
+              imageAlt: "Oreshki Maison Zhanna à la pistache"
+            },
+            {
+              id: "oreshki-kadaifi",
+              label: productById.get("oreshki-kadaifi")!.orderName.fr,
+              fullName: productById.get("oreshki-kadaifi")!.orderName.fr,
+              price: formatPrice(productBasePrices["oreshki-kadaifi"]),
+              basePrice: productBasePrices["oreshki-kadaifi"],
+              image: productImages["oreshki-kadaifi"],
+              imageAlt: "Oreshki Maison Zhanna au kadaïf"
             }
           ]
         },

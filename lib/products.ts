@@ -3,6 +3,9 @@ export type ProductId =
   | "pieces12"
   | "pieces24"
   | "pieces48"
+  | "oreshki-framboise"
+  | "oreshki-pistache"
+  | "oreshki-kadaifi"
   | "napoleon-blanc"
   | "napoleon-velvet-rouge"
   | "napoleon-chocolat"
@@ -76,6 +79,48 @@ export const products: Product[] = [
     description: "Домашние орешки из нежного теста с маслом и яйцами, с начинкой из варёной сгущёнки и цельным фундуком внутри. Большой формат поставляется в двух отдельных упаковках.",
     price: 32,
     image: "/images/oreshki-48.jpg",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-framboise",
+    name: "Oreshki à la framboise",
+    orderName: {
+      fr: "Oreshki à la framboise",
+      ru: "Орешки с малиной"
+    },
+    description:
+      "Oreshki maison en version framboise, pour une note fruitée dans l’esprit des douceurs Maison Zhanna.",
+    price: 8,
+    image: "/images/oreshki_framboises.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-pistache",
+    name: "Oreshki à la pistache",
+    orderName: {
+      fr: "Oreshki à la pistache",
+      ru: "Орешки с фисташкой"
+    },
+    description:
+      "Oreshki maison en version pistache, une saveur douce et généreuse pour accompagner le thé.",
+    price: 8,
+    image: "/images/oreshki_pistache.png",
+    category: "cookies",
+    available: true
+  },
+  {
+    id: "oreshki-kadaifi",
+    name: "Oreshki au kadaïf",
+    orderName: {
+      fr: "Oreshki au kadaïf",
+      ru: "Орешки с кадаифом"
+    },
+    description:
+      "Oreshki maison en version kadaïf, une variation gourmande dans le même esprit artisanal.",
+    price: 8,
+    image: "/images/oreshki_kadaifi.png",
     category: "cookies",
     available: true
   },

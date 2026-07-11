@@ -215,4 +215,44 @@ describe("order submission contract", () => {
       total: 9
     });
   });
+
+  it("preserves the selected Oreshki flavor names in submitted order lines", () => {
+    const frenchLineItems = buildOrderLineItems(
+      [
+        { productId: "oreshki-framboise", quantity: 1 },
+        { productId: "oreshki-pistache", quantity: 1 },
+        { productId: "oreshki-kadaifi", quantity: 1 }
+      ],
+      "fr"
+    );
+    const russianLineItems = buildOrderLineItems(
+      [
+        { productId: "oreshki-framboise", quantity: 1 },
+        { productId: "oreshki-pistache", quantity: 1 },
+        { productId: "oreshki-kadaifi", quantity: 1 }
+      ],
+      "ru"
+    );
+
+    assert.deepEqual(
+      frenchLineItems.map((item) => item.product_name),
+      [
+        "Oreshki à la framboise",
+        "Oreshki à la pistache",
+        "Oreshki au kadaïf"
+      ]
+    );
+    assert.deepEqual(
+      russianLineItems.map((item) => item.product_name),
+      [
+        "Орешки с малиной",
+        "Орешки с фисташкой",
+        "Орешки с кадаифом"
+      ]
+    );
+    assert.deepEqual(
+      frenchLineItems.map((item) => item.unit_price),
+      [8, 8, 8]
+    );
+  });
 });
