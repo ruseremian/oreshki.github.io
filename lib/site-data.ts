@@ -160,7 +160,7 @@ export const siteContent = {
           quantity: "3 формата",
           positioning: "Фирменные орешки",
           description:
-            "Классические орешки Maison Zhanna домашнего приготовления с нежной скорлупкой и щедрой сладкой начинкой.",
+            "Домашние орешки из нежного теста на масле и яйцах, с начинкой из карамелизированного сгущённого молока и кусочками фундука внутри.",
           price: formatPrice(productBasePrices["oreshki-classiques-12"]),
           basePrice: productBasePrices["oreshki-classiques-12"],
           image: productImages["oreshki-classiques-12"],
@@ -196,7 +196,7 @@ export const siteContent = {
           quantity: "3 формата",
           positioning: "Фирменные орешки",
           description:
-            "Гурманская версия орешков Maison Zhanna с мягким и выразительным вкусом фисташки.",
+            "Нежная и щедрая версия домашних орешков с фисташковой ноткой — мягкий, тёплый вкус, который особенно хорош к чаю.",
           price: formatPrice(productBasePrices["oreshki-pistache-12"]),
           basePrice: productBasePrices["oreshki-pistache-12"],
           image: productImages["oreshki-pistache-12"],
@@ -227,16 +227,16 @@ export const siteContent = {
         },
         {
           id: "oreshki-kadaifi-12",
-          title: "Орешки с кадаифом",
+          title: "Орешки с кадаифом и фисташкой",
           fullName: productById.get("oreshki-kadaifi-12")!.orderName.ru,
           quantity: "3 формата",
           positioning: "Фирменные орешки",
           description:
-            "Щедрые и оригинальные орешки Maison Zhanna, переосмысленные с вкусной ноткой кадаифа.",
+            "Орешки с кадаифом и фисташкой — хрустящие и нежные одновременно, маленькая особенная сладость, которой приятно делиться за чашкой чая.",
           price: formatPrice(productBasePrices["oreshki-kadaifi-12"]),
           basePrice: productBasePrices["oreshki-kadaifi-12"],
           image: productImages["oreshki-kadaifi-12"],
-          imageAlt: "Орешки Maison Zhanna с кадаифом",
+          imageAlt: "Орешки Maison Zhanna с кадаифом и фисташкой",
           variants: [
             {
               id: "oreshki-kadaifi-12",
@@ -268,7 +268,7 @@ export const siteContent = {
           quantity: "3 формата",
           positioning: "Фирменные орешки",
           description:
-            "Нежные и гурманские орешки Maison Zhanna с яркой вкусной ноткой малины.",
+            "Нежные домашние орешки с малиной: лёгкая фруктовая нотка делает их особенно живыми, мягкими и запоминающимися.",
           price: formatPrice(productBasePrices["oreshki-framboise-12"]),
           basePrice: productBasePrices["oreshki-framboise-12"],
           image: productImages["oreshki-framboise-12"],
@@ -702,7 +702,7 @@ export const siteContent = {
           quantity: "3 formats",
           positioning: "Oreshki signature",
           description:
-            "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+            "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
           price: formatPrice(productBasePrices["oreshki-classiques-12"]),
           basePrice: productBasePrices["oreshki-classiques-12"],
           image: productImages["oreshki-classiques-12"],
@@ -738,7 +738,7 @@ export const siteContent = {
           quantity: "3 formats",
           positioning: "Oreshki signature",
           description:
-            "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+            "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
           price: formatPrice(productBasePrices["oreshki-pistache-12"]),
           basePrice: productBasePrices["oreshki-pistache-12"],
           image: productImages["oreshki-pistache-12"],
@@ -769,16 +769,16 @@ export const siteContent = {
         },
         {
           id: "oreshki-kadaifi-12",
-          title: "Oreshki au kadaïf",
+          title: "Oreshki au kadaïf à la pistache",
           fullName: productById.get("oreshki-kadaifi-12")!.orderName.fr,
           quantity: "3 formats",
           positioning: "Oreshki signature",
           description:
-            "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+            "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
           price: formatPrice(productBasePrices["oreshki-kadaifi-12"]),
           basePrice: productBasePrices["oreshki-kadaifi-12"],
           image: productImages["oreshki-kadaifi-12"],
-          imageAlt: "Oreshki Maison Zhanna au kadaïf",
+          imageAlt: "Oreshki Maison Zhanna au kadaïf à la pistache",
           variants: [
             {
               id: "oreshki-kadaifi-12",
@@ -810,7 +810,7 @@ export const siteContent = {
           quantity: "3 formats",
           positioning: "Oreshki signature",
           description:
-            "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+            "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
           price: formatPrice(productBasePrices["oreshki-framboise-12"]),
           basePrice: productBasePrices["oreshki-framboise-12"],
           image: productImages["oreshki-framboise-12"],

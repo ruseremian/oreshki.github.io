@@ -193,8 +193,8 @@ describe("product content contract", () => {
       {
         id: "oreshki-kadaifi-12",
         titles: {
-          fr: "Oreshki au kadaïf",
-          ru: "Орешки с кадаифом"
+          fr: "Oreshki au kadaïf à la pistache",
+          ru: "Орешки с кадаифом и фисташкой"
         },
         image: "/images/oreshki_kadaifi.png",
         variants: [

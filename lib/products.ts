@@ -56,7 +56,7 @@ export const products: Product[] = [
       fr: "Oreshki classiques — 12 pièces",
       ru: "Классические орешки — 12 штук"
     },
-    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+    description: "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
     price: 8,
     image: "/images/oreshki_café.jpg",
     category: "cookies",
@@ -69,7 +69,7 @@ export const products: Product[] = [
       fr: "Oreshki classiques — 24 pièces",
       ru: "Классические орешки — 24 штуки"
     },
-    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+    description: "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
     price: 15.5,
     image: "/images/oreshki_café.jpg",
     category: "cookies",
@@ -82,7 +82,7 @@ export const products: Product[] = [
       fr: "Oreshki classiques — 48 pièces",
       ru: "Классические орешки — 48 штук"
     },
-    description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
+    description: "Biscuits oreshki faits maison avec une pâte tendre au beurre et aux œufs, garnis de lait concentré caramélisé et de morceaux de noisettes à l’intérieur.",
     price: 30,
     image: "/images/oreshki_café.jpg",
     category: "cookies",
@@ -96,7 +96,7 @@ export const products: Product[] = [
       ru: "Орешки с фисташкой — 12 штук"
     },
     description:
-      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+      "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
     price: 10,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
@@ -110,7 +110,7 @@ export const products: Product[] = [
       ru: "Орешки с фисташкой — 24 штуки"
     },
     description:
-      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+      "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
     price: 19,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
@@ -124,7 +124,7 @@ export const products: Product[] = [
       ru: "Орешки с фисташкой — 48 штук"
     },
     description:
-      "Une version gourmande de nos Oreshki Maison Zhanna, sublimée par la douceur et le caractère de la pistache.",
+      "Une version douce et généreuse de nos oreshki maison, avec une touche de pistache qui apporte une saveur ronde, délicate et très réconfortante.",
     price: 36,
     image: "/images/oreshki_pistache.png",
     category: "cookies",
@@ -132,13 +132,13 @@ export const products: Product[] = [
   },
   {
     id: "oreshki-kadaifi-12",
-    name: "Oreshki au kadaïf — 12 pièces",
+    name: "Oreshki au kadaïf à la pistache — 12 pièces",
     orderName: {
-      fr: "Oreshki au kadaïf — 12 pièces",
-      ru: "Орешки с кадаифом — 12 штук"
+      fr: "Oreshki au kadaïf à la pistache — 12 pièces",
+      ru: "Орешки с кадаифом и фисташкой — 12 штук"
     },
     description:
-      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+      "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
     price: 10,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
@@ -146,13 +146,13 @@ export const products: Product[] = [
   },
   {
     id: "oreshki-kadaifi-24",
-    name: "Oreshki au kadaïf — 24 pièces",
+    name: "Oreshki au kadaïf à la pistache — 24 pièces",
     orderName: {
-      fr: "Oreshki au kadaïf — 24 pièces",
-      ru: "Орешки с кадаифом — 24 штуки"
+      fr: "Oreshki au kadaïf à la pistache — 24 pièces",
+      ru: "Орешки с кадаифом и фисташкой — 24 штуки"
     },
     description:
-      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+      "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
     price: 19,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
@@ -160,13 +160,13 @@ export const products: Product[] = [
   },
   {
     id: "oreshki-kadaifi-48",
-    name: "Oreshki au kadaïf — 48 pièces",
+    name: "Oreshki au kadaïf à la pistache — 48 pièces",
     orderName: {
-      fr: "Oreshki au kadaïf — 48 pièces",
-      ru: "Орешки с кадаифом — 48 штук"
+      fr: "Oreshki au kadaïf à la pistache — 48 pièces",
+      ru: "Орешки с кадаифом и фисташкой — 48 штук"
     },
     description:
-      "Des Oreshki Maison Zhanna généreux et originaux, revisités avec une savoureuse touche de kadaïf.",
+      "Des oreshki au kadaïf à la pistache, croustillants et fondants à la fois, pensés comme une petite douceur précieuse à partager autour d’un thé.",
     price: 36,
     image: "/images/oreshki_kadaifi.png",
     category: "cookies",
@@ -180,7 +180,7 @@ export const products: Product[] = [
       ru: "Орешки с малиной — 12 штук"
     },
     description:
-      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+      "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
     price: 10,
     image: "/images/oreshki_framboises.png",
     category: "cookies",
@@ -194,7 +194,7 @@ export const products: Product[] = [
       ru: "Орешки с малиной — 24 штуки"
     },
     description:
-      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+      "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
     price: 19,
     image: "/images/oreshki_framboises.png",
     category: "cookies",
@@ -208,7 +208,7 @@ export const products: Product[] = [
       ru: "Орешки с малиной — 48 штук"
     },
     description:
-      "Des Oreshki Maison Zhanna délicats et gourmands, relevés par une savoureuse touche de framboise.",
+      "Des oreshki maison délicats, relevés par la framboise pour une note fruitée, tendre et lumineuse qui rappelle les desserts faits avec attention.",
     price: 36,
     image: "/images/oreshki_framboises.png",
     category: "cookies",

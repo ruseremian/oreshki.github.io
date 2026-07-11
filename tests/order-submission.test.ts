@@ -241,7 +241,7 @@ describe("order submission contract", () => {
       [
         "Oreshki classiques — 12 pièces",
         "Oreshki à la pistache — 12 pièces",
-        "Oreshki au kadaïf — 48 pièces",
+        "Oreshki au kadaïf à la pistache — 48 pièces",
         "Oreshki à la framboise — 24 pièces"
       ]
     );
@@ -250,7 +250,7 @@ describe("order submission contract", () => {
       [
         "Классические орешки — 12 штук",
         "Орешки с фисташкой — 12 штук",
-        "Орешки с кадаифом — 48 штук",
+        "Орешки с кадаифом и фисташкой — 48 штук",
         "Орешки с малиной — 24 штуки"
       ]
     );
