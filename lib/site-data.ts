@@ -32,9 +32,9 @@ export const languages: { code: Language; label: string }[] = [
 ];
 
 const productImages: Record<ProductId, string> = {
-  "oreshki-classiques-12": "/images/oreshki-24.jpg",
-  "oreshki-classiques-24": "/images/oreshki-24.jpg",
-  "oreshki-classiques-48": "/images/oreshki-24.jpg",
+  "oreshki-classiques-12": "/images/oreshki_café.jpg",
+  "oreshki-classiques-24": "/images/oreshki_café.jpg",
+  "oreshki-classiques-48": "/images/oreshki_café.jpg",
   "oreshki-pistache-12": "/images/oreshki_pistache.png",
   "oreshki-pistache-24": "/images/oreshki_pistache.png",
   "oreshki-pistache-48": "/images/oreshki_pistache.png",
@@ -168,21 +168,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-classiques-12",
-              label: "Формат для пробы — 12 штук",
+              label: productById.get("oreshki-classiques-12")!.orderName.ru,
               fullName: productById.get("oreshki-classiques-12")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-classiques-12"]),
               basePrice: productBasePrices["oreshki-classiques-12"]
             },
             {
               id: "oreshki-classiques-24",
-              label: "Классический формат — 24 штуки",
+              label: productById.get("oreshki-classiques-24")!.orderName.ru,
               fullName: productById.get("oreshki-classiques-24")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-classiques-24"]),
               basePrice: productBasePrices["oreshki-classiques-24"]
             },
             {
               id: "oreshki-classiques-48",
-              label: "Большой щедрый формат — 48 штук",
+              label: productById.get("oreshki-classiques-48")!.orderName.ru,
               fullName: productById.get("oreshki-classiques-48")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-classiques-48"]),
               basePrice: productBasePrices["oreshki-classiques-48"]
@@ -204,21 +204,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-pistache-12",
-              label: "Формат для пробы — 12 штук",
+              label: productById.get("oreshki-pistache-12")!.orderName.ru,
               fullName: productById.get("oreshki-pistache-12")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-pistache-12"]),
               basePrice: productBasePrices["oreshki-pistache-12"]
             },
             {
               id: "oreshki-pistache-24",
-              label: "Классический формат — 24 штуки",
+              label: productById.get("oreshki-pistache-24")!.orderName.ru,
               fullName: productById.get("oreshki-pistache-24")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-pistache-24"]),
               basePrice: productBasePrices["oreshki-pistache-24"]
             },
             {
               id: "oreshki-pistache-48",
-              label: "Большой щедрый формат — 48 штук",
+              label: productById.get("oreshki-pistache-48")!.orderName.ru,
               fullName: productById.get("oreshki-pistache-48")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-pistache-48"]),
               basePrice: productBasePrices["oreshki-pistache-48"]
@@ -240,21 +240,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-kadaifi-12",
-              label: "Формат для пробы — 12 штук",
+              label: productById.get("oreshki-kadaifi-12")!.orderName.ru,
               fullName: productById.get("oreshki-kadaifi-12")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-kadaifi-12"]),
               basePrice: productBasePrices["oreshki-kadaifi-12"]
             },
             {
               id: "oreshki-kadaifi-24",
-              label: "Классический формат — 24 штуки",
+              label: productById.get("oreshki-kadaifi-24")!.orderName.ru,
               fullName: productById.get("oreshki-kadaifi-24")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-kadaifi-24"]),
               basePrice: productBasePrices["oreshki-kadaifi-24"]
             },
             {
               id: "oreshki-kadaifi-48",
-              label: "Большой щедрый формат — 48 штук",
+              label: productById.get("oreshki-kadaifi-48")!.orderName.ru,
               fullName: productById.get("oreshki-kadaifi-48")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-kadaifi-48"]),
               basePrice: productBasePrices["oreshki-kadaifi-48"]
@@ -276,21 +276,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-framboise-12",
-              label: "Формат для пробы — 12 штук",
+              label: productById.get("oreshki-framboise-12")!.orderName.ru,
               fullName: productById.get("oreshki-framboise-12")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-framboise-12"]),
               basePrice: productBasePrices["oreshki-framboise-12"]
             },
             {
               id: "oreshki-framboise-24",
-              label: "Классический формат — 24 штуки",
+              label: productById.get("oreshki-framboise-24")!.orderName.ru,
               fullName: productById.get("oreshki-framboise-24")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-framboise-24"]),
               basePrice: productBasePrices["oreshki-framboise-24"]
             },
             {
               id: "oreshki-framboise-48",
-              label: "Большой щедрый формат — 48 штук",
+              label: productById.get("oreshki-framboise-48")!.orderName.ru,
               fullName: productById.get("oreshki-framboise-48")!.orderName.ru,
               price: formatPrice(productBasePrices["oreshki-framboise-48"]),
               basePrice: productBasePrices["oreshki-framboise-48"]
@@ -710,21 +710,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-classiques-12",
-              label: "Format découverte — 12 pièces",
+              label: productById.get("oreshki-classiques-12")!.orderName.fr,
               fullName: productById.get("oreshki-classiques-12")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-classiques-12"]),
               basePrice: productBasePrices["oreshki-classiques-12"]
             },
             {
               id: "oreshki-classiques-24",
-              label: "Format classique — 24 pièces",
+              label: productById.get("oreshki-classiques-24")!.orderName.fr,
               fullName: productById.get("oreshki-classiques-24")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-classiques-24"]),
               basePrice: productBasePrices["oreshki-classiques-24"]
             },
             {
               id: "oreshki-classiques-48",
-              label: "Grand format généreux — 48 pièces",
+              label: productById.get("oreshki-classiques-48")!.orderName.fr,
               fullName: productById.get("oreshki-classiques-48")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-classiques-48"]),
               basePrice: productBasePrices["oreshki-classiques-48"]
@@ -746,21 +746,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-pistache-12",
-              label: "Format découverte — 12 pièces",
+              label: productById.get("oreshki-pistache-12")!.orderName.fr,
               fullName: productById.get("oreshki-pistache-12")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-pistache-12"]),
               basePrice: productBasePrices["oreshki-pistache-12"]
             },
             {
               id: "oreshki-pistache-24",
-              label: "Format classique — 24 pièces",
+              label: productById.get("oreshki-pistache-24")!.orderName.fr,
               fullName: productById.get("oreshki-pistache-24")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-pistache-24"]),
               basePrice: productBasePrices["oreshki-pistache-24"]
             },
             {
               id: "oreshki-pistache-48",
-              label: "Grand format généreux — 48 pièces",
+              label: productById.get("oreshki-pistache-48")!.orderName.fr,
               fullName: productById.get("oreshki-pistache-48")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-pistache-48"]),
               basePrice: productBasePrices["oreshki-pistache-48"]
@@ -782,21 +782,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-kadaifi-12",
-              label: "Format découverte — 12 pièces",
+              label: productById.get("oreshki-kadaifi-12")!.orderName.fr,
               fullName: productById.get("oreshki-kadaifi-12")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-kadaifi-12"]),
               basePrice: productBasePrices["oreshki-kadaifi-12"]
             },
             {
               id: "oreshki-kadaifi-24",
-              label: "Format classique — 24 pièces",
+              label: productById.get("oreshki-kadaifi-24")!.orderName.fr,
               fullName: productById.get("oreshki-kadaifi-24")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-kadaifi-24"]),
               basePrice: productBasePrices["oreshki-kadaifi-24"]
             },
             {
               id: "oreshki-kadaifi-48",
-              label: "Grand format généreux — 48 pièces",
+              label: productById.get("oreshki-kadaifi-48")!.orderName.fr,
               fullName: productById.get("oreshki-kadaifi-48")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-kadaifi-48"]),
               basePrice: productBasePrices["oreshki-kadaifi-48"]
@@ -818,21 +818,21 @@ export const siteContent = {
           variants: [
             {
               id: "oreshki-framboise-12",
-              label: "Format découverte — 12 pièces",
+              label: productById.get("oreshki-framboise-12")!.orderName.fr,
               fullName: productById.get("oreshki-framboise-12")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-framboise-12"]),
               basePrice: productBasePrices["oreshki-framboise-12"]
             },
             {
               id: "oreshki-framboise-24",
-              label: "Format classique — 24 pièces",
+              label: productById.get("oreshki-framboise-24")!.orderName.fr,
               fullName: productById.get("oreshki-framboise-24")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-framboise-24"]),
               basePrice: productBasePrices["oreshki-framboise-24"]
             },
             {
               id: "oreshki-framboise-48",
-              label: "Grand format généreux — 48 pièces",
+              label: productById.get("oreshki-framboise-48")!.orderName.fr,
               fullName: productById.get("oreshki-framboise-48")!.orderName.fr,
               price: formatPrice(productBasePrices["oreshki-framboise-48"]),
               basePrice: productBasePrices["oreshki-framboise-48"]

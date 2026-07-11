@@ -58,7 +58,7 @@ export const products: Product[] = [
     },
     description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
     price: 8,
-    image: "/images/oreshki-24.jpg",
+    image: "/images/oreshki_café.jpg",
     category: "cookies",
     available: true
   },
@@ -71,7 +71,7 @@ export const products: Product[] = [
     },
     description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
     price: 15.5,
-    image: "/images/oreshki-24.jpg",
+    image: "/images/oreshki_café.jpg",
     category: "cookies",
     available: true
   },
@@ -84,7 +84,7 @@ export const products: Product[] = [
     },
     description: "Les incontournables Oreshki Maison Zhanna, faits maison, avec leur coque délicate et leur généreux cœur gourmand.",
     price: 30,
-    image: "/images/oreshki-24.jpg",
+    image: "/images/oreshki_café.jpg",
     category: "cookies",
     available: true
   },

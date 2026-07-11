@@ -168,7 +168,7 @@ describe("product content contract", () => {
           fr: "Oreshki classiques",
           ru: "Классические орешки"
         },
-        image: "/images/oreshki-24.jpg",
+        image: "/images/oreshki_café.jpg",
         variants: [
           "oreshki-classiques-12",
           "oreshki-classiques-24",
@@ -260,6 +260,11 @@ describe("product content contract", () => {
         for (const [variantIndex, variant] of variants.entries()) {
           const orderName = productById.get(variant.id)?.orderName[language];
 
+          assert.equal(
+            variant.label,
+            orderName,
+            `${language} ${variant.id} label should be the complete product and format name`
+          );
           assert.equal(
             variant.fullName,
             orderName,
