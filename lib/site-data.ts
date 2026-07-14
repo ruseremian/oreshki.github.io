@@ -416,8 +416,8 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Котлеты по-киевски",
             fullName: productById.get("kotleti-kievski")!.orderName.ru,
-            quantity: "1 кг",
-            tags: ["1 кг", "Замороженные"],
+            quantity: "за штуку",
+            tags: ["за штуку", "Замороженные"],
             positioning: "Классические котлеты с ароматным маслом",
             description:
               "Куриные котлеты с ароматным маслом, зеленью и хрустящей панировкой. Румяные снаружи и нежные внутри.",
@@ -1004,8 +1004,8 @@ export const siteContent = {
             id: "kotleti-kievski",
             title: "Kotleti po-kievski",
             fullName: productById.get("kotleti-kievski")!.orderName.fr,
-            quantity: "1 kg",
-            tags: ["1 kg", "Surgelé"],
+            quantity: "par pièce",
+            tags: ["par pièce", "Surgelé"],
             positioning: "Escalopes roulées au beurre parfumé",
             description:
               "Escalopes de poulet roulées avec du beurre parfumé, des herbes et une chapelure croustillante. Dorées à l’extérieur et fondantes à l’intérieur.",
