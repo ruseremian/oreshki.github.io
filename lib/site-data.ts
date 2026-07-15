@@ -476,8 +476,8 @@ export const siteContent = {
             id: "blinchiki",
             title: "Блинчики",
             fullName: productById.get("blinchiki")!.orderName.ru,
-            quantity: "1 кг",
-            tags: ["1 кг", "Замороженные"],
+            quantity: "10 штук",
+            tags: ["10 штук", "Замороженные"],
             positioning: "Традиционные русские блинчики",
             description:
               "Тонкие домашние блинчики с начинками по семейным рецептам: мясо, сыр или грибы с картошкой. Мягкие, нежные и удобные для семейного стола.",
@@ -1064,8 +1064,8 @@ export const siteContent = {
             id: "blinchiki",
             title: "Blinchiki",
             fullName: productById.get("blinchiki")!.orderName.fr,
-            quantity: "1 kg",
-            tags: ["1 kg", "Surgelé"],
+            quantity: "10 pièces",
+            tags: ["10 pièces", "Surgelé"],
             positioning: "Crêpes russes traditionnelles",
             description:
               "Fines crêpes maison garnies selon les recettes familiales : viande, fromage ou champignons et pommes de terre. Moelleuses, délicates et faciles à partager.",
